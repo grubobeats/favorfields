@@ -1,0 +1,39 @@
+/*
+ Settings
+  */
+
+table {
+    width: 100%;
+}
+
+table.settings tr td:first-child {
+    width: 30%;
+}
+
+table.settings tr td:last-child {
+    width: 70%;
+}
+
+table.settings select {
+    width: 100%;
+}
+
+/*
+ Steps
+  */
+
+table.steps {
+    border: 1px solid #f1f1f1;
+    padding: 10px;
+}
+
+table.steps tr td {
+    width: 50%;
+}
+
+table.steps select,
+table.steps input,
+table.steps textarea{
+    width: 100%;
+    padding: 11px 5px;
+}

@@ -120,11 +120,17 @@ add_action( 'widgets_init', 'favorfields_widgets_init' );
  * Enqueue scripts and styles.
  */
 function favorfields_scripts() {
-	wp_enqueue_style( 'favorfields-style', get_stylesheet_uri() );
+    // Styles
+    wp_enqueue_style( 'favorfields-main-style', get_template_directory_uri() . '/assets/css/main.css');
+//    wp_enqueue_style( 'favorfields-style', get_stylesheet_uri() );
 
+    // Scripts
 	wp_enqueue_script( 'favorfields-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
-
 	wp_enqueue_script( 'favorfields-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
+	wp_enqueue_script( 'favorfields-skel', get_template_directory_uri() . '/js/skel.min.js', array(), '20130115', true );
+	wp_enqueue_script( 'favorfields-respond-ie', get_template_directory_uri() . '/js/ie/respond.min.js', array(), '20130115', true );
+	wp_enqueue_script( 'favorfields-main', get_template_directory_uri() . '/js/main.js', array(), '20130115', true );
+
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
