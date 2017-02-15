@@ -29,7 +29,7 @@ $number_of_questions = count(array_filter($welgorithm['questions']));
 
         <div class="inner">
 
-            <? for($i; $i <= $number_of_questions; $i++) : ?>
+            <? for($i = 0; $i <= $number_of_questions; $i++) : ?>
             <div class="wellghoritm<? if ($i > 0 ) : ?> hidden<? endif;?>">
                 <div class="progressbar">
                     <?= $progresbar = $i > 0 ? "" : $welgorithm['basic_settings_steps'][0]; ?>
