@@ -39,7 +39,7 @@ class Wellgorithms_Steps
      * @param object $post WordPress post object
      */
     public function add_meta_box_callback( $post ) {
-        // wp_nonce_field( 'basic_settings_data', 'basic_settings_nonce' );
+         wp_nonce_field( 'basic_settings_data', 'basic_settings_nonce' );
         $this->generate_fields( $post );
     }
 

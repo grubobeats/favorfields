@@ -35,5 +35,5 @@ function my_post_attributes( array $attributes, WP_Post $post ) {
     // Always return the value we are filtering.
     return $attributes;
 
-    var_dump($attributes);
+//    var_dump($attributes);
 }
