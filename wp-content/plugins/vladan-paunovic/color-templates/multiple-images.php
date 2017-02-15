@@ -6,58 +6,6 @@ class Multiple_Images {
     private $screens = array(
         'color_template',
     );
-    private $fields = array(
-        array(
-            'id' => 'image-1',
-            'label' => 'Image #1',
-            'type' => 'media',
-        ),
-        array(
-            'id' => 'image-2',
-            'label' => 'Image #2',
-            'type' => 'media',
-        ),
-        array(
-            'id' => 'image-3',
-            'label' => 'Image #3',
-            'type' => 'media',
-        ),
-        array(
-            'id' => 'image-4',
-            'label' => 'Image #4',
-            'type' => 'media',
-        ),
-        array(
-            'id' => 'image-5',
-            'label' => 'Image #5',
-            'type' => 'media',
-        ),
-        array(
-            'id' => 'image-6',
-            'label' => 'Image #6',
-            'type' => 'media',
-        ),
-        array(
-            'id' => 'image-7',
-            'label' => 'Image #7',
-            'type' => 'media',
-        ),
-        array(
-            'id' => 'image-8',
-            'label' => 'Image #8',
-            'type' => 'media',
-        ),
-        array(
-            'id' => 'image-9',
-            'label' => 'Image #9',
-            'type' => 'media',
-        ),
-        array(
-            'id' => 'image-10',
-            'label' => 'Image #10',
-            'type' => 'media',
-        ),
-    );
 
     /**
      * Class construct method. Adds actions to their respective WordPress hooks.
@@ -83,6 +31,27 @@ class Multiple_Images {
                 'high'
             );
         }
+    }
+
+    /**
+     * Taking number of fields from Redux and rendering that amount of fields
+     * to Color templates admin
+     * @return array
+     */
+    public function setFields() {
+
+        global $favorfields;
+        $images = array();
+
+        for ( $i = 1; $i <= $favorfields['number-of-images']; $i++ ) {
+            $images[] = array(
+                'id' => 'image-' . $i,
+                'label' => 'Image #' . $i,
+                'type' => 'media',
+            );
+        }
+
+        return $images;
     }
 
     /**
@@ -139,7 +108,7 @@ class Multiple_Images {
      */
     public function generate_fields( $post ) {
         $output = '';
-        foreach ( $this->fields as $field ) {
+        foreach ( $this->setFields() as $field ) {
             $label = '<label for="' . $field['id'] . '">' . $field['label'] . '</label>';
             $db_value = get_post_meta( $post->ID, 'multiple_images_' . $field['id'], true );
             switch ( $field['type'] ) {

@@ -86,7 +86,7 @@
         //'img'   => '', // You can use icon OR img. IMG needs to be a full URL.
     );
     $args['share_icons'][] = array(
-        'url'   => 'https://www.facebook.com/pages/Redux-Framework/243141545850368',
+        'url'   => 'https://www.facebook.com/vladan.g.paunovic',
         'title' => 'Like us on Facebook',
         'icon'  => 'el el-facebook'
     );
@@ -142,28 +142,41 @@
      */
 
     Redux::setSection( $opt_name, array(
-        'title'  => __( 'Basic Field', 'redux-framework-demo' ),
-        'id'     => 'basic',
-        'desc'   => __( 'Basic field with no subsections.', 'redux-framework-demo' ),
-        'icon'   => 'el el-home',
-        'fields' => array(
-            array(
-                'id'       => 'opt-text',
-                'type'     => 'text',
-                'title'    => __( 'Example Text', 'redux-framework-demo' ),
-                'desc'     => __( 'Example description.', 'redux-framework-demo' ),
-                'subtitle' => __( 'Example subtitle.', 'redux-framework-demo' ),
-            )
-        )
-    ) );
-
-    Redux::setSection( $opt_name, array(
         'title' => __( 'Theme Options', 'redux-framework-demo' ),
         'id'    => 'basic',
         'desc'  => __( 'Basic fields as subsections.', 'redux-framework-demo' ),
         'icon'  => 'el el-home'
     ) );
 
+    Redux::setSection( $opt_name, array(
+        'title'      => __( 'General settings', 'redux-framework-demo' ),
+        'desc'       => 'General settings for this website.',
+        'id'         => 'general-settings',
+        'subsection' => true,
+        'fields'     => array(
+            array(
+                'id'       => 'number-of-steps',
+                'type'     => 'text',
+                'title'    => 'Steps (wellgorithms)',
+                'subtitle' => '',
+                'desc'     => 'Maximum number of steps',
+                'validate' => 'numeric',
+                'msg'      => 'You can store only numbers here',
+                'default'  => '15'
+            ),
+
+            array(
+                'id'       => 'number-of-images',
+                'type'     => 'text',
+                'title'    => 'Images (color templates)',
+                'subtitle' => '',
+                'desc'     => 'Maximum number of images',
+                'validate' => 'numeric',
+                'msg'      => 'You can store only numbers here',
+                'default'  => '15'
+            ),
+        )
+    ));
 
     Redux::setSection( $opt_name, array(
         'title'      => __( 'Header', 'redux-framework-demo' ),
@@ -182,9 +195,8 @@
                     'url'=>'http://favorfields.wpengine.com/wp-content/uploads/2017/02/logo-1.png'
                 ),
             )
-
         )
-    ) );
+    ));
 
 
     Redux::setSection( $opt_name, array(

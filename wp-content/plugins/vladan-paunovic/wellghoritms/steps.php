@@ -52,9 +52,14 @@ class Wellgorithms_Steps
         $question_values = unserialize($stored_data['questions'][0]);
         $first_answers_values = unserialize($stored_data['first_answers'][0]);
         $second_answers_values = unserialize($stored_data['second_answers'][0]);
+
+        global $favorfields;
+
+        $number_of_steps = $favorfields['number-of-steps'] - 1;
+
         ?>
         <div class="inside_steps">
-            <?php for ($i=0; $i <= 14; $i++) : ?>
+            <?php for ($i=0; $i <= $number_of_steps; $i++) : ?>
                 <!-- Step #<?php print(1 + $i); ?> -->
                 <table class="steps">
                     <tr>
