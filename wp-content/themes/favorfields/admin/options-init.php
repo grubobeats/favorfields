@@ -158,45 +158,52 @@
     ) );
 
     Redux::setSection( $opt_name, array(
-        'title' => __( 'Basic Fields', 'redux-framework-demo' ),
+        'title' => __( 'Theme Options', 'redux-framework-demo' ),
         'id'    => 'basic',
         'desc'  => __( 'Basic fields as subsections.', 'redux-framework-demo' ),
         'icon'  => 'el el-home'
     ) );
 
+
     Redux::setSection( $opt_name, array(
-        'title'      => __( 'Text', 'redux-framework-demo' ),
-        'desc'       => __( 'For full documentation on this field, visit: ', 'redux-framework-demo' ) . '<a href="http://docs.reduxframework.com/core/fields/text/" target="_blank">http://docs.reduxframework.com/core/fields/text/</a>',
-        'id'         => 'opt-text-subsection',
+        'title'      => __( 'Header', 'redux-framework-demo' ),
+        'desc'       => __( 'For full documentation on this field, visit: ', 'redux-framework-demo' ) . '<a href="http://docs.reduxframework.com/core/fields/textarea/" target="_blank">http://docs.reduxframework.com/core/fields/textarea/</a>',
+        'id'         => 'vp-header',
         'subsection' => true,
         'fields'     => array(
             array(
-                'id'       => 'text-example',
-                'type'     => 'text',
-                'title'    => __( 'Text Field', 'redux-framework-demo' ),
-                'subtitle' => __( 'Subtitle', 'redux-framework-demo' ),
-                'desc'     => __( 'Field Description', 'redux-framework-demo' ),
-                'default'  => 'Default Text',
-            ),
+                'id'       => 'logo',
+                'type'     => 'media',
+                'url'      => true,
+                'title'    => __('Logo', 'redux-framework-demo'),
+                'desc'     => __('Basic media uploader with disabled URL input field.', 'redux-framework-demo'),
+                'subtitle' => __('Choose your logo here', 'redux-framework-demo'),
+                'default'  => array(
+                    'url'=>'http://favorfields.wpengine.com/wp-content/uploads/2017/02/logo-1.png'
+                ),
+            )
+
         )
     ) );
 
+
     Redux::setSection( $opt_name, array(
-        'title'      => __( 'Text Area', 'redux-framework-demo' ),
-        'desc'       => __( 'For full documentation on this field, visit: ', 'redux-framework-demo' ) . '<a href="http://docs.reduxframework.com/core/fields/textarea/" target="_blank">http://docs.reduxframework.com/core/fields/textarea/</a>',
-        'id'         => 'opt-textarea-subsection',
+        'title'      => __( 'Footer', 'redux-framework-demo' ),
+        'desc'       => __( 'Here you can maintain footer options.', 'redux-framework-demo' ),
+        'id'         => 'vp-footer',
         'subsection' => true,
         'fields'     => array(
             array(
-                'id'       => 'textarea-example',
-                'type'     => 'textarea',
-                'title'    => __( 'Text Area Field', 'redux-framework-demo' ),
-                'subtitle' => __( 'Subtitle', 'redux-framework-demo' ),
-                'desc'     => __( 'Field Description', 'redux-framework-demo' ),
-                'default'  => 'Default Text',
-            ),
+                'id'       => 'enable-footer',
+                'type'     => 'switch',
+                'title'    => __('Footer On/Off', 'redux-framework-demo'),
+                'subtitle' => __('Enable and disable footer', 'redux-framework-demo'),
+                'default'  => true,
+            )
         )
     ) );
+
+
 
     /*
      * <--- END SECTIONS

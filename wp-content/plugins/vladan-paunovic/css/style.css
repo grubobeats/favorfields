@@ -2,20 +2,17 @@
  Settings
   */
 
-table {
+div#basic-settings select,
+div#basic-settings #steps {
     width: 100%;
 }
 
-table.settings tr td:first-child {
+div#basic-settings #icon {
+    width: 67%;
+}
+
+div#basic-settings #icon_button {
     width: 30%;
-}
-
-table.settings tr td:last-child {
-    width: 70%;
-}
-
-table.settings select {
-    width: 100%;
 }
 
 /*
@@ -23,12 +20,13 @@ table.settings select {
   */
 
 table.steps {
-    border: 1px solid #f1f1f1;
+    border: 1px solid #bbafaf;
     padding: 10px;
+    width: 100%;
 }
 
 table.steps tr td {
-    width: 50%;
+    width: 33.33%;
 }
 
 table.steps select,
@@ -37,3 +35,15 @@ table.steps textarea{
     width: 100%;
     padding: 11px 5px;
 }
+
+table.steps textarea {
+    height: 94px;
+}
+
+table.steps .step_text {
+    margin: 0;
+}
+
+/*
+
+ */

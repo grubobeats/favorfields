@@ -10,7 +10,8 @@
  */
 
 ?><!DOCTYPE HTML>
-<html <?php language_attributes(); ?> vladan>
+<html <?php language_attributes(); ?>>
+<?php global $favorfields; ?>
 <head>
     <title><?php bloginfo( 'name' ); ?> - <?php bloginfo( 'description')?></title>
     <meta charset="<?php bloginfo( 'charset' ); ?>">
@@ -25,12 +26,12 @@
 <div id="wrapper">
 
     <!-- Header -->
-    <header id="header">
+    <header id="header" <?php if( is_singular( 'wellghoritms' ) ) : ?> class="header-class" <?php endif; ?> >
         <div class="inner">
 
             <!-- Logo -->
             <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="logo">
-                <span class="symbol"><img src="/wp-content/uploads/2017/02/logo-1.png" alt="" /></span><span class="title"><?php bloginfo( 'description')?></span>
+                <span class="symbol"><img src="<?= $favorfields['logo']['url'];?>" alt="" /></span><span class="title"><?php bloginfo( 'description')?></span>
             </a>
 
             <!-- Nav -->

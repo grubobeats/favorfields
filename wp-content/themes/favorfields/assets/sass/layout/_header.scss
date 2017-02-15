@@ -7,7 +7,7 @@
 /* Header */
 
 	#header {
-		padding: 1.5em 0;
+		padding: 8px 0;
 		background-color: $light_blue;
 		position: fixed;
 		width: 100%;
@@ -20,7 +20,6 @@
 			color: inherit;
 			font-weight: _font(weight-bold);
 			letter-spacing: _font(letter-spacing);
-			//margin: 0 0 (_size(element-margin) * 1.25) 0;
 			text-decoration: none;
 			text-transform: uppercase;
 			display: inline-block;
@@ -37,7 +36,7 @@
 				img {
 					display: block;
 					//width: 2em;
-					height: 2em;
+					height: 30px;
 				}
 			}
 
@@ -53,8 +52,8 @@
 
 		nav {
 			position: fixed;
-			right: 2.7em;
-			top: 1em;
+			right: 10px;
+			top: 10px;
 			z-index: _misc(z-index-base);
 
 			ul {
@@ -71,10 +70,10 @@
 					a {
 						display: block;
 						position: relative;
-						height: 3em;
+						height: 30px;
 						line-height: 3em;
 						padding: 0 1.5em;
-						background-color: transparentize(_palette(bg), 0.5);
+						//background-color: transparentize(_palette(bg), 0.5);
 						border-radius: _size(border-radius);
 						border: 0;
 						font-size: 0.8em;
@@ -85,7 +84,7 @@
 
 					a[href="#menu"] {
 						-webkit-tap-highlight-color: transparent;
-						width: 4em;
+						width: 35px;
 						text-indent: 4em;
 						font-size: 1em;
 						overflow: hidden;

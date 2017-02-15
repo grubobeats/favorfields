@@ -7,4 +7,3 @@
  */
 require_once 'custom-post-type.php';
 require_once 'meta-boxes.php';
-

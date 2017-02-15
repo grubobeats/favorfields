@@ -7,5 +7,5 @@
  */
 
 require_once 'custom-post-type.php';
-
-?>
+require_once 'basic_settings.php';
+require_once 'multiple-images.php';

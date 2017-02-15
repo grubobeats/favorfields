@@ -8,8 +8,12 @@
  *
  * @package FavorFields
  */
+global $favorfields;
 
+if ($favorfields['enable-footer']) :
 ?><!-- Footer -->
+
+
 <footer id="footer">
     <div class="inner">
         <section>
@@ -44,6 +48,8 @@
         </ul>
     </div>
 </footer>
+
+<?php endif; ?>
 
 </div>
 
