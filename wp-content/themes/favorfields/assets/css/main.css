@@ -6,6 +6,7 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 /* Reset */
+@import url("https://fonts.googleapis.com/css?family=Lato:400,700,900");
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
   margin: 0;
   padding: 0;
@@ -2255,6 +2256,37 @@ body.is-menu-visible #menu {
       object-fit: cover; }
   .wellghoritms-template-default .inner {
     max-width: 100%; }
+    .wellghoritms-template-default .inner.top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between; }
+      .wellghoritms-template-default .inner.top-bar nav {
+        width: 30%; }
+      .wellghoritms-template-default .inner.top-bar .wellgo-icon {
+        width: 10%;
+        position: absolute; }
+      .wellghoritms-template-default .inner.top-bar .left-separator {
+        width: 0; }
+      .wellghoritms-template-default .inner.top-bar .logo {
+        width: 20%;
+        text-align: center;
+        display: flex !important;
+        flex-wrap: wrap;
+        justify-content: center; }
+        .wellghoritms-template-default .inner.top-bar .logo .symbol {
+          margin-right: 0 !important;
+          width: 100%;
+          display: flex !important;
+          justify-content: center; }
+          .wellghoritms-template-default .inner.top-bar .logo .symbol img {
+            height: 20px !important; }
+      .wellghoritms-template-default .inner.top-bar .title {
+        color: #ffffff;
+        font-size: 120%; }
+      .wellghoritms-template-default .inner.top-bar nav {
+        position: static !important;
+        display: flex;
+        justify-content: flex-end; }
     .wellghoritms-template-default .inner .wellghoritm {
       height: 748px;
       max-height: 748px;
@@ -2277,12 +2309,27 @@ body.is-menu-visible #menu {
             color: white;
             font-size: 17px; }
       .wellghoritms-template-default .inner .wellghoritm .question {
-        width: 100%; }
+        width: 100%;
+        padding: 10px 0;
+        display: flex;
+        align-items: center; }
+        .wellghoritms-template-default .inner .wellghoritm .question .wide-separator {
+          width: 10%;
+          text-align: center; }
+          .wellghoritms-template-default .inner .wellghoritm .question .wide-separator .question__like {
+            color: #74bfe6;
+            transition: 1s;
+            cursor: pointer; }
+            .wellghoritms-template-default .inner .wellghoritm .question .wide-separator .question__like:hover {
+              opacity: 0.5; }
         .wellghoritms-template-default .inner .wellghoritm .question span {
+          width: 80%;
           display: block;
           text-align: center;
-          font-size: 30px;
-          color: #0b537b; }
+          color: #74bfe6;
+          font-family: 'Lato', sans-serif;
+          font-weight: 800;
+          font-size: 40px; }
       .wellghoritms-template-default .inner .wellghoritm .answer {
         width: 100%;
         display: flex;
@@ -2297,7 +2344,8 @@ body.is-menu-visible #menu {
             border-radius: 100%;
             transition: 1s;
             margin-top: -50px;
-            z-index: -1; }
+            z-index: -1;
+            background: #ffffff; }
             .wellghoritms-template-default .inner .wellghoritm .answer .answer__radio .check .inside {
               transition: 1s; }
           .wellghoritms-template-default .inner .wellghoritm .answer .answer__radio label {
@@ -2308,8 +2356,8 @@ body.is-menu-visible #menu {
             transition: 1s;
             position: relative; }
           .wellghoritms-template-default .inner .wellghoritm .answer .answer__radio input[type=radio]:checked ~ .check .inside {
-            width: 90%;
-            height: 90%;
+            width: 100%;
+            height: 100%;
             background: #74bfe6;
             border-radius: 100%;
             position: relative;
@@ -2320,20 +2368,24 @@ body.is-menu-visible #menu {
           .wellghoritms-template-default .inner .wellghoritm .answer .answer__input .fake-input {
             border: solid #74bfe6;
             border-width: 1px 1px 1px 110px;
-            padding-left: 10px;
+            padding: 10px;
             border-radius: 20px;
             min-height: 140px;
             transition: all .2s ease-out;
             cursor: pointer;
             display: flex;
-            align-items: center; }
+            align-items: center;
+            background: rgba(255, 255, 255, 0.5);
+            font-size: 120%;
+            font-family: 'Lato', sans-serif; }
             .wellghoritms-template-default .inner .wellghoritm .answer .answer__input .fake-input:focus {
+              box-shadow: 0px 0px 20px 6px white;
               background: #fff;
-              box-shadow: none;
-              outline: 0px solid transparent; }
+              outline: 0px solid transparent;
+              border-width: 4px; }
     .wellghoritms-template-default .inner .separator {
       position: absolute;
       left: 0;
       right: 0;
-      background: #0b537b;
+      background: #74bfe6;
       height: 4px; }
