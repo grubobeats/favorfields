@@ -1,15 +1,9 @@
 <?php
 /**
- * The template for displaying all pages.
- *
- * This is the template that displays all pages by default.
- * Please note that this is the WordPress construct of pages
- * and that other 'pages' on your WordPress site may use a
- * different template.
- *
- * @link https://codex.wordpress.org/Template_Hierarchy
- *
- * @package FavorFields
+ * @description: Template for displaying single wellghoritm
+ * @author: Vladan Paunovic
+ * @contact: https://givemejobtoday.com
+ * @date: 15/02/2017
  */
 
 get_header();
@@ -20,7 +14,9 @@ $color_scheme = $welgorithm['basic_settings_color-template'][0];
 
 $number_of_questions = count(array_filter($welgorithm['questions']));
 ?>
-
+<script>
+    var steps = $welgorithm['basic_settings_steps'][0];
+</script>
     <!-- Main -->
     <div id="main">
         <div class="banner-image">
@@ -29,23 +25,54 @@ $number_of_questions = count(array_filter($welgorithm['questions']));
 
         <div class="inner">
 
-            <? for($i = 0; $i <= $number_of_questions; $i++) : ?>
+            <? for($i = 0; $i < $number_of_questions; $i++) : ?>
             <div class="wellghoritm<? if ($i > 0 ) : ?> hidden<? endif;?>">
-                <div class="progressbar">
-                    <?= $progresbar = $i > 0 ? "" : $welgorithm['basic_settings_steps'][0]; ?>
-                </div>
+                <? if ($i == 0 ) : ?>
+                    <div class="progressbar">
+                        <div class="outline">
+                            <div class="inside" style="width:30%">
+                                30%
+                            </div>
+                        </div>
+                    </div>
+                <? endif; ?>
                 <div class="question">
-                    <?= $welgorithm['questions'][$i]; ?>
+                    <span>
+                        <?= $welgorithm['questions'][$i]; ?>
+                    </span>
                 </div>
                 <div class="answer first">
-                    <input type="text" name="first_answers[]" value="<?= $welgorithm['first_answers'][$i]; ?>">
+                    <div class="answer__radio">
+                        <label for="selected_anser_1"></label>
+                        <input type="radio" name="selected_anser_1" id="selected_anser_1" value="<?= $welgorithm['first_answers'][$i]; ?>">
+                        <div class="check">
+                            <div class="inside"></div>
+                        </div>
+                    </div>
+                    <div class="answer__input">
+                        <div>
+                            <div contenteditable="true" class="fake-input"><?= $welgorithm['first_answers'][$i]; ?></div>
+                        </div>
+                    </div>
                 </div>
                 <div class="answer second">
-                    <input type="text" name="second_answers[]" value="<?= $welgorithm['second_answers'][$i]; ?>">
+                    <div class="answer__radio">
+                        <label for="selected_anser_2"></label>
+                        <input type="radio" name="selected_anser_1" id="selected_anser_2" value="<?= $welgorithm['second_answers'][$i]; ?>">
+                        <div class="check">
+                            <div class="inside"></div>
+                        </div>
+                    </div>
+                    <div class="answer__input">
+                        <div>
+                            <div contenteditable="true" class="fake-input"><?= $welgorithm['second_answers'][$i]; ?></div>
+                        </div>
+                    </div>
                 </div>
                 <div class="extra-menu">
                 </div>
             </div>
+            <div class="separator"></div>
             <? endfor; ?>
 
         </div>

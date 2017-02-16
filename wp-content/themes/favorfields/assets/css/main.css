@@ -2234,15 +2234,106 @@ body.is-menu-visible #menu {
     #wrapper > * > .inner {
       padding: 0 1.25em; } }
 
-#header.header-class {
-  top: 47px; }
-  #header.header-class nav {
-    top: 58px; }
-
-.banner-image {
-  height: 400px;
-  border-bottom: 4px solid #74bfe6; }
-  .banner-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; }
+/**
+ Variables
+ */
+/**
+ Functions
+ */
+.wellghoritms-template-default {
+  background: rgba(116, 191, 230, 0.2); }
+  .wellghoritms-template-default #header.header-class {
+    top: 47px; }
+    .wellghoritms-template-default #header.header-class nav {
+      top: 58px; }
+  .wellghoritms-template-default .banner-image {
+    height: 400px;
+    border-bottom: 4px solid #74bfe6; }
+    .wellghoritms-template-default .banner-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; }
+  .wellghoritms-template-default .inner {
+    max-width: 100%; }
+    .wellghoritms-template-default .inner .wellghoritm {
+      height: 748px;
+      max-height: 748px;
+      width: 1366px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap; }
+      .wellghoritms-template-default .inner .wellghoritm .progressbar {
+        width: 100%;
+        text-align: center; }
+        .wellghoritms-template-default .inner .wellghoritm .progressbar .outline {
+          width: 60%;
+          height: 30px;
+          border: 1px solid #74bfe6;
+          margin: 0 auto; }
+          .wellghoritms-template-default .inner .wellghoritm .progressbar .outline .inside {
+            height: 100%;
+            background: #74bfe6;
+            color: white;
+            font-size: 17px; }
+      .wellghoritms-template-default .inner .wellghoritm .question {
+        width: 100%; }
+        .wellghoritms-template-default .inner .wellghoritm .question span {
+          display: block;
+          text-align: center;
+          font-size: 30px;
+          color: #0b537b; }
+      .wellghoritms-template-default .inner .wellghoritm .answer {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        padding: 0 120px; }
+        .wellghoritms-template-default .inner .wellghoritm .answer .answer__radio {
+          width: 60px; }
+          .wellghoritms-template-default .inner .wellghoritm .answer .answer__radio .check {
+            width: 30px;
+            height: 30px;
+            border: 3px solid #74bfe6;
+            border-radius: 100%;
+            transition: 1s;
+            margin-top: -50px;
+            z-index: -1; }
+            .wellghoritms-template-default .inner .wellghoritm .answer .answer__radio .check .inside {
+              transition: 1s; }
+          .wellghoritms-template-default .inner .wellghoritm .answer .answer__radio label {
+            width: 50px;
+            height: 50px;
+            border-radius: 100%;
+            cursor: pointer;
+            transition: 1s;
+            position: relative; }
+          .wellghoritms-template-default .inner .wellghoritm .answer .answer__radio input[type=radio]:checked ~ .check .inside {
+            width: 90%;
+            height: 90%;
+            background: #74bfe6;
+            border-radius: 100%;
+            position: relative;
+            top: calc(50% - 12px);
+            left: calc(50% - 12px); }
+        .wellghoritms-template-default .inner .wellghoritm .answer .answer__input {
+          width: calc(100% - 60px); }
+          .wellghoritms-template-default .inner .wellghoritm .answer .answer__input .fake-input {
+            border: solid #74bfe6;
+            border-width: 1px 1px 1px 110px;
+            padding-left: 10px;
+            border-radius: 20px;
+            min-height: 140px;
+            transition: all .2s ease-out;
+            cursor: pointer;
+            display: flex;
+            align-items: center; }
+            .wellghoritms-template-default .inner .wellghoritm .answer .answer__input .fake-input:focus {
+              background: #fff;
+              box-shadow: none;
+              outline: 0px solid transparent; }
+    .wellghoritms-template-default .inner .separator {
+      position: absolute;
+      left: 0;
+      right: 0;
+      background: #0b537b;
+      height: 4px; }

@@ -1,10 +1,10 @@
 <?php
 
 /**
- * Created by PhpStorm.
- * User: vladan
- * Date: 14/02/2017
- * Time: 11:38
+ * @description: Creating meta_box for steps in admin
+ * @author: Vladan Paunovic
+ * @contact: https://givemejobtoday.com
+ * @date: 15/02/2017
  */
 class Wellgorithms_Steps
 {

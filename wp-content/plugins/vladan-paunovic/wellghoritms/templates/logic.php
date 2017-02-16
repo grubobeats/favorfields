@@ -2,11 +2,10 @@
 
 /**
  * @description: Getting data from 'Color Template' associated to this Wellgorithm
- * @param $color_scheme
- * @param $key
- * @return mixed
+ * @author: Vladan Paunovic
+ * @contact: https://givemejobtoday.com
+ * @date: 15/02/2017
  */
-
 class Template_logic
 {
 
@@ -61,6 +60,13 @@ class Template_logic
         }
     }
 
+    /**
+     * @description: Collecting all data for single wellghoritm,
+     * unserializing strings and returning array
+     * @author: Vladan Paunovic
+     * @contact: https://givemejobtoday.com
+     * @date: 15/02/2017
+     */
     public function getWellghoritm() {
         $stored_data = get_post_meta( get_the_ID() );
         $stored_data['questions'] = unserialize($stored_data['questions'][0]);
