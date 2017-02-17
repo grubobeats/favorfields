@@ -50,8 +50,10 @@ jQuery(document).ready(function($){
 
         // disabling inputs in clicked question
         inside_inputs.prop('disabled', true);
-        // TODO: change color for disabled radio inputs to enhance UX
 
+        // TODO: Make this more accurate
+        $('html, body').animate({scrollTop: '+=740px'}, 800);
+        // TODO: on the last remove this scroll
 
         $(wellghoritm)
             .next()

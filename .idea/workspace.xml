@@ -2,13 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="32f0cb7a-222c-4b04-be1e-da917e54017a" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/wp-content/plugins/vladan-paunovic/js/duplicate_steps.js" afterPath="$PROJECT_DIR$/wp-content/plugins/vladan-paunovic/js/wellgorithms.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/vladan-paunovic/index.php" afterPath="$PROJECT_DIR$/wp-content/plugins/vladan-paunovic/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/vladan-paunovic/wellghoritms/templates/single.php" afterPath="$PROJECT_DIR$/wp-content/plugins/vladan-paunovic/wellghoritms/templates/single.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/vladan-paunovic/js/wellgorithms.js" afterPath="$PROJECT_DIR$/wp-content/plugins/vladan-paunovic/js/wellgorithms.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/favorfields/assets/css/main.css" afterPath="$PROJECT_DIR$/wp-content/themes/favorfields/assets/css/main.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/favorfields/assets/sass/wellgorithms.scss" afterPath="$PROJECT_DIR$/wp-content/themes/favorfields/assets/sass/wellgorithms.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/favorfields/functions.php" afterPath="$PROJECT_DIR$/wp-content/themes/favorfields/functions.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -34,8 +31,8 @@
       <file leaf-file-name="wellgorithms.scss" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wp-content/themes/favorfields/assets/sass/wellgorithms.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="283">
-              <caret line="99" column="0" lean-forward="true" selection-start-line="99" selection-start-column="0" selection-end-line="99" selection-end-column="0" />
+            <state relative-caret-position="358">
+              <caret line="97" column="22" lean-forward="true" selection-start-line="97" selection-start-column="22" selection-end-line="97" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -44,8 +41,8 @@
       <file leaf-file-name="wellgorithms.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wp-content/plugins/vladan-paunovic/js/wellgorithms.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="397">
-              <caret line="52" column="69" lean-forward="false" selection-start-line="52" selection-start-column="69" selection-end-line="52" selection-end-column="69" />
+            <state relative-caret-position="382">
+              <caret line="55" column="47" lean-forward="false" selection-start-line="55" selection-start-column="47" selection-end-line="55" selection-end-column="47" />
               <folding />
             </state>
           </provider>
@@ -178,8 +175,8 @@
         <option value="$PROJECT_DIR$/wp-content/plugins/vladan-paunovic/wellghoritms/wellghoritms.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/favorfields/functions.php" />
         <option value="$PROJECT_DIR$/wp-content/plugins/vladan-paunovic/index.php" />
-        <option value="$PROJECT_DIR$/wp-content/themes/favorfields/assets/sass/wellgorithms.scss" />
         <option value="$PROJECT_DIR$/wp-content/plugins/vladan-paunovic/wellghoritms/templates/single.php" />
+        <option value="$PROJECT_DIR$/wp-content/themes/favorfields/assets/sass/wellgorithms.scss" />
         <option value="$PROJECT_DIR$/wp-content/plugins/vladan-paunovic/js/wellgorithms.js" />
       </list>
     </option>
@@ -553,12 +550,12 @@
       <workItem from="1486979828236" duration="10007000" />
       <workItem from="1487060003643" duration="11543000" />
       <workItem from="1487162426378" duration="6138000" />
-      <workItem from="1487184617122" duration="28647000" />
+      <workItem from="1487184617122" duration="30300000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="85827000" />
+    <option name="totallyTimeSpent" value="87480000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -947,14 +944,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/favorfields/assets/sass/wellgorithms.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="283">
-          <caret line="99" column="0" lean-forward="true" selection-start-line="99" selection-start-column="0" selection-end-line="99" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/plugins/vladan-paunovic/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="448">
@@ -973,10 +962,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/favorfields/assets/sass/wellgorithms.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="358">
+          <caret line="97" column="22" lean-forward="true" selection-start-line="97" selection-start-column="22" selection-end-line="97" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/plugins/vladan-paunovic/js/wellgorithms.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="397">
-          <caret line="52" column="69" lean-forward="false" selection-start-line="52" selection-start-column="69" selection-end-line="52" selection-end-column="69" />
+        <state relative-caret-position="382">
+          <caret line="55" column="47" lean-forward="false" selection-start-line="55" selection-start-column="47" selection-end-line="55" selection-end-column="47" />
           <folding />
         </state>
       </provider>

@@ -2295,7 +2295,7 @@ body.is-menu-visible #menu {
       justify-content: center;
       align-items: center;
       flex-wrap: wrap;
-      animation-duration: 3s; }
+      animation-duration: 1500ms; }
       .wellgorithms-template-default .inner .wellghoritm.hidden {
         display: none; }
       .wellgorithms-template-default .inner .wellghoritm .progressbar {
