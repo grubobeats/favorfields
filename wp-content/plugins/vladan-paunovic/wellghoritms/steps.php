@@ -9,7 +9,7 @@
 class Wellgorithms_Steps
 {
     private $screens = array(
-        'wellghoritms',
+        'wellgorithms',
     );
 
     public function __construct()

@@ -21,7 +21,7 @@ require_once 'algolia/custom-fields.php';
 function vp_admin_styles(){
     global $typenow;
 
-    if( $typenow == 'wellghoritms' ) {
+    if( $typenow == 'wellgorithms' ) {
         wp_enqueue_style( 'vp_admin_styles', plugins_url( 'css/style.css', __FILE__ ));
         wp_enqueue_script( 'vp_duplicate_steps', plugins_url( 'js/duplicate_steps.js', __FILE__ ), array(), '20130115', true );
     }
@@ -40,7 +40,7 @@ add_action( 'admin_print_styles', 'vp_admin_styles' );
  */
 function get_templates( $original_template ) {
 
-    if ( is_singular( 'wellghoritms' ) ) {
+    if ( is_singular( 'wellgorithms' ) ) {
         return plugin_dir_path(__FILE__) . 'wellghoritms/templates/single.php';
     } else {
         return $original_template;

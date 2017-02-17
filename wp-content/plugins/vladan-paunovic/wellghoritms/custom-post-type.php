@@ -8,7 +8,7 @@
 
 
 // Register Custom Post Type
-function wellghoritms() {
+function wellgorithms() {
 
     $labels = array(
         'name'                  => _x( 'Wellgorithms', 'Post Type General Name', 'text_domain' ),
@@ -58,9 +58,13 @@ function wellghoritms() {
         'publicly_queryable'    => true,
         'capability_type'       => 'page',
         'menu_icon'             => 'dashicons-smiley',
+        'rewrite'               => array(
+            'slug'          => 'wellgorithms',
+            'with_front'    => false
+        )
     );
-    register_post_type( 'wellghoritms', $args );
+    register_post_type( 'wellgorithms', $args );
 
 }
-add_action( 'init', 'wellghoritms', 0 );
+add_action( 'init', 'wellgorithms', 0 );
 

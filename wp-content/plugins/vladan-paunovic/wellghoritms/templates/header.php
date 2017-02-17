@@ -18,7 +18,8 @@
     $category = get_the_category();
     $color_1 = $logic->getColorTemplate($color_scheme, 'basic_settings_color-1');
     $color_2 = $logic->getColorTemplate($color_scheme, 'basic_settings_color-2');
-
+    $color_3 = $logic->getColorTemplate($color_scheme, 'basic_settings_color-3');
+    $color_4 = $logic->getColorTemplate($color_scheme, 'basic_settings_color-4');
 ?>
 <head>
     <title><?php bloginfo( 'name' ); ?> - <?php bloginfo( 'description')?></title>
@@ -29,34 +30,10 @@
     <!--[if lte IE 8]><script src="<?php get_template_directory_uri() ?>js/ie/html5shiv.js"></script><![endif]-->
     <?php wp_head(); ?>
 
-    <style>
-        .color-1 {
-            color: <?= $color_1 ?> !important;
-        }
-
-        .background-color-1 {
-            background-color: <?= $color_1 ?> !important;
-        }
-
-        .color-2 {
-            color: <?= $color_2 ?> !important;
-        }
-
-        .background-color-2 {
-            background-color: <?= $color_2 ?> !important;
-        }
-
-        .border-color-1 {
-            border-color: <?= $color_1 ?> !important;;
-        }
-
-        .border-color-2 {
-            border-color: <?= $color_2 ?> !important;;
-        }
-    </style>
+    <style>.color-1 { color: <?= $color_1 ?> !important; } .color-2 { color: <?= $color_2 ?> !important; } .color-3 { color: <?= $color_3 ?> !important; } .color-4 { color: <?= $color_4 ?> !important; } .background-color-1 { background-color: <?= $color_1 ?> !important; } .background-color-2 { background-color: <?= $color_2 ?> !important; } .background-color-3 { background-color: <?= $color_3 ?> !important; } .background-color-4 { background-color: <?= $color_4 ?> !important; } .border-color-1 { border-color: <?= $color_1 ?> !important; } .border-color-2 { border-color: <?= $color_2 ?> !important; } .border-color-3 { border-color: <?= $color_3 ?> !important; } .border-color-4 { border-color: <?= $color_4 ?> !important; }</style>
 
 </head>
-<body <?php body_class(); ?>>
+<body <?php body_class('background-color-2'); ?>>
 <!-- Wrapper -->
 <div id="wrapper">
 
@@ -91,7 +68,7 @@
     </header>
 
     <!-- Menu -->
-    <nav id="menu">
+    <nav id="menu" class="background-color-4">
 
         <h2>Menu</h2>
         <?php wp_nav_menu( array(

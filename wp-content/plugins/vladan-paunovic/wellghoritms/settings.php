@@ -29,7 +29,7 @@ class Wellgorithms_Settings {
     }
 
     private $screens = array(
-        'wellghoritms',
+        'wellgorithms',
     );
 
     public $fields;

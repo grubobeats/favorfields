@@ -37,7 +37,7 @@ $counter = 1;
                     <? endif; ?>
                     <div class="question">
                         <div class="wide-separator"></div>
-                        <span class="color-1">
+                        <span class="color-3">
                             <?= $welgorithm['questions'][$i]; ?>
                         </span>
 

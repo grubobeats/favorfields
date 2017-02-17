@@ -19,14 +19,14 @@ class Basic_Settings {
             'type' => 'color',
         ),
         array(
-            'id' => 'logo-small',
-            'label' => 'Logo (small)',
-            'type' => 'media',
+            'id' => 'color-3',
+            'label' => 'Color #3',
+            'type' => 'color',
         ),
         array(
-            'id' => 'logo-large',
-            'label' => 'Logo (large)',
-            'type' => 'media',
+            'id' => 'color-4',
+            'label' => 'Color #4',
+            'type' => 'color',
         ),
     );
 
@@ -35,7 +35,6 @@ class Basic_Settings {
      */
     public function __construct() {
         add_action( 'add_meta_boxes', array( $this, 'add_meta_boxes' ) );
-        add_action( 'admin_footer', array( $this, 'admin_footer' ) );
         add_action( 'save_post', array( $this, 'save_post' ) );
     }
 
@@ -65,40 +64,6 @@ class Basic_Settings {
         wp_nonce_field( 'basic_settings_data', 'basic_settings_nonce' );
         echo 'Edit color template settings';
         $this->generate_fields( $post );
-    }
-
-    /**
-     * Hooks into WordPress' admin_footer function.
-     * Adds scripts for media uploader.
-     */
-    public function admin_footer() {
-        ?><script>
-            // https://codestag.com/how-to-use-wordpress-3-5-media-uploader-in-theme-options/
-            jQuery(document).ready(function($){
-                if ( typeof wp.media !== 'undefined' ) {
-                    var _custom_media = true,
-                        _orig_send_attachment = wp.media.editor.send.attachment;
-                    $('.rational-metabox-media').click(function(e) {
-                        var send_attachment_bkp = wp.media.editor.send.attachment;
-                        var button = $(this);
-                        var id = button.attr('id').replace('_button', '');
-                        _custom_media = true;
-                        wp.media.editor.send.attachment = function(props, attachment){
-                            if ( _custom_media ) {
-                                $("#"+id).val(attachment.url);
-                            } else {
-                                return _orig_send_attachment.apply( this, [props, attachment] );
-                            };
-                        }
-                        wp.media.editor.open(button);
-                        return false;
-                    });
-                    $('.add_media').on('click', function(){
-                        _custom_media = false;
-                    });
-                }
-            });
-        </script><?php
     }
 
     /**
