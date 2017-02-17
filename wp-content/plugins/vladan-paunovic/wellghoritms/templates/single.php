@@ -13,7 +13,9 @@ $number_of_questions = count(array_filter($welgorithm['questions']));
 $counter = 1;
 ?>
 <script>
-    var steps = <?= $welgorithm['basic_settings_steps'][0]; ?>
+    var all_steps = <?= $welgorithm['basic_settings_steps'][0]; ?>;
+    var steps = <?= $number_of_questions; ?>;
+    var maximum_steps = 3;
 </script>
     <!-- Main -->
     <div id="main">
@@ -29,8 +31,8 @@ $counter = 1;
                     <? if ($i == 0 ) : ?>
                         <div class="progressbar">
                             <div class="outline border-color-1">
-                                <div class="inside background-color-1" style="width:30%">
-                                    30%
+                                <div class="inside background-color-1" style="width:0%">
+                                    0%
                                 </div>
                             </div>
                         </div>
@@ -74,6 +76,17 @@ $counter = 1;
                         </div>
                     </div>
                     <div class="extra-menu">
+                        <ul>
+                            <li>
+                                <div class="circle"></div>
+                            </li>
+                            <li>
+                                <div class="circle"></div>
+                            </li>
+                            <li>
+                                <div class="circle"></div>
+                            </li>
+                        </ul>
                     </div>
                 </div>
                 <div class="separator background-color-1"></div>

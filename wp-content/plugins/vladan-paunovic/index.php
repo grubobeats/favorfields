@@ -23,7 +23,6 @@ function vp_admin_styles(){
 
     if( $typenow == 'wellgorithms' ) {
         wp_enqueue_style( 'vp_admin_styles', plugins_url( 'css/style.css', __FILE__ ));
-        wp_enqueue_script( 'vp_duplicate_steps', plugins_url( 'js/duplicate_steps.js', __FILE__ ), array(), '20130115', true );
     }
 
     if( $typenow == 'color_template' ) {
@@ -41,6 +40,8 @@ add_action( 'admin_print_styles', 'vp_admin_styles' );
 function get_templates( $original_template ) {
 
     if ( is_singular( 'wellgorithms' ) ) {
+        wp_enqueue_style( 'vp_animate_css', 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css');
+        wp_enqueue_script( 'vp_wellghoritms', plugins_url( 'js/wellgorithms.js', __FILE__ ), array(), '20130115', true );
         return plugin_dir_path(__FILE__) . 'wellghoritms/templates/single.php';
     } else {
         return $original_template;
