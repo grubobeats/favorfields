@@ -34,7 +34,7 @@
         'footer_text' => 'Customize your Favor Fields template by Vladan Paunovic',
         'admin_bar' => TRUE,
         'menu_type' => 'menu',
-        'menu_title' => 'Sample Options',
+        'menu_title' => 'Website Options',
         'allow_sub_menu' => TRUE,
         'page_parent_post_type' => 'your_post_type',
         'customizer' => TRUE,
@@ -163,6 +163,33 @@
                 'validate' => 'numeric',
                 'msg'      => 'You can store only numbers here',
                 'default'  => '15'
+            ),
+
+            array(
+                'id'       => 'question-animation',
+                'type'     => 'select',
+                'title'    => __('Select Animation', 'redux-framework-demo'),
+                'subtitle' => __('', 'redux-framework-demo'),
+                'desc'     => __('Select how questions are appearing in wellghoritms', 'redux-framework-demo'),
+                // Must provide key => value pairs for select options
+                'options'  => array(
+                    'bounce' => 'Bounce',
+                    'flash' => 'Flash',
+                    'pulse' => 'Pulse',
+                    'rubberBand' => 'RubberBand',
+                    'shake' => 'Shake',
+                    'swing' => 'Swing',
+                    'bounceIn' => 'BounceIn',
+                    'bounceInUp' => 'BounceInUp',
+                    'fadeIn' => 'FadeIn',
+                    'fadeInUpBig' => 'FadeInUpBig',
+                    'lightSpeedIn' => 'LightSpeedIn',
+                    'slideInUp' => 'SlideInUp',
+                    'slideInDown' => 'SlideInDown',
+                    'zoomIn' => 'ZoomIn',
+                    'rollIn' => 'RollIn',
+                ),
+                'default'  => 'fadeIn',
             ),
 
             array(

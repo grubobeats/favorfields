@@ -16,6 +16,7 @@ $counter = 1;
     var all_steps = <?= $welgorithm['basic_settings_steps'][0]; ?>;
     var steps = <?= $number_of_questions; ?>;
     var maximum_steps = 3;
+    var question_animation = "<?= $favorfields['question-animation'] ?>";
 </script>
     <!-- Main -->
     <div id="main">

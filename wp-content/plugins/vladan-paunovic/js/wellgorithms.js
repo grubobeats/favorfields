@@ -1,8 +1,6 @@
 /**
  * Created by vladan on 13/02/2017.
  */
-console.log("I am here");
-
 jQuery(document).ready(function($){
 
     /*
@@ -19,10 +17,8 @@ jQuery(document).ready(function($){
     });
 
     /*
-     Progressbar: changing values (percentage)
+        Progressbar: changing values (percentage)
      */
-
-
     function changePercentage(step, all_steps, maximum_steps) {
 
         var percentage = (step / all_steps) * 100;
@@ -32,7 +28,6 @@ jQuery(document).ready(function($){
                 .html(percentage + "%")
                 .css('width', percentage + "%");
         }
-
     }
 
     /*
@@ -46,20 +41,25 @@ jQuery(document).ready(function($){
 
         var wellghoritm = $(this).parent().parent().parent(),
             input_name = $(wellghoritm).find('input').attr('name'),
-            inside_inputs = $('input[name="' + input_name + '"]');
+            inside_inputs = $('input[name="' + input_name + '"]'),
+            input_layouts = $(wellghoritm).find('.check');
 
-        // disabling inputs in clicked question
+        // disabling inputs on clicked question
         inside_inputs.prop('disabled', true);
+        input_layouts.css('opacity', '0.2');
 
-        // TODO: Make this more accurate
-        $('html, body').animate({scrollTop: '+=740px'}, 800);
-        // TODO: on the last remove this scroll
+        // TODO: on last remove this scroll
+        $('html, body').animate(
+            {
+                scrollTop: $(wellghoritm).next().offset().top
+            },
+            1600);
 
         $(wellghoritm)
             .next()
             .next()
             .removeClass('hidden')
-            .addClass('animated zoomInUp');
+            .addClass('animated ' + question_animation);
 
         changePercentage(step, all_steps, maximum_steps);
         step++;
