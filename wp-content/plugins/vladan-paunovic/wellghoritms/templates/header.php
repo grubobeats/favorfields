@@ -40,36 +40,27 @@
     <!-- Header -->
     <header id="header" class="header-class background-color-1">
         <div class="inner top-bar">
-
             <div class="left-separator"></div>
-
             <img src="<?= $welgorithm['basic_settings_icon'][0] ?>" alt="" class="wellgo-icon">
-
             <!-- Logo -->
             <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="logo">
                 <span class="symbol">
                     <img src="<?= $favorfields['logo']['url'];?>" alt="" />
                 </span>
-                <span class="category">
-                    <?= $category[0]->name; ?>
-                </span>
+                <span class="category"><?= $category[0]->name; ?></span>
             </a>
-
             <span class="title"><?= get_the_title(); ?></span>
-
             <!-- Nav -->
             <nav>
                 <ul>
                     <li><a href="#menu">Menu</a></li>
                 </ul>
             </nav>
-
         </div>
     </header>
 
     <!-- Menu -->
     <nav id="menu" class="background-color-4">
-
         <h2>Menu</h2>
         <?php wp_nav_menu( array(
             'theme_location' => 'primary',

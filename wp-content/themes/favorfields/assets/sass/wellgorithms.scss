@@ -11,7 +11,8 @@ $question_height: 748px;
   background: rgba($color, $opacity);
 }
 
-.wellgorithms-template-default {
+.wellgorithms-template-default,
+.user_answers-template-default {
   background: transparentize($light_blue, 0.8);
 
   #header {
@@ -281,3 +282,29 @@ $question_height: 748px;
 }
 
 
+/*
+  Popups
+ */
+
+.prompt-save {
+  display: none;
+  position: fixed;
+  width: 400px;
+  min-height: 220px;
+  top: calc(50% - 110px);
+  left: calc(50% - 200px);
+  background: white;
+  padding: 30px;
+  border: 3px solid $light_blue;
+  border-radius: 10px;
+
+  h3 {
+    text-align: center;
+    padding-top: 58px;
+  }
+
+  button {
+    box-shadow: none;
+    width:49%;
+  }
+}

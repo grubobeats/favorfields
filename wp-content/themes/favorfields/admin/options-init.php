@@ -193,6 +193,25 @@
             ),
 
             array(
+                'id'=>'prompt-save-wellgo',
+                'type' => 'textarea',
+                'title' => __('Popup text after completing wellgorithm', 'redux-framework-demo'),
+                'subtitle' => __('Custom HTML Allowed', 'redux-framework-demo'),
+                'desc' => '',
+                'validate' => 'html_custom',
+                'default' => '<p>We noticed that you made some changes to this Wellgorithm. Would you like to save those changes to your board?</p>',
+                'allowed_html' => array(
+                    'a' => array(
+                        'href' => array(),
+                        'title' => array()
+                    ),
+                    'br' => array(),
+                    'em' => array(),
+                    'strong' => array()
+                )
+            ),
+
+            array(
                 'id'       => 'number-of-images',
                 'type'     => 'text',
                 'title'    => 'Images (color templates)',
