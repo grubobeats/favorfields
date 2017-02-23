@@ -93,7 +93,7 @@ class Wellgorithms_Steps
                             <select name="choose-question" id="choose-question">
                                 <option value="admin">Main admin question</option>
                                 <? for($q = 0; $q < (count($user_answers) - 1); $q++ ) : ?>
-                                    <option value="<?= $user_answers[$q]['user_answers_id'] ?>"><?= $user_answers[$q]['user_questions'][$i] ?></option>
+                                    <option value="<?= $user_answers[$q]['user_answers_id'] ?>"><?= ($q + 1) . ". " . $user_answers[$q]['user_questions'][$i] ?></option>
                                 <? endfor; ?>
                             </select>
                         </td>
@@ -102,7 +102,7 @@ class Wellgorithms_Steps
                             <select name="choose-first-answer" id="choose-first-answer">
                                 <option value="admin">Main admin answer</option>
                                 <? for($q = 0; $q < (count($user_answers) - 1); $q++ ) : ?>
-                                    <option value="<?= $user_answers[$q]['user_answers_id'] ?>"><?= $user_answers[$q]['user_first_answers'][$i] ?></option>
+                                    <option value="<?= $user_answers[$q]['user_answers_id'] ?>"><?= ($q + 1) . ". " . $user_answers[$q]['user_first_answers'][$i] ?></option>
                                 <? endfor; ?>
                             </select>
                         </td>
@@ -111,7 +111,7 @@ class Wellgorithms_Steps
                             <select name="choose-second-answer" id="choose-second-answer">
                                 <option value="0">Main admin answer</option>
                                 <? for($q = 0; $q < (count($user_answers) - 1); $q++ ) : ?>
-                                    <option value="<?= $user_answers[$q]['user_answers_id'] ?>"><?= $user_answers[$q]['user_second_answers'][$i] ?></option>
+                                    <option value="<?= $user_answers[$q]['user_answers_id'] ?>"><?= ($q + 1) . ". " . $user_answers[$q]['user_second_answers'][$i] ?></option>
                                 <? endfor; ?>
                             </select>
                         </td>
@@ -153,7 +153,6 @@ class Wellgorithms_Steps
                 array_filter( unserialize( $user_answer_meta['user_second_answers'][0] ) );
         }
 
-        print_r($answers);
         return $answers;
     }
 

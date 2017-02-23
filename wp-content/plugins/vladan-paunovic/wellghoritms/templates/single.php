@@ -58,6 +58,20 @@ $prefix = is_singular('user_answers') ? "user_" : "";
 
                         <div class="wide-separator">
                             <i class="fa fa-heart question__like color-1" aria-hidden="true"></i>
+
+                            <div class="popup-suggest-question">
+                                <div class="row first">
+                                    <div class="suggest__icon"><i class="fa fa-heart"></i></div>
+                                    <div class="suggest__text">Love this!</div>
+                                </div>
+                                <div class="row second">
+                                    <div class="suggest__icon"><i class="fa fa-lightbulb-o"></i></div>
+                                    <div class="suggest__text">
+                                        <p>I have a suggestion for improvment:</p>
+                                        <textarea class="question_sugestion" name="question_suggestion_<?= $i ?>" id="question_suggestion_<?= $i ?>" cols="30" rows="1"></textarea>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="answer first">

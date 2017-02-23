@@ -162,10 +162,10 @@ class Multiple_Images {
         if ( !wp_verify_nonce( $nonce, 'multiple_images_data' ) )
             return $post_id;
 
-        if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE )
+        if ( defined( 'DOING_AUTOSA3VE' ) && DOING_AUTOSAVE )
             return $post_id;
 
-        foreach ( $this->fields as $field ) {
+        foreach ( $this->setFields() as $field ) {
             if ( isset( $_POST[ $field['id'] ] ) ) {
                 switch ( $field['type'] ) {
                     case 'email':

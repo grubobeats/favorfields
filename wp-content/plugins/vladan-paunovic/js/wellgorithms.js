@@ -157,11 +157,59 @@ jQuery(document).ready(function($){
 
             },
             error: function( error ) {
-                console.log( "BAD" );
+                console.log( "You have an error regarding your ajax request." );
                 console.log( error );
             }
 
         });
 
     });
+
+    /*
+        Edit question popup (heart)
+     */
+    $('.popup-suggest-question').click(function(e){
+        e.stopPropagation();
+    });
+
+    $('.question__like').click(function(e){
+        e.stopPropagation();
+        $(this).next().show().addClass('animated fadeIn');
+    });
+
+    $('#main').click(function(){
+        $('.question__like')
+            .next()
+            .removeClass('fadeIn')
+            .addClass('fadeOut')
+            .delay(1000)
+            .removeClass('animated fadeOut')
+            .hide()
+    });
+
+    /*
+        Emptying divs that are acting as input fields on click
+     */
+    var inputText;
+    $('.fake-input').focus(function(){
+        inputText = $(this).html();
+        $(this).html("");
+    });
+
+    $('.fake-input').blur(function(){
+        if ( $(this).html() === "" ) {
+            $(this).html(inputText);
+        }
+    });
+
+    /*
+        Changing question texts
+     */
+    $('.question_sugestion').keyup(function () {
+        var questionText = $(this).val(),
+            thisQuestion = $(this).parent().parent().parent().parent().parent().find('span');
+
+        $(thisQuestion).html(questionText);
+    })
+
 });
