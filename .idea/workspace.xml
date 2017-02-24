@@ -3,16 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="32f0cb7a-222c-4b04-be1e-da917e54017a" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/vladan-paunovic/color-templates/multiple-images.php" afterPath="$PROJECT_DIR$/wp-content/plugins/vladan-paunovic/color-templates/multiple-images.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/vladan-paunovic/css/color-templates.css" afterPath="$PROJECT_DIR$/wp-content/plugins/vladan-paunovic/css/color-templates.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/vladan-paunovic/css/style.css" afterPath="$PROJECT_DIR$/wp-content/plugins/vladan-paunovic/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/vladan-paunovic/js/wellgorithms.js" afterPath="$PROJECT_DIR$/wp-content/plugins/vladan-paunovic/js/wellgorithms.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/vladan-paunovic/wellghoritms/settings.php" afterPath="$PROJECT_DIR$/wp-content/plugins/vladan-paunovic/wellghoritms/settings.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/vladan-paunovic/wellghoritms/steps.php" afterPath="$PROJECT_DIR$/wp-content/plugins/vladan-paunovic/wellghoritms/steps.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/vladan-paunovic/wellghoritms/templates/header.php" afterPath="$PROJECT_DIR$/wp-content/plugins/vladan-paunovic/wellghoritms/templates/header.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/vladan-paunovic/wellghoritms/templates/logic.php" afterPath="$PROJECT_DIR$/wp-content/plugins/vladan-paunovic/wellghoritms/templates/logic.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/vladan-paunovic/wellghoritms/templates/single.php" afterPath="$PROJECT_DIR$/wp-content/plugins/vladan-paunovic/wellghoritms/templates/single.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/favorfields/assets/css/main.css" afterPath="$PROJECT_DIR$/wp-content/themes/favorfields/assets/css/main.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/favorfields/assets/sass/wellgorithms.scss" afterPath="$PROJECT_DIR$/wp-content/themes/favorfields/assets/sass/wellgorithms.scss" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -45,11 +37,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="steps.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="steps.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wp-content/plugins/vladan-paunovic/wellghoritms/steps.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="613">
-              <caret line="174" column="180" lean-forward="false" selection-start-line="174" selection-start-column="180" selection-end-line="174" selection-end-column="180" />
+            <state relative-caret-position="440">
+              <caret line="232" column="56" lean-forward="false" selection-start-line="232" selection-start-column="36" selection-end-line="232" selection-end-column="56" />
               <folding>
                 <marker date="1487924065000" expanded="true" signature="7963:8017" ph="SELECT * FRO... wp_postmeta" />
                 <marker date="1487924065000" expanded="true" signature="7963:8053" ph="SELECT * FRO... wp_postmeta" />
@@ -62,7 +54,7 @@
       <file leaf-file-name="settings.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wp-content/plugins/vladan-paunovic/wellghoritms/settings.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-870">
+            <state relative-caret-position="-2755">
               <caret line="45" column="8" lean-forward="true" selection-start-line="45" selection-start-column="8" selection-end-line="45" selection-end-column="69" />
               <folding>
                 <marker date="1487866805000" expanded="true" signature="253:394" ph="SELECT ID, p... ${$wpdb-&gt;posts}" />
@@ -71,11 +63,26 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="single.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="logic.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wp-content/plugins/vladan-paunovic/wellghoritms/templates/logic.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="65">
+              <caret line="50" column="0" lean-forward="true" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+              <folding>
+                <marker date="1487924380000" expanded="true" signature="368:577" ph="SELECT meta_... ${$wpdb-&gt;postmeta}" />
+                <marker date="1487924380000" expanded="true" signature="433:554" ph="SELECT ID FR... ${$wpdb-&gt;posts}" />
+                <marker date="1487924380000" expanded="true" signature="1003:1246" ph="SELECT * FRO... ${$wpdb-&gt;postmeta}" />
+                <marker date="1487924380000" expanded="true" signature="1059:1180" ph="SELECT ID FR... ${$wpdb-&gt;posts}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="single.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wp-content/plugins/vladan-paunovic/wellghoritms/templates/single.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="191">
-              <caret line="117" column="72" lean-forward="false" selection-start-line="117" selection-start-column="72" selection-end-line="117" selection-end-column="72" />
+            <state relative-caret-position="260">
+              <caret line="86" column="130" lean-forward="false" selection-start-line="86" selection-start-column="130" selection-end-line="86" selection-end-column="130" />
               <folding>
                 <element signature="e#6#162#0#PHP" expanded="true" />
               </folding>
@@ -86,7 +93,7 @@
       <file leaf-file-name="header.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wp-content/plugins/vladan-paunovic/wellghoritms/templates/header.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="495">
+            <state relative-caret-position="290">
               <caret line="54" column="20" lean-forward="true" selection-start-line="54" selection-start-column="20" selection-end-line="54" selection-end-column="20" />
               <folding />
             </state>
@@ -182,7 +189,6 @@
         <option value="$PROJECT_DIR$/wp-content/themes/favorfields/assets/sass/layout/_wrapper.scss" />
         <option value="$PROJECT_DIR$/wp-content/themes/favorfields/assets/sass/components/_form.scss" />
         <option value="$PROJECT_DIR$/wp-content/themes/favorfields/assets/sass/custom/custom.scss" />
-        <option value="$PROJECT_DIR$/wp-content/plugins/vladan-paunovic/wellghoritms/templates/logic.php" />
         <option value="$PROJECT_DIR$/wp-content/plugins/vladan-paunovic/wellghoritms/custom-post-type.php" />
         <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch.php" />
         <option value="$PROJECT_DIR$/wp-content/plugins/vladan-paunovic/color-templates/basic_settings.php" />
@@ -201,9 +207,10 @@
         <option value="$PROJECT_DIR$/wp-content/plugins/vladan-paunovic/wellghoritms/settings.php" />
         <option value="$PROJECT_DIR$/wp-content/plugins/vladan-paunovic/css/style.css" />
         <option value="$PROJECT_DIR$/wp-content/plugins/vladan-paunovic/js/wellgorithms.js" />
-        <option value="$PROJECT_DIR$/wp-content/plugins/vladan-paunovic/wellghoritms/templates/single.php" />
         <option value="$PROJECT_DIR$/wp-content/plugins/vladan-paunovic/wellghoritms/templates/header.php" />
         <option value="$PROJECT_DIR$/wp-content/plugins/vladan-paunovic/wellghoritms/steps.php" />
+        <option value="$PROJECT_DIR$/wp-content/plugins/vladan-paunovic/wellghoritms/templates/logic.php" />
+        <option value="$PROJECT_DIR$/wp-content/plugins/vladan-paunovic/wellghoritms/templates/single.php" />
       </list>
     </option>
   </component>
@@ -602,12 +609,12 @@
       <workItem from="1487397731493" duration="70000" />
       <workItem from="1487409495327" duration="4338000" />
       <workItem from="1487578493919" duration="1307000" />
-      <workItem from="1487660288608" duration="36466000" />
+      <workItem from="1487660288608" duration="36829000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="129884000" />
+    <option name="totallyTimeSpent" value="130247000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
@@ -618,7 +625,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30510205" sideWeight="0.502442" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32967034" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Command Line Tools Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32959184" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Command Line Tools Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32959184" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1367347" sideWeight="0.497558" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5714286" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -876,19 +883,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/plugins/vladan-paunovic/wellghoritms/templates/logic.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="568">
-          <caret line="62" column="7" lean-forward="true" selection-start-line="62" selection-start-column="7" selection-end-line="62" selection-end-column="7" />
-          <folding>
-            <marker date="1487245801000" expanded="true" signature="368:577" ph="SELECT meta_... ${$wpdb-&gt;postmeta}" />
-            <marker date="1487245801000" expanded="true" signature="433:554" ph="SELECT ID FR... ${$wpdb-&gt;posts}" />
-            <marker date="1487245801000" expanded="true" signature="1003:1246" ph="SELECT * FRO... ${$wpdb-&gt;postmeta}" />
-            <marker date="1487245801000" expanded="true" signature="1059:1180" ph="SELECT ID FR... ${$wpdb-&gt;posts}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/plugins/vladan-paunovic/user-answers/User_Answers.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="536">
@@ -989,24 +983,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/plugins/vladan-paunovic/wellghoritms/templates/header.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="54" column="20" lean-forward="true" selection-start-line="54" selection-start-column="20" selection-end-line="54" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/plugins/vladan-paunovic/wellghoritms/templates/single.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="117" column="72" lean-forward="false" selection-start-line="117" selection-start-column="72" selection-end-line="117" selection-end-column="72" />
-          <folding>
-            <element signature="e#6#162#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/plugins/vladan-paunovic/js/wellgorithms.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="22">
@@ -1015,9 +991,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/plugins/vladan-paunovic/wellghoritms/templates/header.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="290">
+          <caret line="54" column="20" lean-forward="true" selection-start-line="54" selection-start-column="20" selection-end-line="54" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/plugins/vladan-paunovic/wellghoritms/settings.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-870">
+        <state relative-caret-position="-2755">
           <caret line="45" column="8" lean-forward="true" selection-start-line="45" selection-start-column="8" selection-end-line="45" selection-end-column="69" />
           <folding>
             <marker date="1487866805000" expanded="true" signature="253:394" ph="SELECT ID, p... ${$wpdb-&gt;posts}" />
@@ -1027,12 +1011,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/plugins/vladan-paunovic/wellghoritms/steps.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="613">
-          <caret line="174" column="180" lean-forward="false" selection-start-line="174" selection-start-column="180" selection-end-line="174" selection-end-column="180" />
+        <state relative-caret-position="440">
+          <caret line="232" column="56" lean-forward="false" selection-start-line="232" selection-start-column="36" selection-end-line="232" selection-end-column="56" />
           <folding>
             <marker date="1487924065000" expanded="true" signature="7963:8017" ph="SELECT * FRO... wp_postmeta" />
             <marker date="1487924065000" expanded="true" signature="7963:8053" ph="SELECT * FRO... wp_postmeta" />
             <marker date="1487924065000" expanded="true" signature="7963:8086" ph="SELECT `post... wp_postmeta" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/plugins/vladan-paunovic/wellghoritms/templates/logic.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="65">
+          <caret line="50" column="0" lean-forward="true" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+          <folding>
+            <marker date="1487924380000" expanded="true" signature="368:577" ph="SELECT meta_... ${$wpdb-&gt;postmeta}" />
+            <marker date="1487924380000" expanded="true" signature="433:554" ph="SELECT ID FR... ${$wpdb-&gt;posts}" />
+            <marker date="1487924380000" expanded="true" signature="1003:1246" ph="SELECT * FRO... ${$wpdb-&gt;postmeta}" />
+            <marker date="1487924380000" expanded="true" signature="1059:1180" ph="SELECT ID FR... ${$wpdb-&gt;posts}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/plugins/vladan-paunovic/wellghoritms/templates/single.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="86" column="130" lean-forward="false" selection-start-line="86" selection-start-column="130" selection-end-line="86" selection-end-column="130" />
+          <folding>
+            <element signature="e#6#162#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>

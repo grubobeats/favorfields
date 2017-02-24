@@ -53,7 +53,7 @@ $prefix = is_singular('user_answers') ? "user_" : "";
                     <div class="question">
                         <div class="wide-separator"></div>
                         <span class="color-3">
-                            <?= $welgorithm['questions'][$i]; ?>
+                            <?= $welgorithm['chosen_question'][$i]; ?>
                         </span>
 
                         <div class="wide-separator">
@@ -84,7 +84,7 @@ $prefix = is_singular('user_answers') ? "user_" : "";
                         </div>
                         <div class="answer__input">
                             <div>
-                                <div contenteditable="true" class="fake-input border-color-1"><?= $welgorithm['first_answers'][$i]; ?></div>
+                                <div contenteditable="true" class="fake-input border-color-1"><?= $welgorithm['chosen_first_answer'][$i]; ?></div>
                             </div>
                         </div>
                     </div>
@@ -98,7 +98,7 @@ $prefix = is_singular('user_answers') ? "user_" : "";
                         </div>
                         <div class="answer__input">
                             <div>
-                                <div contenteditable="true" class="fake-input border-color-1"><?= $welgorithm['second_answers'][$i]; ?></div>
+                                <div contenteditable="true" class="fake-input border-color-1"><?= $welgorithm['chosen_second_answer'][$i]; ?></div>
                             </div>
                         </div>
                     </div>

@@ -72,6 +72,9 @@ class Template_logic
         $stored_data['questions'] = unserialize($stored_data['questions'][0]);
         $stored_data['first_answers'] = unserialize($stored_data['first_answers'][0]);
         $stored_data['second_answers'] = unserialize($stored_data['second_answers'][0]);
+        $stored_data['chosen_question'] = unserialize($stored_data['chosen_question'][0]);
+        $stored_data['chosen_first_answer'] = unserialize($stored_data['chosen_first_answer'][0]);
+        $stored_data['chosen_second_answer'] = unserialize($stored_data['chosen_second_answer'][0]);
 
         return $stored_data;
     }
