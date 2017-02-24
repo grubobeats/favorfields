@@ -107,6 +107,11 @@ class Wellgorithms_Settings {
                     'Bad',
                 ),
             ),
+            array(
+                'id' => 'synonyms',
+                'label' => 'Synonyms (comma separated)',
+                'type' => 'text',
+            ),
         );
     }
 

@@ -99,6 +99,12 @@ class Multiple_Images {
                         _custom_media = false;
                     });
                 }
+
+                $('.dashicons-no').click(function(){
+                   $(this).parent().find('img').hide();
+                   $(this).parent().find('.regular-text').val("");
+                   $(this).hide();
+                });
             });
         </script><?php
     }
@@ -123,7 +129,7 @@ class Multiple_Images {
                     );
 
                     if (isset($db_value) && $db_value != "") {
-                        $input .= sprintf("<img src='%s' width='200px'>", $db_value);
+                        $input .= sprintf("<img src='%s' width='200px'><span class=\"dashicons dashicons-no\"></span>", $db_value);
                     }
                     break;
                 default:

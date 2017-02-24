@@ -18,6 +18,7 @@ class Wellgorithms_Steps
     public function __construct()
     {
         add_action( 'add_meta_boxes', array( $this, 'add_meta_boxes' ) );
+        add_action( 'admin_footer', array( $this, 'admin_footer' ) );
         add_action( 'save_post', array( $this, 'save_post' ) );
     }
 
@@ -48,6 +49,58 @@ class Wellgorithms_Steps
         $this->generate_fields( $post );
     }
 
+    public function admin_footer()
+    {
+        ?><script>
+
+        jQuery(document).ready(function($){
+
+            // Coping values from eaxh question to it's select as a first option
+           $('.questions').keyup(function(){
+               var selectBox = $(this)
+                   .parent()
+                   .parent()
+                   .next()
+                   .find('select')
+                   .first()
+                   .children()
+                   .first();
+
+               $(selectBox).val( $(this).val() );
+           })
+
+           $('.first_answer').keyup(function(){
+               var selectBoxAnswerOne = $(this)
+                   .parent()
+                   .parent()
+                   .next()
+                   .find('select')
+                   .eq(1)
+                   .children()
+                   .first();
+
+               $(selectBoxAnswerOne).val( $(this).val() )
+           });
+
+            $('.second_answer').keyup(function(){
+                var selectBoxAnswerOne = $(this)
+                    .parent()
+                    .parent()
+                    .next()
+                    .find('select')
+                    .eq(2)
+                    .children()
+                    .first();
+
+                $(selectBoxAnswerOne).val( $(this).val() )
+            });
+
+        });
+
+    </script>
+        <?php
+    }
+
     /**
      * Generates the field's HTML for the meta box.
      */
@@ -61,13 +114,21 @@ class Wellgorithms_Steps
         $question_values = unserialize($stored_data['questions'][0]);
         $first_answers_values = unserialize($stored_data['first_answers'][0]);
         $second_answers_values = unserialize($stored_data['second_answers'][0]);
+        $chosen_questions = unserialize($stored_data['chosen_question'][0]);
+        $chosen_first_answers = unserialize($stored_data['chosen_first_answer'][0]);
+        $chosen_second_answers = unserialize($stored_data['chosen_second_answer'][0]);
+
         $number_of_steps = $favorfields['number-of-steps'] - 1;
         $user_answers = $this->getUserAnswers();
+
         ?>
         <div class="inside_steps">
             <?php for ($i=0; $i <= $number_of_steps; $i++) : ?>
                 <!-- Step #<?php print(1 + $i); ?> -->
                 <table class="steps">
+
+                    <? var_dump($chosen_questions[$i]) ?>
+
                     <tr>
                         <td colspan="3">
                             <h4 class="step_text">Step #<?php print(1 + $i); ?></h4>
@@ -90,28 +151,28 @@ class Wellgorithms_Steps
                     <tr>
                         <td>
                             <label for="choose-question">Selected question</label>
-                            <select name="choose-question" id="choose-question">
-                                <option value="admin">Main admin question</option>
+                            <select name="chosen_question[]" id="choose-question">
+                                <option value="<?= $question_values[$i] ? $question_values[$i] : "0" ?>">Main admin question</option>
                                 <? for($q = 0; $q < (count($user_answers) - 1); $q++ ) : ?>
-                                    <option value="<?= $user_answers[$q]['user_answers_id'] ?>"><?= ($q + 1) . ". " . $user_answers[$q]['user_questions'][$i] ?></option>
+                                    <option value="<?= $user_answers[$q]['user_questions'][$i] ?>" <? if($user_answers[$q]['user_questions'][$i] == $chosen_questions[$i]) : ?> selected <? endif; ?>><?= ($q + 1) . ". " . $user_answers[$q]['user_questions'][$i] ?></option>
                                 <? endfor; ?>
                             </select>
                         </td>
                         <td>
                             <label for="choose-first-answer">Selected answer #1</label>
-                            <select name="choose-first-answer" id="choose-first-answer">
-                                <option value="admin">Main admin answer</option>
+                            <select name="chosen_first_answer[]" id="choose-first-answer">
+                                <option value="<?= $first_answers_values[$i] ? $first_answers_values[$i] : "0" ?>">Main admin answer</option>
                                 <? for($q = 0; $q < (count($user_answers) - 1); $q++ ) : ?>
-                                    <option value="<?= $user_answers[$q]['user_answers_id'] ?>"><?= ($q + 1) . ". " . $user_answers[$q]['user_first_answers'][$i] ?></option>
+                                    <option value="<?= $user_answers[$q]['user_first_answers'][$i] ?>" <? if($user_answers[$q]['user_first_answers'][$i] == $chosen_first_answers[$i]) : ?> selected <? endif; ?> ><?= ($q + 1) . ". " . $user_answers[$q]['user_first_answers'][$i] ?></option>
                                 <? endfor; ?>
                             </select>
                         </td>
                         <td>
                             <label for="choose-second-answer">Selected answer #2</label>
-                            <select name="choose-second-answer" id="choose-second-answer">
-                                <option value="0">Main admin answer</option>
+                            <select name="chosen_second_answer[]" id="choose-second-answer">
+                                <option value="<?= $second_answers_values[$i] ? $second_answers_values[$i] : "0" ?>">Main admin answer</option>
                                 <? for($q = 0; $q < (count($user_answers) - 1); $q++ ) : ?>
-                                    <option value="<?= $user_answers[$q]['user_answers_id'] ?>"><?= ($q + 1) . ". " . $user_answers[$q]['user_second_answers'][$i] ?></option>
+                                    <option value="<?= $user_answers[$q]['user_second_answers'][$i] ?>" <? if($user_answers[$q]['user_second_answers'][$i] == $chosen_second_answers[$i]) : ?> selected <? endif; ?>  ><?= ($q + 1) . ". " . $user_answers[$q]['user_second_answers'][$i] ?></option>
                                 <? endfor; ?>
                             </select>
                         </td>
@@ -161,27 +222,15 @@ class Wellgorithms_Steps
      */
     public function save_post( $post_id )
     {
-        // Preparing values from steps
-        $questions = array();
-        $first_answers = array();
-        $second_answers = array();
-
-        foreach ($_POST['questions'] as $question ) {
-            $questions[] = $question;
-        }
-
-        foreach ($_POST['first_answers'] as $first_answer) {
-            $first_answers[] = $first_answer;
-        }
-
-        foreach ($_POST['second_answers'] as $second_answer) {
-            $second_answers[] = $second_answer;
-        }
-
         // Saving steps
-        update_post_meta($post_id, 'questions', $questions );
-        update_post_meta($post_id, 'first_answers', $first_answers );
-        update_post_meta($post_id, 'second_answers', $second_answers );
+        update_post_meta($post_id, 'questions', $_POST['questions'] );
+        update_post_meta($post_id, 'first_answers', $_POST['first_answers'] );
+        update_post_meta($post_id, 'second_answers', $_POST['second_answers'] );
+
+        // Saving chosen questions and answers
+        update_post_meta($post_id, 'chosen_question', $_POST['chosen_question'] );
+        update_post_meta($post_id, 'chosen_first_answer', $_POST['chosen_first_answer'] );
+        update_post_meta($post_id, 'chosen_second_answer', $_POST['chosen_second_answer'] );
     }
 }
 

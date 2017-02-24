@@ -3,6 +3,7 @@
   */
 
 div#basic-settings select,
+div#basic-settings #synonyms,
 div#basic-settings #steps {
     width: 100%;
 }

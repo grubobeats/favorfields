@@ -185,6 +185,13 @@ jQuery(document).ready(function($){
             .delay(1000)
             .removeClass('animated fadeOut')
             .hide()
+
+        $('.popup-extra-menu')
+            .removeClass('fadeIn')
+            .addClass('fadeOut')
+            .delay(1000)
+            .removeClass('animated fadeOut')
+            .hide()
     });
 
     /*
@@ -207,9 +214,36 @@ jQuery(document).ready(function($){
      */
     $('.question_sugestion').keyup(function () {
         var questionText = $(this).val(),
-            thisQuestion = $(this).parent().parent().parent().parent().parent().find('span');
+            thisQuestion = $(this).parent().parent().parent().parent().parent().find('span'),
+            maximumCharacters = 333;
 
-        $(thisQuestion).html(questionText);
+        if( $(this).val().length <= maximumCharacters ) {
+            $(thisQuestion).html(questionText);
+        } else {
+            alert("To many characters.");
+        }
+
+    });
+
+    /*
+        Limiting maximum number of characters in questions
+     */
+    var maximumNumberOfCharacters = 333;
+    $('.fake-input').keyup(function(){
+       if( $(this).html().length >= maximumNumberOfCharacters ) {
+           alert("To many characters.");
+       }
+    });
+
+    /*
+        Extra menu opening
+     */
+    $('.popup-extra-menu').click(function(e){
+        e.stopPropagation();
     })
 
+    $('.extra-menu li').click(function(e){
+        e.stopPropagation();
+        $(this).parent().next().fadeIn('slow');
+    });
 });

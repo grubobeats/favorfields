@@ -59,7 +59,7 @@ $prefix = is_singular('user_answers') ? "user_" : "";
                         <div class="wide-separator">
                             <i class="fa fa-heart question__like color-1" aria-hidden="true"></i>
 
-                            <div class="popup-suggest-question">
+                            <div class="popup-suggest-question background-color-1 box-shadow-color-1">
                                 <div class="row first">
                                     <div class="suggest__icon"><i class="fa fa-heart"></i></div>
                                     <div class="suggest__text">Love this!</div>
@@ -105,15 +105,30 @@ $prefix = is_singular('user_answers') ? "user_" : "";
                     <div class="extra-menu">
                         <ul>
                             <li>
-                                <div class="circle"></div>
+                                <div class="circle border-color-1"></div>
                             </li>
                             <li>
-                                <div class="circle"></div>
+                                <div class="circle border-color-1"></div>
                             </li>
                             <li>
-                                <div class="circle"></div>
+                                <div class="circle border-color-1"></div>
                             </li>
                         </ul>
+
+                        <div class="popup-extra-menu background-color-1 box-shadow-color-1">
+                            <div class="row first">
+                                <div class="suggest__icon"><i class="fa fa-heart"></i></div>
+                                <div class="suggest__text">
+                                    I plegde to take action on this today
+                                </div>
+                            </div>
+                            <div class="row second">
+                                <div class="suggest__icon"><i class="fa fa-plus-square"></i></div>
+                                <div class="suggest__text">
+                                    <p>I pledge to repeat this in 7 days</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="separator background-color-1"></div>
@@ -124,7 +139,7 @@ $prefix = is_singular('user_answers') ? "user_" : "";
     </div>
 
     <div class="popups">
-        <div class="prompt-save border-color-1">
+        <div class="prompt-save border-color-1 ">
             <?= $favorfields['prompt-save-wellgo']; ?>
             <button class="color-1 save-question-yes">Yes</button>
             <button class="color-1 save-question-no">No</button>
