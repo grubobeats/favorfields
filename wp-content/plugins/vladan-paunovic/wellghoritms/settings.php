@@ -108,6 +108,11 @@ class Wellgorithms_Settings {
                 ),
             ),
             array(
+                'id' => 'weight',
+                'label' => 'Weight (0-10)',
+                'type' => 'number',
+            ),
+            array(
                 'id' => 'synonyms',
                 'label' => 'Synonyms (comma separated)',
                 'type' => 'text',
