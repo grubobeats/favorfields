@@ -126,9 +126,6 @@ class Wellgorithms_Steps
             <?php for ($i=0; $i <= $number_of_steps; $i++) : ?>
                 <!-- Step #<?php print(1 + $i); ?> -->
                 <table class="steps">
-
-                    <? var_dump($chosen_questions[$i]) ?>
-
                     <tr>
                         <td colspan="3">
                             <h4 class="step_text">Step #<?php print(1 + $i); ?></h4>
