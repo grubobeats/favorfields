@@ -52,9 +52,7 @@ class Wellgorithms_Steps
     public function admin_footer()
     {
         ?><script>
-
         jQuery(document).ready(function($){
-
             // Coping values from eaxh question to it's select as a first option
            $('.questions').keyup(function(){
                var selectBox = $(this)
@@ -67,7 +65,7 @@ class Wellgorithms_Steps
                    .first();
 
                $(selectBox).val( $(this).val() );
-           })
+           });
 
            $('.first_answer').keyup(function(){
                var selectBoxAnswerOne = $(this)
@@ -96,7 +94,6 @@ class Wellgorithms_Steps
             });
 
         });
-
     </script>
         <?php
     }

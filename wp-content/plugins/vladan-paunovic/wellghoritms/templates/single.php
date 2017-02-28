@@ -12,6 +12,9 @@ require_once 'header.php';
 $number_of_questions = count(array_filter($welgorithm['questions']));
 $counter = 1;
 $prefix = is_singular('user_answers') ? "user_" : "";
+$def_questions = is_singular('user_answers') ? "user_questions" : "chosen_question";
+$def_first_answers = is_singular('user_answers') ? "user_first_answers" : "chosen_first_answer";
+$def_second_answers = is_singular('user_answers') ? "user_second_answers" : "chosen_second_answer";
 ?>
 <script>
     var all_steps = <?= $welgorithm[ $prefix . 'basic_settings_steps' ][0]; ?>;
@@ -53,7 +56,7 @@ $prefix = is_singular('user_answers') ? "user_" : "";
                     <div class="question">
                         <div class="wide-separator"></div>
                         <span class="color-3">
-                            <?= $welgorithm['chosen_question'][$i]; ?>
+                            <?= $welgorithm[$def_questions][$i]; ?>
                         </span>
 
                         <div class="wide-separator">
@@ -84,7 +87,7 @@ $prefix = is_singular('user_answers') ? "user_" : "";
                         </div>
                         <div class="answer__input">
                             <div>
-                                <div contenteditable="true" class="fake-input border-color-1"><?= $welgorithm['chosen_first_answer'][$i]; ?></div>
+                                <div contenteditable="true" class="fake-input border-color-1"><?= $welgorithm[$def_first_answers][$i]; ?></div>
                             </div>
                         </div>
                     </div>
@@ -98,7 +101,7 @@ $prefix = is_singular('user_answers') ? "user_" : "";
                         </div>
                         <div class="answer__input">
                             <div>
-                                <div contenteditable="true" class="fake-input border-color-1"><?= $welgorithm['chosen_second_answer'][$i]; ?></div>
+                                <div contenteditable="true" class="fake-input border-color-1"><?= $welgorithm[$def_second_answers][$i]; ?></div>
                             </div>
                         </div>
                     </div>

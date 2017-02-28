@@ -16,16 +16,20 @@ $question_height: 748px;
   background: transparentize($light_blue, 0.8);
 
   #header {
-    height: 58px;
+    height: 50px;
+    padding: 0;
+    border-bottom: 2px solid #464545;
 
     &.header-class {
       top: 47px;
 
       nav {
-        top: 58px;
+        top: 50px;
       }
     }
   }
+
+
 
   .banner-image {
     height: 400px;
@@ -45,49 +49,91 @@ $question_height: 748px;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      height:50px;
+      width: 1200px;
+      max-width: 1200px !important;
 
-      nav{
-        width: 30%;
-      }
+      .left-header {
+        display: flex;
+        align-items: center;
+        width:250px;
 
-      .wellgo-icon {
-        width: 10%;
-        position: absolute;
-        top: -50px;
-      }
+        .logo {
+          width: 26px;
+          height: auto;
+        }
 
-      .left-separator {
-        width: 0;
-      }
+        .wellgo-icon {
+          width: 100px;
+          position: relative;
+          margin:0 15px;
+        }
 
-      .logo {
-        width: 20%;
-        text-align: center;
-        display: flex !important;
-        flex-wrap: wrap;
-        justify-content: center;
+        .category {
+          font-family: 'Montserrat', sans-serif;
+          font-size: 13pt;
+          text-align: left;
+          font-weight: 700;
+          text-transform: uppercase;
+          opacity: 0.75;
+          color: #fff;
+          letter-spacing: 4px;
 
-        .symbol {
-          margin-right: 0 !important;
-          width: 100%;
-          display: flex !important;
-          justify-content: center;
-
-          img {
-            height: 20px !important;
+          &:after {
+            content: "TM";
+            font-size: 5pt;
+            font-family: 'Montserrat', sans-serif;
+            letter-spacing: 2px;
+            vertical-align: text-top;
           }
         }
       }
 
       .title {
         color: #ffffff;
-        font-size: 120%;
+        font-size: 25pt;
+        font-family: 'Montserrat', sans-serif;
+        letter-spacing: 2px;
+
+        &:after {
+          content: "CM";
+          font-size: 6pt;
+          font-family: 'Montserrat', sans-serif;
+          letter-spacing: 2px;
+          padding-left: 3px;
+          vertical-align: super;
+        }
       }
 
-      nav {
-        position: static !important;
+      .right-header {
         display: flex;
-        justify-content: flex-end;
+        align-items: center;
+        width:250px;
+
+        .user {
+          font-family: 'Montserrat', sans-serif;
+          text-align: right;
+          font-weight: 700;
+          font-size: 13pt;
+          text-transform: uppercase;
+          opacity: 0.75;
+          color: #fff;
+          letter-spacing: 4px;
+          width: 160px;
+        }
+
+        .user-logo {
+          width: 21px;
+          height: auto;
+          margin: 0 15px;
+        }
+
+        nav {
+          width: 35px;
+          position: static !important;
+          display: flex;
+          justify-content: flex-end;
+        }
       }
     }
 

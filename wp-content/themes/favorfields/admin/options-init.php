@@ -230,15 +230,40 @@
         'id'         => 'vp-header',
         'subsection' => true,
         'fields'     => array(
+
             array(
-                'id'       => 'logo',
+                'id'       => 'main-logo',
                 'type'     => 'media',
                 'url'      => true,
                 'title'    => __('Logo', 'redux-framework-demo'),
                 'desc'     => __('Basic media uploader with disabled URL input field.', 'redux-framework-demo'),
-                'subtitle' => __('Choose your logo here', 'redux-framework-demo'),
+                'subtitle' => __('Choose your main logo here', 'redux-framework-demo'),
                 'default'  => array(
                     'url'=>'http://favorfields.wpengine.com/wp-content/uploads/2017/02/logo-1.png'
+                ),
+            ),
+
+            array(
+                'id'       => 'logo',
+                'type'     => 'media',
+                'url'      => true,
+                'title'    => __('Mini logo for everywhere', 'redux-framework-demo'),
+                'desc'     => "",
+                'subtitle' => __('Choose your mini logo here', 'redux-framework-demo'),
+                'default'  => array(
+                    'url'=>'http://favorfields.wpengine.com/wp-content/uploads/2017/02/logo-1.png'
+                ),
+            ),
+
+            array(
+                'id'       => 'guest-avatar',
+                'type'     => 'media',
+                'url'      => true,
+                'title'    => __('Guest avatar', 'redux-framework-demo'),
+                'desc'     => "",
+                'subtitle' => __('Choose your guest avatar here', 'redux-framework-demo'),
+                'default'  => array(
+                    'url'=>'http://favorfields.com/wp-content/uploads/2017/02/mm9.png'
                 ),
             )
         )

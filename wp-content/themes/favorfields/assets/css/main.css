@@ -6,7 +6,7 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 /* Reset */
-@import url("https://fonts.googleapis.com/css?family=Lato:400,700,900");
+@import url("https://fonts.googleapis.com/css?family=Lato:400,700,900|Montserrat:400,700,900");
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
   margin: 0;
   padding: 0;
@@ -1960,10 +1960,10 @@ button,
             background-repeat: no-repeat;
             background-size: 2em 2em; }
           #header nav ul li a[href="#menu"]:before {
-            background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cstyle%3Eline %7B stroke-width: 8px%3B stroke: %23f2849e%3B %7D%3C/style%3E%3Cline x1='0' y1='25' x2='100' y2='25' /%3E%3Cline x1='0' y1='50' x2='100' y2='50' /%3E%3Cline x1='0' y1='75' x2='100' y2='75' /%3E%3C/svg%3E");
+            background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cstyle%3Eline %7B stroke-width: 8px%3B stroke: %23fff%3B %7D%3C/style%3E%3Cline x1='0' y1='25' x2='100' y2='25' /%3E%3Cline x1='0' y1='50' x2='100' y2='50' /%3E%3Cline x1='0' y1='75' x2='100' y2='75' /%3E%3C/svg%3E");
             opacity: 0; }
           #header nav ul li a[href="#menu"]:after {
-            background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cstyle%3Eline %7B stroke-width: 8px%3B stroke: %23585858%3B %7D%3C/style%3E%3Cline x1='0' y1='25' x2='100' y2='25' /%3E%3Cline x1='0' y1='50' x2='100' y2='50' /%3E%3Cline x1='0' y1='75' x2='100' y2='75' /%3E%3C/svg%3E");
+            background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cstyle%3Eline %7B stroke-width: 8px%3B stroke: %23fff%3B %7D%3C/style%3E%3Cline x1='0' y1='25' x2='100' y2='25' /%3E%3Cline x1='0' y1='50' x2='100' y2='50' /%3E%3Cline x1='0' y1='75' x2='100' y2='75' /%3E%3C/svg%3E");
             opacity: 1; }
           #header nav ul li a[href="#menu"]:hover:before {
             opacity: 1; }
@@ -2246,13 +2246,15 @@ body.is-menu-visible #menu {
   background: rgba(116, 191, 230, 0.2); }
   .wellgorithms-template-default #header,
   .user_answers-template-default #header {
-    height: 58px; }
+    height: 50px;
+    padding: 0;
+    border-bottom: 2px solid #464545; }
     .wellgorithms-template-default #header.header-class,
     .user_answers-template-default #header.header-class {
       top: 47px; }
       .wellgorithms-template-default #header.header-class nav,
       .user_answers-template-default #header.header-class nav {
-        top: 58px; }
+        top: 50px; }
   .wellgorithms-template-default .banner-image,
   .user_answers-template-default .banner-image {
     height: 400px;
@@ -2269,43 +2271,82 @@ body.is-menu-visible #menu {
     .user_answers-template-default .inner.top-bar {
       display: flex;
       align-items: center;
-      justify-content: space-between; }
-      .wellgorithms-template-default .inner.top-bar nav,
-      .user_answers-template-default .inner.top-bar nav {
-        width: 30%; }
-      .wellgorithms-template-default .inner.top-bar .wellgo-icon,
-      .user_answers-template-default .inner.top-bar .wellgo-icon {
-        width: 10%;
-        position: absolute;
-        top: -50px; }
-      .wellgorithms-template-default .inner.top-bar .left-separator,
-      .user_answers-template-default .inner.top-bar .left-separator {
-        width: 0; }
-      .wellgorithms-template-default .inner.top-bar .logo,
-      .user_answers-template-default .inner.top-bar .logo {
-        width: 20%;
-        text-align: center;
-        display: flex !important;
-        flex-wrap: wrap;
-        justify-content: center; }
-        .wellgorithms-template-default .inner.top-bar .logo .symbol,
-        .user_answers-template-default .inner.top-bar .logo .symbol {
-          margin-right: 0 !important;
-          width: 100%;
-          display: flex !important;
-          justify-content: center; }
-          .wellgorithms-template-default .inner.top-bar .logo .symbol img,
-          .user_answers-template-default .inner.top-bar .logo .symbol img {
-            height: 20px !important; }
+      justify-content: space-between;
+      height: 50px;
+      width: 1200px;
+      max-width: 1200px !important; }
+      .wellgorithms-template-default .inner.top-bar .left-header,
+      .user_answers-template-default .inner.top-bar .left-header {
+        display: flex;
+        align-items: center;
+        width: 250px; }
+        .wellgorithms-template-default .inner.top-bar .left-header .logo,
+        .user_answers-template-default .inner.top-bar .left-header .logo {
+          width: 26px;
+          height: auto; }
+        .wellgorithms-template-default .inner.top-bar .left-header .wellgo-icon,
+        .user_answers-template-default .inner.top-bar .left-header .wellgo-icon {
+          width: 100px;
+          position: relative;
+          margin: 0 15px; }
+        .wellgorithms-template-default .inner.top-bar .left-header .category,
+        .user_answers-template-default .inner.top-bar .left-header .category {
+          font-family: 'Montserrat', sans-serif;
+          font-size: 13pt;
+          text-align: left;
+          font-weight: 700;
+          text-transform: uppercase;
+          opacity: 0.75;
+          color: #fff;
+          letter-spacing: 4px; }
+          .wellgorithms-template-default .inner.top-bar .left-header .category:after,
+          .user_answers-template-default .inner.top-bar .left-header .category:after {
+            content: "TM";
+            font-size: 5pt;
+            font-family: 'Montserrat', sans-serif;
+            letter-spacing: 2px;
+            vertical-align: text-top; }
       .wellgorithms-template-default .inner.top-bar .title,
       .user_answers-template-default .inner.top-bar .title {
         color: #ffffff;
-        font-size: 120%; }
-      .wellgorithms-template-default .inner.top-bar nav,
-      .user_answers-template-default .inner.top-bar nav {
-        position: static !important;
+        font-size: 25pt;
+        font-family: 'Montserrat', sans-serif;
+        letter-spacing: 2px; }
+        .wellgorithms-template-default .inner.top-bar .title:after,
+        .user_answers-template-default .inner.top-bar .title:after {
+          content: "CM";
+          font-size: 6pt;
+          font-family: 'Montserrat', sans-serif;
+          letter-spacing: 2px;
+          padding-left: 3px;
+          vertical-align: super; }
+      .wellgorithms-template-default .inner.top-bar .right-header,
+      .user_answers-template-default .inner.top-bar .right-header {
         display: flex;
-        justify-content: flex-end; }
+        align-items: center;
+        width: 250px; }
+        .wellgorithms-template-default .inner.top-bar .right-header .user,
+        .user_answers-template-default .inner.top-bar .right-header .user {
+          font-family: 'Montserrat', sans-serif;
+          text-align: right;
+          font-weight: 700;
+          font-size: 13pt;
+          text-transform: uppercase;
+          opacity: 0.75;
+          color: #fff;
+          letter-spacing: 4px;
+          width: 160px; }
+        .wellgorithms-template-default .inner.top-bar .right-header .user-logo,
+        .user_answers-template-default .inner.top-bar .right-header .user-logo {
+          width: 21px;
+          height: auto;
+          margin: 0 15px; }
+        .wellgorithms-template-default .inner.top-bar .right-header nav,
+        .user_answers-template-default .inner.top-bar .right-header nav {
+          width: 35px;
+          position: static !important;
+          display: flex;
+          justify-content: flex-end; }
     .wellgorithms-template-default .inner .wellghoritm,
     .user_answers-template-default .inner .wellghoritm {
       height: 748px;

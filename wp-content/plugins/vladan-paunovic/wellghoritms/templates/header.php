@@ -16,10 +16,21 @@
     $welgorithm = $logic->getWellghoritm();
     $color_scheme = $welgorithm['basic_settings_color-template'][0];
     $category = get_the_category();
+    $category_name = ($category[0]->name == "Hellgo") ? "Hellgorithm" : "Wellgorithm";
     $color_1 = $logic->getColorTemplate($color_scheme, 'basic_settings_color-1');
     $color_2 = $logic->getColorTemplate($color_scheme, 'basic_settings_color-2');
     $color_3 = $logic->getColorTemplate($color_scheme, 'basic_settings_color-3');
     $color_4 = $logic->getColorTemplate($color_scheme, 'basic_settings_color-4');
+
+    $user = wp_get_current_user();
+    if ( $user->ID == 0 ) {
+        $username = "Guest";
+        $avatar = $favorfields['guest-avatar']['url'];
+    } else {
+        $username = $user->user_login;
+        $avatar = get_wp_user_avatar($user->ID, 96);
+    }
+
 ?>
 <head>
     <title><?php bloginfo( 'name' ); ?> - <?php bloginfo( 'description')?></title>
@@ -40,22 +51,25 @@
     <!-- Header -->
     <header id="header" class="header-class background-color-1">
         <div class="inner top-bar">
-            <div class="left-separator"></div>
-            <img src="<?= $welgorithm['basic_settings_icon'][0] ?>" alt="" class="wellgo-icon">
-            <!-- Logo -->
-            <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="logo">
-                <span class="symbol">
-                    <img src="<?= $favorfields['logo']['url'];?>" alt="" />
-                </span>
-                <span class="category"><?= $category[0]->name; ?></span>
-            </a>
+            <div class="left-header">
+                <img class="logo" src="<?= $favorfields['logo']['url'];?>" alt="" />
+                <img class="wellgo-icon" src="<?= $welgorithm['basic_settings_icon'][0] ?>" alt="" >
+                <span class="category"><?= $category_name; ?></span>
+            </div>
+
+
             <span class="title"><?= get_the_title(); ?></span>
-            <!-- Nav -->
-            <nav>
-                <ul>
-                    <li><a href="#menu">Menu</a></li>
-                </ul>
-            </nav>
+
+            <div class="right-header">
+                <div class="user"><?= $username ?></div>
+                <img class="user-logo" src="<?= $avatar; ?>" alt="">
+                <!-- Nav -->
+                <nav>
+                    <ul>
+                        <li><a href="#menu">Menu</a></li>
+                    </ul>
+                </nav>
+            </div>
         </div>
     </header>
 
