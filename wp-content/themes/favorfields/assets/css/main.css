@@ -2280,10 +2280,13 @@ body.is-menu-visible #menu {
         display: flex;
         align-items: center;
         width: 250px; }
-        .wellgorithms-template-default .inner.top-bar .left-header .logo,
-        .user_answers-template-default .inner.top-bar .left-header .logo {
-          width: 26px;
-          height: auto; }
+        .wellgorithms-template-default .inner.top-bar .left-header a,
+        .user_answers-template-default .inner.top-bar .left-header a {
+          border-bottom: none; }
+          .wellgorithms-template-default .inner.top-bar .left-header a .logo,
+          .user_answers-template-default .inner.top-bar .left-header a .logo {
+            width: 26px;
+            height: auto; }
         .wellgorithms-template-default .inner.top-bar .left-header .wellgo-icon,
         .user_answers-template-default .inner.top-bar .left-header .wellgo-icon {
           width: 100px;

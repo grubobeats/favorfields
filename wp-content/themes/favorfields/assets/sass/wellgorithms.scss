@@ -58,9 +58,13 @@ $question_height: 748px;
         align-items: center;
         width:250px;
 
-        .logo {
-          width: 26px;
-          height: auto;
+        a {
+          border-bottom: none;
+
+          .logo {
+            width: 26px;
+            height: auto;
+          }
         }
 
         .wellgo-icon {

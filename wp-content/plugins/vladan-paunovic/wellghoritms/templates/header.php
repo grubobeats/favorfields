@@ -52,7 +52,9 @@
     <header id="header" class="header-class background-color-1">
         <div class="inner top-bar">
             <div class="left-header">
-                <img class="logo" src="<?= $favorfields['logo']['url'];?>" alt="" />
+                <a href="<?php echo esc_url( home_url( '/' ) ); ?>">
+                    <img class="logo" src="<?= $favorfields['logo']['url'];?>" alt="" />
+                </a>
                 <img class="wellgo-icon" src="<?= $welgorithm['basic_settings_icon'][0] ?>" alt="" >
                 <span class="category"><?= $category_name; ?></span>
             </div>
