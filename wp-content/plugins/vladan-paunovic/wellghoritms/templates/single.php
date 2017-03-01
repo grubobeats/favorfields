@@ -15,12 +15,24 @@ $prefix = is_singular('user_answers') ? "user_" : "";
 $def_questions = is_singular('user_answers') ? "user_questions" : "chosen_question";
 $def_first_answers = is_singular('user_answers') ? "user_first_answers" : "chosen_first_answer";
 $def_second_answers = is_singular('user_answers') ? "user_second_answers" : "chosen_second_answer";
+$question_animations = ($category[0]->name == "Hellgo") ? "h_question-animations" : "question-animations";
+$hellgo_prefix = "";
+
+if ( $category[0]->name == "Hellgo" ) {
+    $hellgo_prefix = "h_";
+} elseif ( $category[0]->name == "Letgo" ) {
+    $hellgo_prefix = "l_";
+}
+
+
+
+
 ?>
 <script>
     var all_steps = <?= $welgorithm[ $prefix . 'basic_settings_steps' ][0]; ?>;
     var steps = <?= $number_of_questions; ?>;
     var maximum_steps = 3;
-    var question_animation = "<?= $favorfields[ $prefix . 'question-animation' ] ?>";
+    var question_animation = "<?= $favorfields[ $question_animations ] ?>";
     var ajaxurl = "<?= admin_url( 'admin-ajax.php' ) ?>";
     var permalink = "<?= get_permalink(); ?>";
     var user_id = "<?= get_current_user_id(); ?>";
@@ -118,18 +130,57 @@ $def_second_answers = is_singular('user_answers') ? "user_second_answers" : "cho
                             </li>
                         </ul>
 
-                        <div class="popup-extra-menu background-color-1 box-shadow-color-1">
-                            <div class="row first">
-                                <div class="suggest__icon"><i class="fa fa-heart"></i></div>
-                                <div class="suggest__text">
-                                    I plegde to take action on this today
-                                </div>
+                        <div class="popup-extra-menu left background-color-1 box-shadow-color-1">
+                            <div class="rows first">
+                                <?= $favorfields[$hellgo_prefix . 'wellgo_extra_menu_1']?>
                             </div>
-                            <div class="row second">
-                                <div class="suggest__icon"><i class="fa fa-plus-square"></i></div>
-                                <div class="suggest__text">
-                                    <p>I pledge to repeat this in 7 days</p>
-                                </div>
+                            <div class="rows">
+                                <?= $favorfields[$hellgo_prefix . 'wellgo_extra_menu_2']?>
+                            </div>
+                            <div class="rows">
+                                <?= $favorfields[$hellgo_prefix . 'wellgo_extra_menu_3']?>
+                            </div>
+                            <div class="rows">
+                                <?= $favorfields[$hellgo_prefix . 'wellgo_extra_menu_4']?>
+                            </div>
+                            <div class="rows">
+                                <textarea name="extra-menu-first[]" id="" placeholder="Enter # of days"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="popup-extra-menu middle background-color-1 box-shadow-color-1">
+                            <div class="rows first">
+                                <?= $favorfields[$hellgo_prefix . 'wellgo_extra_menu_1-2']?>
+                            </div>
+                            <div class="rows">
+                                <?= $favorfields[$hellgo_prefix . 'wellgo_extra_menu_2-2']?>
+                            </div>
+                            <div class="rows">
+                                <?= $favorfields[$hellgo_prefix . 'wellgo_extra_menu_3-2']?>
+                            </div>
+                            <div class="rows">
+                                <?= $favorfields[$hellgo_prefix . 'wellgo_extra_menu_4-2']?>
+                            </div>
+                            <div class="rows">
+                                <textarea name="extra-menu-first[]" id="" placeholder="Enter # of days"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="popup-extra-menu right background-color-1 box-shadow-color-1">
+                            <div class="rows first">
+                                <?= $favorfields[$hellgo_prefix . 'wellgo_extra_menu_1-3']?>
+                            </div>
+                            <div class="rows">
+                                <?= $favorfields[$hellgo_prefix . 'wellgo_extra_menu_2-3']?>
+                            </div>
+                            <div class="rows">
+                                <?= $favorfields[$hellgo_prefix . 'wellgo_extra_menu_3-3']?>
+                            </div>
+                            <div class="rows">
+                                <?= $favorfields[$hellgo_prefix . 'wellgo_extra_menu_4-3']?>
+                            </div>
+                            <div class="rows">
+                                <textarea name="extra-menu-first[]" id="" placeholder="Enter # of days"></textarea>
                             </div>
                         </div>
                     </div>

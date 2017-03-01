@@ -3,9 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="32f0cb7a-222c-4b04-be1e-da917e54017a" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/vladan-paunovic/js/wellgorithms.js" afterPath="$PROJECT_DIR$/wp-content/plugins/vladan-paunovic/js/wellgorithms.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/vladan-paunovic/wellghoritms/templates/header.php" afterPath="$PROJECT_DIR$/wp-content/plugins/vladan-paunovic/wellghoritms/templates/header.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/vladan-paunovic/wellghoritms/templates/single.php" afterPath="$PROJECT_DIR$/wp-content/plugins/vladan-paunovic/wellghoritms/templates/single.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/favorfields/admin/options-init.php" afterPath="$PROJECT_DIR$/wp-content/themes/favorfields/admin/options-init.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/favorfields/assets/css/main.css" afterPath="$PROJECT_DIR$/wp-content/themes/favorfields/assets/css/main.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/favorfields/assets/sass/layout/_header.scss" afterPath="$PROJECT_DIR$/wp-content/themes/favorfields/assets/sass/layout/_header.scss" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/favorfields/assets/sass/wellgorithms.scss" afterPath="$PROJECT_DIR$/wp-content/themes/favorfields/assets/sass/wellgorithms.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/favorfields/header.php" afterPath="$PROJECT_DIR$/wp-content/themes/favorfields/header.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -31,32 +36,41 @@
       <file leaf-file-name="wellgorithms.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wp-content/plugins/vladan-paunovic/js/wellgorithms.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="305">
-              <caret line="169" column="7" lean-forward="false" selection-start-line="169" selection-start-column="7" selection-end-line="169" selection-end-column="7" />
+            <state relative-caret-position="430">
+              <caret line="237" column="25" lean-forward="false" selection-start-line="237" selection-start-column="25" selection-end-line="237" selection-end-column="25" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="single.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="single.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wp-content/plugins/vladan-paunovic/wellghoritms/templates/single.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="17" lean-forward="false" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+            <state relative-caret-position="270">
+              <caret line="18" column="17" lean-forward="false" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="17" />
               <folding>
                 <element signature="e#6#162#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="header.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/wp-content/plugins/vladan-paunovic/wellghoritms/templates/header.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="191">
-              <caret line="54" column="66" lean-forward="false" selection-start-line="54" selection-start-column="66" selection-end-line="54" selection-end-column="66" />
-              <folding>
-                <marker date="1488311139000" expanded="true" signature="1193:1295" ph="..." />
+                <marker date="1488380658000" expanded="true" signature="4493:4606" ph="..." />
+                <marker date="1488380658000" expanded="true" signature="4689:4933" ph="..." />
+                <marker date="1488380658000" expanded="true" signature="4723:4902" ph="..." />
+                <marker date="1488380658000" expanded="true" signature="5008:5313" ph="..." />
+                <marker date="1488380658000" expanded="true" signature="5060:5313" ph="..." />
+                <marker date="1488380658000" expanded="true" signature="5403:5516" ph="..." />
+                <marker date="1488380658000" expanded="true" signature="5599:5844" ph="..." />
+                <marker date="1488380658000" expanded="true" signature="5633:5813" ph="..." />
+                <marker date="1488380658000" expanded="true" signature="5916:9522" ph="..." />
+                <marker date="1488380658000" expanded="true" signature="5945:6398" ph="..." />
+                <marker date="1488380658000" expanded="true" signature="5978:6086" ph="..." />
+                <marker date="1488380658000" expanded="true" signature="6119:6227" ph="..." />
+                <marker date="1488380658000" expanded="true" signature="6260:6368" ph="..." />
+                <marker date="1488380658000" expanded="true" signature="6497:7424" ph="..." />
+                <marker date="1488380658000" expanded="true" signature="6550:6676" ph="..." />
+                <marker date="1488380658000" expanded="true" signature="6723:6849" ph="..." />
+                <marker date="1488380658000" expanded="true" signature="6896:7022" ph="..." />
+                <marker date="1488380658000" expanded="true" signature="7069:7195" ph="..." />
+                <marker date="1488380658000" expanded="true" signature="7242:7393" ph="..." />
+                <marker date="1488380658000" expanded="true" signature="9736:9816" ph="..." />
+                <marker date="1488380658000" expanded="true" signature="9786:9816" ph="..." />
               </folding>
             </state>
           </provider>
@@ -65,8 +79,8 @@
       <file leaf-file-name="wellgorithms.scss" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wp-content/themes/favorfields/assets/sass/wellgorithms.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="61" column="29" lean-forward="false" selection-start-line="61" selection-start-column="29" selection-end-line="61" selection-end-column="29" />
+            <state relative-caret-position="454">
+              <caret line="483" column="0" lean-forward="false" selection-start-line="483" selection-start-column="0" selection-end-line="483" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -75,38 +89,8 @@
       <file leaf-file-name="options-init.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wp-content/themes/favorfields/admin/options-init.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="508">
-              <caret line="254" column="18" lean-forward="false" selection-start-line="254" selection-start-column="18" selection-end-line="254" selection-end-column="18" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ie8.scss" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wp-content/themes/favorfields/assets/sass/ie8.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="63" column="20" lean-forward="false" selection-start-line="63" selection-start-column="20" selection-end-line="63" selection-end-column="20" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="_header.scss" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wp-content/themes/favorfields/assets/sass/layout/_header.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1695">
-              <caret line="113" column="214" lean-forward="false" selection-start-line="113" selection-start-column="214" selection-end-line="113" selection-end-column="214" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="custom.scss" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wp-content/themes/favorfields/assets/sass/custom/custom.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="22" lean-forward="false" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
+            <state relative-caret-position="330">
+              <caret line="588" column="39" lean-forward="false" selection-start-line="588" selection-start-column="39" selection-end-line="588" selection-end-column="39" />
               <folding />
             </state>
           </provider>
@@ -125,10 +109,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>var_</find>
-      <find>$fields</find>
-      <find>field</find>
-      <find>Wellgorithms_Settings</find>
       <find>var_dump</find>
       <find>global</find>
       <find>favor</find>
@@ -155,6 +135,10 @@
       <find>box-shad</find>
       <find>a[href=&quot;#menu&quot;</find>
       <find>get_wp_user_avatar</find>
+      <find>sep</find>
+      <find>fake</find>
+      <find>suggest__</find>
+      <find>000</find>
     </findStrings>
     <replaceStrings>
       <replace>jQuery(</replace>
@@ -189,7 +173,6 @@
         <option value="$PROJECT_DIR$/wp-content/plugins/vladan-paunovic/wellghoritms/vp_callback_steps.php" />
         <option value="$PROJECT_DIR$/wp-content/plugins/vladan-paunovic/wellghoritms/vp_callback_settings.php" />
         <option value="$PROJECT_DIR$/wp-content/plugins/vladan-paunovic/wellghoritms/Steps.php" />
-        <option value="$PROJECT_DIR$/wp-content/themes/favorfields/header.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/favorfields/footer.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/favorfields/assets/sass/main.scss" />
         <option value="$PROJECT_DIR$/wp-content/plugins/vladan-paunovic/algolia/custom-fields.php" />
@@ -209,18 +192,19 @@
         <option value="$PROJECT_DIR$/wp-content/plugins/vladan-paunovic/index.php" />
         <option value="$PROJECT_DIR$/wp-content/plugins/vladan-paunovic/css/color-templates.css" />
         <option value="$PROJECT_DIR$/wp-content/plugins/vladan-paunovic/color-templates/multiple-images.php" />
-        <option value="$PROJECT_DIR$/wp-content/plugins/vladan-paunovic/js/wellgorithms.js" />
         <option value="$PROJECT_DIR$/wp-content/plugins/vladan-paunovic/wellghoritms/settings.php" />
         <option value="$PROJECT_DIR$/wp-content/plugins/vladan-paunovic/css/style.css" />
         <option value="$PROJECT_DIR$/wp-content/plugins/vladan-paunovic/wellghoritms/steps.php" />
         <option value="$PROJECT_DIR$/wp-content/plugins/vladan-paunovic/wellghoritms/templates/logic.php" />
-        <option value="$PROJECT_DIR$/wp-content/plugins/vladan-paunovic/wellghoritms/templates/single.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/favorfields/assets/sass/custom/custom.scss" />
-        <option value="$PROJECT_DIR$/wp-content/themes/favorfields/assets/sass/layout/_header.scss" />
-        <option value="$PROJECT_DIR$/wp-content/themes/favorfields/admin/options-init.php" />
         <option value="$PROJECT_DIR$/wp-content/plugins/wp-user-avatar/includes/class-wp-user-avatar-functions.php" />
+        <option value="$PROJECT_DIR$/wp-content/themes/favorfields/header.php" />
+        <option value="$PROJECT_DIR$/wp-content/themes/favorfields/assets/sass/layout/_header.scss" />
         <option value="$PROJECT_DIR$/wp-content/themes/favorfields/assets/sass/wellgorithms.scss" />
         <option value="$PROJECT_DIR$/wp-content/plugins/vladan-paunovic/wellghoritms/templates/header.php" />
+        <option value="$PROJECT_DIR$/wp-content/plugins/vladan-paunovic/js/wellgorithms.js" />
+        <option value="$PROJECT_DIR$/wp-content/themes/favorfields/admin/options-init.php" />
+        <option value="$PROJECT_DIR$/wp-content/plugins/vladan-paunovic/wellghoritms/templates/single.php" />
       </list>
     </option>
   </component>
@@ -346,6 +330,40 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="sass" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="favorfields-com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="favorfields-com" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wp-content" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="themes" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="favorfields" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sass" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="layout" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -626,7 +644,7 @@
     <property name="js.eslint.eslintPackage" value="" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
     <property name="list.type.of.created.stylesheet" value="SCSS" />
-    <property name="SearchEverywhereHistoryKey" value="header&#9;FILE&#9;file:///Users/vladan/Development/favorfields-com/wp-content/themes/favorfields/header.php&#10;single&#9;FILE&#9;file:///Users/vladan/Development/favorfields-com/wp-content/plugins/vladan-paunovic/wellghoritms/templates/single.php" />
+    <property name="SearchEverywhereHistoryKey" value="steps&#9;FILE&#9;file:///Users/vladan/Development/favorfields-com/wp-content/plugins/vladan-paunovic/wellghoritms/steps.php&#10;header&#9;FILE&#9;file:///Users/vladan/Development/favorfields-com/wp-content/themes/favorfields/header.php&#10;single&#9;FILE&#9;file:///Users/vladan/Development/favorfields-com/wp-content/plugins/vladan-paunovic/wellghoritms/templates/single.php" />
     <property name="FullScreen" value="true" />
   </component>
   <component name="RecentsManager">
@@ -726,27 +744,27 @@
       <workItem from="1487660288608" duration="38310000" />
       <workItem from="1488223585039" duration="1000" />
       <workItem from="1488223610968" duration="686000" />
-      <workItem from="1488292638820" duration="6629000" />
+      <workItem from="1488292638820" duration="7116000" />
+      <workItem from="1488371170517" duration="7388000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="139044000" />
+    <option name="totallyTimeSpent" value="146919000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21184371" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13064714" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2789988" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17399268" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30510205" sideWeight="0.502442" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32967034" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32857144" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1367347" sideWeight="0.497558" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.13673232" sideWeight="0.497558" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5714286" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21632653" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.11938775" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -755,6 +773,7 @@
       <window_info id="Command Line Tools Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32959184" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32857144" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
     </layout>
@@ -1043,18 +1062,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/plugins/vladan-paunovic/wellghoritms/steps.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="795">
-          <caret line="53" column="18" lean-forward="false" selection-start-line="53" selection-start-column="18" selection-end-line="53" selection-end-column="18" />
-          <folding>
-            <marker date="1487925220000" expanded="true" signature="7901:7955" ph="SELECT * FRO... wp_postmeta" />
-            <marker date="1487925220000" expanded="true" signature="7901:7991" ph="SELECT * FRO... wp_postmeta" />
-            <marker date="1487925220000" expanded="true" signature="7901:8024" ph="SELECT `post... wp_postmeta" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/plugins/vladan-paunovic/user-answers/User_Answers.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1725">
@@ -1073,14 +1080,6 @@
             <marker date="1487926598000" expanded="true" signature="1003:1246" ph="SELECT * FRO... ${$wpdb-&gt;postmeta}" />
             <marker date="1487926598000" expanded="true" signature="1059:1180" ph="SELECT ID FR... ${$wpdb-&gt;posts}" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/plugins/vladan-paunovic/js/wellgorithms.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="305">
-          <caret line="169" column="7" lean-forward="false" selection-start-line="169" selection-start-column="7" selection-end-line="169" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1108,32 +1107,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/favorfields/assets/sass/layout/_header.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1695">
-          <caret line="113" column="214" lean-forward="false" selection-start-line="113" selection-start-column="214" selection-end-line="113" selection-end-column="214" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/plugins/vladan-paunovic/wellghoritms/templates/single.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="17" lean-forward="false" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
-          <folding>
-            <element signature="e#6#162#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/favorfields/admin/options-init.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="508">
-          <caret line="254" column="18" lean-forward="false" selection-start-line="254" selection-start-column="18" selection-end-line="254" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/plugins/wp-user-avatar/includes/wpua-functions.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="358">
@@ -1150,28 +1123,95 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/favorfields/assets/sass/layout/_header.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="199">
+          <caret line="60" column="27" lean-forward="false" selection-start-line="60" selection-start-column="27" selection-end-line="60" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/favorfields/header.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="313">
-          <caret line="32" column="21" lean-forward="true" selection-start-line="32" selection-start-column="21" selection-end-line="32" selection-end-column="62" />
+        <state relative-caret-position="210">
+          <caret line="22" column="1" lean-forward="false" selection-start-line="22" selection-start-column="1" selection-end-line="22" selection-end-column="1" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/plugins/vladan-paunovic/wellghoritms/steps.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="885">
+          <caret line="175" column="25" lean-forward="true" selection-start-line="175" selection-start-column="25" selection-end-line="175" selection-end-column="25" />
+          <folding>
+            <marker date="1487925220000" expanded="true" signature="7901:7955" ph="SELECT * FRO... wp_postmeta" />
+            <marker date="1487925220000" expanded="true" signature="7901:7991" ph="SELECT * FRO... wp_postmeta" />
+            <marker date="1487925220000" expanded="true" signature="7901:8024" ph="SELECT `post... wp_postmeta" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/favorfields/assets/sass/wellgorithms.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="61" column="29" lean-forward="false" selection-start-line="61" selection-start-column="29" selection-end-line="61" selection-end-column="29" />
+        <state relative-caret-position="454">
+          <caret line="483" column="0" lean-forward="false" selection-start-line="483" selection-start-column="0" selection-end-line="483" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/plugins/vladan-paunovic/wellghoritms/templates/header.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="54" column="66" lean-forward="false" selection-start-line="54" selection-start-column="66" selection-end-line="54" selection-end-column="66" />
+        <state relative-caret-position="180">
+          <caret line="24" column="4" lean-forward="true" selection-start-line="24" selection-start-column="4" selection-end-line="24" selection-end-column="86" />
           <folding>
-            <marker date="1488311139000" expanded="true" signature="1193:1295" ph="..." />
+            <marker date="1488379445000" expanded="true" signature="1195:1297" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/plugins/vladan-paunovic/js/wellgorithms.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="430">
+          <caret line="237" column="25" lean-forward="false" selection-start-line="237" selection-start-column="25" selection-end-line="237" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/favorfields/admin/options-init.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="588" column="39" lean-forward="false" selection-start-line="588" selection-start-column="39" selection-end-line="588" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/plugins/vladan-paunovic/wellghoritms/templates/single.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="17" lean-forward="false" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="17" />
+          <folding>
+            <element signature="e#6#162#0#PHP" expanded="true" />
+            <marker date="1488380658000" expanded="true" signature="4493:4606" ph="..." />
+            <marker date="1488380658000" expanded="true" signature="4689:4933" ph="..." />
+            <marker date="1488380658000" expanded="true" signature="4723:4902" ph="..." />
+            <marker date="1488380658000" expanded="true" signature="5008:5313" ph="..." />
+            <marker date="1488380658000" expanded="true" signature="5060:5313" ph="..." />
+            <marker date="1488380658000" expanded="true" signature="5403:5516" ph="..." />
+            <marker date="1488380658000" expanded="true" signature="5599:5844" ph="..." />
+            <marker date="1488380658000" expanded="true" signature="5633:5813" ph="..." />
+            <marker date="1488380658000" expanded="true" signature="5916:9522" ph="..." />
+            <marker date="1488380658000" expanded="true" signature="5945:6398" ph="..." />
+            <marker date="1488380658000" expanded="true" signature="5978:6086" ph="..." />
+            <marker date="1488380658000" expanded="true" signature="6119:6227" ph="..." />
+            <marker date="1488380658000" expanded="true" signature="6260:6368" ph="..." />
+            <marker date="1488380658000" expanded="true" signature="6497:7424" ph="..." />
+            <marker date="1488380658000" expanded="true" signature="6550:6676" ph="..." />
+            <marker date="1488380658000" expanded="true" signature="6723:6849" ph="..." />
+            <marker date="1488380658000" expanded="true" signature="6896:7022" ph="..." />
+            <marker date="1488380658000" expanded="true" signature="7069:7195" ph="..." />
+            <marker date="1488380658000" expanded="true" signature="7242:7393" ph="..." />
+            <marker date="1488380658000" expanded="true" signature="9736:9816" ph="..." />
+            <marker date="1488380658000" expanded="true" signature="9786:9816" ph="..." />
           </folding>
         </state>
       </provider>

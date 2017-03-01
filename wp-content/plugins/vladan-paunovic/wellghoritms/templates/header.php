@@ -15,12 +15,14 @@
     global $favorfields;
     $welgorithm = $logic->getWellghoritm();
     $color_scheme = $welgorithm['basic_settings_color-template'][0];
-    $category = get_the_category();
-    $category_name = ($category[0]->name == "Hellgo") ? "Hellgorithm" : "Wellgorithm";
+
     $color_1 = $logic->getColorTemplate($color_scheme, 'basic_settings_color-1');
     $color_2 = $logic->getColorTemplate($color_scheme, 'basic_settings_color-2');
     $color_3 = $logic->getColorTemplate($color_scheme, 'basic_settings_color-3');
     $color_4 = $logic->getColorTemplate($color_scheme, 'basic_settings_color-4');
+
+    $category = get_the_category();
+    $category_name = ($category[0]->name == "Hellgo") ? "Hellgorithm" : "Wellgorithm";
 
     $user = wp_get_current_user();
     if ( $user->ID == 0 ) {

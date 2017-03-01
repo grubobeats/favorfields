@@ -25,7 +25,7 @@ jQuery(document).ready(function($){
 
         if( step <= maximum_steps && percentage <= 100 ) {
             $('.outline .inside')
-                .html(percentage + "%")
+                .html( Math.floor( percentage ) + "%" )
                 .css('width', percentage + "%");
         }
     }
@@ -235,15 +235,26 @@ jQuery(document).ready(function($){
        }
     });
 
-    /*
-        Extra menu opening
-     */
+    // Extra menu opening
     $('.popup-extra-menu').click(function(e){
         e.stopPropagation();
     })
 
-    $('.extra-menu li').click(function(e){
+    // Extra menu opening: left
+    $('.extra-menu li').eq('0').click(function(e){
         e.stopPropagation();
         $(this).parent().next().fadeIn('slow');
+    });
+
+    // Extra menu opening: middle
+    $('.extra-menu li').eq('1').click(function(e){
+        e.stopPropagation();
+        $(this).parent().next().next().fadeIn('slow');
+    });
+
+    // Extra menu opening: right
+    $('.extra-menu li').eq('2').click(function(e){
+        e.stopPropagation();
+        $(this).parent().next().next().next().fadeIn('slow');
     });
 });

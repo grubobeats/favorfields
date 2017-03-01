@@ -11,7 +11,17 @@
 
 ?><!DOCTYPE HTML>
 <html <?php language_attributes(); ?>>
-<?php global $favorfields; ?>
+<?php
+global $favorfields;
+$user = wp_get_current_user();
+if ( $user->ID == 0 ) {
+    $username = "Guest";
+    $avatar = $favorfields['guest-avatar']['url'];
+} else {
+    $username = $user->user_login;
+    $avatar = get_wp_user_avatar($user->ID, 96);
+}
+?>
 <head>
     <title><?php bloginfo( 'name' ); ?> - <?php bloginfo( 'description')?></title>
     <meta charset="<?php bloginfo( 'charset' ); ?>">
@@ -25,22 +35,29 @@
 <!-- Wrapper -->
 <div id="wrapper">
 
-    <!-- Header -->
-    <header id="header" <?php if( is_singular( 'wellghoritms' ) ) : ?> class="header-class" <?php endif; ?> >
-        <div class="inner">
+    <header id="header" class="header-class homepage background-color-1">
+        <div class="inner top-bar">
+            <div class="left-header">
+                <a href="<?php echo esc_url( home_url( '/' ) ); ?>">
+                    <img class="logo" src="<?= $favorfields['logo']['url'];?>" alt="<?php bloginfo( 'description')?>" />
+                </a>
+                <img class="main-logo" src="<?= $favorfields['main-logo']['url'] ?>" alt="<?php bloginfo( 'description')?>" >
+                <span class="category"><?= $category_name; ?></span>
+            </div>
 
-            <!-- Logo -->
-            <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="logo">
-                <span class="symbol"><img src="<?= $favorfields['logo']['url'];?>" alt="" /></span><span class="title"><?php bloginfo( 'description')?></span>
-            </a>
 
-            <!-- Nav -->
-            <nav>
-                <ul>
-                    <li><a href="#menu">Menu</a></li>
-                </ul>
-            </nav>
+            <span class="title"><?php bloginfo( 'description')?></span>
 
+            <div class="right-header">
+                <div class="user"><?= $username ?></div>
+                <img class="user-logo" src="<?= $avatar; ?>" alt="">
+                <!-- Nav -->
+                <nav>
+                    <ul>
+                        <li><a href="#menu">Menu</a></li>
+                    </ul>
+                </nav>
+            </div>
         </div>
     </header>
 
