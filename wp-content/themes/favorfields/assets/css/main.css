@@ -2682,3 +2682,42 @@ body.is-menu-visible #menu {
       .popup-extra-menu .rows textarea:focus {
         border-bottom: 0;
         box-shadow: none; }
+
+.no-results {
+  text-align: center;
+  font-weight: 500;
+  font-size: 26px;
+  padding-top: 120px; }
+
+.search-panel {
+  background: white;
+  height: 600px;
+  border: solid #74bfe6;
+  padding: 10px;
+  border-width: 0 20px 20px 20px; }
+  .search-panel #hits {
+    float: none;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+    height: 560px;
+    overflow: scroll;
+    min-height: 300px;
+    padding: 10px; }
+    .search-panel #hits .hit {
+      width: 30%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 10px;
+      height: 260px; }
+      .search-panel #hits .hit .image-attribute {
+        width: 80%;
+        margin: 0; }
+      .search-panel #hits .hit .primary-attribute {
+        text-align: center;
+        font-size: 21px;
+        padding: 0; }
+        .search-panel #hits .hit .primary-attribute a {
+          border: none; }

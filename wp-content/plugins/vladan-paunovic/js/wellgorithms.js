@@ -73,9 +73,9 @@ jQuery(document).ready(function($){
         if(maximum_steps > step) {
             $('html, body').animate(
                 {
-                    scrollTop: $(wellghoritm).next().offset().top
+                    scrollTop: $(wellghoritm).next().offset().top - 70
                 },
-                1600);
+                1000);
         } else {
             // Check if user changed more than 10 letters
             if( keypress_counter > 10 ) {

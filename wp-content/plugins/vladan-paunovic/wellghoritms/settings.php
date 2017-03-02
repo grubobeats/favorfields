@@ -72,10 +72,11 @@ class Wellgorithms_Settings {
                 'type' => 'select',
                 'options' => array(
                     'Sunshine',
-                    'Cloudy',
-                    'Rainy',
-                    'Thunderstorm',
+                    'Storm',
                     'Rainbow',
+                    'Rain',
+                    'Partly_sunny',
+                    'Clouds',
                 ),
             ),
             array(

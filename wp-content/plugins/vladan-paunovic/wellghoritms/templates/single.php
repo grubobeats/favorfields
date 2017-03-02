@@ -17,7 +17,6 @@ $def_first_answers = is_singular('user_answers') ? "user_first_answers" : "chose
 $def_second_answers = is_singular('user_answers') ? "user_second_answers" : "chosen_second_answer";
 $question_animations = ($category[0]->name == "Hellgo") ? "h_question-animations" : "question-animations";
 $hellgo_prefix = "";
-
 if ( $category[0]->name == "Hellgo" ) {
     $hellgo_prefix = "h_";
 } elseif ( $category[0]->name == "Letgo" ) {

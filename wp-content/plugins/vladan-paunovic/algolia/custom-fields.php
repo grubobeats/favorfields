@@ -19,7 +19,11 @@ function my_post_attributes( array $attributes, WP_Post $post ) {
         // We only want to add an attribute for the 'speaker' post type.
         // Here the post isn't a 'speaker', so we return the attributes unaltered.
 
-        $attributes['vp_recommended_one'] = "this is recommended one";
+        $attributes['vp_icon'] = get_post_meta( $post->ID, 'basic_settings_icon' );
+        $attributes['vp_mood'] = get_post_meta( $post->ID, 'basic_settings_mood' );
+        $attributes['vp_level'] = get_post_meta( $post->ID, 'basic_settings_level' );
+        $attributes['vp_confidence'] = get_post_meta( $post->ID, 'basic_settings_confidence' );
+        $attributes['vp_recommended'] = get_post_meta( $post->ID, 'basic_settings_recommended' );
 
         return $attributes;
     }

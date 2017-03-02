@@ -132,6 +132,11 @@ function favorfields_scripts() {
 	wp_enqueue_script( 'favorfields-main', get_template_directory_uri() . '/js/main.js', array(), '20130115', true );
 	wp_enqueue_script( 'favorfields-font-awesome', 'https://use.fontawesome.com/795c526065.js', array(), '20130115', false );
 
+	// Scripts for algolia search
+//	wp_enqueue_script( 'favorfields-vue-js', 'https://cdnjs.cloudflare.com/ajax/libs/vue/2.2.1/vue.common.js', array(), '20130115', false );
+	wp_enqueue_script( 'favorfields-algolia_search', 'https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js', array(), '20130115', false );
+//	wp_enqueue_script( 'favorfields-algolia_search_helper', 'https://cdn.jsdelivr.net/g/algoliasearch@3(algoliasearchLite.min.js),algoliasearch.helper@2', array(), '20130115', false );
+	wp_enqueue_script( 'favorfields-algolia_search_custom', get_template_directory_uri() . '/js/algolia_search.js', array(), '20130115', false );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
