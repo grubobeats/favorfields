@@ -49,12 +49,8 @@ class Template_logic
             $images[] = $image->meta_value;
         }
 
-
         if ($random == true) {
-
             return $images[array_rand($images)];
-
-
         } else {
             return $images[0];
         }
@@ -80,6 +76,42 @@ class Template_logic
         $stored_data['user_second_answers'] = unserialize($stored_data['user_second_answers'][0]);
 
         return $stored_data;
+    }
+
+
+    /**
+     * Checking for custom wellgorithm if ti exists
+     */
+    public function checkForCustomWellgo(){
+
+        if ( is_singular('wellgorithms') ) {
+
+            global $wpdb;
+            $this_post_id = get_the_ID();
+            $this_user = get_current_user_id();
+
+            // check if there are user_answers connected with this user.
+            $user_answers = "SELECT * FROM wp_posts WHERE post_author = $this_user AND post_type = 'user_answers' AND post_status = 'publish'";
+            $gel_all_answers_for_this_user = $wpdb->get_results($user_answers);
+
+            if (count($gel_all_answers_for_this_user) > 0) {
+
+                foreach ($gel_all_answers_for_this_user as $answer) {
+                    $one_of_the_posts_id = $answer->ID;
+
+                    $list_wellgorithms = "SELECT * from wp_postmeta WHERE post_id   = $one_of_the_posts_id AND meta_key = 'user_basic_settings_related_wellgo'";
+                    $get_related_wellgo = $wpdb->get_results($list_wellgorithms);
+
+                    $redirect_to_id = $get_related_wellgo[0]->post_id;
+
+                    if ($this_post_id == $get_related_wellgo[0]->meta_value) {
+                        wp_redirect( get_permalink($redirect_to_id) );
+                        exit;
+                    }
+                }
+            }
+
+        }
     }
 
 }

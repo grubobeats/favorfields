@@ -40,12 +40,13 @@ function wellgorithms() {
         'filter_items_list'     => __( 'Filter Wellgorithms list', 'text_domain' ),
     );
     $args = array(
+        'query_var'             => true,
         'label'                 => __( 'Wellgorithm', 'text_domain' ),
         'description'           => __( 'Wellgorithm Description', 'text_domain' ),
         'labels'                => $labels,
         'supports'              => array( 'title', 'thumbnail', ),
         'taxonomies'            => array( 'category', 'post_tag' ),
-        'hierarchical'          => false,
+        'hierarchical'          => true,
         'public'                => true,
         'show_ui'               => true,
         'show_in_menu'          => true,

@@ -38,10 +38,23 @@ add_action( 'admin_print_styles', 'vp_admin_styles' );
  * @description: Getting page template
  */
 function get_templates( $original_template ) {
+
+
+
+    $current_fp = get_query_var('fpage');
+
     if ( is_singular( 'wellgorithms' ) || is_singular( 'user_answers' ) ) {
         wp_enqueue_style( 'vp_animate_css', 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css');
         wp_enqueue_script( 'vp_wellghoritms', plugins_url( 'js/wellgorithms.js', __FILE__ ), array(), '20130115', true );
-        return plugin_dir_path(__FILE__) . 'wellghoritms/templates/single.php';
+
+
+        if($current_fp == 'social') {
+            return plugin_dir_path(__FILE__) . 'wellghoritms/templates/social.php';
+        } else {
+            return plugin_dir_path(__FILE__) . 'wellghoritms/templates/single.php';
+        }
+
+
     } else {
         return $original_template;
     }

@@ -407,6 +407,7 @@ get_header(); ?>
                 $('#stats').empty().html('<h3 class="no-results">No resuluts matching this query.</h3>');;
                 $('#facets').empty();
                 $('#hits').empty();
+                $('#right_side').empty();
                 return;
             } else {
                 $('#stats').empty();
@@ -464,12 +465,14 @@ get_header(); ?>
                     for (var f in content.facets[facet]) {
                         facets.push([f, content.facets[facet][f]]);
                     }
+
                     facets.sort(function(a, b) { return a[1] < b[1] ? 1 : (a[1] > b[1] ? -1 : 0) });
 
                     res += '<li class="m-b-large">';
 
                     // Sorting data by facets
                     if ( facet == 'vp_mood' ) {
+
                         var vp_mood = res;
                         vp_mood += '<h3>Mood</h3>';
                         vp_mood += '<ol class="list-unstyled m-l">' +
@@ -556,6 +559,45 @@ get_header(); ?>
                             }).join('') +
                             '</ol>';
 
+                    }
+                    // Sorting data by facets: LEVEL
+                    else if ( facet == 'vp_level' ) {
+                        vp_mood += '<h3>Level</h3>';
+                        vp_mood += '<ol class="list-unstyled m-l">' +
+                            $.map(facets, function(v, i) {
+
+                                var $wrap = $('<div/>');
+                                var $el = $('<li/>');
+                                var $a = $('<a/>');
+
+                                $('#right_side').data(
+                                    escapeHTMLAttr(facet) + '-' + i,
+                                    {
+                                        name: facet,
+                                        value: v[0]
+                                    }
+                                );
+
+
+                                $el.addClass(refinements[facet + ':' + v[0]] ? 'active' : '');
+                                $a.html( v[0] );
+                                $a.attr('href', '#');
+                                $a.addClass('facet-value');
+                                $a.attr('data-facet-name', escapeHTMLAttr(facet));
+                                $a.attr('data-facet-index', i);
+
+
+                                $el.append(
+                                    $('<span/>').append($a)
+                                ).append(v[1]);
+
+                                $wrap.append($el);
+
+                                return $wrap.html();
+
+                            }).join('') +
+                            '</ol>';
+
                     } else {
                         res += '<h3>' + capitalize(stripTags(facet)).replace(/_/g, ' ') + '</h3>';
                         res += '<ol class="list-unstyled m-l">' +
@@ -618,7 +660,7 @@ get_header(); ?>
                 }
             }
             index.search($("#inputfield input").val(), {
-                hitsPerPage: 10,
+                hitsPerPage: 6,
                 facets: '*',
                 maxValuesPerFacet: 10,
                 facetFilters: facetFilters

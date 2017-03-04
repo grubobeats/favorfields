@@ -25,25 +25,26 @@ if ( $category[0]->name == "Hellgo" ) {
 $logic->checkForCustomWellgo();
 
 ?>
-<script>
-    var all_steps = <?= $welgorithm[ $prefix . 'basic_settings_steps' ][0]; ?>;
-    var steps = <?= $number_of_questions; ?>;
-    var maximum_steps = 3;
-    var question_animation = "<?= $favorfields[ $question_animations ] ?>";
-    var ajaxurl = "<?= admin_url( 'admin-ajax.php' ) ?>";
-    var permalink = "<?= get_permalink(); ?>";
-    var user_id = "<?= get_current_user_id(); ?>";
-    var title = "<?= get_the_title(); ?>";
-    var icon = "<?= $welgorithm[ $prefix . 'basic_settings_icon' ][0] ?>";
-    var color_template = "<?= $color_scheme ?>";
-    var mood = "<?= $welgorithm[ $prefix . 'basic_settings_mood' ][0] ?>";
-    var level = "<?= $welgorithm[ $prefix . 'basic_settings_level' ][0] ?>";
-    var confidence = "<?= $welgorithm[ $prefix . 'basic_settings_confidence' ][0] ?>";
-    var recommended = "<?= $welgorithm[ $prefix . 'basic_settings_recommended' ][0] ?>";
-    var post_id = "<?= get_the_ID() ?>";
-</script>
+    <script>
+        var all_steps = <?= $welgorithm[ $prefix . 'basic_settings_steps' ][0]; ?>;
+        var steps = <?= $number_of_questions; ?>;
+        var maximum_steps = 3;
+        var question_animation = "<?= $favorfields[ $question_animations ] ?>";
+        var ajaxurl = "<?= admin_url( 'admin-ajax.php' ) ?>";
+        var permalink = "<?= get_permalink(); ?>";
+        var user_id = "<?= get_current_user_id(); ?>";
+        var title = "<?= get_the_title(); ?>";
+        var icon = "<?= $welgorithm[ $prefix . 'basic_settings_icon' ][0] ?>";
+        var color_template = "<?= $color_scheme ?>";
+        var mood = "<?= $welgorithm[ $prefix . 'basic_settings_mood' ][0] ?>";
+        var level = "<?= $welgorithm[ $prefix . 'basic_settings_level' ][0] ?>";
+        var confidence = "<?= $welgorithm[ $prefix . 'basic_settings_confidence' ][0] ?>";
+        var recommended = "<?= $welgorithm[ $prefix . 'basic_settings_recommended' ][0] ?>";
+        var post_id = "<?= get_the_ID() ?>";
+    </script>
     <!-- Main -->
     <div id="main">
+        <h1>SOCIAL MODE</h1>
         <div class="banner-image border-color-1">
             <img src="<?= $logic->getRandomImage($color_scheme, true) ?>" alt="">
         </div>
