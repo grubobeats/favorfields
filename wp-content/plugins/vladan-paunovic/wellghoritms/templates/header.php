@@ -14,7 +14,11 @@
 <?php
     global $favorfields;
     $welgorithm = $logic->getWellghoritm();
-    $color_scheme = $welgorithm['basic_settings_color-template'][0];
+
+
+    $ct_prefix = is_singular('user_answers') ? "user_" : "";
+
+    $color_scheme = $welgorithm[$ct_prefix.'basic_settings_color-template'][0];
 
     $color_1 = $logic->getColorTemplate($color_scheme, 'basic_settings_color-1');
     $color_2 = $logic->getColorTemplate($color_scheme, 'basic_settings_color-2');
