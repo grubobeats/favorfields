@@ -22,8 +22,10 @@ function my_post_attributes( array $attributes, WP_Post $post ) {
         $attributes['vp_icon'] = get_post_meta( $post->ID, 'basic_settings_icon' );
         $attributes['vp_mood'] = get_post_meta( $post->ID, 'basic_settings_mood' );
         $attributes['vp_level'] = get_post_meta( $post->ID, 'basic_settings_level' );
-        $attributes['vp_confidence'] = get_post_meta( $post->ID, 'basic_settings_confidence' );
+        $attributes['vp_confidence'] = array_map( 'intval', get_post_meta( $post->ID, 'basic_settings_confidence' ) );
         $attributes['vp_recommended'] = get_post_meta( $post->ID, 'basic_settings_recommended' );
+        $attributes['vp_weight'] = get_post_meta( $post->ID, 'basic_settings_weight' );
+        $attributes['vp_synonyms'] = get_post_meta( $post->ID, 'basic_settings_synonyms' );
 
         return $attributes;
     }
@@ -35,6 +37,8 @@ function my_post_attributes( array $attributes, WP_Post $post ) {
     $attributes['vp_level'] = get_post_meta( $post->ID, 'basic_settings_level' );
     $attributes['vp_confidence'] = get_post_meta( $post->ID, 'basic_settings_confidence' );
     $attributes['vp_recommended'] = get_post_meta( $post->ID, 'basic_settings_recommended' );
+    $attributes['vp_weight'] = get_post_meta( $post->ID, 'basic_settings_weight' );
+    $attributes['vp_synonyms'] = get_post_meta( $post->ID, 'basic_settings_synonyms' );
 
     // Always return the value we are filtering.
     return $attributes;

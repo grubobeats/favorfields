@@ -89,6 +89,7 @@ class Wellgorithms_Settings {
                     '3',
                 ),
             ),
+            /*
             array(
                 'id' => 'confidence',
                 'label' => 'Confidence',
@@ -98,6 +99,12 @@ class Wellgorithms_Settings {
                     'Middle',
                     'Free',
                 ),
+            ),
+            */
+            array(
+                'id' => 'confidence',
+                'label' => 'Confidence (0-10)',
+                'type' => 'number',
             ),
             array(
                 'id' => 'recommended',
@@ -203,21 +210,49 @@ class Wellgorithms_Settings {
                     );
                     break;
                 case 'select':
-                    $input = sprintf(
-                        '<select id="%s" name="%s">',
-                        $field['id'],
-                        $field['id']
-                    );
-                    foreach ( $field['options'] as $key => $value ) {
-                        $field_value = $value;
-                        $input .= sprintf(
-                            '<option %s value="%s" >%s</option>',
-                            $db_value === $field_value ? 'selected' : '',
-                            $field_value,
-                            $value
+
+                    if($field['id'] == 'confidence_tmp') {
+                        $input = sprintf(
+                            '<select id="%s" name="%s">',
+                            $field['id'],
+                            $field['id']
                         );
+
+                        $counter = 1;
+
+                        foreach ( $field['options'] as $key => $value ) {
+                            $field_value = $counter;
+                            $input .= sprintf(
+                                '<option %s value="%s" >%s</option>',
+                                (int) $db_value === (int) $field_value ? "selected" : "",
+                                $field_value,
+                                $value
+                            );
+                            $counter++;
+                        }
+                        $input .= '</select>';
+                    } else {
+                        $input = sprintf(
+                            '<select id="%s" name="%s">',
+                            $field['id'],
+                            $field['id']
+                        );
+                        foreach ( $field['options'] as $key => $value ) {
+                            $field_value = $value;
+                            $input .= sprintf(
+                                '<option %s value="%s" >%s</option>',
+                                $db_value === $field_value ? 'selected' : '',
+                                $field_value,
+                                $value
+                            );
+                        }
+                        $input .= '</select>';
                     }
-                    $input .= '</select>';
+
+
+
+
+
                     break;
                 default:
                     $input = sprintf(
