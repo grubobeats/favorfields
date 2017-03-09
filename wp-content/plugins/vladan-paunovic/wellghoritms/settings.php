@@ -211,7 +211,7 @@ class Wellgorithms_Settings {
                     break;
                 case 'select':
 
-                    if($field['id'] == 'confidence_tmp') {
+                    if($field['id'] == 'mood') {
                         $input = sprintf(
                             '<select id="%s" name="%s">',
                             $field['id'],
