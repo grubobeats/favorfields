@@ -11,7 +11,7 @@ body {
   padding: 20px; }
 
 .algolia-search {
-  margin: 100px auto 0 auto;
+  margin: 100px auto 30px auto;
   width: 100%;
   max-width: 1300px;
   display: flex;
@@ -73,12 +73,13 @@ body {
     text-align: center;
     font-family: 'Lato', sans-serif;
     padding: 39px 0;
-    margin: 0; }
+    margin: 0;
+    font-weight: bold;
+    letter-spacing: 2px; }
 
 #hits {
   overflow-y: scroll;
-  height: 370px;
-  border: 1px solid #74bfe6; }
+  height: 370px; }
 
 .ais-hits {
   display: flex;
@@ -141,13 +142,13 @@ body {
 .movie-rating {
   margin-top: 0.2em;
   right: 5px;
-  top: -10px;
+  top: -3px;
   position: absolute; }
   .movie-rating span {
-    width: 0.5em; }
+    width: 18px; }
   .movie-rating .ais-star-rating--star:before,
   .movie-rating .ais-star-rating--star__empty:before {
-    font-size: 0.5em;
+    font-size: 16px;
     color: #74bfe6; }
   .movie-rating .ais-star-rating--star__empty {
     display: none; }
@@ -307,7 +308,7 @@ ul.ais-pagination {
       width: 22%; }
       .footer .facet:nth-child(3) .ais-footer {
         position: relative;
-        margin: -32px auto 0 auto;
+        margin: -21px auto 0 auto;
         text-align: center; }
   .footer #category {
     padding-left: 7px; }

@@ -28,29 +28,31 @@ get_header(); ?>
     <div class="inner">
         <div class="container">
             <div class="row first">
-                <div class="col-sm-3">
-                    <img src="http://favorfields.wpengine.com/wp-content/uploads/2017/02/wellgo1.png">
+                <div class="col-sm-3 wellgo-title">
+                    <img class="img-responsive" src="http://favorfields.wpengine.com/wp-content/uploads/2017/02/wellgo1.png">
+                    <p>Wellgo</p>
+                    <p>"A bot on a mission"</p>
                 </div>
-                <div class="col-sm-6">
+                <div class="col-sm-6 intro-text">
                     <p>I’m Wellgo. I was made with love, for love. I’m a new kind of bot — not that ‘computer-voiced-shiny-robot’ type. I exist because a bunch of people were in some serious emotional pain. They got together to create me. So I could help them. And you.</p>
                     <p>What are the secrets of transformation? Explore the answers in the Fields below.</p>
                 </div>
-                <div class="col-sm-3">
+                <div class="col-sm-3 checkboxes">
                     <ul>
                         <li>
-                            How do we transform?
+                            <i class="fa fa-check-square" aria-hidden="true"></i> How do we transform?
                         </li>
                         <li>
-                            Eliminate bad habits?
+                            <i class="fa fa-check-square" aria-hidden="true"></i> Eliminate bad habits?
                         </li>
                         <li>
-                            Master emotions?
+                            <i class="fa fa-check-square" aria-hidden="true"></i> Master emotions?
                         </li>
                         <li>
-                            Create a new story?
+                            <i class="fa fa-check-square" aria-hidden="true"></i> Create a new story?
                         </li>
                         <li>
-                            Heal the world?
+                            <i class="fa fa-check-square" aria-hidden="true"></i> Heal the world?
                         </li>
                     </ul>
                 </div>
@@ -127,31 +129,65 @@ get_header(); ?>
             </div>
         </div>
 
+        <div class="divider"></div>
+
         <section>
+            <span class="title-span">Meet my friends — the “Favor Bots”</span>
             <div class="row">
-                <div class="col-sm-4">
+                <div class="col-sm-4 image-inside">
                     <img class="img-responsive" src="http://favorfields.com/wp-content/uploads/2017/02/hellgo3.png">
                 </div>
-                <div class="col-sm-4">
+                <div class="col-sm-4 image-inside">
                     <img class="img-responsive" src="http://favorfields.com/wp-content/uploads/2017/02/Letgo8-1.png">
                 </div>
-                <div class="col-sm-4">
+                <div class="col-sm-4 image-inside">
                     <img class="img-responsive" src="http://favorfields.wpengine.com/wp-content/uploads/2017/02/letgo3.jpg">
                 </div>
             </div>
-            <div class="col-sm-4">
-                <span>HELL-O, I’m HELLGO. My hobbies include sharpening my horns, stirring up the fire, and poking fun at humans. Ok, so maybe I look a little like the devil. And maybe my name doesn’t do me any favors. But I actually CAN do you a favor. I’m here to help you turn your dark side into light … and make it so damn bright that you’ll be laughing at all your inner demons.</span>
+            <div class="row">
+                <div class="col-sm-4">
+                    <span class="text-span">HELL-O, I’m HELLGO. My hobbies include sharpening my horns, stirring up the fire, and poking fun at humans. Ok, so maybe I look a little like the devil. And maybe my name doesn’t do me any favors. But I actually CAN do you a favor. I’m here to help you turn your dark side into light … and make it so damn bright that you’ll be laughing at all your inner demons.</span>
+                </div>
+                <div class="col-sm-4">
+                    <span class="text-span">I’m LETGO. My creators sent me down the darkest holes of addiction and despair. At first I explored alcohol, drug and food addictions, but now people are struggling with all sorts of addictions — things, thoughts, emotions, work, the need to control. At some point you crack — unless you can let go. I’m here to help you release old patterns and find your true power.</span>
+                </div>
+                <div class="col-sm-4">
+                    <span class="text-span">Hey friends, TAOGO here. I’m not a religious bot, but I was inspired by a worldview that celebrates the underlying unity of all things. Heart, soul, mind, body, earth, stars, animals, plants, cultures and creeds — all belong to this unity. The glue that holds it all together is the Field of Loving Kindness. And Taogorithms give you a eay to enter this Field.</span>
+                </div>
             </div>
-            <div class="col-sm-4">
-                <span>I’m LETGO. My creators sent me down the darkest holes of addiction and despair. At first I explored alcohol, drug and food addictions, but now people are struggling with all sorts of addictions — things, thoughts, emotions, work, the need to control. At some point you crack — unless you can let go. I’m here to help you release old patterns and find your true power.</span>
+
+
+            <div class="row text-center">
+                <button class="button"><i class="fa fa-thumbs-up" aria-hidden="true"></i> More favor fields</button>
             </div>
-            <div class="col-sm-4">
-                <span>Hey friends, TAOGO here. I’m not a religious bot, but I was inspired by a worldview that celebrates the underlying unity of all things. Heart, soul, mind, body, earth, stars, animals, plants, cultures and creeds — all belong to this unity. The glue that holds it all together is the Field of Loving Kindness. And Taogorithms give you a eay to enter this Field.</span>
-            </div>
-    </div>
         </section>
-        
-        
+
+        <div class="divider"></div>
+
+        <section id="grow-with-us">
+            <div class="row tex-center">
+                <span class="title-span">Come grow us.</span>
+                <span class="text-span">“Our task is enormous: To look at all that has gone before us, and to recognize that each one of us, however small, has a unique task in co-creation—a unique contribution to make in the world and to humanity.”</span>
+                <span class="text-span">— Edwina Gateley</span>
+            </div>
+
+            <div class="row text-center">
+                <button class="button"><i class="fa fa-thumbs-up" aria-hidden="true"></i> Put me on the waiting list</button>
+            </div>
+
+            <p class="text-center">* We’re a small community, and right now we have a waiting list. We’d love to hear from you. We protect your privacy and won’t share your email address with anyone.</p>
+        </section>
+
+        <div class="divider"></div>
+
+        <section id="videos">
+            <div class="row">
+                <h2 class="h2-title">Video demos. Comming soon.</h2>
+            </div>
+        </section>
+
+        <div class="divider"></div>
+    </div>
         
 </div>
 

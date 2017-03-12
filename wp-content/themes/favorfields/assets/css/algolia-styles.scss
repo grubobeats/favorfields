@@ -15,7 +15,7 @@ body {
 }
 
 .algolia-search {
-  margin: 100px auto 0 auto;
+  margin: 100px auto 30px auto;
   width: 100%;
   max-width: 1300px;
   display: flex;
@@ -95,6 +95,8 @@ body {
     font-family: 'Lato', sans-serif;
     padding: 39px 0;
     margin: 0;
+    font-weight: bold;
+    letter-spacing: 2px;
   }
 }
 
@@ -102,7 +104,7 @@ body {
   // flex: 1;
   overflow-y: scroll;
   height: 370px;
-  border: 1px solid $blue;
+  //border: 1px solid $blue;
 }
 
 .ais-hits {
@@ -180,18 +182,18 @@ body {
 .movie-rating {
   margin-top: 0.2em;
   right: 5px;
-  top: -10px;
+  top: -3px;
   position: absolute;
 
   span {
-    width: 0.5em;
+    width: 18px;
   }
 
   .ais-star-rating--star,
   .ais-star-rating--star__empty {
 
     &:before {
-      font-size: 0.5em;
+      font-size: 16px;
       color: $blue;
     }
   }
@@ -423,7 +425,7 @@ ul.ais-pagination {
 
       .ais-footer {
         position: relative;
-        margin: -32px auto 0 auto;
+        margin: -21px auto 0 auto;
         text-align: center;
       }
     }

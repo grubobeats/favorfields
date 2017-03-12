@@ -1,0 +1,109 @@
+.row {
+  &.first {
+    margin: 140px 0 -25px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+    .wellgo-title {
+
+      p {
+        font-family: $font_d;
+        color: $light_blue;
+        text-align: center;
+        font-weight: bold;
+        font-size: 19px;
+      }
+    }
+
+    .intro-text {
+
+      p {
+        font-family: $font_d;
+        font-size: 21px;
+        padding: 10px 0;
+      }
+    }
+
+    .checkboxes {
+      ul {
+        list-style: none;
+
+        li {
+          font-size: 19px;
+          font-weight: bold;
+          color: $light_blue;
+          font-family: $font_d;
+          padding: 10px 0;
+        }
+      }
+    }
+  }
+}
+
+#grow-with-us {
+
+  span {
+    &.text-span {
+      text-align: center;
+      font-size: 20px;
+      width:100%;
+      padding: 10px 110px;
+    }
+  }
+}
+
+
+.title-span {
+  display: block;
+  text-align: center;
+  padding: 15px;
+  margin-top: 80px;
+  font: bold 45px $font_d;
+  color: $light_blue;
+  width: 100%;
+}
+
+.divider {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 20px;
+  background: $light_blue;
+  margin: 20px 0;
+}
+
+.image-inside {
+
+  .img-responsive {
+    margin: 0 auto;
+    width: 60%;
+  }
+}
+
+.text-span {
+  font: 400 21px $font_d;
+  display: block;
+  margin-top: 15px;
+}
+
+.button {
+  float: none;
+  padding: 20px;
+  height: auto;
+  font: bold 16px $font_d;
+  margin: 30px 0 40px 0;
+  color: white !important;
+  background: $light_blue;
+  border: none;
+  box-shadow: none;
+}
+
+.h2-title {
+  padding: 100px 0 60px 0;
+  text-align: center;
+  width: 100%;
+  color: $light_blue;
+  font: bold 30px $font_d;
+}
