@@ -3,7 +3,7 @@
 
 var search = instantsearch({
     appId: 'T2B04QR9B0',
-    apiKey: '28985d34dee832a8f54db2e290beaec7',
+    apiKey: '09cfed2845a581f23909b7667f397f37',
     indexName: 'wp_posts_wellgorithms'
 });
 

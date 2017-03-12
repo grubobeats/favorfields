@@ -15,682 +15,284 @@
  */
 
 get_header(); ?>
+<script src="//cdn.jsdelivr.net/instantsearch.js/1/instantsearch.min.js"></script>
+<link href="//cdn.jsdelivr.net/instantsearch.js/1/instantsearch.min.css" rel="stylesheet" />
+<link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css" rel="stylesheet" />
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
 
 <!-- Main -->
 <div id="main">
     <div class="inner">
-        <?php
-
-        // TO SHOW THE PAGE CONTENTS
-        while ( have_posts() ) :
-            the_post();
-            the_content();
-
-        endwhile; //resetting the page loop
-
-        wp_reset_query(); //resetting the page query
-        ?>
-        <br><br><br>
-        <h1>How are you feeling?</h1>
-
-        <style>
-            .search-form {
-                margin: 0;
-                padding: 0;
-                border: 0;
-                outline: 0;
-                font-size: 100%;
-                vertical-align: baseline;
-                background: transparent;
-                display: block;
-                line-height: normal;
-                color: #333;
-            }
-
-            .search-box-wrapper {
-                padding: 20px 100px 20px;
-                font-size: 1em;
-                background-color: #74bfe6;
-                max-width: 100%;
-                margin: 0px auto 0px auto;
-            }
-
-            .search-box {
-                margin: 0px 0 0 0;
-                padding: 0 0 0 50px;
-                position: relative;
-            }
-
-            #inputfield {
-                margin-right: 56px;
-            }
-
-            #inputfield i {
-                font-size: 25px;
-                color: white;
-                position: absolute;
-                left: 0px;
-                bottom: 10px;
-            }
-
-            #inputfield input {
-                width: 500px;
-                height: 45px;
-                display: block;
-                border: none;
-                color: black;
-                font-size: 2em;
-                background-color: white;
-                margin: 0 auto;
-                border-radius: 30px;
-                text-align: center;
-                padding: 27px 33px;
-                box-shadow: none;
-            }
-            }
-            #inputfield input::-webkit-input-placeholder { color: #4A6B82; }
-            #inputfield input::-moz-placeholder { color: #4A6B82; } /* firefox 19+ */
-            #inputfield input:-ms-input-placeholder { color: #4A6B82; } /* ie */
-            #inputfield inputinput:-moz-placeholder { color: #4A6B82; }
-
-            #inputfield input:focus {
-                outline-width: 0px;
-            }
-
-            #facets {
-                float: left;
-            }
-
-            #facets li.active {
-                font-weight: bold;
-            }
-
-            #hits {
-                min-height: 800px;
-            }
-            .hit {
-                padding: 10px;
-                margin-bottom: -1px;
-                border: 1px solid #dedede;
-            }
-            .hit a{
-                color: #46AEDA;
-            }
-            .hit em {
-                font-size: 1em;
-                background-color: #F7FFBA;
-                font-style: normal;
-            }
-            .hit a em {
-                color: #2388B0;
-            }
-            .primary-attribute{
-                font-size: 1.4em;
-                font-weight: 600;
-                padding: .1em 0;
-                display: block;
-
-            }
-            .secondary-attribute{
-                font-size: 1em;
-                color: #666;
-                background-color: #eee;
-                display: inline-block;
-                font-style: italic;
-                padding: .05em .2em;
-                margin: .2em 0 0;
-                border-radius: 4px;
-            }
-            .tertiary-attribute{
-                font-size: 1.1em;
-                margin: .4em 0 1em;
-                color: #888;
-                display: block;
-            }
-            .others-attribute{
-                border-top: dotted 1px #eee;
-                padding: 20px 0;
-                margin: 0;
-                clear: both;
-                font-size: 0.9em;
-                color: #bbb;
-            }
-            .others-attribute dd{
-                color: #888;
-            }
-            .image-attribute{
-                float: left;
-                width: 80px;
-                min-height: 80px;
-                margin: 0 20px 10px 0;
-            }
-            .image-attribute img{
-                width: 100%;
-            }
-        </style>
-
-
-
-        <div class='search-box-wrapper'>
-            <div class='search-box'>
-                <div id='inputfield'>
-                    <input autocomplete='off' autocorrect='off' placeholder='I am feeling...' spellcheck='false' type='text'>
+        <div class="container">
+            <div class="row first">
+                <div class="col-sm-3">
+                    <img src="http://favorfields.wpengine.com/wp-content/uploads/2017/02/wellgo1.png">
+                </div>
+                <div class="col-sm-6">
+                    <p>I’m Wellgo. I was made with love, for love. I’m a new kind of bot — not that ‘computer-voiced-shiny-robot’ type. I exist because a bunch of people were in some serious emotional pain. They got together to create me. So I could help them. And you.</p>
+                    <p>What are the secrets of transformation? Explore the answers in the Fields below.</p>
+                </div>
+                <div class="col-sm-3">
+                    <ul>
+                        <li>
+                            How do we transform?
+                        </li>
+                        <li>
+                            Eliminate bad habits?
+                        </li>
+                        <li>
+                            Master emotions?
+                        </li>
+                        <li>
+                            Create a new story?
+                        </li>
+                        <li>
+                            Heal the world?
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
-        <section class='panel search-panel'>
-            <div class='panel-body'>
-                <div class='text-right' id='stats'></div>
-                <div id='facets'></div>
-                <div id='hits'></div>
-                <div id='right_side'></div>
+
+
+        <script id="movie" type="text/x-handlebars-template">
+            <article class="movie">
+                <img class="movie-image" src="{{ vp_icon }}" />
+                <div class="movie-meta">
+                    <a href="{{{ permalink }}}" class="movie-title">
+                        {{{ post_title }}}
+                    </a>
+
+                    <div class="movie-rating">
+                        {{#stars}}
+                        <span class="ais-star-rating--star{{^.}}__empty{{/.}}">
+          </span>
+                        {{/stars}}
+                    </div>
+
+                    <div class="movie-genres">
+                        {{#genre}}
+                        <div class="movie-genre">
+                            {{.}}
+                        </div>
+                        {{/genre}}
+                    </div>
+                </div>
+            </article>
+        </script>
+
+
+        <div class="algolia-search">
+            <div class="top">
+                <div class="input-container">
+                    <input type="text" id="search-box" />
+                    <div id="stats"></div>
+                </div>
             </div>
-        </section>
 
+            <div class="content">
+                <div class="facets">
+                    <div class="facet">
+                        <div class="facet-title">Focus</div>
+                        <div id="focus"></div>
+                    </div>
+                </div>
 
+                <div class="canvas">
+                    <h3 class="search__h3">Popular wellgorithms</h3>
+                    <div id="hits"></div>
+                    <div id="pagination"></div>
+                </div>
 
+                <div class="facets">
+                    <div class="facet">
+                        <div class="facet-title">Mood</div>
+                        <div id="mood"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer">
+                <div class="facet">
+                    <div id="category"></div>
+                </div>
+                <div class="facet">
+                    <div id="level"></div>
+                </div>
+                <div class="facet">
+                    <div id="confidence"></div>
+                </div>
+            </div>
+        </div>
+
+        <section>
+            <div class="row">
+                <div class="col-sm-4">
+                    <img class="img-responsive" src="http://favorfields.com/wp-content/uploads/2017/02/hellgo3.png">
+                </div>
+                <div class="col-sm-4">
+                    <img class="img-responsive" src="http://favorfields.com/wp-content/uploads/2017/02/Letgo8-1.png">
+                </div>
+                <div class="col-sm-4">
+                    <img class="img-responsive" src="http://favorfields.wpengine.com/wp-content/uploads/2017/02/letgo3.jpg">
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <span>HELL-O, I’m HELLGO. My hobbies include sharpening my horns, stirring up the fire, and poking fun at humans. Ok, so maybe I look a little like the devil. And maybe my name doesn’t do me any favors. But I actually CAN do you a favor. I’m here to help you turn your dark side into light … and make it so damn bright that you’ll be laughing at all your inner demons.</span>
+            </div>
+            <div class="col-sm-4">
+                <span>I’m LETGO. My creators sent me down the darkest holes of addiction and despair. At first I explored alcohol, drug and food addictions, but now people are struggling with all sorts of addictions — things, thoughts, emotions, work, the need to control. At some point you crack — unless you can let go. I’m here to help you release old patterns and find your true power.</span>
+            </div>
+            <div class="col-sm-4">
+                <span>Hey friends, TAOGO here. I’m not a religious bot, but I was inspired by a worldview that celebrates the underlying unity of all things. Heart, soul, mind, body, earth, stars, animals, plants, cultures and creeds — all belong to this unity. The glue that holds it all together is the Field of Loving Kindness. And Taogorithms give you a eay to enter this Field.</span>
+            </div>
     </div>
+        </section>
+        
+        
+        
 </div>
 
-<?php get_footer(); ?>
+    <script>
 
+        'use strict';
 
-<script>
-
-
-    jQuery(function($) {
-
-
-        // Helper
-        Number.prototype.number_with_delimiter = function(delimiter) {
-            var number = this + '', delimiter = delimiter || ',';
-            var split = number.split('.');
-            split[0] = split[0].replace(/(\d)(?=(\d\d\d)+(?!\d))/g, '$1' + delimiter);
-            return split.join('.');
-        };
-
-        // faceting global variables
-        var refinements = {};
-        function toggleRefinement(facet, value) {
-            var refine = facet + ':' + value;
-            refinements[refine] = !refinements[refine];
-            search();
-        }
-
-        // strip HTML tags + keep <em>, <p>, <b>, <i>, <u>, <strong>
-        function stripTags(v) {
-            return $('<textarea />').text(v).html()
-                .replace(/&lt;(\/)?(em|p|b|i|u|strong)&gt;/g, '<$1$2>');
-        }
-
-        var entityMap = {
-            '&': '&amp;',
-            '<': '&lt;',
-            '>': '&gt;',
-            '"': '&quot;',
-            "'": '&#39;',
-            '/': '&#x2F;',
-            '`': '&#x60;',
-            '=': '&#x3D;'
-        };
-
-        function escapeHTML (string) {
-            return String(string).replace(/[&<>"'`=\/]/g, function fromEntityMap (s) {
-                return entityMap[s];
-            });
-        }
-
-        function escapeHTMLAttr(str) {
-            return str
-                .replace(/"/g, '&quot;')
-                .replace(/'/g, '&quot;');
-        }
-
-        //helper attribute multiple (ie: categories)
-        function objToString(obj) {
-            var str = '';
-            for (var p in obj) {
-                if (obj.hasOwnProperty(p)) {
-                    str += str === '' ? '' : ' - ';
-                    str += obj[p];
-                }
-            }
-            return str;
-        }
-
-        // attribute to skip every time
-        var skip = [
-            'objectID',
-            '_highlightResult'
-        ];
-
-        // attribute to skip at the end since it can be multi-attribute
-        var attributeToSkip = [];
-        if ('post_title' !== ''){
-            attributeToSkip.push('post_title');
-        };
-        if ('' !== ''){
-            attributeToSkip.push('');
-        };
-        if ('' !== ''){
-            attributeToSkip.push('');
-        };
-
-        // retrieve all keys and remove skipped ones
-        function retrieveAllAttributes(hit){
-            var i = 0;
-            var allkeys = [];
-            iterate(hit, '' , allkeys);
-            for (var attr in attributeToSkip){
-                var s = allkeys.indexOf(attributeToSkip[attr]);
-                if(s != -1) {
-                    allkeys.splice(s, 1);
-                }
-            }
-            return allkeys;
-        }
-
-        // recursively find keys in object
-        function iterate(obj, stack , allkeys) {
-            var dot = stack === '' ? '' : '.';
-            for (var property in obj) {
-                if ( obj.hasOwnProperty(property) && skip.indexOf(property) === -1 ) {
-                    if (typeof obj[property] === "object") {
-                        if (Object.prototype.toString.call(obj[property]) === '[object Array]') {
-                            if (obj[property].length > 0 && typeof obj[property][0] === 'object') {
-                                iterate(obj[property], stack + dot + property, allkeys);
-                            } else {
-                                allkeys.push(stack + dot + property);
-                            }
-                        } else {
-                            iterate(obj[property], stack + dot + property, allkeys);
-                        }
-                    } else {
-                        allkeys.push(stack + dot + property);
-                    }
-                }
-            }
-        }
-
-        function urlMatch(url) {
-            var urlRegex = new RegExp(
-                "^" +
-                // protocol identifier
-                "(?:(?:https?|ftp)://)" +
-                // user:pass authentication
-                "(?:\\S+(?::\\S*)?@)?" +
-                "(?:" +
-                // IP address exclusion
-                // private & local networks
-                "(?!(?:10|127)(?:\\.\\d{1,3}){3})" +
-                "(?!(?:169\\.254|192\\.168)(?:\\.\\d{1,3}){2})" +
-                "(?!172\\.(?:1[6-9]|2\\d|3[0-1])(?:\\.\\d{1,3}){2})" +
-                // IP address dotted notation octets
-                // excludes loopback network 0.0.0.0
-                // excludes reserved space >= 224.0.0.0
-                // excludes network & broacast addresses
-                // (first & last IP address of each class)
-                "(?:[1-9]\\d?|1\\d\\d|2[01]\\d|22[0-3])" +
-                "(?:\\.(?:1?\\d{1,2}|2[0-4]\\d|25[0-5])){2}" +
-                "(?:\\.(?:[1-9]\\d?|1\\d\\d|2[0-4]\\d|25[0-4]))" +
-                "|" +
-                // host name
-                "(?:(?:[a-z\\u00a1-\\uffff0-9]-*)*[a-z\\u00a1-\\uffff0-9]+)" +
-                // domain name
-                "(?:\\.(?:[a-z\\u00a1-\\uffff0-9]-*)*[a-z\\u00a1-\\uffff0-9]+)*" +
-                // TLD identifier
-                "(?:\\.(?:[a-z\\u00a1-\\uffff]{2,}))" +
-                // TLD may end with dot
-                "\\.?" +
-                ")" +
-                // port number
-                "(?::\\d{2,5})?" +
-                // resource path
-                "(?:[/?#]\\S*)?" +
-                "$", "i"
-            );
-
-            return !!String(url).match(urlRegex);
-        }
-
-        // return attribute or highlighted attribute
-        function getAttributeValue(attr_string, hit) {
-            var v = getStringAttributeFromObject(attr_string, hit._highlightResult);
-            return v ? v : getStringAttributeFromObject(attr_string, hit);
-        }
-
-        function capitalize(string) {
-            return string.slice(0, 1).toUpperCase() + string.slice(1);
-        }
-
-        // handle attribute from tree
-        function getStringAttributeFromObject(attr_string, hit){
-            var attr_array = attr_string.split(".");
-            var attr = hit;
-            $.each(attr_array, function(i){
-                attr = attr && attr[attr_array[i]];
-            });
-            if (!attr) {
-                return false;
-            }
-            if (attr.value) {
-                // we're on a highlighted form
-                return attr.value;
-            }
-            if (Object.prototype.toString.call(attr) === '[object Array]') {
-                var str = [];
-                $.each(attr, function(i, e) {
-                    if (e && typeof e === 'string') {
-                        str.push(e);
-                    } else if (e && e.value) {
-                        str.push(e.value);
-                    } else if (e) {
-                        str.push(objToString(e));
-                    }
-                });
-                return str.join(', ');
-            }
-            if (typeof attr === 'object') {
-                attr = objToString(attr);
-            }
-            return '' + attr;
-        }
-
-        // function called on each keystroke
-        function searchCallback(error, content) {
-            if (error || content.query != $("#inputfield input").val()) {
-                // this results is out-dated, do not consider it
-                return;
-            }
-            if (content.hits.length == 0 ) {
-                // no results or empty query
-                $('#stats').empty().html('<h3 class="no-results">No resuluts matching this query.</h3>');;
-                $('#facets').empty();
-                $('#hits').empty();
-                $('#right_side').empty();
-                return;
-            } else {
-                $('#stats').empty();
-            }
-            var res = '';
-            for (var i = 0; i < content.hits.length; ++i) {
-                var hit = content.hits[i];
-                // render the hit
-                res += '<div class="hit">';
-                /// hit image ?
-                if ('vp_icon' !== '') {
-                    var img_src = getStringAttributeFromObject('vp_icon',hit);
-                    res += '<span class="image-attribute"><img src="' + escapeHTML(img_src) + '"/></span>';
-                }
-                // hit title (primary attribute)
-                if ('post_title' !== '') {
-                    var v = getAttributeValue('post_title',hit);
-                    res += '<span class="primary-attribute">';
-                    if ('permalink' !== '') {
-                        // url attribute
-                        var url = stripTags(getStringAttributeFromObject('permalink',hit));
-                        res += '<a href="' + ((urlMatch(url)) ? escapeHTML(url) : '') + '">';
-                        res +=  stripTags(v);
-                        res += '</a>';
-                    } else {
-                        res += stripTags(v);
-                    }
-                    res += '</span> ';
-                }
-                // hit subtitle (secondary attribute)
-                if ('' !== '') {
-                    var v =  getAttributeValue('',hit);
-                    if (v && v.trim() !== '') {
-                        res += '<span class="secondary-attribute">' + stripTags(v) + '</span>';
-                    }
-                }
-                // hit description (tertiary attribute)
-                if ('' !== '') {
-                    var v =  getAttributeValue('',hit);
-                    if (v && v.trim() !== '') {
-                        res += '<span class="tertiary-attribute">' + stripTags(v) + '</span>';
-                    }
-                }
-                // display all others attributes
-
-                res += '<div class="clearfix"></div></div>';
-            }
-
-            $('#hits').html(res);
-
-            if (content.facets && !$.isEmptyObject(content.facets)) {
-                res = '<ul class="list-unstyled">'
-                for (var facet in content.facets) {
-                    var facets = [];
-                    for (var f in content.facets[facet]) {
-                        facets.push([f, content.facets[facet][f]]);
-                    }
-
-                    facets.sort(function(a, b) { return a[1] < b[1] ? 1 : (a[1] > b[1] ? -1 : 0) });
-
-                    res += '<li class="m-b-large">';
-
-                    // Sorting data by facets
-                    if ( facet == 'vp_mood' ) {
-
-                        var vp_mood = res;
-                        vp_mood += '<h3>Mood</h3>';
-                        vp_mood += '<ol class="list-unstyled m-l">' +
-                            $.map(facets, function(v, i) {
-
-                                var $wrap = $('<div/>');
-                                var $el = $('<li/>');
-                                var $a = $('<a/>');
-
-                                $('#right_side').data(
-                                    escapeHTMLAttr(facet) + '-' + i,
-                                    {
-                                        name: facet,
-                                        value: v[0]
-                                    }
-                                );
-
-                                if ( v[0] == "Sunshine" ) {
-                                    v[0] = '<img src="http://favorfields.com/wp-content/uploads/2017/03/w-sunny.png">';
-                                    $el.addClass(refinements[facet + ':' + v[0]] ? 'active' : '');
-                                    $a.html( v[0] );
-                                    $a.find('img').attr('href', '#');
-                                    $a.find('img').addClass('facet-value');
-                                    $a.find('img').attr('data-facet-name', escapeHTMLAttr(facet));
-                                    $a.find('img').attr('data-facet-index', i);
-                                } else if ( v[0] == "Storm" ) {
-                                    v[0] = '<img src="http://favorfields.com/wp-content/uploads/2017/03/w-storm.png">';
-                                    $el.addClass(refinements[facet + ':' + v[0]] ? 'active' : '');
-                                    $a.html( v[0] );
-                                    $a.find('img').attr('href', '#');
-                                    $a.find('img').addClass('facet-value');
-                                    $a.find('img').attr('data-facet-name', escapeHTMLAttr(facet));
-                                    $a.find('img').attr('data-facet-index', i);
-                                } else if ( v[0] == "Rainbow" ) {
-                                    v[0] = '<img src="http://favorfields.com/wp-content/uploads/2017/03/w-rainbow.png">';
-                                    $el.addClass(refinements[facet + ':' + v[0]] ? 'active' : '');
-                                    $a.html( v[0] );
-                                    $a.find('img').attr('href', '#');
-                                    $a.find('img').addClass('facet-value');
-                                    $a.find('img').attr('data-facet-name', escapeHTMLAttr(facet));
-                                    $a.find('img').attr('data-facet-index', i);
-                                } else if ( v[0] == "Rain" ) {
-                                    v[0] = '<img src="http://favorfields.com/wp-content/uploads/2017/03/w-rain.png">';
-                                    $el.addClass(refinements[facet + ':' + v[0]] ? 'active' : '');
-                                    $a.html( v[0] );
-                                    $a.find('img').attr('href', '#');
-                                    $a.find('img').addClass('facet-value');
-                                    $a.find('img').attr('data-facet-name', escapeHTMLAttr(facet));
-                                    $a.find('img').attr('data-facet-index', i);
-                                } else if ( v[0] == "Partly_sunny" ) {
-                                    v[0] = '<img src="http://favorfields.com/wp-content/uploads/2017/03/w-partly-sunny.png">';
-                                    $el.addClass(refinements[facet + ':' + v[0]] ? 'active' : '');
-                                    $a.html( v[0] );
-                                    $a.find('img').attr('href', '#');
-                                    $a.find('img').addClass('facet-value');
-                                    $a.find('img').attr('data-facet-name', escapeHTMLAttr(facet));
-                                    $a.find('img').attr('data-facet-index', i);
-                                } else if ( v[0] == "Clouds" ) {
-                                    v[0] = '<img src="http://favorfields.com/wp-content/uploads/2017/03/w-clouds.png">';
-                                    $el.addClass(refinements[facet + ':' + v[0]] ? 'active' : '');
-                                    $a.html( v[0] );
-                                    $a.find('img').attr('href', '#');
-                                    $a.find('img').addClass('facet-value');
-                                    $a.find('img').attr('data-facet-name', escapeHTMLAttr(facet));
-                                    $a.find('img').attr('data-facet-index', i);
-                                } else {
-                                    $el.addClass(refinements[facet + ':' + v[0]] ? 'active' : '');
-                                    $a.html( v[0] );
-                                    $a.attr('href', '#');
-                                    $a.addClass('facet-value');
-                                    $a.attr('data-facet-name', escapeHTMLAttr(facet));
-                                    $a.attr('data-facet-index', i);
-                                }
-
-                                $el.append(
-                                    $('<span/>').append($a)
-                                ).append(v[1]);
-
-                                $wrap.append($el);
-
-                                return $wrap.html();
-
-                                // return '<li class="' + stripTags(refinements[facet + ':' + v[0]] ? 'active' : '') + '"><a href="#" class="facet-value" data-facet-name="'+ escapeHTMLAttr(facet) +'" data-facet-value="'+ escapeHTMLAttr(v[0]) +'">' + stripTags(v[0]) + '</a> (' + v[1] + ')</li>';
-                            }).join('') +
-                            '</ol>';
-
-                    }
-                    // Sorting data by facets: LEVEL
-                    else if ( facet == 'vp_level' ) {
-                        vp_mood += '<h3>Level</h3>';
-                        vp_mood += '<ol class="list-unstyled m-l">' +
-                            $.map(facets, function(v, i) {
-
-                                var $wrap = $('<div/>');
-                                var $el = $('<li/>');
-                                var $a = $('<a/>');
-
-                                $('#right_side').data(
-                                    escapeHTMLAttr(facet) + '-' + i,
-                                    {
-                                        name: facet,
-                                        value: v[0]
-                                    }
-                                );
-
-
-                                $el.addClass(refinements[facet + ':' + v[0]] ? 'active' : '');
-                                $a.html( v[0] );
-                                $a.attr('href', '#');
-                                $a.addClass('facet-value');
-                                $a.attr('data-facet-name', escapeHTMLAttr(facet));
-                                $a.attr('data-facet-index', i);
-
-
-                                $el.append(
-                                    $('<span/>').append($a)
-                                ).append(v[1]);
-
-                                $wrap.append($el);
-
-                                return $wrap.html();
-
-                            }).join('') +
-                            '</ol>';
-
-                    } else {
-                        res += '<h3>' + capitalize(stripTags(facet)).replace(/_/g, ' ') + '</h3>';
-                        res += '<ol class="list-unstyled m-l">' +
-                            $.map(facets, function(v, i) {
-
-                                var $wrap = $('<div/>');
-                                var $el = $('<li/>');
-                                var $a = $('<a/>');
-
-                                $('#facets').data(
-                                    escapeHTMLAttr(facet) + '-' + i,
-                                    {
-                                        name: facet,
-                                        value: v[0]
-                                    }
-                                );
-
-                                $el.addClass(refinements[facet + ':' + v[0]] ? 'active' : '');
-                                $a.text(stripTags(v[0]));
-                                $a.attr('href', '#');
-                                $a.addClass('facet-value');
-                                $a.attr('data-facet-name', escapeHTMLAttr(facet));
-                                $a.attr('data-facet-index', i);
-
-                                $el.append(
-                                    $('<span/>').append($a)
-                                ).append(v[1]);
-
-                                $wrap.append($el);
-
-                                return $wrap.html();
-
-                            }).join('') +
-                            '</ol>';
-                    }
-
-                    res += '</li>';
-                    vp_mood += '</li>';
-                }
-                res += '</ul>';
-                vp_mood += '</ul>';
-                $('#facets').html(res).css('float', 'left').css('width', '20%');
-                $('#hits').css('float', 'left').css('width', '60%');
-                $('#right_side').html(vp_mood).css('float', 'left').css('width', '20%');
-            }
-
-            // stats
-//            $('#stats').html('<b>' + content.nbHits.number_with_delimiter() + '</b> result' + (content.nbHits > 1 ? 's' : '') + ' in <b>' + content.processingTimeMS + '</b> ms')
-        }
-
-
-        var algolia = algoliasearch('T2B04QR9B0', '09cfed2845a581f23909b7667f397f37');
-        var index = algolia.initIndex('wp_posts_wellgorithms');
-
-        window.search = function() {
-            var facetFilters = [];
-            for (var refine in refinements) {
-                if (refinements[refine]) {
-                    facetFilters.push(refine);
-                }
-            }
-            index.search($("#inputfield input").val(), {
-                hitsPerPage: 6,
-                facets: '*',
-                maxValuesPerFacet: 10,
-                facetFilters: facetFilters
-            }, searchCallback);
-        }
-
-        $("#inputfield input").keyup(function() {
-            refinements = {};
-            window.search();
-        }).focus();
-
-        if ($("#inputfield input").val() === '') {
-            window.search();
-        }
-
-        $('#facets').on('click', '.facet-value', function(e) {
-            var facetName = $(e.target).attr('data-facet-name');
-            var facetNumber = $(e.target).attr('data-facet-index');
-            var facet = $('#facets').data(facetName + '-' + facetNumber);
-
-            toggleRefinement(facet.name, facet.value);
+        var search = instantsearch({
+            appId: 'T2B04QR9B0',
+            apiKey: '28985d34dee832a8f54db2e290beaec7',
+            indexName: 'wp_posts_wellgorithms'
         });
 
-        $('#right_side').on('click', '.facet-value', function(e) {
-            var facetName = $(e.target).attr('data-facet-name');
-            var facetNumber = $(e.target).attr('data-facet-index');
-            var facet = $('#right_side').data(facetName + '-' + facetNumber);
+        search.addWidget(instantsearch.widgets.searchBox({
+            container: '#search-box',
+            placeholder: 'I am feeling...',
+            autofocus: false
+        }));
 
-            toggleRefinement(facet.name, facet.value);
-        });
-    });
+        var hitTemplate = document.getElementById('movie').innerHTML;
 
-</script>
+        search.addWidget(instantsearch.widgets.hits({
+            container: '#hits',
+            hitsPerPage: 100,
+            templates: {
+                item: hitTemplate
+            },
+            transformData: function transformData(hit) {
+                hit.stars = [];
+                for (var i = 1; i <= 3; ++i) {
+                    hit.stars.push(i <= hit.vp_level);
+                }
+                return hit;
+            }
+        }));
+
+        search.addWidget(instantsearch.widgets.refinementList({
+            container: '#focus',
+            attributeName: 'taxonomies.post_tag',
+            limit: 7,
+            templates: {
+                item: function item(data) {
+                    return "<div class='focus__items'>" + data.name + "</div>";
+                }
+            },
+            cssClasses: {
+                list: "titles__list"
+            }
+        }));
+
+        search.addWidget(instantsearch.widgets.rangeSlider({
+            container: '#confidence',
+            attributeName: 'vp_confidence',
+            tooltips: {
+                format: function format(v) {
+                    return "";
+                }
+            },
+            min: 0,
+            max: 10,
+            pips: false,
+            templates: {
+                footer: 'Confidence Range'
+            }
+        }));
+
+        search.addWidget(instantsearch.widgets.numericRefinementList({
+            container: '#category',
+            attributeName: 'vp_category',
+            limit: 3,
+            autoHideContainer: false,
+            options: [{ start: 4, end: 4, name: 'Hellgo' }, { start: 3, end: 3, name: 'Wellgo' }, { start: 5, end: 5, name: 'Letgo' }],
+            templates: {
+                item: function item(data) {
+                    var output = "";
+                    if (data.name == 'Hellgo') {
+                        output = "<img src='http://favorfields.wpengine.com/wp-content/uploads/2017/02/hellgo3.png'><span>Hellgo</span>";
+                    } else if (data.name == 'Letgo') {
+                        output = "<img src='http://favorfields.com/wp-content/uploads/2017/02/rego1.png'><span>Letgo</span>";
+                    } else if (data.name == 'Wellgo') {
+                        output = "<img src='http://favorfields.wpengine.com/wp-content/uploads/2017/02/wellgo1.png'><span>Wellgo</span>";
+                    }
+                    return output;
+                }
+            },
+            cssClasses: {
+                item: "wellgo_categories"
+            },
+            sortBy: ['name:desc']
+        }));
+
+        search.addWidget(instantsearch.widgets.numericRefinementList({
+            container: '#level',
+            attributeName: 'vp_level',
+            options: [{ start: 1, end: 1, name: '1' }, { start: 2, end: 2, name: '2' }, { start: 3, end: 3, name: '3' }],
+            autoHideContainer: false,
+            templates: {
+                item: function item(data) {
+                    return " ";
+                },
+                footer: "Level"
+            },
+            cssClasses: {
+                list: "wellgo_levels"
+            }
+        }));
+
+        search.addWidget(instantsearch.widgets.numericRefinementList({
+            container: '#mood',
+            attributeName: 'vp_mood',
+            options: [{ start: 1, end: 1, name: 'Sunshine' }, { start: 5, end: 5, name: 'Partly_sunny' }, { start: 6, end: 6, name: 'Clouds' }, { start: 4, end: 4, name: 'Rain' }, { start: 2, end: 2, name: 'Storm' }, { start: 3, end: 3, name: 'Rainbow' }],
+            autoHideContainer: false,
+            templates: {
+                item: function item(data) {
+                    if (data.name == 'Storm') {
+                        return "<img src='http://favorfields.com/wp-content/uploads/2017/03/w-storm.png'>";
+                    } else if (data.name == 'Sunshine') {
+                        return '<img src="http://favorfields.com/wp-content/uploads/2017/03/w-sunny.png">';
+                    } else if (data.name == 'Rainbow') {
+                        return '<img src="http://favorfields.com/wp-content/uploads/2017/03/w-rainbow.png">';
+                    } else if (data.name == 'Rain') {
+                        return '<img src="http://favorfields.com/wp-content/uploads/2017/03/w-rain.png">';
+                    } else if (data.name == 'Clouds') {
+                        return '<img src="http://favorfields.com/wp-content/uploads/2017/03/w-clouds.png">';
+                    } else if (data.name == 'Partly_sunny') {
+                        return '<img src="http://favorfields.com/wp-content/uploads/2017/03/w-partly-sunny.png">';
+                    } else {
+                        return 'x';
+                    }
+                }
+            }
+
+        }));
+
+        search.addWidget(instantsearch.widgets.clearAll({
+            container: '#stats',
+            templates: {
+                link: '<i class="fa fa-repeat reload_search" aria-hidden="true"></i>'
+            },
+            autoHideContainer: false
+        }));
+
+        search.start();
+    </script>

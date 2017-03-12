@@ -18,6 +18,8 @@ function my_post_attributes( array $attributes, WP_Post $post ) {
     if ( 'wellghoritms' !== $post->post_type ) {
         // We only want to add an attribute for the 'speaker' post type.
         // Here the post isn't a 'speaker', so we return the attributes unaltered.
+        $category = get_the_category($post->ID);
+        $category_name = $category[0]->cat_ID;
 
         $attributes['vp_icon'] = get_post_meta( $post->ID, 'basic_settings_icon' );
         $attributes['vp_mood'] = array_map( 'intval', get_post_meta( $post->ID, 'basic_settings_mood' ) );
@@ -26,6 +28,7 @@ function my_post_attributes( array $attributes, WP_Post $post ) {
         $attributes['vp_recommended'] = get_post_meta( $post->ID, 'basic_settings_recommended' );
         $attributes['vp_weight'] = array_map( 'intval', get_post_meta( $post->ID, 'basic_settings_weight' ) );
         $attributes['vp_synonyms'] = get_post_meta( $post->ID, 'basic_settings_synonyms' );
+        $attributes['vp_category'] = $category_name;
 
         return $attributes;
     }

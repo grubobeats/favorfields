@@ -106,3 +106,6 @@ function saveUserWellgo() {
 }
 
 add_action( 'wp_ajax_save_wellgo', 'saveUserWellgo' );
+
+// Custom Cornerstone Elements
+require_once 'cornerstone/my-extension.php';
