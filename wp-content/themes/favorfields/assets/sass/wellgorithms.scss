@@ -18,7 +18,6 @@ $question_height: 748px;
   #header {
     height: 50px;
     padding: 0;
-    border-bottom: 2px solid #464545;
 
     &.header-class {
       top: 47px;
@@ -68,9 +67,9 @@ $question_height: 748px;
         }
 
         .wellgo-icon {
-          width: 100px;
+          width: 120px;
           position: relative;
-          margin:0 15px;
+          margin:0;
         }
 
         .category {
@@ -97,10 +96,10 @@ $question_height: 748px;
         color: #ffffff;
         font-size: 25pt;
         font-family: 'Montserrat', sans-serif;
-        letter-spacing: 2px;
+        letter-spacing: 0px;
 
         &:after {
-          content: "CM";
+          content: "CM" !important;
           font-size: 6pt;
           font-family: 'Montserrat', sans-serif;
           letter-spacing: 2px;
@@ -195,7 +194,7 @@ $question_height: 748px;
         margin: 82px 0 -10px 0;
 
         .wide-separator {
-          width: 10%;
+          width: 127px;
           text-align: center;
 
           .question__like {
@@ -211,13 +210,13 @@ $question_height: 748px;
 
         span {
           width: 933px;
-          height: 157px;
+          //height: 157px;
           display: block;
           text-align: center;
           color: $light_blue;
           font-family: 'Lato', sans-serif;
-          //font-weight: 800;
           font-size: 40px;
+          line-height: 1.2;
         }
       }
 
@@ -238,7 +237,7 @@ $question_height: 748px;
           .check {
             width: 30px;
             height: 30px;
-            border: 3px solid $light_blue;
+            border: 1px solid $light_blue;
             border-radius: 100%;
             transition: 1s;
             margin-top: -50px;
@@ -267,37 +266,36 @@ $question_height: 748px;
               background: $light_blue;
               border-radius: 100%;
               position: relative;
-              top: calc(50% - 12px);
-              left: calc(50% - 12px);
+              top: calc(50% - 14px);
+              left: calc(50% - 14px);
             }
           }
 
         }
 
         .answer__input {
-          width: 753px;
+            width: 753px;
 
-          .fake-input {
-            border: solid $light_blue;
-            border-width: 1px 1px 1px 90px;
-            padding: 10px;
-            border-radius: 20px;
-            //min-height: 140px;
-            transition: all .2s ease-out;
-            cursor: pointer;
-            display: flex;
-            //align-items: center;
-            background: white;
-            font-size: 120%;
-            font-family: 'Lato', sans-serif;
-            min-height: 125px;
+            .fake-input {
+              border: solid #74bfe6;
+              border-width: 1px 1px 1px 90px;
+              padding: 20px 35px 17px 24px;
+              border-radius: 20px;
+              transition: all .2s ease-out;
+              cursor: pointer;
+              display: flex;
+              background: white;
+              font-size: 120%;
+              font-family: 'Lato', sans-serif;
+              min-height: 125px;
+              line-height: 1.2;
 
-            &:focus {
-              box-shadow: 0px 0px 20px 6px white;
-              background: #fff;
-              outline: 0px solid transparent;
-              border-width: 4px;
-            }
+              &:focus {
+                box-shadow: 0px 0px 20px 6px white;
+                background: #fff;
+                outline: 0px solid transparent;
+                border-width: 4px;
+              }
           }
         }
       }
@@ -314,7 +312,7 @@ $question_height: 748px;
             .circle {
               width: 30px;
               height: 30px;
-              border: 3px solid $light_blue;
+              border: 1px solid $light_blue;
               background: #fff;
               border-radius: 50%;
               cursor: pointer;
@@ -334,7 +332,7 @@ $question_height: 748px;
       left: 0;
       right: 0;
       background: $light_blue;
-      height: 16px;
+      height: 4px;
     }
   }
 }
@@ -424,9 +422,9 @@ $question_height: 748px;
       }
 
       textarea {
-        width: 100%;
-        height: 45px;
-        min-height: 45px;
+        width: calc(100% - 3px);
+        height: 38px;
+        min-height: 38px;
         background: #fff;
         color: #74bfe6;
         padding: 0px 5px;
@@ -448,8 +446,7 @@ $question_height: 748px;
 .popup-extra-menu {
   $border_color: #E7EDF1;
 
-
-  margin-top: -20px;
+  margin-top: -390px;
   position: absolute;
   display: none;
   width: 503px;
@@ -503,4 +500,14 @@ $question_height: 748px;
       }
     }
   }
+}
+
+
+.question__like {
+  width: 30px;
+  height: 30px;
+  background: white;
+  border: 1px solid $light_blue;
+  border-radius: 50%;
+  margin: 0 auto;
 }

@@ -241,19 +241,19 @@ jQuery(document).ready(function($){
     })
 
     // Extra menu opening: left
-    $('.extra-menu li').eq('0').click(function(e){
+    $('.extra-menu .first').click(function(e){
         e.stopPropagation();
         $(this).parent().next().fadeIn('slow');
     });
 
     // Extra menu opening: middle
-    $('.extra-menu li').eq('1').click(function(e){
+    $('.extra-menu .second').click(function(e){
         e.stopPropagation();
         $(this).parent().next().next().fadeIn('slow');
     });
 
     // Extra menu opening: right
-    $('.extra-menu li').eq('2').click(function(e){
+    $('.extra-menu .third').click(function(e){
         e.stopPropagation();
         $(this).parent().next().next().next().fadeIn('slow');
     });

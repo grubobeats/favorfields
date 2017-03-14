@@ -181,13 +181,15 @@ ul.ais-pagination {
     font-weight: bold;
     color: rgba(0, 100, 220, 0.6); }
 
-.facets {
+.facets:first-child {
   width: 26%;
-  min-width: 270px; }
-  .facets:last-child {
-    width: 22%;
-    min-width: inherit;
-    text-align: center; }
+  min-width: 270px;
+  padding-left: 100px; }
+
+.facets:last-child {
+  width: 22%;
+  min-width: inherit;
+  text-align: center; }
 
 .facet {
   padding: 1em 0; }

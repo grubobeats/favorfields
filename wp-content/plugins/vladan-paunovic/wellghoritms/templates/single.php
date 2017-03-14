@@ -56,8 +56,8 @@ $logic->checkForCustomWellgo();
                     <? if ($i == 0 ) : ?>
                         <div class="progressbar">
                             <div class="outline border-color-1">
-                                <div class="inside background-color-1" style="width:0%">
-                                    0%
+                                <div class="inside background-color-1" style="width:1%">
+                                    1%
                                 </div>
                             </div>
                         </div>
@@ -69,7 +69,8 @@ $logic->checkForCustomWellgo();
                         </span>
 
                         <div class="wide-separator">
-                            <i class="fa fa-heart question__like color-1" aria-hidden="true"></i>
+<!--                            <i class="fa fa-heart question__like color-1" aria-hidden="true"></i>-->
+                            <div class="question__like border-color-1"></div>
 
                             <div class="popup-suggest-question background-color-1 box-shadow-color-1">
                                 <div class="row first">
@@ -86,6 +87,8 @@ $logic->checkForCustomWellgo();
                             </div>
                         </div>
                     </div>
+
+
                     <div class="answer first">
                         <div class="answer__radio">
                             <label for="selected_answer_<?= $counter; ?>"></label>
@@ -114,15 +117,18 @@ $logic->checkForCustomWellgo();
                             </div>
                         </div>
                     </div>
+
+
+
                     <div class="extra-menu">
                         <ul>
-                            <li>
+                            <li class="first">
                                 <div class="circle border-color-1"></div>
                             </li>
-                            <li>
+                            <li class="second">
                                 <div class="circle border-color-1"></div>
                             </li>
-                            <li>
+                            <li class="third">
                                 <div class="circle border-color-1"></div>
                             </li>
                         </ul>

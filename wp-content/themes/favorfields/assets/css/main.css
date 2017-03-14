@@ -1904,8 +1904,7 @@ button,
   #header .title {
     color: #ffffff;
     font-size: 19pt;
-    font-family: 'Montserrat', sans-serif;
-    letter-spacing: 2px; }
+    font-family: 'Montserrat', sans-serif; }
     #header .title:after {
       content: "TM";
       font-size: 6pt;
@@ -1930,7 +1929,7 @@ button,
     #header .right-header .user-logo {
       width: 21px;
       height: auto;
-      margin: 0 15px; }
+      margin: 0 25px; }
     #header .right-header nav {
       width: 35px;
       position: static !important;
@@ -1957,7 +1956,6 @@ button,
     #header .logo .title {
       text-transform: none;
       font-family: "Source Sans Pro", Helvetica, sans-serif;
-      letter-spacing: 0.1em;
       font-weight: 100;
       line-height: 1;
       font-size: 1.5em; }
@@ -2315,6 +2313,8 @@ body.is-menu-visible #menu {
       color: #74bfe6;
       font-family: "Lato", sans-serif;
       padding: 10px 0; }
+      .row.first .checkboxes ul li i {
+        padding-right: 15px; }
 
 #grow-with-us span.text-span {
   text-align: center;
@@ -2378,8 +2378,7 @@ body.is-menu-visible #menu {
   .wellgorithms-template-default #header,
   .user_answers-template-default #header {
     height: 50px;
-    padding: 0;
-    border-bottom: 2px solid #464545; }
+    padding: 0; }
     .wellgorithms-template-default #header.header-class,
     .user_answers-template-default #header.header-class {
       top: 47px; }
@@ -2420,9 +2419,9 @@ body.is-menu-visible #menu {
             height: auto; }
         .wellgorithms-template-default .inner.top-bar .left-header .wellgo-icon,
         .user_answers-template-default .inner.top-bar .left-header .wellgo-icon {
-          width: 100px;
+          width: 120px;
           position: relative;
-          margin: 0 15px; }
+          margin: 0; }
         .wellgorithms-template-default .inner.top-bar .left-header .category,
         .user_answers-template-default .inner.top-bar .left-header .category {
           font-family: 'Montserrat', sans-serif;
@@ -2445,10 +2444,10 @@ body.is-menu-visible #menu {
         color: #ffffff;
         font-size: 25pt;
         font-family: 'Montserrat', sans-serif;
-        letter-spacing: 2px; }
+        letter-spacing: 0px; }
         .wellgorithms-template-default .inner.top-bar .title:after,
         .user_answers-template-default .inner.top-bar .title:after {
-          content: "CM";
+          content: "CM" !important;
           font-size: 6pt;
           font-family: 'Montserrat', sans-serif;
           letter-spacing: 2px;
@@ -2531,7 +2530,7 @@ body.is-menu-visible #menu {
         margin: 82px 0 -10px 0; }
         .wellgorithms-template-default .inner .wellghoritm .question .wide-separator,
         .user_answers-template-default .inner .wellghoritm .question .wide-separator {
-          width: 10%;
+          width: 127px;
           text-align: center; }
           .wellgorithms-template-default .inner .wellghoritm .question .wide-separator .question__like,
           .user_answers-template-default .inner .wellghoritm .question .wide-separator .question__like {
@@ -2544,12 +2543,12 @@ body.is-menu-visible #menu {
         .wellgorithms-template-default .inner .wellghoritm .question span,
         .user_answers-template-default .inner .wellghoritm .question span {
           width: 933px;
-          height: 157px;
           display: block;
           text-align: center;
           color: #74bfe6;
           font-family: 'Lato', sans-serif;
-          font-size: 40px; }
+          font-size: 40px;
+          line-height: 1.2; }
       .wellgorithms-template-default .inner .wellghoritm .answer,
       .user_answers-template-default .inner .wellghoritm .answer {
         width: 100%;
@@ -2567,7 +2566,7 @@ body.is-menu-visible #menu {
           .user_answers-template-default .inner .wellghoritm .answer .answer__radio .check {
             width: 30px;
             height: 30px;
-            border: 3px solid #74bfe6;
+            border: 1px solid #74bfe6;
             border-radius: 100%;
             transition: 1s;
             margin-top: -50px;
@@ -2591,8 +2590,8 @@ body.is-menu-visible #menu {
             background: #74bfe6;
             border-radius: 100%;
             position: relative;
-            top: calc(50% - 12px);
-            left: calc(50% - 12px); }
+            top: calc(50% - 14px);
+            left: calc(50% - 14px); }
         .wellgorithms-template-default .inner .wellghoritm .answer .answer__input,
         .user_answers-template-default .inner .wellghoritm .answer .answer__input {
           width: 753px; }
@@ -2600,7 +2599,7 @@ body.is-menu-visible #menu {
           .user_answers-template-default .inner .wellghoritm .answer .answer__input .fake-input {
             border: solid #74bfe6;
             border-width: 1px 1px 1px 90px;
-            padding: 10px;
+            padding: 20px 35px 10px 24px;
             border-radius: 20px;
             transition: all .2s ease-out;
             cursor: pointer;
@@ -2608,7 +2607,8 @@ body.is-menu-visible #menu {
             background: white;
             font-size: 120%;
             font-family: 'Lato', sans-serif;
-            min-height: 125px; }
+            min-height: 125px;
+            line-height: 1.2; }
             .wellgorithms-template-default .inner .wellghoritm .answer .answer__input .fake-input:focus,
             .user_answers-template-default .inner .wellghoritm .answer .answer__input .fake-input:focus {
               box-shadow: 0px 0px 20px 6px white;
@@ -2626,7 +2626,7 @@ body.is-menu-visible #menu {
           .user_answers-template-default .inner .wellghoritm .extra-menu ul li .circle {
             width: 30px;
             height: 30px;
-            border: 3px solid #74bfe6;
+            border: 1px solid #74bfe6;
             background: #fff;
             border-radius: 50%;
             cursor: pointer;
@@ -2640,7 +2640,7 @@ body.is-menu-visible #menu {
       left: 0;
       right: 0;
       background: #74bfe6;
-      height: 16px; }
+      height: 4px; }
 
 /*
   Popups
@@ -2703,9 +2703,9 @@ body.is-menu-visible #menu {
         margin: 0;
         font-family: 'Lato', sans-serif; }
       .popup-suggest-question .row .suggest__text textarea {
-        width: 100%;
-        height: 45px;
-        min-height: 45px;
+        width: calc(100% - 3px);
+        height: 38px;
+        min-height: 38px;
         background: #fff;
         color: #74bfe6;
         padding: 0px 5px;
@@ -2718,7 +2718,7 @@ body.is-menu-visible #menu {
   transition: 1s; }
 
 .popup-extra-menu {
-  margin-top: -20px;
+  margin-top: -390px;
   position: absolute;
   display: none;
   width: 503px;
@@ -2756,6 +2756,14 @@ body.is-menu-visible #menu {
       .popup-extra-menu .rows textarea:focus {
         border-bottom: 0;
         box-shadow: none; }
+
+.question__like {
+  width: 30px;
+  height: 30px;
+  background: white;
+  border: 1px solid #74bfe6;
+  border-radius: 50%;
+  margin: 0 auto; }
 
 .no-results {
   text-align: center;

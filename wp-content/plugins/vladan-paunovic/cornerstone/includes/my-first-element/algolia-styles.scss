@@ -237,9 +237,12 @@ ul.ais-pagination {
 }
 
 .facets {
-  width: 26%;
-  min-width: 270px;
-  // border-right: 1px solid rgba(0, 0, 0, 0.3);
+  &:first-child {
+    width: 26%;
+    min-width: 270px;
+    padding-left: 100px;
+  }
+
   &:last-child {
     width: 22%;
     min-width: inherit;

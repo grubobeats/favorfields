@@ -23,6 +23,7 @@ get_header(); ?>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
 
+
 <!-- Main -->
 <div id="main">
     <div class="inner">
@@ -188,7 +189,7 @@ get_header(); ?>
 
         <div class="divider"></div>
     </div>
-        
+
 </div>
 
     <script>
@@ -234,7 +235,8 @@ get_header(); ?>
                 }
             },
             cssClasses: {
-                list: "titles__list"
+                list: "titles__list",
+                // item: "justLoaded"
             }
         }));
 
@@ -291,7 +293,7 @@ get_header(); ?>
                 footer: "Level"
             },
             cssClasses: {
-                list: "wellgo_levels"
+                list: "wellgo_levels",
             }
         }));
 
@@ -318,8 +320,10 @@ get_header(); ?>
                         return 'x';
                     }
                 }
+            },
+            cssClasses: {
+                // item: "justLoaded"
             }
-
         }));
 
         search.addWidget(instantsearch.widgets.clearAll({
@@ -331,4 +335,34 @@ get_header(); ?>
         }));
 
         search.start();
+
+
+        /**
+         * Remove colors from filters after clicking on one of them
+         */
+        jQuery(document).ready(function ($) {
+
+            function justLoaded() {
+                setTimeout(function(){
+                    $('.ais-refinement-list--item, .focus__items').each(function () {
+                        $(this).addClass('justLoaded');
+                    });
+                }, 500);
+
+            }
+
+            // Adding color
+            justLoaded();
+            $(document).on('click', '.reload_search', justLoaded );
+
+            // Removing colors
+            $(document).on('click', '.justLoaded', function(){
+                $('.justLoaded').each(function () {
+                    $(this).removeClass('justLoaded');
+                });
+            });
+        });
+
+
+
     </script>

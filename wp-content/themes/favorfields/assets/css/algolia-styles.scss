@@ -11,13 +11,13 @@ body {
   font-family: arial, sans-serif;
   font-size: 20px;
   margin: 0;
-  padding: 20px;
+  //padding: 20px;
 }
 
 .algolia-search {
   margin: 100px auto 30px auto;
   width: 100%;
-  max-width: 1300px;
+  max-width: 1100px;
   display: flex;
   flex-direction: column;
   border: solid $blue;
@@ -72,7 +72,7 @@ body {
   position: absolute;
   color: rgba(0, 0, 0, 0.4);
   bottom: 16px;
-  right: 10%;
+  right: 9%;
   font-size: 32px;
 }
 
@@ -80,12 +80,12 @@ body {
   display: flex;
   margin-top: 1rem;
   // height: 465px;
-  width: 1300px;
+  width: 1065px;
   margin: 0 auto;
 }
 
 .canvas {
-  width: 52%;
+  width: 63%;
   display: flex;
   flex-direction: column;
   position: relative;
@@ -103,7 +103,7 @@ body {
 #hits {
   // flex: 1;
   overflow-y: scroll;
-  height: 370px;
+  height: 450px;
   //border: 1px solid $blue;
 }
 
@@ -131,10 +131,11 @@ body {
   display: flex;
   border: 1px solid rgb(116, 191, 230);
   background-color: white;
-  padding: 0.2em;
+  //padding: 0.2em;
   flex-wrap: wrap;
-  height: 185px;
+  height: 225px;
   align-items: center;
+  padding: 10px 15px;
 }
 
 .movie-image {
@@ -142,20 +143,22 @@ body {
   width: 60%;
   height: 60%;
   margin: 0 auto;
+  padding-top: 10px;
 }
 
 .movie-meta {
   display: flex;
-  flex-direction: column;
+  //flex-direction: column;
   justify-content: center;
   // margin-left: 1em;
   width: 100%;
   font-family: 'Lato', sans-serif;
+  height: 45px
 }
 
 .movie-title {
   align-items: center;
-  font-size: 20pt;
+  font-size: 16pt;
   font-weight: bold;
   text-decoration: none;
   color: #74bfe6;
@@ -246,12 +249,15 @@ ul.ais-pagination {
 }
 
 .facets {
-  width: 26%;
-  min-width: 270px;
-  // border-right: 1px solid rgba(0, 0, 0, 0.3);
+  &:first-child {
+    width: 19%;
+    //min-width: 270px;
+    //padding-left: 100px;
+  }
+
   &:last-child {
-    width: 22%;
-    min-width: inherit;
+    width: 18%;
+    //min-width: inherit;
     text-align: center;
   }
 }
@@ -262,13 +268,13 @@ ul.ais-pagination {
 
 .facet-title {
   padding: 81px 1em 0 21px;
-  font-size: 18pt;
+  font-size: 15pt;
   margin-bottom: 1.5em;
   font-weight: 700;
 }
 
 .ais-refinement-list--item {
-  padding: 5px 1em;
+  padding: 5px 20px;
   cursor: pointer;
   color: rgba(0, 0, 0, 0.7);
 
@@ -289,11 +295,11 @@ ul.ais-pagination {
 
   .focus__items {
     text-transform: Capitalize;
-    font-size: 18pt;
+    font-size: 15pt;
     font-weight: 900;
-    color: #b2b2b2 !important;
+    color: #b2b2b2;
     transition: 0.5s;
-    line-height:1.1;
+    line-height: 1;
 
     &:hover {
       color: $blue !important;
@@ -398,11 +404,11 @@ ul.ais-pagination {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  width: 1300px;
+  width: 1065px;
   margin: 0px auto 0 auto;
 
   .facet {
-    width: 33%;
+    //width: 33%;
     text-align: center;
     display: flex;
     align-items: flex-end;
@@ -411,17 +417,17 @@ ul.ais-pagination {
     color: $blue;
 
     &:nth-child(1) {
-      width: 50%;
+      width: 63%;
       justify-content: flex-start;
     }
 
     &:nth-child(2) {
-      width: 28%;
+      width: 19%;
       justify-content: flex-end;
     }
 
     &:nth-child(3) {
-      width: 22%;
+      width: 18%;
 
       .ais-footer {
         position: relative;
@@ -516,7 +522,7 @@ ul.ais-pagination {
 .titles__list {
 
   .ais-refinement-list--item {
-    filter: none;
+    //filter: none;
 
     .focus__items {
       color: $blue;
@@ -584,3 +590,12 @@ ul.ais-pagination {
   }
 }
 
+
+/**
+  Make everything in color before first click on filters
+ */
+
+.justLoaded {
+  filter: grayscale(0%) !important;
+  color: $blue !important;
+}

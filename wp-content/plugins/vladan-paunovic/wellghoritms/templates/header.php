@@ -26,7 +26,8 @@
     $color_4 = $logic->getColorTemplate($color_scheme, 'basic_settings_color-4');
 
     $category = get_the_category();
-    $category_name = ($category[0]->name == "Hellgo") ? "Hellgorithm" : "Wellgorithm";
+//    $category_name = ($category[0]->name == "Hellgo") ? "Hellgorithm" : "Wellgorithm";
+    $category_name = $category[0]->name;
 
     $user = wp_get_current_user();
     if ( $user->ID == 0 ) {
