@@ -2,5 +2,10 @@
 .idea/
 
 # Additional exceptions
-wp-content/plugins/wp-user-avatar
+wp-content/plugins/wp-user-avatar/
+wp-content/themes/favorfields/node_modules/
+wp-content/themes/favorfields/css/
+wp-content/themes/favorfields/assets/css
+!/wp-content/themes/favorfields/assets/css/algolia-styles.scss
 adminer/
+
