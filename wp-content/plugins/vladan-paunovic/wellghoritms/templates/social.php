@@ -24,11 +24,17 @@ if ( $category[0]->name == "Hellgo" ) {
 }
 $logic->checkForCustomWellgo();
 
+$maximum_questions = 3;
+
+if( is_user_logged_in() ) {
+    $maximum_questions = $welgorithm[ $prefix . 'basic_settings_steps' ][0];
+}
+
 ?>
     <script>
         var all_steps = <?= $welgorithm[ $prefix . 'basic_settings_steps' ][0]; ?>;
         var steps = <?= $number_of_questions; ?>;
-        var maximum_steps = 3;
+        var maximum_steps = <?= $maximum_questions ?>;
         var question_animation = "<?= $favorfields[ $question_animations ] ?>";
         var ajaxurl = "<?= admin_url( 'admin-ajax.php' ) ?>";
         var permalink = "<?= get_permalink(); ?>";
@@ -40,155 +46,198 @@ $logic->checkForCustomWellgo();
         var level = "<?= $welgorithm[ $prefix . 'basic_settings_level' ][0] ?>";
         var confidence = "<?= $welgorithm[ $prefix . 'basic_settings_confidence' ][0] ?>";
         var recommended = "<?= $welgorithm[ $prefix . 'basic_settings_recommended' ][0] ?>";
-        var post_id = "<?= get_the_ID() ?>";
+        var post_id = "<?= $logic->getWellgorithmPostID(); ?>";
     </script>
     <!-- Main -->
-    <div id="main">
-        <h1>SOCIAL MODE</h1>
+    <div id="main" class="social-mode background-color-1">
         <div class="banner-image border-color-1">
             <img src="<?= $logic->getRandomImage($color_scheme, true) ?>" alt="">
             <a href="<?= get_permalink() ?>" class="circle-focus"></a>
         </div>
 
-        <div class="inner">
-
-            <? for($i = 0; $i < $number_of_questions; $i++) : ?>
-
-                <div class="wellghoritm<? if ($i > 0 ) : ?> hidden<? endif;?>">
-                    <? if ($i == 0 ) : ?>
-                        <div class="progressbar">
-                            <div class="outline border-color-1">
-                                <div class="inside background-color-1" style="width:0%">
-                                    0%
+        <? for($i = 0; $i < $number_of_questions; $i++) : ?>
+        <div class="social<? if ($i > 0 ) : ?> hidden<? endif;?>">
+            <div class="avatar-box">
+                <div class="user">
+                    <img src="http://favorfields.com/wp-content/uploads/2017/02/mm9.png" alt="">
+                    <span class="color-2">Username</span>
+                </div>
+                <div class="user">
+                    <img src="http://favorfields.com/wp-content/uploads/2017/02/mm9.png" alt="">
+                    <span class="color-2">Username</span>
+                </div>
+                <div class="user">
+                    <img src="http://favorfields.com/wp-content/uploads/2017/02/mm9.png" alt="">
+                    <span class="color-2">Username</span>
+                </div>
+                <div class="user reload">
+                    <i class="fa fa-repeat reload_users color-2" aria-hidden="true"></i>
+                </div>
+            </div>
+            <div class="inner center-content background-color-2">
+                    <div class="wellghoritm">
+                        <? if ($i == 0 ) : ?>
+                            <div class="progressbar">
+                                <div class="outline border-color-1">
+                                    <div class="inside background-color-1" style="width:1%">
+                                        1%
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    <? endif; ?>
-                    <div class="question">
-                        <div class="wide-separator"></div>
-                        <span class="color-3">
+                        <? endif; ?>
+                        <div class="question">
+                            <div class="wide-separator"></div>
+                            <span class="color-3">
                             <?= $welgorithm[$def_questions][$i]; ?>
                         </span>
 
-                        <div class="wide-separator">
-                            <i class="fa fa-heart question__like color-1" aria-hidden="true"></i>
+                            <div class="wide-separator">
+                                <!--                            <i class="fa fa-heart question__like color-1" aria-hidden="true"></i>-->
+                                <div class="question__like border-color-1"></div>
 
-                            <div class="popup-suggest-question background-color-1 box-shadow-color-1">
-                                <div class="row first">
-                                    <div class="suggest__icon"><i class="fa fa-heart"></i></div>
-                                    <div class="suggest__text">Love this!</div>
-                                </div>
-                                <div class="row second">
-                                    <div class="suggest__icon"><i class="fa fa-lightbulb-o"></i></div>
-                                    <div class="suggest__text">
-                                        <p>I have a suggestion for improvment:</p>
-                                        <textarea class="question_sugestion" name="question_suggestion_<?= $i ?>" id="question_suggestion_<?= $i ?>" cols="30" rows="1"></textarea>
+                                <div class="popup-suggest-question background-color-1 box-shadow-color-1">
+                                    <div class="row first">
+                                        <div class="suggest__icon"><i class="fa fa-heart"></i></div>
+                                        <div class="suggest__text">Love this!</div>
+                                    </div>
+                                    <div class="row second">
+                                        <div class="suggest__icon"><i class="fa fa-lightbulb-o"></i></div>
+                                        <div class="suggest__text">
+                                            <p>I have a suggestion for improvment:</p>
+                                            <textarea class="question_sugestion" name="question_suggestion_<?= $i ?>" id="question_suggestion_<?= $i ?>" cols="30" rows="1"></textarea>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="answer first">
-                        <div class="answer__radio">
-                            <label for="selected_answer_<?= $counter; ?>"></label>
-                            <input type="radio" name="answered_question_<?= $i; ?>" id="selected_answer_<?= $counter; ?>" value="<?= $welgorithm['first_answers'][$i]; ?>">
-                            <div class="check border-color-1">
-                                <div class="inside background-color-1"></div>
-                            </div>
-                        </div>
-                        <div class="answer__input">
-                            <div>
-                                <div contenteditable="true" class="fake-input border-color-1"><?= $welgorithm[$def_first_answers][$i]; ?></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="answer second">
-                        <div class="answer__radio">
-                            <label for="selected_answer_<? print( $counter + 1 ); ?>"></label>
-                            <input type="radio" name="answered_question_<?= $i; ?>" id="selected_answer_<? print( $counter + 1 ); ?>" value="<?= $welgorithm['second_answers'][$i]; ?>">
-                            <div class="check border-color-1">
-                                <div class="inside background-color-1"></div>
-                            </div>
-                        </div>
-                        <div class="answer__input">
-                            <div>
-                                <div contenteditable="true" class="fake-input border-color-1"><?= $welgorithm[$def_second_answers][$i]; ?></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="extra-menu">
-                        <ul>
-                            <li>
-                                <div class="circle border-color-1"></div>
-                            </li>
-                            <li>
-                                <div class="circle border-color-1"></div>
-                            </li>
-                            <li>
-                                <div class="circle border-color-1"></div>
-                            </li>
-                        </ul>
 
-                        <div class="popup-extra-menu left background-color-1 box-shadow-color-1">
-                            <div class="rows first">
-                                <?= $favorfields[$hellgo_prefix . 'wellgo_extra_menu_1']?>
+
+                        <div class="answer first">
+                            <div class="answer__radio">
+                                <label for="selected_answer_<?= $counter; ?>"></label>
+                                <input type="radio" name="answered_question_<?= $i; ?>" id="selected_answer_<?= $counter; ?>" value="<?= $welgorithm['first_answers'][$i]; ?>">
+                                <div class="check border-color-1">
+                                    <div class="inside background-color-1"></div>
+                                </div>
                             </div>
-                            <div class="rows">
-                                <?= $favorfields[$hellgo_prefix . 'wellgo_extra_menu_2']?>
+                            <div class="answer__input">
+                                <div>
+                                    <div contenteditable="true" class="fake-input border-color-1"><?= $welgorithm[$def_first_answers][$i]; ?></div>
+                                </div>
                             </div>
-                            <div class="rows">
-                                <?= $favorfields[$hellgo_prefix . 'wellgo_extra_menu_3']?>
+                        </div>
+                        <div class="answer second">
+                            <div class="answer__radio">
+                                <label for="selected_answer_<? print( $counter + 1 ); ?>"></label>
+                                <input type="radio" name="answered_question_<?= $i; ?>" id="selected_answer_<? print( $counter + 1 ); ?>" value="<?= $welgorithm['second_answers'][$i]; ?>">
+                                <div class="check border-color-1">
+                                    <div class="inside background-color-1"></div>
+                                </div>
                             </div>
-                            <div class="rows">
-                                <?= $favorfields[$hellgo_prefix . 'wellgo_extra_menu_4']?>
-                            </div>
-                            <div class="rows">
-                                <textarea name="extra-menu-first[]" id="" placeholder="Enter # of days"></textarea>
+                            <div class="answer__input">
+                                <div>
+                                    <div contenteditable="true" class="fake-input border-color-1"><?= $welgorithm[$def_second_answers][$i]; ?></div>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="popup-extra-menu middle background-color-1 box-shadow-color-1">
-                            <div class="rows first">
-                                <?= $favorfields[$hellgo_prefix . 'wellgo_extra_menu_1-2']?>
-                            </div>
-                            <div class="rows">
-                                <?= $favorfields[$hellgo_prefix . 'wellgo_extra_menu_2-2']?>
-                            </div>
-                            <div class="rows">
-                                <?= $favorfields[$hellgo_prefix . 'wellgo_extra_menu_3-2']?>
-                            </div>
-                            <div class="rows">
-                                <?= $favorfields[$hellgo_prefix . 'wellgo_extra_menu_4-2']?>
-                            </div>
-                            <div class="rows">
-                                <textarea name="extra-menu-first[]" id="" placeholder="Enter # of days"></textarea>
-                            </div>
-                        </div>
 
-                        <div class="popup-extra-menu right background-color-1 box-shadow-color-1">
-                            <div class="rows first">
-                                <?= $favorfields[$hellgo_prefix . 'wellgo_extra_menu_1-3']?>
+
+                        <div class="extra-menu">
+                            <ul>
+                                <li class="first">
+                                    <div class="circle border-color-1"></div>
+                                </li>
+                                <li class="second">
+                                    <div class="circle border-color-1"></div>
+                                </li>
+                                <li class="third">
+                                    <div class="circle border-color-1"></div>
+                                </li>
+                            </ul>
+
+                            <div class="popup-extra-menu left background-color-1 box-shadow-color-1">
+                                <div class="rows first">
+                                    <?= $favorfields[$hellgo_prefix . 'wellgo_extra_menu_1']?>
+                                </div>
+                                <div class="rows">
+                                    <?= $favorfields[$hellgo_prefix . 'wellgo_extra_menu_2']?>
+                                </div>
+                                <div class="rows">
+                                    <?= $favorfields[$hellgo_prefix . 'wellgo_extra_menu_3']?>
+                                </div>
+                                <div class="rows">
+                                    <?= $favorfields[$hellgo_prefix . 'wellgo_extra_menu_4']?>
+                                </div>
+                                <div class="rows">
+                                    <textarea name="extra-menu-first[]" id="" placeholder="Enter # of days"></textarea>
+                                </div>
                             </div>
-                            <div class="rows">
-                                <?= $favorfields[$hellgo_prefix . 'wellgo_extra_menu_2-3']?>
+
+                            <div class="popup-extra-menu middle background-color-1 box-shadow-color-1">
+                                <div class="rows first">
+                                    <?= $favorfields[$hellgo_prefix . 'wellgo_extra_menu_1-2']?>
+                                </div>
+                                <div class="rows">
+                                    <?= $favorfields[$hellgo_prefix . 'wellgo_extra_menu_2-2']?>
+                                </div>
+                                <div class="rows">
+                                    <?= $favorfields[$hellgo_prefix . 'wellgo_extra_menu_3-2']?>
+                                </div>
+                                <div class="rows">
+                                    <?= $favorfields[$hellgo_prefix . 'wellgo_extra_menu_4-2']?>
+                                </div>
+                                <div class="rows">
+                                    <textarea name="extra-menu-first[]" id="" placeholder="Enter # of days"></textarea>
+                                </div>
                             </div>
-                            <div class="rows">
-                                <?= $favorfields[$hellgo_prefix . 'wellgo_extra_menu_3-3']?>
-                            </div>
-                            <div class="rows">
-                                <?= $favorfields[$hellgo_prefix . 'wellgo_extra_menu_4-3']?>
-                            </div>
-                            <div class="rows">
-                                <textarea name="extra-menu-first[]" id="" placeholder="Enter # of days"></textarea>
+
+                            <div class="popup-extra-menu right background-color-1 box-shadow-color-1">
+                                <div class="rows first">
+                                    <?= $favorfields[$hellgo_prefix . 'wellgo_extra_menu_1-3']?>
+                                </div>
+                                <div class="rows">
+                                    <?= $favorfields[$hellgo_prefix . 'wellgo_extra_menu_2-3']?>
+                                </div>
+                                <div class="rows">
+                                    <?= $favorfields[$hellgo_prefix . 'wellgo_extra_menu_3-3']?>
+                                </div>
+                                <div class="rows">
+                                    <?= $favorfields[$hellgo_prefix . 'wellgo_extra_menu_4-3']?>
+                                </div>
+                                <div class="rows">
+                                    <textarea name="extra-menu-first[]" id="" placeholder="Enter # of days"></textarea>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+
+
                 <div class="separator background-color-1"></div>
-                <? $counter = $counter + 2; ?>
-            <? endfor; ?>
+                    <? $counter = $counter + 2; ?>
 
+
+            </div>
+            <div class="avatar-box">
+                <div class="user">
+                    <img src="http://favorfields.com/wp-content/uploads/2017/02/mm9.png" alt="">
+                    <span class="color-2">Username</span>
+                </div>
+                <div class="user">
+                    <img src="http://favorfields.com/wp-content/uploads/2017/02/mm9.png" alt="">
+                    <span class="color-2">Username</span>
+                </div>
+                <div class="user">
+                    <img src="http://favorfields.com/wp-content/uploads/2017/02/mm9.png" alt="">
+                    <span class="color-2">Username</span>
+                </div>
+                <div class="user reload">
+                    <i class="fa fa-repeat reload_users color-2" aria-hidden="true"></i>
+                </div>
+            </div>
         </div>
+        <? endfor; ?>
+
     </div>
 
     <div class="popups">

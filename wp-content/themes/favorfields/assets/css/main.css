@@ -2818,3 +2818,45 @@ body.is-menu-visible #menu {
         padding: 0; }
         .search-panel #hits .hit .primary-attribute a {
           border: none; }
+
+.hidden {
+  display: none !important; }
+
+#main {
+  padding: 0; }
+  #main.social-mode {
+    background: #74bfe6; }
+    #main.social-mode .separator {
+      z-index: 1;
+      position: relative !important; }
+    #main.social-mode .social {
+      width: 1366px;
+      min-height: 744px;
+      display: flex;
+      margin: 0 auto; }
+      #main.social-mode .social .avatar-box {
+        width: 150px;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        padding: 130px 0; }
+        #main.social-mode .social .avatar-box .user {
+          width: 100%;
+          text-align: center;
+          padding: 20px 0;
+          display: flex;
+          flex-wrap: wrap;
+          align-items: center;
+          justify-content: center;
+          height: 120px; }
+          #main.social-mode .social .avatar-box .user img {
+            width: 50px; }
+          #main.social-mode .social .avatar-box .user span {
+            width: 100%; }
+          #main.social-mode .social .avatar-box .user.reload i {
+            font-size: 40px; }
+      #main.social-mode .social .center-content {
+        width: calc(100% - 300px);
+        background-color: #edf9ff; }
+        #main.social-mode .social .center-content .wellghoritm {
+          width: 100%; }

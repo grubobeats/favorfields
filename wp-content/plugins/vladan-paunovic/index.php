@@ -49,6 +49,8 @@ function get_templates( $original_template ) {
 
 
         if($current_fp == 'social') {
+            wp_dequeue_script( 'vp_wellghoritms' );
+            wp_enqueue_script( 'vp_wellghoritms-social', plugins_url( 'js/social.js', __FILE__ ), array(), '20130115', true );
             return plugin_dir_path(__FILE__) . 'wellghoritms/templates/social.php';
         } else {
             return plugin_dir_path(__FILE__) . 'wellghoritms/templates/single.php';
