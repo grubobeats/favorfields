@@ -97,6 +97,7 @@ class Template_logic
             if (count($gel_all_answers_for_this_user) > 0) {
 
                 $ids = array();
+                $check = false;
 
                 foreach ($gel_all_answers_for_this_user as $answer) {
                     $one_of_the_posts_id = $answer->ID;
@@ -108,12 +109,16 @@ class Template_logic
 
                     if ($this_post_id == $get_related_wellgo[0]->meta_value) {
                         $ids[] = get_permalink($redirect_to_id);
+                        $check = true;
                     }
                 }
 
                 $last_id = $ids[ count($ids) - 1 ];
-                wp_redirect($last_id);
-                exit;
+
+                if ($check) {
+                    wp_redirect($last_id);
+                    exit;
+                }
             }
 
         }

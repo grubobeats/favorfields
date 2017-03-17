@@ -24,11 +24,10 @@ if ( $category[0]->name == "Hellgo" ) {
 }
 $logic->checkForCustomWellgo();
 
-
 $maximum_questions = 3;
 
 if( is_user_logged_in() ) {
-    $maximum_questions = $welgorithm[ $prefix . 'basic_settings_steps' ][0];;
+    $maximum_questions = $welgorithm[ $prefix . 'basic_settings_steps' ][0];
 }
 
 ?>
