@@ -1,1 +1,5 @@
+# IntelliJ project files
 .idea
+
+# Additional exceptions
+wp-content/plugins/wp-user-avatar
