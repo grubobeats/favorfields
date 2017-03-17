@@ -266,11 +266,11 @@ get_header(); ?>
                 item: function item(data) {
                     var output = "";
                     if (data.name == 'Hellgo') {
-                        output = "<img src='http://favorfields.wpengine.com/wp-content/uploads/2017/02/hellgo3.png'><span>Hellgo</span>";
+                        output = "<img src='http://favorfields.wpengine.com/wp-content/uploads/2017/02/hellgo3.png'><span class='hellgo'>Hellgo</span>";
                     } else if (data.name == 'Letgo') {
-                        output = "<img src='http://favorfields.com/wp-content/uploads/2017/02/rego1.png'><span>Letgo</span>";
+                        output = "<img src='http://favorfields.com/wp-content/uploads/2017/03/letgo1.png'><span class='letgo'>Letgo</span>";
                     } else if (data.name == 'Wellgo') {
-                        output = "<img src='http://favorfields.wpengine.com/wp-content/uploads/2017/02/wellgo1.png'><span>Wellgo</span>";
+                        output = "<img src='http://favorfields.wpengine.com/wp-content/uploads/2017/02/wellgo1.png'><span class='wellgo'>Wellgo</span>";
                     }
                     return output;
                 }

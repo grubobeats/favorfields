@@ -47,6 +47,7 @@ $logic->checkForCustomWellgo();
         <h1>SOCIAL MODE</h1>
         <div class="banner-image border-color-1">
             <img src="<?= $logic->getRandomImage($color_scheme, true) ?>" alt="">
+            <a href="<?= get_permalink() ?>" class="circle-focus"></a>
         </div>
 
         <div class="inner">

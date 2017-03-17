@@ -96,21 +96,46 @@ class Template_logic
 
             if (count($gel_all_answers_for_this_user) > 0) {
 
+                $ids = array();
+
                 foreach ($gel_all_answers_for_this_user as $answer) {
                     $one_of_the_posts_id = $answer->ID;
 
                     $list_wellgorithms = "SELECT * from wp_postmeta WHERE post_id   = $one_of_the_posts_id AND meta_key = 'user_basic_settings_related_wellgo'";
                     $get_related_wellgo = $wpdb->get_results($list_wellgorithms);
 
-                    $redirect_to_id = $get_related_wellgo[0]->post_id;
+                    $redirect_to_id = $get_related_wellgo[count($get_related_wellgo) - 1]->post_id;
 
                     if ($this_post_id == $get_related_wellgo[0]->meta_value) {
-                        wp_redirect( get_permalink($redirect_to_id) );
-                        exit;
+                        $ids[] = get_permalink($redirect_to_id);
                     }
                 }
+
+                $last_id = $ids[ count($ids) - 1 ];
+                wp_redirect($last_id);
+                exit;
             }
 
+        }
+    }
+
+    /**
+     * Find parent welgoritihm ID
+     */
+
+    function getWellgorithmPostID() {
+        if ( is_singular('wellgorithms') ) {
+            return get_the_ID();
+        } else {
+            global $wpdb;
+            $this_post_id = get_the_ID();
+            $query = 'SELECT `meta_value` FROM `wp_postmeta` WHERE `post_id` = ' . $this_post_id . ' AND `meta_key` =  "user_basic_settings_related_wellgo"';
+
+            $related_wellgo = $wpdb->get_results($query);
+
+            $wellgo_id = $related_wellgo[0]->meta_value;
+
+            return $wellgo_id;
         }
     }
 

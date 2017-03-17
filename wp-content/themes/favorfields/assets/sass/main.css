@@ -2765,6 +2765,21 @@ body.is-menu-visible #menu {
   border-radius: 50%;
   margin: 0 auto; }
 
+.circle-focus {
+  width: 30px;
+  height: 30px;
+  background: white;
+  position: relative;
+  border-radius: 50%;
+  border: 1px solid #74bfe6;
+  left: calc(50% - 15px);
+  top: -24px;
+  display: block;
+  transition: 1s; }
+  .circle-focus:hover {
+    background: #74bfe6;
+    border-bottom-color: none; }
+
 .no-results {
   text-align: center;
   font-weight: 500;

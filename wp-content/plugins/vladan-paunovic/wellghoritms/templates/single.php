@@ -40,12 +40,13 @@ $logic->checkForCustomWellgo();
     var level = "<?= $welgorithm[ $prefix . 'basic_settings_level' ][0] ?>";
     var confidence = "<?= $welgorithm[ $prefix . 'basic_settings_confidence' ][0] ?>";
     var recommended = "<?= $welgorithm[ $prefix . 'basic_settings_recommended' ][0] ?>";
-    var post_id = "<?= get_the_ID() ?>";
+    var post_id = "<?= $logic->getWellgorithmPostID(); ?>";
 </script>
     <!-- Main -->
     <div id="main">
         <div class="banner-image border-color-1">
             <img src="<?= $logic->getRandomImage($color_scheme, true) ?>" alt="">
+            <a href="<?= get_permalink() ?>social" class="circle-focus"></a>
         </div>
 
         <div class="inner">

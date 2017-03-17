@@ -327,8 +327,13 @@ ul.ais-pagination {
           cursor: pointer;
           transition: 0.5s linear; }
         .footer #category .ais-refinement-list--list .wellgo_categories div span {
-          color: #74bfe6;
           cursor: pointer; }
+          .footer #category .ais-refinement-list--list .wellgo_categories div span.hellgo {
+            color: #e55f78; }
+          .footer #category .ais-refinement-list--list .wellgo_categories div span.letgo {
+            color: #789074; }
+          .footer #category .ais-refinement-list--list .wellgo_categories div span.wellgo {
+            color: #74bfe6; }
         .footer #category .ais-refinement-list--list .wellgo_categories:hover {
           filter: grayscale(0%); }
 

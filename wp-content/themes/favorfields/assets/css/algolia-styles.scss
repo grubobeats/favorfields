@@ -465,8 +465,18 @@ ul.ais-pagination {
           }
 
           span {
-            color: $blue;
+            //color: $blue;
             cursor: pointer;
+
+            &.hellgo {
+              color: #e55f78;
+            }
+            &.letgo {
+              color: #789074;
+            }
+            &.wellgo {
+              color: $blue;
+            }
           }
         }
 
