@@ -24,11 +24,18 @@ if ( $category[0]->name == "Hellgo" ) {
 }
 $logic->checkForCustomWellgo();
 
+
+$maximum_questions = 3;
+
+if( is_user_logged_in() ) {
+    $maximum_questions = $welgorithm[ $prefix . 'basic_settings_steps' ][0];;
+}
+
 ?>
 <script>
     var all_steps = <?= $welgorithm[ $prefix . 'basic_settings_steps' ][0]; ?>;
     var steps = <?= $number_of_questions; ?>;
-    var maximum_steps = 3;
+    var maximum_steps = <?= $maximum_questions ?>;
     var question_animation = "<?= $favorfields[ $question_animations ] ?>";
     var ajaxurl = "<?= admin_url( 'admin-ajax.php' ) ?>";
     var permalink = "<?= get_permalink(); ?>";

@@ -76,6 +76,16 @@ jQuery(document).ready(function($){
                     scrollTop: $(wellghoritm).next().offset().top - 70
                 },
                 1000);
+
+            $(wellghoritm)
+                .next()
+                .next()
+                .removeClass('hidden')
+                .addClass('animated ' + question_animation);
+
+            changePercentage(step, all_steps, maximum_steps);
+            step++;
+
         } else {
             // Check if user changed more than 10 letters
             if( keypress_counter > 10 ) {
@@ -86,14 +96,11 @@ jQuery(document).ready(function($){
             }
         }
 
-        $(wellghoritm)
-            .next()
-            .next()
-            .removeClass('hidden')
-            .addClass('animated ' + question_animation);
 
-        changePercentage(step, all_steps, maximum_steps);
-        step++;
+
+
+
+
     });
 
 
