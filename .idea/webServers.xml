@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="360588af-39e5-474f-ace2-26986c02fb96" name="favorfields.com" url="http://favorfields.sftp.wpengine.com">
+        <fileTransfer host="favorfields.sftp.wpengine.com" port="2222" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="2222" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
