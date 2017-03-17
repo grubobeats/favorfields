@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="32f0cb7a-222c-4b04-be1e-da917e54017a" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wp-content/themes/favorfields/CONTRIBUTING.md" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/wp-content/themes/favorfields/README.md" afterPath="$PROJECT_DIR$/README.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/favorfields/README.md" afterPath="$PROJECT_DIR$/wp-content/themes/favorfields/README.md" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -111,7 +110,7 @@
         </entry>
       </file>
       <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/wp-content/themes/favorfields/README.md">
+        <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
               <first_editor relative-caret-position="180">
@@ -344,17 +343,18 @@
     <property name="FullScreen" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/wp-content/plugins/vladan-paunovic/cornerstone" />
-      <recent name="$PROJECT_DIR$/wp-content/plugins/vladan-paunovic/css" />
-      <recent name="$PROJECT_DIR$/wp-content/themes/favorfields/html5up-phantom" />
-      <recent name="$PROJECT_DIR$/wp-content/themes/favorfields/js" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/wp-content/themes/favorfields/assets/css" />
       <recent name="$PROJECT_DIR$/wp-content/themes/favorfields" />
       <recent name="$PROJECT_DIR$/wp-content/plugins/vladan-paunovic/wellghoritms" />
       <recent name="$PROJECT_DIR$/wp-content/plugins/vladan-paunovic/user-answers" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/wp-content/plugins/vladan-paunovic/cornerstone" />
+      <recent name="$PROJECT_DIR$/wp-content/plugins/vladan-paunovic/css" />
+      <recent name="$PROJECT_DIR$/wp-content/themes/favorfields/html5up-phantom" />
+      <recent name="$PROJECT_DIR$/wp-content/themes/favorfields/js" />
     </key>
   </component>
   <component name="RunManager">
@@ -458,12 +458,12 @@
       <workItem from="1489420767317" duration="1330000" />
       <workItem from="1489470061960" duration="3676000" />
       <workItem from="1489554351444" duration="837000" />
-      <workItem from="1489740263858" duration="3180000" />
+      <workItem from="1489740263858" duration="3238000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="206212000" />
+    <option name="totallyTimeSpent" value="206270000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -476,10 +476,10 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2045177" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2032967" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2032967" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.13979591" sideWeight="0.507326" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32967034" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -907,7 +907,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/favorfields/README.md">
+    <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="180">
