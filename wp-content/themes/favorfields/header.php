@@ -9,35 +9,65 @@
  * @package FavorFields
  */
 
-?><!DOCTYPE html>
+?><!DOCTYPE HTML>
 <html <?php language_attributes(); ?>>
+<?php
+global $favorfields;
+$user = wp_get_current_user();
+if ( $user->ID == 0 ) {
+    $username = "Guest";
+    $avatar = $favorfields['guest-avatar']['url'];
+} else {
+    $username = $user->user_login;
+    $avatar = get_wp_user_avatar($user->ID, 96);
+}
+?>
 <head>
-<meta charset="<?php bloginfo( 'charset' ); ?>">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="profile" href="http://gmpg.org/xfn/11">
-<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
-
-<?php wp_head(); ?>
+    <title><?php bloginfo( 'name' ); ?> - <?php bloginfo( 'description')?></title>
+    <meta charset="<?php bloginfo( 'charset' ); ?>">
+    <link rel="profile" href="http://gmpg.org/xfn/11">
+    <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--[if lte IE 8]><script src="<?php get_template_directory_uri() ?>js/ie/html5shiv.js"></script><![endif]-->
+    <?php wp_head(); ?>
 </head>
-
 <body <?php body_class(); ?>>
-<div id="page" class="hfeed site">
-	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'favorfields' ); ?></a>
+<!-- Wrapper -->
+<div id="wrapper">
 
-	<header id="masthead" class="site-header" role="banner">
-		<div class="site-branding">
-			<?php if ( is_front_page() && is_home() ) : ?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-			<?php else : ?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-			<?php endif; ?>
-			<p class="site-description"><?php bloginfo( 'description' ); ?></p>
-		</div><!-- .site-branding -->
+    <header id="header" class="header-class homepage background-color-1">
+        <div class="inner top-bar">
+            <div class="left-header">
+                <a href="<?php echo esc_url( home_url( '/' ) ); ?>">
+                    <img class="logo" src="<?= $favorfields['logo']['url'];?>" alt="<?php bloginfo( 'description')?>" />
+                </a>
+                <img class="main-logo" src="<?= $favorfields['main-logo']['url'] ?>" alt="<?php bloginfo( 'description')?>" >
+                <span class="category"><?= $category_name; ?></span>
+            </div>
 
-		<nav id="site-navigation" class="main-navigation" role="navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'favorfields' ); ?></button>
-			<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
-		</nav><!-- #site-navigation -->
-	</header><!-- #masthead -->
 
-	<div id="content" class="site-content">
+            <span class="title"><?php bloginfo( 'description')?></span>
+
+            <div class="right-header">
+                <div class="user"><?= $username ?></div>
+                <img class="user-logo" src="<?= $avatar; ?>" alt="">
+                <!-- Nav -->
+                <nav>
+                    <ul>
+                        <li><a href="#menu">Menu</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Menu -->
+    <nav id="menu">
+
+            <h2>Menu</h2>
+            <?php wp_nav_menu( array(
+                'theme_location' => 'primary',
+                'menu_id' => 'primary-menu',
+                'container' => false
+            ) ); ?>
+    </nav>

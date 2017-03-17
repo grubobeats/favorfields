@@ -120,11 +120,20 @@ add_action( 'widgets_init', 'favorfields_widgets_init' );
  * Enqueue scripts and styles.
  */
 function favorfields_scripts() {
-	wp_enqueue_style( 'favorfields-style', get_stylesheet_uri() );
+    // Styles
+    wp_enqueue_style( 'favorfields-main-style', get_template_directory_uri() . '/assets/css/main.css');
 
+    // Scripts
 	wp_enqueue_script( 'favorfields-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
-
 	wp_enqueue_script( 'favorfields-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
+	wp_enqueue_script( 'favorfields-skel', get_template_directory_uri() . '/js/skel.min.js', array(), '20130115', true );
+	wp_enqueue_script( 'favorfields-respond-ie', get_template_directory_uri() . '/js/ie/respond.min.js', array(), '20130115', true );
+	wp_enqueue_script( 'favorfields-main', get_template_directory_uri() . '/js/main.js', array(), '20130115', true );
+	wp_enqueue_script( 'favorfields-font-awesome', 'https://use.fontawesome.com/795c526065.js', array(), '20130115', false );
+
+	// Scripts & Styles for algolia search
+    wp_enqueue_style( 'favorfields-font-awesome', get_template_directory_uri() . '/assets/css/algolia-styles.css' );
+//    wp_enqueue_script( 'favorfields-font-awesome', get_template_directory_uri() . '/js/algolia_search.js', array(), '20130115', false );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -156,3 +165,69 @@ require get_template_directory() . '/inc/customizer.php';
  * Load Jetpack compatibility file.
  */
 require get_template_directory() . '/inc/jetpack.php';
+
+
+/**
+ * Removing admin bar from front-end
+ */
+function hide_admin_bar_from_front_end(){
+    if (is_blog_admin()) {
+        return true;
+    }
+    return false;
+}
+add_filter( 'show_admin_bar', 'hide_admin_bar_from_front_end' );
+
+
+/**
+ * Add sub pages to wellgorithms
+ */
+
+$my_fake_pages = array(
+    'social' => 'Social',
+);
+
+add_filter('rewrite_rules_array', 'fsp_insertrules');
+add_filter('query_vars', 'fsp_insertqv');
+
+// Adding fake pages' rewrite rules
+function fsp_insertrules($rules)
+{
+    global $my_fake_pages;
+
+    $newrules = array();
+    foreach ($my_fake_pages as $slug => $title)
+        $newrules['wellgorithms/([^/]+)/' . $slug . '/?$'] = 'index.php?wellgorithms=$matches[1]&fpage=' . $slug;
+
+    return $newrules + $rules;
+}
+
+// Tell WordPress to accept our custom query variable
+function fsp_insertqv($vars)
+{
+    array_push($vars, 'fpage');
+    return $vars;
+}
+
+// Remove WordPress's default canonical handling function
+
+remove_filter('wp_head', 'rel_canonical');
+add_filter('wp_head', 'fsp_rel_canonical');
+function fsp_rel_canonical()
+{
+    global $current_fp, $wp_the_query;
+
+    if (!is_singular())
+        return;
+
+    if (!$id = $wp_the_query->get_queried_object_id())
+        return;
+
+    $link = trailingslashit(get_permalink($id));
+
+    // Make sure fake pages' permalinks are canonical
+    if (!empty($current_fp))
+        $link .= user_trailingslashit($current_fp);
+
+    echo '<link rel="canonical" href="'.$link.'" />';
+}

@@ -1,0 +1,47 @@
+/*
+ Settings
+  */
+
+div#basic-settings select,
+div#basic-settings #weight,
+div#basic-settings #synonyms,
+div#basic-settings #steps {
+    width: 100%;
+}
+
+div#basic-settings #icon {
+    width: 67%;
+}
+
+div#basic-settings #icon_button {
+    width: 30%;
+}
+
+/*
+ Steps
+  */
+
+table.steps {
+    border: 1px solid #bbafaf;
+    padding: 10px;
+    width: 100%;
+}
+
+table.steps tr td {
+    width: 33.33%;
+}
+
+table.steps select,
+table.steps input,
+table.steps textarea{
+    width: 100%;
+    padding: 11px 5px;
+}
+
+table.steps textarea {
+    height: 94px;
+}
+
+table.steps .step_text {
+    margin: 0;
+}

@@ -1,0 +1,27 @@
+input#color-1,
+input#color-2,
+input#color-3,
+input#color-4 {
+    width: 100%;
+    height: 35px;
+}
+
+input#logo-small,
+input#logo-large {
+    width: 67%;
+}
+
+input#logo-small_button,
+input#logo-large_button {
+    width: 30%;
+}
+
+span.dashicons.dashicons-no {
+    padding-left: 10px;
+    color: #e27575;
+    cursor: pointer;
+}
+
+span.dashicons.dashicons-no:hover {
+    color: #000;
+}

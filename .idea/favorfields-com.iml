@@ -14,7 +14,12 @@
         </SOURCES>
       </library>
     </orderEntry>
+<<<<<<< HEAD
     <orderEntry type="library" name="algoliasearch" level="application" />
     <orderEntry type="library" name="jquery" level="application" />
+=======
+    <orderEntry type="library" name="jquery" level="application" />
+    <orderEntry type="library" name="algoliasearch" level="application" />
+>>>>>>> stage
   </component>
 </module>

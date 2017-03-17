@@ -1,0 +1,53 @@
+
+
+.no-results {
+  text-align: center;
+  font-weight: 500;
+  font-size: 26px;
+  padding-top: 120px;
+}
+
+.search-panel {
+  background: white;
+  height: 600px;
+  border: solid $light_blue;
+  padding: 10px;
+  border-width: 0 20px 20px 20px;
+
+  #hits {
+    float: none;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+    height: 560px;
+    overflow: scroll;
+    min-height: 300px;
+    //border: 1px solid #eaeaea;
+    padding: 10px;
+
+    .hit {
+      width: 30%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 10px;
+      height: 260px;
+
+      .image-attribute {
+        width: 80%;
+        margin: 0;
+      }
+
+      .primary-attribute {
+        text-align: center;
+        font-size: 21px;
+        padding: 0;
+
+        a {
+          border: none;
+        }
+      }
+    }
+  }
+}
