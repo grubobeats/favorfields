@@ -39,15 +39,31 @@
 
           img {
             width: 50px;
+            transition: 0.5s linear;
+            cursor: pointer;
+
+            &:hover {
+
+              opacity: 0.5;
+            }
           }
 
           span {
             width: 100%;
+            text-transform: uppercase;
           }
+
+
 
           &.reload {
             i {
               font-size: 40px;
+              transition: 0.5s;
+              cursor: pointer;
+
+              &:hover {
+                transform: rotate(720deg)
+              }
             }
           }
         }

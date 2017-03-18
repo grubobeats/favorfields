@@ -144,6 +144,78 @@ class Template_logic
         }
     }
 
+    /**
+     * Get list of users for Social Mode
+     */
+
+    function getRelatedUsers() {
+        global $wpdb;
+        $related_wellgo = $this->getWellgorithmPostID();
+        $query = "SELECT `post_id` FROM `wp_postmeta` WHERE `meta_key` = \"user_basic_settings_related_wellgo\" and `meta_value` = $related_wellgo";
+
+        $post_ids = $wpdb->get_results($query);
+        $prepare_users = array();
+        $users = array();
+        $render_users = array();
+
+        // Getting list of all wellgorithms
+        foreach ($post_ids as $id) {
+            $query_authors = "SELECT `post_author`, `ID` FROM `wp_posts` WHERE `ID` = $id->post_id AND `post_status` = 'publish'";
+            $prepare_users[] = $wpdb->get_results($query_authors);
+        }
+
+        foreach ($prepare_users as $prepared_user) {
+
+            $user_id = $prepared_user[0]->post_author;
+            $userdata = get_userdata($user_id);
+            $avatar = get_wp_user_avatar( $prepared_user[0]->post_author, 96 );
+
+            if ( substr( $avatar, 0, 4 ) === "<img" ) {
+                $array = array();
+                preg_match( '/src="([^"]*)"/i', $avatar, $array ) ;
+                $avatar = $array[1];
+            }
+
+            $users[] = array(
+                'user_id'       => $prepared_user[0]->post_author,
+                'user_avatar'   => $avatar,
+                'user_username' => $userdata->user_login,
+                'post_id'       => $prepared_user[0]->ID
+            );
+        }
+
+        // Prepare array for output
+        for ($i=0; $i < 3; $i++) {
+            // if we have <= 5 related custom wellgorithms
+            // it will output them by normal order
+            if (count($users) <= 5) {
+                $render_users[] = $users[$i];
+            } else {
+                // if we have more than 5 custom wellgorithms
+                // it will output them randomly
+                $random_key = rand(0, count($users) - 1);
+                $render_users[] = $users[ $random_key ];
+            }
+        }
+
+        $output = "";
+        foreach ( $render_users as $user ) {
+            if(!empty($user['user_username'])) {
+                $output .= "<div class=\"user\">";
+                $output .= sprintf('<img src="%s" alt="%s" data-user-id="%s" data-post-id="%s"><span class="color-2">%s</span>',
+                    $user['user_avatar'],
+                    $user['user_username'],
+                    $user['user_id'],
+                    $user['post_id'],
+                    $user['user_username']
+                );
+                $output .= "</div>";
+            }
+        }
+
+        return $output;
+    }
+
 }
 
 $logic = new Template_logic();

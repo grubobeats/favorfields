@@ -2,7 +2,6 @@
  * Created by vladan on 13/02/2017.
  */
 jQuery(document).ready(function($){
-    console.log("social");
     /*
         Sticking progress-bar to the top after scrolling
      */
@@ -71,7 +70,6 @@ jQuery(document).ready(function($){
 
         // scrolling on all questions except on last
         if(maximum_steps > step) {
-            console.log( $(wellghoritm).offset().top );
             $('html, body').animate(
                 {
                     scrollTop: eval($(wellghoritm).offset().top - 70) + 744
@@ -88,12 +86,14 @@ jQuery(document).ready(function($){
 
         } else {
             // Check if user changed more than 10 letters
+            /*
             if( keypress_counter > 10 ) {
                 $(prompt_save)
                     .delay(2000)
                     .show()
                     .addClass('animated fadeIn');
             }
+            */
         }
 
 
@@ -107,7 +107,7 @@ jQuery(document).ready(function($){
     /*
         Ajax saving to DB
      */
-
+    /*
     $('.save-question-yes').click(function(){
 
         $('.prompt-save').html("<h3>Saving...</h3>");
@@ -171,10 +171,12 @@ jQuery(document).ready(function($){
         });
 
     });
+    */
 
     /*
         Edit question popup (heart)
      */
+
     $('.popup-suggest-question').click(function(e){
         e.stopPropagation();
     });
@@ -201,6 +203,7 @@ jQuery(document).ready(function($){
             .hide()
     });
 
+
     /*
         Emptying divs that are acting as input fields on click
      */
@@ -219,6 +222,7 @@ jQuery(document).ready(function($){
     /*
         Changing question texts
      */
+    /*
     $('.question_sugestion').keyup(function () {
         var questionText = $(this).val(),
             thisQuestion = $(this).parent().parent().parent().parent().parent().find('span'),
@@ -231,16 +235,19 @@ jQuery(document).ready(function($){
         }
 
     });
+    */
 
     /*
         Limiting maximum number of characters in questions
      */
+    /*
     var maximumNumberOfCharacters = 333;
     $('.fake-input').keyup(function(){
        if( $(this).html().length >= maximumNumberOfCharacters ) {
            alert("To many characters.");
        }
     });
+    */
 
     // Extra menu opening
     $('.popup-extra-menu').click(function(e){

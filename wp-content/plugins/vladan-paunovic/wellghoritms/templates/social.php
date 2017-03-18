@@ -22,7 +22,7 @@ if ( $category[0]->name == "Hellgo" ) {
 } elseif ( $category[0]->name == "Letgo" ) {
     $hellgo_prefix = "l_";
 }
-$logic->checkForCustomWellgo();
+//$logic->checkForCustomWellgo();
 
 $maximum_questions = 3;
 
@@ -58,18 +58,8 @@ if( is_user_logged_in() ) {
         <? for($i = 0; $i < $number_of_questions; $i++) : ?>
         <div class="social<? if ($i > 0 ) : ?> hidden<? endif;?>">
             <div class="avatar-box">
-                <div class="user">
-                    <img src="http://favorfields.com/wp-content/uploads/2017/02/mm9.png" alt="">
-                    <span class="color-2">Username</span>
-                </div>
-                <div class="user">
-                    <img src="http://favorfields.com/wp-content/uploads/2017/02/mm9.png" alt="">
-                    <span class="color-2">Username</span>
-                </div>
-                <div class="user">
-                    <img src="http://favorfields.com/wp-content/uploads/2017/02/mm9.png" alt="">
-                    <span class="color-2">Username</span>
-                </div>
+                <?= $logic->getRelatedUsers() ?>
+
                 <div class="user reload">
                     <i class="fa fa-repeat reload_users color-2" aria-hidden="true"></i>
                 </div>
@@ -219,18 +209,8 @@ if( is_user_logged_in() ) {
 
             </div>
             <div class="avatar-box">
-                <div class="user">
-                    <img src="http://favorfields.com/wp-content/uploads/2017/02/mm9.png" alt="">
-                    <span class="color-2">Username</span>
-                </div>
-                <div class="user">
-                    <img src="http://favorfields.com/wp-content/uploads/2017/02/mm9.png" alt="">
-                    <span class="color-2">Username</span>
-                </div>
-                <div class="user">
-                    <img src="http://favorfields.com/wp-content/uploads/2017/02/mm9.png" alt="">
-                    <span class="color-2">Username</span>
-                </div>
+                <?= $logic->getRelatedUsers() ?>
+
                 <div class="user reload">
                     <i class="fa fa-repeat reload_users color-2" aria-hidden="true"></i>
                 </div>
