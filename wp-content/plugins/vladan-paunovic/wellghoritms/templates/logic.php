@@ -186,25 +186,21 @@ class Template_logic
         }
 
         // Prepare array for output
-
-
         for ($i=0; $i < 3; $i++) {
-            // if we have <= 5 related custom wellgorithms
-            // it will output them by normal order
-            if (count($users) <= 5) {
-                $render_users[] = $users[$i];
+            $random_key = rand(0, count($users) - 1);
+            if (!empty($users[$random_key]['post_id'])) {
+                $render_users[] = $users[$random_key];
+                if( count($users) > 3 ) {
+                    $reload_string = "<div class=\"user reload\"><i class=\"fa fa-repeat reload_users color-2\" aria-hidden=\"true\"></i></div>";
+                }
             } else {
-                // if we have more than 5 custom wellgorithms
-                // it will output them randomly
-                $random_key = rand(0, count($users) - 1);
-                $render_users[] = $users[ $random_key ];
-                $reload_string = "<div class=\"user reload\"><i class=\"fa fa-repeat reload_users color-2\" aria-hidden=\"true\"></i></div>";
+                $i--;
             }
         }
 
+
         $output = "";
         foreach ( $render_users as $user ) {
-            if(!empty($user['user_username'])) {
                 $output .= "<div class=\"user\">";
                 $output .= sprintf('<img src="%s" alt="%s" data-user-id="%s" data-post-id="%s"><span class="color-2">%s</span>',
                     $user['user_avatar'],
@@ -213,11 +209,9 @@ class Template_logic
                     $user['post_id'],
                     $user['user_username']
                 );
-                $output .= "</div>" . $reload_string;
-            }
+                $output .= "</div>";
         }
-
-
+        $output .= $reload_string;
 
         return $output;
     }
