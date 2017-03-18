@@ -52,17 +52,13 @@ if( is_user_logged_in() ) {
     <div id="main" class="social-mode background-color-1">
         <div class="banner-image border-color-1">
             <img src="<?= $logic->getRandomImage($color_scheme, true) ?>" alt="">
-            <a href="<?= get_permalink() ?>" class="circle-focus"></a>
+            <a href="<?= get_permalink() ?>" class="circle-focus border-color-1"></a>
         </div>
 
         <? for($i = 0; $i < $number_of_questions; $i++) : ?>
         <div class="social<? if ($i > 0 ) : ?> hidden<? endif;?>">
             <div class="avatar-box">
                 <?= $logic->getRelatedUsers() ?>
-
-                <div class="user reload">
-                    <i class="fa fa-repeat reload_users color-2" aria-hidden="true"></i>
-                </div>
             </div>
             <div class="inner center-content background-color-2">
                     <div class="wellghoritm">
@@ -205,15 +201,9 @@ if( is_user_logged_in() ) {
 
                 <div class="separator background-color-1"></div>
                     <? $counter = $counter + 2; ?>
-
-
             </div>
             <div class="avatar-box">
                 <?= $logic->getRelatedUsers() ?>
-
-                <div class="user reload">
-                    <i class="fa fa-repeat reload_users color-2" aria-hidden="true"></i>
-                </div>
             </div>
         </div>
         <? endfor; ?>

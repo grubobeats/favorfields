@@ -154,6 +154,7 @@ class Template_logic
         $query = "SELECT `post_id` FROM `wp_postmeta` WHERE `meta_key` = \"user_basic_settings_related_wellgo\" and `meta_value` = $related_wellgo";
 
         $post_ids = $wpdb->get_results($query);
+        $reload_string = "";
         $prepare_users = array();
         $users = array();
         $render_users = array();
@@ -185,6 +186,8 @@ class Template_logic
         }
 
         // Prepare array for output
+
+
         for ($i=0; $i < 3; $i++) {
             // if we have <= 5 related custom wellgorithms
             // it will output them by normal order
@@ -195,6 +198,7 @@ class Template_logic
                 // it will output them randomly
                 $random_key = rand(0, count($users) - 1);
                 $render_users[] = $users[ $random_key ];
+                $reload_string = "<div class=\"user reload\"><i class=\"fa fa-repeat reload_users color-2\" aria-hidden=\"true\"></i></div>";
             }
         }
 
@@ -209,9 +213,11 @@ class Template_logic
                     $user['post_id'],
                     $user['user_username']
                 );
-                $output .= "</div>";
+                $output .= "</div>" . $reload_string;
             }
         }
+
+
 
         return $output;
     }
