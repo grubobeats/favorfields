@@ -30,6 +30,8 @@ if( is_user_logged_in() ) {
     $maximum_questions = $welgorithm[ $prefix . 'basic_settings_steps' ][0];
 }
 
+
+
 ?>
 <script>
     var all_steps = <?= $welgorithm[ $prefix . 'basic_settings_steps' ][0]; ?>;
@@ -52,7 +54,7 @@ if( is_user_logged_in() ) {
     <div id="main">
         <div class="banner-image border-color-1">
             <img src="<?= $logic->getRandomImage($color_scheme, true) ?>" alt="">
-            <a href="<?= get_permalink() ?>social" class="circle-focus"></a>
+            <a href="<?= get_permalink($logic->getWellgorithmPostID()) ?>social" class="circle-focus"></a>
         </div>
 
         <div class="inner">
