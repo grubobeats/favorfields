@@ -8,7 +8,6 @@
  */
 class Template_logic
 {
-
     public function getColorTemplate($color_scheme, $key) {
         global $wpdb;
 
@@ -148,7 +147,7 @@ class Template_logic
      * Get list of users for Social Mode
      */
 
-    function getRelatedUsers() {
+    function getRelatedUsers($step) {
         global $wpdb;
         $related_wellgo = $this->getWellgorithmPostID();
         $query = "SELECT `post_id` FROM `wp_postmeta` WHERE `meta_key` = \"user_basic_settings_related_wellgo\" and `meta_value` = $related_wellgo";
@@ -191,7 +190,7 @@ class Template_logic
             if (!empty($users[$random_key]['post_id'])) {
                 $render_users[] = $users[$random_key];
                 if( count($users) > 3 ) {
-                    $reload_string = "<div class=\"user reload\"><i class=\"fa fa-repeat reload_users color-2\" aria-hidden=\"true\"></i></div>";
+                    $reload_string = "<div class=\"user reload\" data-step=\"$step\"><i class=\"fa fa-repeat reload_users color-2\" aria-hidden=\"true\"></i></div>";
                 }
             } else {
                 $i--;
@@ -201,12 +200,13 @@ class Template_logic
 
         $output = "";
         foreach ( $render_users as $user ) {
-                $output .= "<div class=\"user\">";
-                $output .= sprintf('<img src="%s" alt="%s" data-user-id="%s" data-post-id="%s"><span class="color-2">%s</span>',
+                $output .= "<div class=\"user\" data-step=\"$step\">";
+                $output .= sprintf('<img src="%s" alt="%s" class="user-avatar" data-user-id="%s" data-post-id="%s" data-step="%s"><span class="color-2">%s</span>',
                     $user['user_avatar'],
                     $user['user_username'],
                     $user['user_id'],
                     $user['post_id'],
+                    $step,
                     $user['user_username']
                 );
                 $output .= "</div>";
@@ -215,6 +215,7 @@ class Template_logic
 
         return $output;
     }
+
 
 }
 

@@ -58,7 +58,7 @@ if( is_user_logged_in() ) {
         <? for($i = 0; $i < $number_of_questions; $i++) : ?>
         <div class="social<? if ($i > 0 ) : ?> hidden<? endif;?>">
             <div class="avatar-box">
-                <?= $logic->getRelatedUsers() ?>
+                <?= $logic->getRelatedUsers($i) ?>
             </div>
             <div class="inner center-content background-color-2">
                     <div class="wellghoritm">
@@ -108,7 +108,7 @@ if( is_user_logged_in() ) {
                             </div>
                             <div class="answer__input">
                                 <div>
-                                    <div contenteditable="true" class="fake-input border-color-1"><?= $welgorithm[$def_first_answers][$i]; ?></div>
+                                    <div class="fake-input border-color-1"><?= $welgorithm[$def_first_answers][$i]; ?></div>
                                 </div>
                             </div>
                         </div>
@@ -122,7 +122,7 @@ if( is_user_logged_in() ) {
                             </div>
                             <div class="answer__input">
                                 <div>
-                                    <div contenteditable="true" class="fake-input border-color-1"><?= $welgorithm[$def_second_answers][$i]; ?></div>
+                                    <div class="fake-input border-color-1"><?= $welgorithm[$def_second_answers][$i]; ?></div>
                                 </div>
                             </div>
                         </div>
@@ -203,7 +203,7 @@ if( is_user_logged_in() ) {
                     <? $counter = $counter + 2; ?>
             </div>
             <div class="avatar-box">
-                <?= $logic->getRelatedUsers() ?>
+                <?= $logic->getRelatedUsers($i) ?>
             </div>
         </div>
         <? endfor; ?>

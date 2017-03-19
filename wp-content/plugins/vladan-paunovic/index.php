@@ -12,9 +12,8 @@ Author URI: https://givemejobtoday.com
 require_once 'wellghoritms/wellghoritms.php';
 require_once 'color-templates/color-template.php';
 require_once 'user-answers/user-answers.php';
-
 require_once 'algolia/custom-fields.php';
-
+require_once 'wellghoritms/ajax-jobs.php';
 /**
  * Adds the meta box stylesheet when appropriate
  */
@@ -65,49 +64,3 @@ function get_templates( $original_template ) {
 add_action('template_include', 'get_templates');
 
 
-/**
- * AJAX saving posts to user_answers
- */
-function saveUserWellgo() {
-    $userid = $_POST['user_id'];
-    $related = $_POST['related'];
-    $permalink = $_POST['permalink'];
-    $title = $_POST['title'];
-    $questions = serialize($_POST['questions']);
-    $first_answers = serialize($_POST['first_answers']);
-    $second_answers = serialize($_POST['second_answers']);
-    $icon = $_POST['icon'];
-    $steps = $_POST['steps'];
-    $color_template = $_POST['color_template'];
-    $mood = $_POST['mood'];
-    $level = $_POST['level'];
-    $confidence = $_POST['confidence'];
-    $recommended = $_POST['recommended'];
-
-    $postarr = array(
-        'post_title' => $title,
-        'post_type' => 'user_answers',
-        'post_author' => $userid,
-        'post_status' => 'publish',
-        'meta_input' => array(
-            'user_basic_settings_related_wellgo' => $related,
-            'user_basic_settings_icon' => $icon,
-            'user_basic_settings_steps' => $steps,
-            'user_basic_settings_color-template' => $color_template,
-            'user_basic_settings_mood' => $mood,
-            'user_basic_settings_level' => $level,
-            'user_basic_settings_confidence' => $confidence,
-            'user_basic_settings_recommended' => $recommended,
-            'user_questions' => $questions,
-            'user_first_answers' => $first_answers,
-            'user_second_answers' => $second_answers
-        )
-    );
-
-    wp_insert_post( $postarr );
-}
-
-add_action( 'wp_ajax_save_wellgo', 'saveUserWellgo' );
-
-// Custom Cornerstone Elements
-require_once 'cornerstone/my-extension.php';

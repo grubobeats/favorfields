@@ -2870,3 +2870,8 @@ body.is-menu-visible #menu {
         background-color: #edf9ff; }
         #main.social-mode .social .center-content .wellghoritm {
           width: 100%; }
+    #main.social-mode .fake-input {
+      cursor: default !important;
+      transition: .5s; }
+      #main.social-mode .fake-input.animate-text {
+        opacity: 0.3; }

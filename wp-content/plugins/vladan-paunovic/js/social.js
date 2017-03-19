@@ -95,12 +95,6 @@ jQuery(document).ready(function($){
             }
             */
         }
-
-
-
-
-
-
     });
 
 
@@ -271,4 +265,74 @@ jQuery(document).ready(function($){
         e.stopPropagation();
         $(this).parent().next().next().next().fadeIn('slow');
     });
+
+
+    /**
+     * Reading user answers from DB - Ajax
+     */
+
+    $('body').on('click', '.user-avatar', function () {
+
+        var post_id = $(this).data('post-id'),
+            step_count = $(this).data('step'),
+            step_container = $(this).parent().parent().parent(),
+            first_answer = $(step_container).find('.fake-input').first(),
+            second_answer = $(step_container).find('.fake-input').last();
+
+        // Fading out text div
+        first_answer.toggleClass('animate-text');
+        second_answer.toggleClass('animate-text');
+
+        $.ajax({
+            url: ajaxurl,
+            type: "POST",
+            dataType: "json",
+            data: {
+                action: "read_social_answers",
+                post_id: post_id,
+                step: step_count
+            },
+            success: function( response ) {
+                first_answer.html( response.first_answer );
+                second_answer.html( response.second_answer );
+
+                // fading in text div after retrieving the results
+                first_answer.toggleClass('animate-text');
+                second_answer.toggleClass('animate-text');
+            },
+            error: function( error ) {
+                console.log( "Error " + error );
+            }
+        });
+    });
+
+    /**
+     * Refreshing users
+     */
+
+    $('body').on( 'click', '.reload_users', function () {
+
+        var avatar_box = $(this).parent().parent(),
+            step = $(this).parent().data('step');
+
+        avatar_box.empty();
+
+        $.ajax({
+            url: ajaxurl,
+            type: "POST",
+            dataType: "html",
+            data: {
+                action: "refresh_users",
+                step: step,
+                related_wellgo: post_id
+            },
+            success: function( response ) {
+                avatar_box.html(response)
+            },
+            error: function( error ) {
+                console.log( "Error " + error );
+            }
+        });
+    })
+
 });

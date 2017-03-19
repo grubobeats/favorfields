@@ -79,5 +79,16 @@
         }
       }
     }
+
+    .fake-input {
+      cursor: default !important;
+      transition: .5s;
+
+      &.animate-text {
+        opacity: 0.3;
+      }
+    }
   }
 }
+
+
