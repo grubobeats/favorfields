@@ -16,7 +16,7 @@
     $welgorithm = $logic->getWellghoritm();
 
 
-    $ct_prefix = is_singular('user_answers') ? "user_" : "";
+    $ct_prefix = is_singular('my_wellgorithms') ? "user_" : "";
 
     $color_scheme = $welgorithm[$ct_prefix.'basic_settings_color-template'][0];
 

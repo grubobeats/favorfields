@@ -59,7 +59,7 @@ function user_answers() {
         'capability_type'       => 'page',
         'menu_icon'             => 'dashicons-welcome-comments',
     );
-    register_post_type( 'user_answers', $args );
+    register_post_type( 'my_wellgorithms', $args );
 
 }
 add_action( 'init', 'user_answers', 0 );

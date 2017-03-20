@@ -90,7 +90,7 @@ class Template_logic
             $this_user = get_current_user_id();
 
             // check if there are user_answers connected with this user.
-            $user_answers = "SELECT * FROM wp_posts WHERE post_author = $this_user AND post_type = 'user_answers' AND post_status = 'publish'";
+            $user_answers = "SELECT * FROM wp_posts WHERE post_author = $this_user AND post_type = 'my_wellgorithms' AND post_status = 'publish'";
             $gel_all_answers_for_this_user = $wpdb->get_results($user_answers);
 
             if (count($gel_all_answers_for_this_user) > 0) {

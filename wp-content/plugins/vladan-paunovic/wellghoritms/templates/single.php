@@ -11,10 +11,10 @@ require_once 'header.php';
 
 $number_of_questions = count(array_filter($welgorithm['questions']));
 $counter = 1;
-$prefix = is_singular('user_answers') ? "user_" : "";
-$def_questions = is_singular('user_answers') ? "user_questions" : "chosen_question";
-$def_first_answers = is_singular('user_answers') ? "user_first_answers" : "chosen_first_answer";
-$def_second_answers = is_singular('user_answers') ? "user_second_answers" : "chosen_second_answer";
+$prefix = is_singular('my_wellgorithms') ? "user_" : "";
+$def_questions = is_singular('my_wellgorithms') ? "user_questions" : "chosen_question";
+$def_first_answers = is_singular('my_wellgorithms') ? "user_first_answers" : "chosen_first_answer";
+$def_second_answers = is_singular('my_wellgorithms') ? "user_second_answers" : "chosen_second_answer";
 $question_animations = ($category[0]->name == "Hellgo") ? "h_question-animations" : "question-animations";
 $hellgo_prefix = "";
 if ( $category[0]->name == "Hellgo" ) {
@@ -30,10 +30,13 @@ if( is_user_logged_in() ) {
     $maximum_questions = $welgorithm[ $prefix . 'basic_settings_steps' ][0];
 }
 
-
+$cookie_name = "banner_image";
+$banner_image_src = $logic->getRandomImage($color_scheme, true);
+setcookie($cookie_name, $banner_image_src, time() + (3600), "/");
 
 ?>
 <script>
+
     var all_steps = <?= $welgorithm[ $prefix . 'basic_settings_steps' ][0]; ?>;
     var steps = <?= $number_of_questions; ?>;
     var maximum_steps = <?= $maximum_questions ?>;
@@ -53,7 +56,7 @@ if( is_user_logged_in() ) {
     <!-- Main -->
     <div id="main">
         <div class="banner-image border-color-1">
-            <img src="<?= $logic->getRandomImage($color_scheme, true) ?>" alt="">
+            <img src="<?= $banner_image_src; ?>" alt="">
             <a href="<?= get_permalink($logic->getWellgorithmPostID()) ?>social" class="circle-focus"></a>
         </div>
 

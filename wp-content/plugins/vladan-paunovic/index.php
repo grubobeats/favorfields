@@ -20,7 +20,7 @@ require_once 'wellghoritms/ajax-jobs.php';
 function vp_admin_styles(){
     global $typenow;
 
-    if( $typenow == 'wellgorithms' || $typenow == 'user_answers' ) {
+    if( $typenow == 'wellgorithms' || $typenow == 'my_wellgorithms' ) {
         wp_enqueue_style( 'vp_admin_styles', plugins_url( 'css/style.css', __FILE__ ));
     }
 
@@ -42,7 +42,7 @@ function get_templates( $original_template ) {
 
     $current_fp = get_query_var('fpage');
 
-    if ( is_singular( 'wellgorithms' ) || is_singular( 'user_answers' ) ) {
+    if ( is_singular( 'wellgorithms' ) || is_singular( 'my_wellgorithms' ) ) {
         wp_enqueue_style( 'vp_animate_css', 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css');
         wp_enqueue_script( 'vp_wellghoritms', plugins_url( 'js/wellgorithms.js', __FILE__ ), array(), '20130115', true );
 

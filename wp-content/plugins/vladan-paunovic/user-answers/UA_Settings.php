@@ -6,7 +6,7 @@
 class UA_Settings {
 
     private $screens = array(
-        'user_answers',
+        'my_wellgorithms',
     );
 
     public function color_templates() {

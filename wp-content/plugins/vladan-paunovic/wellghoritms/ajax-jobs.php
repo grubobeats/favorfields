@@ -28,7 +28,7 @@ function saveUserWellgo() {
 
     $postarr = array(
         'post_title' => $title,
-        'post_type' => 'user_answers',
+        'post_type' => 'my_wellgorithms',
         'post_author' => $userid,
         'post_status' => 'publish',
         'meta_input' => array(

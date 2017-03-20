@@ -9,7 +9,7 @@
 class User_Answers
 {
     private $screens = array(
-        'user_answers',
+        'my_wellgorithms',
     );
 
     public function __construct()
