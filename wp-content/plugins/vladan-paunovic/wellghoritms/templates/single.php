@@ -37,21 +37,24 @@ setcookie($cookie_name, $banner_image_src, time() + (3600), "/");
 ?>
 <script>
 
-    var all_steps = <?= $welgorithm[ $prefix . 'basic_settings_steps' ][0]; ?>;
-    var steps = <?= $number_of_questions; ?>;
-    var maximum_steps = <?= $maximum_questions ?>;
-    var question_animation = "<?= $favorfields[ $question_animations ] ?>";
-    var ajaxurl = "<?= admin_url( 'admin-ajax.php' ) ?>";
-    var permalink = "<?= get_permalink(); ?>";
-    var user_id = "<?= get_current_user_id(); ?>";
-    var title = "<?= get_the_title(); ?>";
-    var icon = "<?= $welgorithm[ $prefix . 'basic_settings_icon' ][0] ?>";
-    var color_template = "<?= $color_scheme ?>";
-    var mood = "<?= $welgorithm[ $prefix . 'basic_settings_mood' ][0] ?>";
-    var level = "<?= $welgorithm[ $prefix . 'basic_settings_level' ][0] ?>";
-    var confidence = "<?= $welgorithm[ $prefix . 'basic_settings_confidence' ][0] ?>";
-    var recommended = "<?= $welgorithm[ $prefix . 'basic_settings_recommended' ][0] ?>";
-    var post_id = "<?= $logic->getWellgorithmPostID(); ?>";
+    var all_steps = <?= $welgorithm[ $prefix . 'basic_settings_steps' ][0]; ?>,
+        steps = <?= $number_of_questions; ?>,
+        maximum_steps = <?= $maximum_questions ?>,
+        question_animation = "<?= $favorfields[ $question_animations ] ?>",
+        ajaxurl = "<?= admin_url( 'admin-ajax.php' ) ?>",
+        permalink = "<?= get_permalink(); ?>",
+        user_id = "<?= get_current_user_id(); ?>",
+        title = "<?= get_the_title(); ?>",
+        icon = "<?= $welgorithm[ $prefix . 'basic_settings_icon' ][0] ?>",
+        color_template = "<?= $color_scheme ?>",
+        mood = "<?= $welgorithm[ $prefix . 'basic_settings_mood' ][0] ?>",
+        level = "<?= $welgorithm[ $prefix . 'basic_settings_level' ][0] ?>",
+        confidence = "<?= $welgorithm[ $prefix . 'basic_settings_confidence' ][0] ?>",
+        recommended = "<?= $welgorithm[ $prefix . 'basic_settings_recommended' ][0] ?>",
+        post_id = "<?= $logic->getWellgorithmPostID(); ?>",
+        username = "<?= $username ?>",
+        current_step = 1,
+        isLoggedIn = "<?= $logged = ( is_user_logged_in() == true ) ? 1 : 0; ?>";
 </script>
     <!-- Main -->
     <div id="main">

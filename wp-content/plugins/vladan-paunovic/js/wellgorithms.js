@@ -54,8 +54,7 @@ jQuery(document).ready(function($){
         Showing next question
      */
     var question = $('.wellghoritm'),
-        input = $(question).find('input'),
-        step = 1;
+        input = $(question).find('input');
 
     $(input).click(function(){
 
@@ -70,7 +69,7 @@ jQuery(document).ready(function($){
         input_layouts.css('opacity', '0.2');
 
         // scrolling on all questions except on last
-        if(maximum_steps > step) {
+        if(maximum_steps > current_step) {
             $('html, body').animate(
                 {
                     scrollTop: $(wellghoritm).next().offset().top - 70
@@ -83,25 +82,56 @@ jQuery(document).ready(function($){
                 .removeClass('hidden')
                 .addClass('animated ' + question_animation);
 
-            changePercentage(step, all_steps, maximum_steps);
-            step++;
+            changePercentage(current_step, all_steps, maximum_steps);
+            current_step++;
 
         } else {
             // Check if user changed more than 10 letters
+            var made_custom = "No";
+
             if( keypress_counter > 10 ) {
                 $(prompt_save)
                     .delay(2000)
                     .show()
                     .addClass('animated fadeIn');
+
+                if ( !isLoggedIn || isLoggedIn === "" ) {
+                    $(prompt_save).html("<h3>You must be logged in to save.</h3>")
+                }
+
+                made_custom = "Yes";
             }
+
+            // Send event to Google analytics
+            dataLayer.push({
+                'event':'finished_wellgorithm',
+                'attributes': {
+                    'user': username,
+                    'made_custom': made_custom,
+                    'steps': current_step,
+                    'wellgorithm_name': title,
+                    'wellgorithm_url': permalink
+                }
+            });
         }
-
-
-
-
-
-
     });
+
+    $(window).unload(function(){
+
+        if(all_steps != current_step) {
+            // Send event to Google analytics if user exited before finishing wellgorithm
+            dataLayer.push({
+                'event': 'unfinished_wellgorithm',
+                'attributes': {
+                    'user': username,
+                    'steps': current_step,
+                    'wellgorithm_name': title,
+                    'wellgorithm_url': permalink
+                }
+            });
+        }
+    });
+
 
 
     /*
