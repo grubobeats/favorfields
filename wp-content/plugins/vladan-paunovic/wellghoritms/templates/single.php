@@ -31,7 +31,7 @@ if( is_user_logged_in() ) {
 }
 
 $cookie_name = "banner_image";
-$banner_image_src = $logic->getRandomImage($color_scheme, true);
+$banner_image_src = ( get_the_post_thumbnail_url() ) ? get_the_post_thumbnail_url() : $logic->getRandomImage($color_scheme, true);
 setcookie($cookie_name, $banner_image_src, time() + (3600), "/");
 
 ?>

@@ -128,6 +128,10 @@ body {
   transition: 0.5s;
   line-height: 1;
   border: none; }
+  .movie-title.Hellgo {
+    color: #e55f78; }
+  .movie-title.Letgo {
+    color: #789074; }
   .movie-title em {
     color: #0096e6;
     background: rgba(0, 160, 220, 0.2); }

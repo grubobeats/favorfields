@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Lato:400,700|Montserrat:400,500,700');
 
 $blue: #74bfe6;
-$yellow = red;
 
 * {
   box-sizing: border-box;
@@ -166,6 +165,14 @@ body {
   transition: 0.5s;
   line-height: 1;
   border: none;
+
+  &.Hellgo {
+    color: #e55f78;
+  }
+
+  &.Letgo {
+    color: #789074;
+  }
 
   em {
     color: rgb(0, 150, 230);

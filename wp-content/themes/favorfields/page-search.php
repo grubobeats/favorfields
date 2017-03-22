@@ -65,7 +65,7 @@ get_header(); ?>
             <article class="movie">
                 <img class="movie-image" src="{{ vp_icon }}" />
                 <div class="movie-meta">
-                    <a href="{{{ permalink }}}" class="movie-title">
+                    <a href="{{{ permalink }}}" class="movie-title {{{ taxonomies.category }}}">
                         {{{ post_title }}}
                     </a>
 
