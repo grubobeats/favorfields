@@ -42,6 +42,13 @@ if ( is_user_logged_in() || $shared != 0 ) :
 <!-- Main -->
 
 <div id="main">
+
+    <? if ($shared != 0) : ?>
+    <div class="wellgo-creator">
+        <h3><?= get_query_var('creator', 0) ?></h3>
+    </div>
+    <? endif; ?>
+
     <form action="<?= get_permalink() ?>" class="filter-form">
         <select name="category-filter" id="category-filter">
             <option value="0">Category</option>
