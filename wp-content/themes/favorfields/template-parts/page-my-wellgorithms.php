@@ -16,27 +16,31 @@
 
 get_header();
 
-//$search = ( isset($_GET['category-filter']) ) ? $_GET['category-filter'] : "*";
-
-
-
-
 $author = get_current_user_id();
-$tags = array();
-$weather = array();
-$args = array(
-    'post_type' => 'my_wellgorithms',
-    'author'    => $author, // use 25 for testing
-);
-// The Query
-$the_query = new WP_Query( $args );
+$shared = get_user_by('login', get_query_var('creator', 0))->data->ID;
+
+
+if ( is_user_logged_in() || $shared != 0 ) :
+
+    $read_from_author = ( $shared != 0 ) ? $shared : $author;
+
+    $tags = array();
+    $weather = array();
+    $args = array(
+        'post_type' => 'my_wellgorithms',
+        'author'    => $read_from_author, // use 25 for testing
+    );
+    // The Query
+    $the_query = new WP_Query( $args );
+
+
 ?>
 <script>
     var tags, weather;
 </script>
 <div class="separator" style="height: 150px; width: 100%"></div>
 <!-- Main -->
-<? if ( is_user_logged_in() ) : ?>
+
 <div id="main">
     <form action="<?= get_permalink() ?>" class="filter-form">
         <select name="category-filter" id="category-filter">
@@ -66,7 +70,7 @@ $the_query = new WP_Query( $args );
 
 
                 $the_query->the_post();
-                $answer = array_filter( get_post_meta($post->ID, 'user_questions')[0] );
+                $answer = array_filter( get_post_meta($post->ID, 'user_first_answers')[0] );
                 $random_answer = rand(0, count($answer) - 1 );
                 $image_src = get_post_meta( $post->ID, 'user_basic_settings_icon' )[0];
                 $related_wellgo_id = get_post_meta( $post->ID, 'user_basic_settings_related_wellgo' )[0];

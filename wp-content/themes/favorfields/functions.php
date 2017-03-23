@@ -251,3 +251,16 @@ function googleTagManager() {
 }
 
 add_action( 'wp_head', 'googleTagManager' );
+
+
+/**
+ * Add dynamic url for users
+ */
+
+add_filter('query_vars', 'add_state_var', 0, 1);
+function add_state_var($vars){
+    $vars[] = 'creator';
+    return $vars;
+}
+
+add_rewrite_rule('^my-wellgorithms/([^/]+)/?$','index.php?pagename=my-wellgorithms&creator=$matches[1]','top');
