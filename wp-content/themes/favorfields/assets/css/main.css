@@ -2875,3 +2875,68 @@ body.is-menu-visible #menu {
       transition: .5s; }
       #main.social-mode .fake-input.animate-text {
         opacity: 0.3; }
+
+.filter-form {
+  width: 100%;
+  padding: 0 100px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; }
+  .filter-form select {
+    width: 20%;
+    margin-right: 10px; }
+  .filter-form button {
+    width: 20%; }
+
+.wellgorithms-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 1366px;
+  margin: 0 auto; }
+  .wellgorithms-container .wellgorithm {
+    width: 26%;
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px solid #74bfe6;
+    border-radius: 40px;
+    justify-content: center;
+    margin: 15px; }
+    .wellgorithms-container .wellgorithm .image {
+      height: 100px;
+      width: 100%;
+      border-radius: 40px 40px 0 0;
+      background-repeat: no-repeat;
+      background-position: 50% 28%;
+      background-size: 50%; }
+      .wellgorithms-container .wellgorithm .image.wellgo {
+        background-color: #74bfe6; }
+      .wellgorithms-container .wellgorithm .image.hellgo {
+        background-color: #e55f78; }
+      .wellgorithms-container .wellgorithm .image.letgo {
+        background-color: #789074; }
+    .wellgorithms-container .wellgorithm .title {
+      width: 100%;
+      text-align: center;
+      font-weight: bold;
+      font-size: 1.3em; }
+    .wellgorithms-container .wellgorithm .description {
+      width: 100%;
+      text-align: center;
+      min-height: 150px; }
+    .wellgorithms-container .wellgorithm .my-wellgos-footer {
+      display: flex;
+      width: 100%;
+      justify-content: center;
+      align-self: flex-end; }
+      .wellgorithms-container .wellgorithm .my-wellgos-footer .option {
+        text-align: center;
+        width: 20%;
+        cursor: pointer; }
+        .wellgorithms-container .wellgorithm .my-wellgos-footer .option a {
+          text-decoration: none;
+          border: none; }
+        .wellgorithms-container .wellgorithm .my-wellgos-footer .option i {
+          font-size: 1.2em; }
+        .wellgorithms-container .wellgorithm .my-wellgos-footer .option:hover i {
+          opacity: 0.5; }

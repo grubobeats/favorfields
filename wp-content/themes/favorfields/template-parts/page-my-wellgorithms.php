@@ -16,6 +16,11 @@
 
 get_header();
 
+//$search = ( isset($_GET['category-filter']) ) ? $_GET['category-filter'] : "*";
+
+
+
+
 $author = get_current_user_id();
 $tags = array();
 $weather = array();
@@ -31,21 +36,22 @@ $the_query = new WP_Query( $args );
 </script>
 <div class="separator" style="height: 150px; width: 100%"></div>
 <!-- Main -->
+<? if ( is_user_logged_in() ) : ?>
 <div id="main">
-    <form action="<?= get_permalink() ?>">
+    <form action="<?= get_permalink() ?>" class="filter-form">
         <select name="category-filter" id="category-filter">
-            <option value="0">All</option>
+            <option value="0">Category</option>
             <? foreach( get_categories() as $category ) : ?>
                 <option value="<?= $category->cat_ID?>"><?= $category->name?></option>
             <? endforeach; ?>
         </select>
         <select name="tags-filter" id="tags-filter">
-            <option value="0">All</option>
+            <option value="0">Focus</option>
 
         </select>
 
-        <select name="weather-filter" id="weather-filter">
-            <option value="1">All</option>
+        <select name="mood-filter" id="mood-filter">
+            <option value="1">Mood</option>
         </select>
 
         <button type="submit" class="submit-filter">Filter</button>
@@ -57,6 +63,8 @@ $the_query = new WP_Query( $args );
         if ( $the_query->have_posts() ) {
 
             while ( $the_query->have_posts() ) {
+
+
                 $the_query->the_post();
                 $answer = array_filter( get_post_meta($post->ID, 'user_questions')[0] );
                 $random_answer = rand(0, count($answer) - 1 );
@@ -88,16 +96,35 @@ $the_query = new WP_Query( $args );
                     'name' => wp_get_post_tags($related_wellgo_id)[0]->name,
                 );
 
-                echo '<div class="wellgorithm ' . $category .'">';
 
-                    echo '<div class="image"><img src="' . $image_src . '" alt="' . get_the_title() . '"/></div>';
+                // Checking if data is filtered
+                // TODO: make select boxes to save values after search
+                if (isset($_GET['category-filter'])) {
+                    if ( get_the_category($related_wellgo_id)[0]->cat_ID != $_GET['category-filter'] && $_GET['category-filter'] != "0" )
+                        continue;
+                }
+
+                if (isset($_GET['tags-filter'])) {
+                    if ( wp_get_post_tags($related_wellgo_id)[0]->term_taxonomy_id != $_GET['tags-filter'] && $_GET['tags-filter'] != "0" )
+                        continue;
+                }
+
+                if (isset($_GET['mood-filter'])) {
+                    if ( $current_weather != $_GET['mood-filter'] && $_GET['mood-filter'] != "0" )
+                        continue;
+                }
+
+
+                echo '<div class="wellgorithm">';
+
+                    echo '<div class="image ' . $category .'" style="background-image: url(' . $image_src . ')"></div>';
                     echo '<div class="title">' . get_the_title() . '</div>';
                     echo '<div class="description">' . $answer[ $random_answer ] . '</div>';
-                    echo '<div class="footer" data-post_id="' . $post->ID . '">';
-                        echo '<div class="option href"><a href="' . get_permalink() . '">1</a></div>';
-                        echo '<div class="option share" data-share-link="' . get_permalink() . '">' . '2' . '</div>';
-                        echo '<div class="option public">' . '3' . '</div>';
-                        echo '<div class="option delete">' . '4' . '</div>';
+                    echo '<div class="my-wellgos-footer" data-post_id="' . $post->ID . '">';
+                        echo '<div class="option href"><a href="' . get_permalink() . '" target="_blank"><i class="fa fa-external-link" aria-hidden="true"></i></a></div>';
+                        echo '<div class="option share" data-share-link="' . get_permalink() . '"><i class="fa fa-share-alt" aria-hidden="true"></i></div>';
+                        echo '<div class="option public"><i class="fa fa-check-circle" aria-hidden="true"></i></div>';
+                        echo '<div class="option delete"><i class="fa fa-trash" aria-hidden="true"></i></div>';
                     echo '</div>';
 
                 echo '</div>';
@@ -120,8 +147,6 @@ $the_query = new WP_Query( $args );
     tags = <?= json_encode( array_values( array_unique( $tags, SORT_REGULAR ) ) )?>;
     weather = <?= json_encode( array_values( array_unique( $weather, SORT_REGULAR ) ) )?>;
 
-
-
     jQuery(document).ready(function ($) {
 
         // Add to tags
@@ -135,15 +160,17 @@ $the_query = new WP_Query( $args );
 
         // Add to weather
         $.each(weather, function(key, value) {
-            $('#weather-filter')
+            $('#mood-filter')
                 .append($("<option></option>")
                     .attr("value",value.id)
                     .text( value.name.replace('_', ' ') ));
         });
-
-
     })
-
-
 </script>
+
+<? else : ?>
+    <h2>You need to be logged in to view this page</h2>
+
+<? endif; ?>
+
 <?php get_footer(); ?>
