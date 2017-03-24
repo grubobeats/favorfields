@@ -23,13 +23,20 @@ $form_action_link = ($username_query != "0") ? get_permalink() . $username_query
 
 if ( is_user_logged_in() || $shared != 0 ) :
 
-    $read_from_author = ( $shared != 0 ) ? $shared : $author;
+    if ( $shared != 0 ) {
+        $read_from_author = $shared;
+        $status = "publish";
+    } else {
+        $read_from_author = $author;
+        $status = "*";
+    }
 
     $tags = array();
     $weather = array();
     $args = array(
         'post_type' => 'my_wellgorithms',
         'author'    => $read_from_author, // use 25 for testing
+        'post_status'    => $status,
     );
     // The Query
     $the_query = new WP_Query( $args );
