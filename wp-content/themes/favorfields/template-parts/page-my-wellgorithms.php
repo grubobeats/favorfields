@@ -17,8 +17,9 @@
 get_header();
 
 $author = get_current_user_id();
+$username_query = get_query_var('creator', 0);
 $shared = get_user_by('login', get_query_var('creator', 0))->data->ID;
-
+$form_action_link = ($username_query != "0") ? get_permalink() . $username_query : get_permalink();
 
 if ( is_user_logged_in() || $shared != 0 ) :
 
@@ -49,7 +50,7 @@ if ( is_user_logged_in() || $shared != 0 ) :
     </div>
     <? endif; ?>
 
-    <form action="<?= get_permalink() ?>" class="filter-form">
+    <form action="<?= $form_action_link ?>" class="filter-form">
         <select name="category-filter" id="category-filter">
             <option value="0">Category</option>
             <? foreach( get_categories() as $category ) : ?>
@@ -75,7 +76,6 @@ if ( is_user_logged_in() || $shared != 0 ) :
 
             while ( $the_query->have_posts() ) {
 
-
                 $the_query->the_post();
                 $answer = array_filter( get_post_meta($post->ID, 'user_first_answers')[0] );
                 $random_answer = rand(0, count($answer) - 1 );
@@ -96,7 +96,6 @@ if ( is_user_logged_in() || $shared != 0 ) :
                     default: $current_weather_name = "No weather";
                 }
 
-
                 $weather[] = array(
                     'id' =>  $current_weather,
                     'name' =>  $current_weather_name
@@ -106,7 +105,6 @@ if ( is_user_logged_in() || $shared != 0 ) :
                     'id' => wp_get_post_tags($related_wellgo_id)[0]->term_taxonomy_id,
                     'name' => wp_get_post_tags($related_wellgo_id)[0]->name,
                 );
-
 
                 // Checking if data is filtered
                 // TODO: make select boxes to save values after search
@@ -163,17 +161,14 @@ if ( is_user_logged_in() || $shared != 0 ) :
 
     jQuery(document).ready(function ($) {
 
-
         $('.public').each(function () {
-
             var thisfield = $(this);
-
             if (thisfield.data('post-status') === 'publish') {
                 thisfield.find('i').attr( 'class', 'fa fa-check-circle' )
             } else {
                 thisfield.find('i').attr( 'class', 'fa fa-stop-circle-o' )
             }
-        })
+        });
 
         // Add to tags
         $.each(tags, function(key, value) {
