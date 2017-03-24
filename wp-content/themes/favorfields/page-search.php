@@ -92,6 +92,7 @@ get_header(); ?>
             <div class="top">
                 <div class="input-container">
                     <input type="text" id="search-box" />
+                    <input type="text" id="search-box-replica" />
                     <div id="stats"></div>
                 </div>
             </div>
@@ -199,13 +200,20 @@ get_header(); ?>
         var search = instantsearch({
             appId: 'T2B04QR9B0',
             apiKey: '28985d34dee832a8f54db2e290beaec7',
-            indexName: 'wp_posts_wellgorithms'
+            indexName: 'wp_posts_wellgorithms' // test_wellgorithms
         });
 
         search.addWidget(instantsearch.widgets.searchBox({
             container: '#search-box',
-            placeholder: 'I am feeling...',
+            placeholder: 'I feel...',
             autofocus: false
+        }));
+
+        search.addWidget(instantsearch.widgets.searchBox({
+            container: '#search-box-replica',
+            placeholder: 'I seek...',
+            autofocus: true,
+            poweredBy: true
         }));
 
         var hitTemplate = document.getElementById('movie').innerHTML;

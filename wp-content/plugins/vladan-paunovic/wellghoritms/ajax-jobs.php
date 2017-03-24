@@ -163,3 +163,48 @@ function ajaxGetRelatedUsers() {
 }
 
 add_action('wp_ajax_refresh_users', 'ajaxGetRelatedUsers');
+
+
+
+/**
+ * Make wellgorithms visibille / hidden
+ */
+
+
+function postVisibilityChange(){
+
+    $post_id    = $_POST['post_id'];
+    $make       = $_POST['make'];
+
+    global $wpdb;
+    $query = "UPDATE `wp_posts` SET `post_status` = '$make' WHERE `ID` = '$post_id'";
+
+    $wpdb->get_results($query);
+
+    // Update the post into the database
+
+    echo json_encode( $wpdb->get_results($query) );
+
+    wp_die();
+}
+
+add_action( 'wp_ajax_post_visibility', 'postVisibilityChange' );
+
+
+/**
+ * Delete post by ID
+ */
+
+
+function deleteParticularPost(){
+
+    $post_id    = $_POST['post_id'];
+
+    wp_delete_post( $post_id, true );
+
+    echo json_encode( true );
+
+    wp_die();
+}
+
+add_action( 'wp_ajax_post_delete', 'deleteParticularPost' );

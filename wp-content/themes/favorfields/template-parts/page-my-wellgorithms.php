@@ -36,7 +36,7 @@ if ( is_user_logged_in() || $shared != 0 ) :
 
 ?>
 <script>
-    var tags, weather;
+    var tags, weather, ajaxurl = "<?= admin_url( 'admin-ajax.php' ) ?>";
 </script>
 <div class="separator" style="height: 150px; width: 100%"></div>
 <!-- Main -->
@@ -134,8 +134,11 @@ if ( is_user_logged_in() || $shared != 0 ) :
                     echo '<div class="my-wellgos-footer" data-post_id="' . $post->ID . '">';
                         echo '<div class="option href"><a href="' . get_permalink() . '" target="_blank"><i class="fa fa-external-link" aria-hidden="true"></i></a></div>';
                         echo '<div class="option share" data-share-link="' . get_permalink() . '"><i class="fa fa-share-alt" aria-hidden="true"></i></div>';
-                        echo '<div class="option public"><i class="fa fa-check-circle" aria-hidden="true"></i></div>';
-                        echo '<div class="option delete"><i class="fa fa-trash" aria-hidden="true"></i></div>';
+
+                        if ( $shared == 0 ) {
+                            echo '<div class="option public ' . get_post_status() . '" data-post-status="' . get_post_status() . '"><i class="fa fa-cog fa-spin fa-3x fa-fw" aria-hidden="true"></i></div>';
+                            echo '<div class="option delete"><i class="fa fa-trash" aria-hidden="true"></i></div>';
+                        }
                     echo '</div>';
 
                 echo '</div>';
@@ -160,6 +163,18 @@ if ( is_user_logged_in() || $shared != 0 ) :
 
     jQuery(document).ready(function ($) {
 
+
+        $('.public').each(function () {
+
+            var thisfield = $(this);
+
+            if (thisfield.data('post-status') === 'publish') {
+                thisfield.find('i').attr( 'class', 'fa fa-check-circle' )
+            } else {
+                thisfield.find('i').attr( 'class', 'fa fa-stop-circle-o' )
+            }
+        })
+
         // Add to tags
         $.each(tags, function(key, value) {
             $('#tags-filter')
@@ -176,6 +191,91 @@ if ( is_user_logged_in() || $shared != 0 ) :
                     .attr("value",value.id)
                     .text( value.name.replace('_', ' ') ));
         });
+
+
+        $('.public').click(function(){
+
+            var post_id = $(this).parent().data('post_id'),
+                make = "private",
+                thisfield = $(this);
+
+            thisfield.find('i').attr('class', 'fa fa-cog fa-spin fa-3x fa-fw');
+
+            if ( $(this).data('post-status') === 'private' ) {
+                make = "publish";
+            }
+
+            $.ajax({
+                url: ajaxurl,
+                type: "POST",
+                dataType: "json",
+                data: {
+                    action: "post_visibility",
+                    post_id: post_id,
+                    make: make
+                },
+                success: function( response ) {
+                    thisfield
+                        .data('post-status', make)
+                        .removeClass('publish')
+                        .removeClass('private')
+                        .addClass(make);
+
+                    if (thisfield.data('post-status') === 'publish') {
+                        thisfield.find('i').attr( 'class', 'fa fa-check-circle' )
+                    } else {
+                        thisfield.find('i').attr( 'class', 'fa fa-stop-circle-o' )
+                    }
+                },
+                error: function( error ) {
+                    console.log( "Error " + error );
+                }
+
+            });
+        })
+
+
+        $('.delete').click(function(){
+
+            if ( confirm('Are you sure about permanent deleting of this wellgorithm?') === true ) {
+                var post_id = $(this).parent().data('post_id'),
+                    thisfield = $(this),
+                    wellgorithm = $(this).parent().parent();
+
+                thisfield.find('i').attr('class', 'fa fa-cog fa-spin fa-3x fa-fw');
+
+                $.ajax({
+                    url: ajaxurl,
+                    type: "POST",
+                    dataType: "json",
+                    data: {
+                        action: "post_delete",
+                        post_id: post_id
+                    },
+                    success: function( response ) {
+                        thisfield.find('i').attr('class', 'fa fa-stop-circle-o');
+                        wellgorithm.hide('slow').delay(2000).remove();
+                    },
+                    error: function( error ) {
+                        console.log( "Error " + error );
+                    }
+
+                });
+            }
+
+        })
+
+
+
+
+
+
+
+
+
+
+
+
     })
 </script>
 

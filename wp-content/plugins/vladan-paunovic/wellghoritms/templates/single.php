@@ -5,6 +5,7 @@
  * @contact: https://givemejobtoday.com
  * @date: 15/02/2017
  */
+global $post;
 
 require_once 'logic.php';
 require_once 'header.php';
@@ -56,6 +57,7 @@ setcookie($cookie_name, $banner_image_src, time() + (3600), "/");
         current_step = 1,
         isLoggedIn = "<?= $logged = ( is_user_logged_in() == true ) ? 1 : 0; ?>";
 </script>
+
     <!-- Main -->
     <div id="main">
         <div class="banner-image border-color-1">
