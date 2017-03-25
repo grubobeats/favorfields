@@ -89,18 +89,80 @@ jQuery(document).ready(function($){
             // Check if user changed more than 10 letters
             var made_custom = "No";
 
-            if( keypress_counter > 10 ) {
-                $(prompt_save)
-                    .delay(2000)
-                    .show()
-                    .addClass('animated fadeIn');
+            if ( !isLoggedIn || isLoggedIn === "" || isLoggedIn === "0" ) {
+                console.log("not passed");
+                $(prompt_save).html("<h3>You must be logged in to save.</h3>")
+            } else {
+                console.log("passed");
+                if( keypress_counter > 10 && isLoggedIn === "1" ) {
 
-                if ( !isLoggedIn || isLoggedIn === "" ) {
-                    $(prompt_save).html("<h3>You must be logged in to save.</h3>")
+                    /*
+                     Ajax saving to DB
+                     */
+
+                    var savedBox = $('.is-saved'),
+                        questionsArray = [],
+                        firstAnswersArray = [],
+                        secondAnswersArray = [];
+
+                    savedBox.html('<h3><i class="fa fa-cog fa-spin fa-3x fa-fw" aria-hidden="true"></i></h3>');
+
+                    $('.question span').each(function(){
+                        var question = $.trim($(this).text());
+                        questionsArray.push(question);
+                    });
+
+                    $('.first div[contenteditable="true"]').each(function(){
+                        var firstAnswer = $.trim($(this).text());
+                        firstAnswersArray.push(firstAnswer);
+                    });
+
+                    $('.second div[contenteditable="true"]').each(function(){
+                        var secondAnswer = $.trim($(this).text());
+                        secondAnswersArray.push(secondAnswer);
+                    });
+
+                    $.ajax({
+                        url: ajaxurl,
+                        type: "POST",
+                        dataType: "json",
+                        data: {
+                            action: "save_wellgo",
+                            user_id: user_id,
+                            permalink: permalink,
+                            related: post_id,
+                            title: title,
+                            questions: questionsArray,
+                            first_answers: firstAnswersArray,
+                            second_answers: secondAnswersArray,
+                            icon: icon,
+                            steps: steps,
+                            color_template: color_template,
+                            mood: mood,
+                            level: level,
+                            confidence: confidence,
+                            recommended: recommended
+                        },
+                        success: function( response ) {
+                            savedBox
+                                .html("<p>We noticed that you have done some changes to <span>" + title + "</span> so we saved it for you <a href='/my-wellgorithms' taget='_blank'>here</a>. <br>You can access or delete it at anytime.</p>")
+
+                        },
+                        error: function( error ) {
+                            console.log( "You have an error regarding your ajax request." );
+                            console.log( error );
+                        }
+
+                    });
+
+                    made_custom = "Yes";
                 }
-
-                made_custom = "Yes";
             }
+
+            $(prompt_save)
+                .delay(2000)
+                .show()
+                .addClass('animated fadeIn');
 
             // Send event to Google analytics
             dataLayer.push({
@@ -133,74 +195,6 @@ jQuery(document).ready(function($){
     });
 
 
-
-    /*
-        Ajax saving to DB
-     */
-
-    $('.save-question-yes').click(function(){
-
-        $('.prompt-save').html("<h3>Saving...</h3>");
-
-        var questionsArray = [];
-
-        $('.question span').each(function(){
-            var question = $.trim($(this).text());
-            questionsArray.push(question);
-        });
-
-        var firstAnswersArray = [];
-
-        $('.first div[contenteditable="true"]').each(function(){
-            var firstAnswer = $.trim($(this).text());
-            firstAnswersArray.push(firstAnswer);
-        });
-
-        var secondAnswersArray = [];
-
-        $('.second div[contenteditable="true"]').each(function(){
-            var secondAnswer = $.trim($(this).text());
-            secondAnswersArray.push(secondAnswer);
-        });
-
-
-        $.ajax({
-            url: ajaxurl,
-            type: "POST",
-            dataType: "json",
-            data: {
-                action: "save_wellgo",
-                user_id: user_id,
-                permalink: permalink,
-                related: post_id,
-                title: title,
-                questions: questionsArray,
-                first_answers: firstAnswersArray,
-                second_answers: secondAnswersArray,
-                icon: icon,
-                steps: steps,
-                color_template: color_template,
-                mood: mood,
-                level: level,
-                confidence: confidence,
-                recommended: recommended
-            },
-            success: function( response ) {
-                $('.prompt-save')
-                    .html("<h3>Saved!</h3>")
-                    .addClass("animated fadeOut")
-                    .delay(2000)
-                    .fadeOut();
-
-            },
-            error: function( error ) {
-                console.log( "You have an error regarding your ajax request." );
-                console.log( error );
-            }
-
-        });
-
-    });
 
     /*
         Edit question popup (heart)

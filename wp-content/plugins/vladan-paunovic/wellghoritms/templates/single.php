@@ -214,9 +214,23 @@ setcookie($cookie_name, $banner_image_src, time() + (3600), "/");
 
     <div class="popups">
         <div class="prompt-save border-color-1 ">
-            <?= $favorfields['prompt-save-wellgo']; ?>
-            <button class="color-1 save-question-yes">Yes</button>
-            <button class="color-1 save-question-no">No</button>
+            <p>Great job, <span><?= $username ?>!</span></p>
+            <div class="is-saved"></div>
+            <p>Congratulations for completing the <span><?= get_the_title() ?></span>!</p>
+            <p>The secret to emotional mastery is commitment and repetition. </p>
+            <p>These wonderful community members have created a <span><?= get_the_title() ?></span> pledge group</p>
+            <div class="wellgo-avatars">
+                <div class="wellgo-user">
+                    1
+                </div>
+            </div>
+            <p>Pledge to do the <span><?= get_the_title() ?></span> for [xx] days </p>
+            <p>People who did the <span><?= get_the_title() ?></span> also did the:</p>
+            <div class="wellgo-avatars">
+                <div class="wellgo-user">
+                    1
+                </div>
+            </div>
         </div>
     </div>
 

@@ -2648,14 +2648,23 @@ body.is-menu-visible #menu {
 .prompt-save {
   display: none;
   position: fixed;
-  width: 400px;
+  width: 700px;
   min-height: 220px;
-  top: calc(50% - 110px);
-  left: calc(50% - 200px);
+  top: 15%;
+  left: calc(50% - 350px);
   background: white;
   padding: 30px;
   border: 3px solid #74bfe6;
-  border-radius: 10px; }
+  border-radius: 10px;
+  z-index: 100;
+  overflow: auto; }
+  .prompt-save .is-saved {
+    padding: 20px 0 20px 0; }
+  .prompt-save p {
+    margin: 0; }
+    .prompt-save p span {
+      font-weight: bold;
+      text-transform: capitalize; }
   .prompt-save h3 {
     text-align: center;
     padding-top: 58px; }

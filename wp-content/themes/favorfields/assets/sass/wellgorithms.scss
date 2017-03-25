@@ -345,14 +345,29 @@ $question_height: 748px;
 .prompt-save {
   display: none;
   position: fixed;
-  width: 400px;
+  width: 700px;
   min-height: 220px;
-  top: calc(50% - 110px);
-  left: calc(50% - 200px);
+  top: 15%;
+  left: calc(50% - 350px);
   background: white;
   padding: 30px;
   border: 3px solid $light_blue;
   border-radius: 10px;
+  z-index: 100;
+  overflow: auto;
+
+  .is-saved {
+    padding: 20px 0 20px 0;
+  }
+
+  p {
+    margin: 0;
+
+    span {
+      font-weight: bold;
+      text-transform: capitalize;
+    }
+  }
 
   h3 {
     text-align: center;
