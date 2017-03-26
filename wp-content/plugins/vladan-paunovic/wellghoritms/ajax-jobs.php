@@ -169,8 +169,6 @@ add_action('wp_ajax_refresh_users', 'ajaxGetRelatedUsers');
 /**
  * Make wellgorithms visibille / hidden
  */
-
-
 function postVisibilityChange(){
 
     $post_id    = $_POST['post_id'];
@@ -194,8 +192,6 @@ add_action( 'wp_ajax_post_visibility', 'postVisibilityChange' );
 /**
  * Delete post by ID
  */
-
-
 function deleteParticularPost(){
 
     $post_id    = $_POST['post_id'];
@@ -208,3 +204,164 @@ function deleteParticularPost(){
 }
 
 add_action( 'wp_ajax_post_delete', 'deleteParticularPost' );
+
+
+/**
+ * Reccomending people who did the wellgorithm
+ */
+
+
+function prepareRecommendPosts ($post_id){
+        $args = array(
+            'post_type'         => 'wellgorithms',
+//            'meta_key'          => 'basic_settings_weight',
+//            'orderby'           => 'meta_value_num',
+            'order'             => 'rand',
+            'posts_per_page'    =>  3,
+            'post_status'       => 'publish'
+        );
+
+    $my_query = new WP_Query($args);
+    if( $my_query->have_posts() ) {
+        while ($my_query->have_posts()) : $my_query->the_post();
+            $loop_post_id = get_the_ID();
+            $icon = get_post_meta($loop_post_id, 'basic_settings_icon')[0];
+            ?>
+            <div class="rel-wellgorithm">
+                <a href="<?php the_permalink() ?>" title="<?php the_title_attribute(); ?>">
+                    <img src="<?= $icon ?>" alt="">
+                    <span><?php the_title(); ?></span>
+                </a>
+            </div>
+            <?php
+        endwhile;
+    }
+    wp_reset_query();
+
+    wp_die();
+}
+
+function recommendPosts (){
+
+    $post_id = $_POST['post_id'];
+    $marked_as = ( $_POST['marked_as'] == 0 ) ? "Good" : "Bad" ; // 0 = good, 1 = bad
+
+
+
+    $tags = wp_get_post_tags($post_id);
+
+        $first_tag = $tags[0]->term_id;
+        $args = array(
+            'post_type'         => 'wellgorithms',
+            'tag__in'           => array($first_tag),
+            'post__not_in'      => array($post_id),
+            'posts_per_page'    => 3,
+            'caller_get_posts'  => 1,
+            'meta_key'          => 'basic_settings_weight',
+            'orderby'           => 'meta_value_num',
+            'order'             => 'DESC',
+            'meta_query'=> array(
+                array(
+                    'key' => 'basic_settings_recommended',
+                    'value' => $marked_as,
+                )
+            ),
+
+        );
+
+
+    if ($tags) {
+
+
+        $my_query = new WP_Query($args);
+        if( $my_query->have_posts() ) {
+            while ($my_query->have_posts()) : $my_query->the_post();
+                $loop_post_id = get_the_ID();
+                $recommended = get_post_meta($loop_post_id, 'basic_settings_recommended')[0];
+                $icon = get_post_meta($loop_post_id, 'basic_settings_icon')[0];
+
+//                if ( $recommended != $marked_as) continue;
+            ?>
+                <div class="rel-wellgorithm">
+                    <a href="<?php the_permalink() ?>" title="<?php the_title_attribute(); ?>">
+                        <img src="<?= $icon ?>" alt="">
+                        <span><?php the_title(); ?></span>
+                    </a>
+                </div>
+                <?php
+            endwhile;
+        } else {
+            // Thhis will show if there are no related wellgorithms
+            // prepareRecommendPosts($post_id);
+        }
+        wp_reset_query();
+    }
+
+    wp_die();
+}
+
+add_action( 'wp_ajax_recommend_posts', 'recommendPosts' );
+
+/**
+ * Saves user pladges to database
+ */
+function savePledge() {
+    $post_id = $_POST['post_id'];
+    $days = $_POST['days'];
+    $user_id = $_POST['user'];
+
+    global $wpdb;
+
+    $wpdb->insert( 'pladge_groups', array(
+        'post_id' => $post_id,
+        'user_id' => $user_id,
+        'chosen_days' => $days
+    ) );
+
+    echo $post_id . " " . $days . " " . $user_id;
+
+    wp_die();
+}
+
+add_action( 'wp_ajax_save_pledge', 'savePledge' );
+
+
+/**
+ * Lists users who pladged on this wellgorithm
+ */
+
+function listPladges() {
+    $post_id = $_POST['post_id'];
+    $user_id = $_POST['user'];
+
+    global $wpdb;
+
+    $query = "SELECT * FROM `pladge_groups` WHERE `post_id` = '$post_id' GROUP BY `user_id` ORDER BY id ASC LIMIT 3";
+
+    $results = $wpdb->get_results($query);
+    $output = "";
+
+    foreach ( $results as $user ) {
+        $userdata = get_userdata($user->user_id)->data;
+        $avatar = get_wp_user_avatar( $userdata->ID, 96 );
+
+        if ( substr( $avatar, 0, 4 ) === "<img" ) {
+            $array = array();
+            preg_match( '/src="([^"]*)"/i', $avatar, $array ) ;
+            $avatar = $array[1];
+        }
+
+        $output .= "<a class=\"wellgo-user\" href=\"/my-wellgorithms/$userdata->user_login\" data-id=\"$userdata->ID\">";
+        $output .= sprintf('<img src="%s" alt="%s" class="user-avatar"><span class="username">%s</span>',
+            $avatar,
+            $userdata->user_login,
+            $userdata->user_login
+        );
+        $output .= "</a>";
+    }
+
+    echo $output;
+    wp_die();
+}
+
+add_action( 'wp_ajax_list_pledges', 'listPladges' );

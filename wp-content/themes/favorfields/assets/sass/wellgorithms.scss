@@ -341,44 +341,70 @@ $question_height: 748px;
 /*
   Popups
  */
-
-.prompt-save {
-  display: none;
-  position: fixed;
-  width: 700px;
-  min-height: 220px;
-  top: 15%;
-  left: calc(50% - 350px);
+.popups {
+  width: 100%;
+  text-align: center;
   background: white;
-  padding: 30px;
-  border: 3px solid $light_blue;
-  border-radius: 10px;
-  z-index: 100;
-  overflow: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  //height: $question_height;
 
-  .is-saved {
-    padding: 20px 0 20px 0;
-  }
+  .prompt-save {
+    display: none;
+    width: 700px;
+    text-align: left;
+    min-height: 220px;
+    padding: 30px;
+    transition: 1s;
 
-  p {
-    margin: 0;
+    .is-saved {
+      padding: 20px 0 20px 0;
+    }
 
-    span {
-      font-weight: bold;
-      text-transform: capitalize;
+    p {
+      margin: 0;
+
+      span {
+        font-weight: bold;
+        text-transform: capitalize;
+      }
+    }
+
+    h3 {
+      text-align: center;
+      padding-top: 58px;
+    }
+
+    button {
+      box-shadow: none;
+      width:49%;
+    }
+
+    .related_wellgorithms {
+      display: flex;
+      justify-content: flex-start;
+
+      .rel-wellgorithm {
+        width: 20%;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin: 0 5px;
+
+        a {
+          text-align: center;
+        }
+
+        img {
+          width: 100px;
+          height: 80px;
+        }
+      }
     }
   }
-
-  h3 {
-    text-align: center;
-    padding-top: 58px;
-  }
-
-  button {
-    box-shadow: none;
-    width:49%;
-  }
 }
+
 
 .popup-suggest-question {
   display: none;

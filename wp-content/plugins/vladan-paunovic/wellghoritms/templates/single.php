@@ -55,7 +55,8 @@ setcookie($cookie_name, $banner_image_src, time() + (3600), "/");
         post_id = "<?= $logic->getWellgorithmPostID(); ?>",
         username = "<?= $username ?>",
         current_step = 1,
-        isLoggedIn = "<?= $logged = ( is_user_logged_in() == true ) ? 1 : 0; ?>";
+        isLoggedIn = "<?= $logged = ( is_user_logged_in() == true ) ? 1 : 0; ?>",
+        current_post_id = "<?= get_the_ID() ?>"
 </script>
 
     <!-- Main -->
@@ -109,7 +110,7 @@ setcookie($cookie_name, $banner_image_src, time() + (3600), "/");
                     <div class="answer first">
                         <div class="answer__radio">
                             <label for="selected_answer_<?= $counter; ?>"></label>
-                            <input type="radio" name="answered_question_<?= $i; ?>" id="selected_answer_<?= $counter; ?>" value="<?= $welgorithm['first_answers'][$i]; ?>">
+                            <input type="radio" name="answered_question_<?= $i; ?>" id="selected_answer_<?= $counter; ?>" value="<?= $welgorithm['first_answers'][$i]; ?>" data-recommend="Good">
                             <div class="check border-color-1">
                                 <div class="inside background-color-1"></div>
                             </div>
@@ -123,7 +124,7 @@ setcookie($cookie_name, $banner_image_src, time() + (3600), "/");
                     <div class="answer second">
                         <div class="answer__radio">
                             <label for="selected_answer_<? print( $counter + 1 ); ?>"></label>
-                            <input type="radio" name="answered_question_<?= $i; ?>" id="selected_answer_<? print( $counter + 1 ); ?>" value="<?= $welgorithm['second_answers'][$i]; ?>">
+                            <input type="radio" name="answered_question_<?= $i; ?>" id="selected_answer_<? print( $counter + 1 ); ?>" value="<?= $welgorithm['second_answers'][$i]; ?>" data-recommend="Bad">
                             <div class="check border-color-1">
                                 <div class="inside background-color-1"></div>
                             </div>
@@ -216,17 +217,18 @@ setcookie($cookie_name, $banner_image_src, time() + (3600), "/");
         <div class="prompt-save border-color-1 ">
             <p>Great job, <span><?= $username ?>!</span></p>
             <div class="is-saved"></div>
-            <p>Congratulations for completing the <span><?= get_the_title() ?></span>!</p>
-            <p>The secret to emotional mastery is commitment and repetition. </p>
-            <p>These wonderful community members have created a <span><?= get_the_title() ?></span> pledge group</p>
-            <div class="wellgo-avatars">
-                <div class="wellgo-user">
-                    1
-                </div>
-            </div>
-            <p>Pledge to do the <span><?= get_the_title() ?></span> for [xx] days </p>
+            <p>Join these wonderful community members who have created a <span><?= get_the_title() ?></span> pledge group:</p>
+            <div class="wellgo-avatars"></div>
+            <p for="pladge">Pledge to do the <span><?= get_the_title() ?></span> for</p>
+            <select name="pladge" id="pladge">
+                <option value="null">Choose...</option>
+                <? for ($i=7; $i <= 30; $i++) : ?>
+                    <option value="<?= $i ?>"><?= $i ?> days</option>
+                <? endfor; ?>
+            </select>
+
             <p>People who did the <span><?= get_the_title() ?></span> also did the:</p>
-            <div class="wellgo-avatars">
+            <div class="related_wellgorithms">
                 <div class="wellgo-user">
                     1
                 </div>

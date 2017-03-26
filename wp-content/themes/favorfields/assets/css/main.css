@@ -2645,32 +2645,47 @@ body.is-menu-visible #menu {
 /*
   Popups
  */
-.prompt-save {
-  display: none;
-  position: fixed;
-  width: 700px;
-  min-height: 220px;
-  top: 15%;
-  left: calc(50% - 350px);
+.popups {
+  width: 100%;
+  text-align: center;
   background: white;
-  padding: 30px;
-  border: 3px solid #74bfe6;
-  border-radius: 10px;
-  z-index: 100;
-  overflow: auto; }
-  .prompt-save .is-saved {
-    padding: 20px 0 20px 0; }
-  .prompt-save p {
-    margin: 0; }
-    .prompt-save p span {
-      font-weight: bold;
-      text-transform: capitalize; }
-  .prompt-save h3 {
-    text-align: center;
-    padding-top: 58px; }
-  .prompt-save button {
-    box-shadow: none;
-    width: 49%; }
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  .popups .prompt-save {
+    display: none;
+    width: 700px;
+    text-align: left;
+    min-height: 220px;
+    padding: 30px;
+    transition: 1s; }
+    .popups .prompt-save .is-saved {
+      padding: 20px 0 20px 0; }
+    .popups .prompt-save p {
+      margin: 0; }
+      .popups .prompt-save p span {
+        font-weight: bold;
+        text-transform: capitalize; }
+    .popups .prompt-save h3 {
+      text-align: center;
+      padding-top: 58px; }
+    .popups .prompt-save button {
+      box-shadow: none;
+      width: 49%; }
+    .popups .prompt-save .related_wellgorithms {
+      display: flex;
+      justify-content: flex-start; }
+      .popups .prompt-save .related_wellgorithms .rel-wellgorithm {
+        width: 20%;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin: 0 5px; }
+        .popups .prompt-save .related_wellgorithms .rel-wellgorithm a {
+          text-align: center; }
+        .popups .prompt-save .related_wellgorithms .rel-wellgorithm img {
+          width: 100px;
+          height: 80px; }
 
 .popup-suggest-question {
   display: none;

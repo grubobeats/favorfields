@@ -14,6 +14,7 @@ require_once 'color-templates/color-template.php';
 require_once 'user-answers/user-answers.php';
 require_once 'algolia/custom-fields.php';
 require_once 'wellghoritms/ajax-jobs.php';
+require_once 'duplicate-post.php';
 /**
  * Adds the meta box stylesheet when appropriate
  */

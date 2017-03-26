@@ -1,7 +1,95 @@
 /**
  * Created by vladan on 13/02/2017.
  */
+
 jQuery(document).ready(function($){
+
+
+    /* ------------------------------------
+     * FUNCTIONS
+    ------------------------------------ */
+
+    function recommendedPosts( target, recommend ) {
+
+        $(target).html('<i class="fa fa-cog fa-spin fa-3x fa-fw" aria-hidden="true"></i>');
+
+        $.ajax({
+            url: ajaxurl,
+            type: "POST",
+            data: {
+                action: 'recommend_posts',
+                post_id: post_id,
+                marked_as: recommend
+            },
+            success: function( response ) {
+                $(target).html( response );
+            },
+            error: function( response ) {
+                console.log( "error: " + error )
+            }
+        });
+    }
+
+    function listPladges( target ) {
+
+        $(target).html('<i class="fa fa-cog fa-spin fa-3x fa-fw" aria-hidden="true"></i>');
+
+        $.ajax({
+            url: ajaxurl,
+            type: "POST",
+            data: {
+                action: 'list_pledges',
+                post_id: post_id,
+                user: user_id,
+            },
+            success: function( response ) {
+                $(target).html( response );
+
+
+                $('.wellgo-user').each(function(){
+                    var $this = $(this);
+
+                    if ( user_id == $this.data('id') ) {
+                        console.log("die");
+                        $('#pladge').prop('disabled', true)
+                        $('#pladge option:first').text('You already pledged for this welgorithm')
+                    }
+
+                });
+
+            },
+            error: function( response ) {
+                console.log( "error: " + error )
+            }
+        });
+    }
+
+
+
+    $('#pladge').change(function(){
+        var $this = $(this),
+            value = $this.val();
+        console.log( value )
+
+
+        $.ajax({
+            url: ajaxurl,
+            type: "POST",
+            data: {
+                action: 'save_pledge',
+                post_id: post_id,
+                days: value,
+                user: user_id
+            },
+            success: function( response ) {
+                console.log( "Success: " + response );
+            },
+            error: function( response ) {
+                console.log( "error: " + error )
+            }
+        });
+    });
+
 
     /*
         Sticking progress-bar to the top after scrolling
@@ -90,10 +178,8 @@ jQuery(document).ready(function($){
             var made_custom = "No";
 
             if ( !isLoggedIn || isLoggedIn === "" || isLoggedIn === "0" ) {
-                console.log("not passed");
-                $(prompt_save).html("<h3>You must be logged in to save.</h3>")
+                $(prompt_save).html("<h3>You must be logged in to continue.</h3>")
             } else {
-                console.log("passed");
                 if( keypress_counter > 10 && isLoggedIn === "1" ) {
 
                     /*
@@ -145,7 +231,7 @@ jQuery(document).ready(function($){
                         },
                         success: function( response ) {
                             savedBox
-                                .html("<p>We noticed that you have done some changes to <span>" + title + "</span> so we saved it for you <a href='/my-wellgorithms' taget='_blank'>here</a>. <br>You can access or delete it at anytime.</p>")
+                                .html("<p></p>")
 
                         },
                         error: function( error ) {
@@ -159,10 +245,31 @@ jQuery(document).ready(function($){
                 }
             }
 
+            $('.popups').css('height', '744px');
+
             $(prompt_save)
                 .delay(2000)
                 .show()
                 .addClass('animated fadeIn');
+
+            $('html, body').animate(
+                {
+                    scrollTop: $(prompt_save).parent().offset().top - 70
+                },
+                1000);
+
+            if ( isLoggedIn === "1" ) {
+                current_step + 2;
+                changePercentage(current_step, all_steps, maximum_steps);
+            }
+
+
+            var last_answer_num = $('.wellghoritm').length - 1,
+                radioButtons = $('input:radio[name="answered_question_' + last_answer_num + '"]'),
+                selectedIndex = radioButtons.index(radioButtons.filter(':checked'));
+
+            recommendedPosts( ".related_wellgorithms", selectedIndex );
+            listPladges( ".wellgo-avatars" );
 
             // Send event to Google analytics
             dataLayer.push({
@@ -288,4 +395,14 @@ jQuery(document).ready(function($){
         e.stopPropagation();
         $(this).parent().next().next().next().fadeIn('slow');
     });
+
+
+
+
+
+
+
+
+
+
 });
