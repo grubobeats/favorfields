@@ -37,26 +37,23 @@ jQuery(document).ready(function($){
         $.ajax({
             url: ajaxurl,
             type: "POST",
+            dataType: "json",
             data: {
                 action: 'list_pledges',
                 post_id: post_id,
                 user: user_id,
             },
             success: function( response ) {
-                $(target).html( response );
-
+                $(target).html( response.html );
 
                 $('.wellgo-user').each(function(){
                     var $this = $(this);
 
-                    if ( user_id == $this.data('id') ) {
-                        console.log("die");
-                        $('#pladge').prop('disabled', true)
+                    if ( response.isDoneByUser === true ) {
+                        $('#pladge').prop('disabled', true);
                         $('#pladge option:first').text('You already pledged for this welgorithm')
                     }
-
                 });
-
             },
             error: function( response ) {
                 console.log( "error: " + error )
@@ -69,8 +66,6 @@ jQuery(document).ready(function($){
     $('#pladge').change(function(){
         var $this = $(this),
             value = $this.val();
-        console.log( value )
-
 
         $.ajax({
             url: ajaxurl,
@@ -83,6 +78,8 @@ jQuery(document).ready(function($){
             },
             success: function( response ) {
                 console.log( "Success: " + response );
+                $this.prop('disabled', true);
+                $('#pladge option:first').text('Thank you!')
             },
             error: function( response ) {
                 console.log( "error: " + error )

@@ -333,12 +333,14 @@ add_action( 'wp_ajax_save_pledge', 'savePledge' );
 function listPladges() {
     $post_id = $_POST['post_id'];
     $user_id = $_POST['user'];
-
+    $data = array();
     global $wpdb;
 
-    $query = "SELECT * FROM `pladge_groups` WHERE `post_id` = '$post_id' GROUP BY `user_id` ORDER BY id ASC LIMIT 3";
-
+    $query = "SELECT * FROM `pladge_groups` WHERE `post_id` = '$post_id' GROUP BY `user_id` ORDER BY id DESC LIMIT 3";
     $results = $wpdb->get_results($query);
+
+
+
     $output = "";
 
     foreach ( $results as $user ) {
@@ -360,7 +362,15 @@ function listPladges() {
         $output .= "</a>";
     }
 
-    echo $output;
+
+    $query_users = "SELECT * FROM `pladge_groups` WHERE `post_id` = '$post_id' AND `user_id` = '$user_id'";
+    $results_users = count( $wpdb->get_results($query_users) );
+
+    $data['html'] = $output;
+    $data['isDoneByUser'] = ( $results_users >= 1 ) ? true : false;
+
+    echo json_encode($data);
+
     wp_die();
 }
 
