@@ -246,14 +246,19 @@ function recommendPosts (){
     $post_id = $_POST['post_id'];
     $marked_as = ( $_POST['marked_as'] == 0 ) ? "Good" : "Bad" ; // 0 = good, 1 = bad
 
-
-
     $tags = wp_get_post_tags($post_id);
 
-        $first_tag = $tags[0]->term_id;
+        // $first_tag = $tags[0]->term_id;
+
+        $all_tags = array();
+
+        foreach ($tags as $tag) {
+            $all_tags[] = $tag->term_id;
+        }
+
         $args = array(
             'post_type'         => 'wellgorithms',
-            'tag__in'           => array($first_tag),
+            'tag__in'           => $all_tags,
             'post__not_in'      => array($post_id),
             'posts_per_page'    => 3,
             'caller_get_posts'  => 1,
@@ -266,7 +271,6 @@ function recommendPosts (){
                     'value' => $marked_as,
                 )
             ),
-
         );
 
 
@@ -277,10 +281,8 @@ function recommendPosts (){
         if( $my_query->have_posts() ) {
             while ($my_query->have_posts()) : $my_query->the_post();
                 $loop_post_id = get_the_ID();
-                $recommended = get_post_meta($loop_post_id, 'basic_settings_recommended')[0];
                 $icon = get_post_meta($loop_post_id, 'basic_settings_icon')[0];
 
-//                if ( $recommended != $marked_as) continue;
             ?>
                 <div class="rel-wellgorithm">
                     <a href="<?php the_permalink() ?>" title="<?php the_title_attribute(); ?>">

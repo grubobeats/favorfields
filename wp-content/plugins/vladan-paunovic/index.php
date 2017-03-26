@@ -15,6 +15,7 @@ require_once 'user-answers/user-answers.php';
 require_once 'algolia/custom-fields.php';
 require_once 'wellghoritms/ajax-jobs.php';
 require_once 'duplicate-post.php';
+require_once 'admin-filters.php';
 /**
  * Adds the meta box stylesheet when appropriate
  */

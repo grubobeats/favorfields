@@ -22,6 +22,8 @@ jQuery(document).ready(function($){
                 marked_as: recommend
             },
             success: function( response ) {
+                console.log( "success: " + response )
+                console.log( post_id, recommend )
                 $(target).html( response );
             },
             error: function( response ) {

@@ -62,12 +62,12 @@ get_header(); ?>
 
 
         <script id="movie" type="text/x-handlebars-template">
-            <article class="movie">
+            <a class="movie" href="{{{ permalink }}}">
                 <img class="movie-image" src="{{ vp_icon }}" />
                 <div class="movie-meta">
-                    <a href="{{{ permalink }}}" class="movie-title {{{ taxonomies.category }}}">
+                    <span class="movie-title {{{ taxonomies.category }}}">
                         {{{ post_title }}}
-                    </a>
+                    </span>
 
                     <div class="movie-rating">
                         {{#stars}}
@@ -84,7 +84,7 @@ get_header(); ?>
                         {{/genre}}
                     </div>
                 </div>
-            </article>
+            </a>
         </script>
 
 
