@@ -215,7 +215,7 @@ get_header(); ?>
 
         search.addWidget(instantsearch.widgets.hits({
             container: '#hits',
-            hitsPerPage: 100,
+            hitsPerPage: 50,
             templates: {
                 item: hitTemplate
             },
@@ -361,7 +361,7 @@ get_header(); ?>
 
         search_replica.addWidget(instantsearch.widgets.hits({
             container: '#hits',
-            hitsPerPage: 100,
+            hitsPerPage: 50,
             templates: {
                 item: hitTemplate
             },

@@ -160,7 +160,7 @@ class Template_logic
 
         // Getting list of all wellgorithms
         foreach ($post_ids as $id) {
-            $query_authors = "SELECT `post_author`, `ID` FROM `wp_posts` WHERE `ID` = $id->post_id AND `post_status` = 'publish'";
+            $query_authors = "SELECT `post_author`, `ID` FROM `wp_posts` WHERE `ID` = $id->post_id AND `post_status` = 'publish' AND `post_author` != 1";
             $prepare_users[] = $wpdb->get_results($query_authors);
         }
 

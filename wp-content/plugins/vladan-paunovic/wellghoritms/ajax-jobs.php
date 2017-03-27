@@ -103,7 +103,7 @@ function ajaxGetRelatedUsers() {
 
     // Getting list of all wellgorithms
     foreach ($post_ids as $id) {
-        $query_authors = "SELECT `post_author`, `ID` FROM `wp_posts` WHERE `ID` = $id->post_id AND `post_status` = 'publish'";
+        $query_authors = "SELECT `post_author`, `ID` FROM `wp_posts` WHERE `ID` = $id->post_id AND `post_status` = 'publish' AND `post_author` != 1";
         $prepare_users[] = $wpdb->get_results($query_authors);
     }
 
@@ -112,6 +112,8 @@ function ajaxGetRelatedUsers() {
         $user_id = $prepared_user[0]->post_author;
         $userdata = get_userdata($user_id);
         $avatar = get_wp_user_avatar( $prepared_user[0]->post_author, 96 );
+
+
 
         if ( substr( $avatar, 0, 4 ) === "<img" ) {
             $array = array();
