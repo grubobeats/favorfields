@@ -87,8 +87,15 @@ function duplicate_post_as_draft(){
                 $sql_query_sel[]= "SELECT $new_post_id, '$meta_key', '$meta_value'";
             }
             $sql_query.= implode(" UNION ALL ", $sql_query_sel);
+
             $wpdb->query($sql_query);
         }
+
+
+        $wpdb->delete( 'wp_postmeta', array(
+            'post_id' => $new_post_id,
+            'meta_value' => null
+        ) );
 
 
         /*

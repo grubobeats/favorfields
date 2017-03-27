@@ -377,3 +377,54 @@ function listPladges() {
 }
 
 add_action( 'wp_ajax_list_pledges', 'listPladges' );
+
+
+
+/**
+ * Sending favors
+ */
+
+function sendFavor() {
+
+    $current_user = get_userdata( $_POST['current_user'] )->data->user_email;
+    $current_username = ucfirst(get_userdata( $_POST['current_user'] )->data->user_login);
+    $selected_user = get_userdata( $_POST['selected_user'] )->data->user_email;
+    $selected_username = ucfirst(get_userdata( $_POST['selected_user'] )->data->user_login);
+    $message_first = ucfirst($_POST['message_first']);
+    $message_second = ucfirst($_POST['message_second']);
+    $title = $_POST['title'];
+
+
+    $to = $selected_user;
+    $subject = "You’ve been favored!";
+
+    $message = "
+    <html>
+    <head>
+    <title>FavorFields.com</title>
+    </head>
+    <body>
+    <p>Dear $selected_username</p>
+    <p>$current_username has favored you with the $message_first.</p>
+    <p>\"$message_second\"</p>
+    </body>
+    </html>
+    ";
+
+    // Always set content-type when sending HTML email
+    $headers = "MIME-Version: 1.0" . "\r\n";
+    $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+
+    // More headers
+    $headers .= 'From: <' . $current_user . '>' . "\r\n";
+
+    if ( mail($to,$subject,$message,$headers) ) {
+        echo json_encode( true );
+    } else  {
+        echo json_encode( false );
+    }
+
+    wp_die();
+}
+
+add_action( 'wp_ajax_send_favor', 'sendFavor' );

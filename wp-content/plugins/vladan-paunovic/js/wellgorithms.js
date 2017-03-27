@@ -172,6 +172,7 @@ jQuery(document).ready(function($){
             changePercentage(current_step, all_steps, maximum_steps);
             current_step++;
 
+
         } else {
             // Check if user changed more than 10 letters
             var made_custom = "No";

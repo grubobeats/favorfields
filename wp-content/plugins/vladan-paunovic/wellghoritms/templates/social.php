@@ -117,7 +117,51 @@ if( isset($_COOKIE["banner_image"]) ) {
                             </div>
                             <div class="answer__input">
                                 <div>
-                                    <div class="fake-input border-color-1"><?= $welgorithm[$def_first_answers][$i]; ?></div>
+                                    <div class="fake-input border-color-1">
+                                        <div class="avatar" data-user-id="0"></div>
+                                        <span><?= $welgorithm[$def_first_answers][$i]; ?></span>
+                                    </div>
+                                    <div class="favor-menu background-color-1">
+                                        <ul class="clearfix">
+                                            <li class="favor-item">
+                                                <span><?= $favorfields['social_first'] ?></span>
+                                                <ul class="favor-second-level background-color-1">
+                                                    <?
+                                                        $list_1 = explode(PHP_EOL, $favorfields['social_first_inner']);
+                                                        foreach ($list_1 as $li) {
+                                                            echo "<li class='favor-subitem'>" . $li . "</li>";
+                                                        }
+
+                                                    ?>
+                                                </ul>
+                                            </li>
+                                            <li class="favor-item">
+                                                <span><?= $favorfields['social_second'] ?></span>
+                                                <ul class="favor-second-level background-color-1">
+                                                    <?
+                                                    $list_1 = explode(PHP_EOL, $favorfields['social_second_inner']);
+                                                    foreach ($list_1 as $li) {
+                                                        echo "<li class='favor-subitem'>" . $li . "</li>";
+                                                    }
+
+                                                    ?>
+                                                </ul>
+                                            </li>
+                                            <li class="favor-item">
+                                                <span><?= $favorfields['social_third'] ?></span>
+                                                <ul class="favor-second-level background-color-1">
+                                                    <?
+                                                    $list_1 = explode(PHP_EOL, $favorfields['social_third_inner']);
+                                                    foreach ($list_1 as $li) {
+                                                        echo "<li class='favor-subitem'>" . $li . "</li>";
+                                                    }
+
+                                                    ?>
+                                                </ul>
+                                            </li>
+                                            <li class="favor-item"><input type="text" name="favor-text" placeholder="Write a note"></li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -131,10 +175,15 @@ if( isset($_COOKIE["banner_image"]) ) {
                             </div>
                             <div class="answer__input">
                                 <div>
-                                    <div class="fake-input border-color-1"><?= $welgorithm[$def_second_answers][$i]; ?></div>
+                                    <div class="fake-input border-color-1">
+                                        <div class="avatar"></div>
+                                        <span><?= $welgorithm[$def_second_answers][$i]; ?></span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+
+
 
 
 

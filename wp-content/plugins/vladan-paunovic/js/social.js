@@ -273,7 +273,10 @@ jQuery(document).ready(function($){
 
     $('body').on('click', '.user-avatar', function () {
 
-        var post_id = $(this).data('post-id'),
+        var $this = $(this),
+            post_id = $(this).data('post-id'),
+            user_id = $(this).data('user-id'),
+            image_src = $(this).attr('src'),
             step_count = $(this).data('step'),
             step_container = $(this).parent().parent().parent(),
             first_answer = $(step_container).find('.fake-input').first(),
@@ -293,8 +296,18 @@ jQuery(document).ready(function($){
                 step: step_count
             },
             success: function( response ) {
-                first_answer.html( response.first_answer );
-                second_answer.html( response.second_answer );
+
+                first_answer.find('.avatar')
+                    .attr('data-user-id', user_id)
+                    .html( "<img src='" + image_src + "'><p>Favor</p>" )
+                    .addClass('favor-trigger');
+
+                first_answer.find('span').html( response.first_answer );
+
+                // second_answer.find('.avatar').html("<img src='" + image_src + "'><p>Favor</p>" );
+                // second_answer.find('.avatar').addClass('favor-trigger');
+                second_answer.find('span').html( response.second_answer );
+
 
                 // fading in text div after retrieving the results
                 first_answer.toggleClass('animate-text');
@@ -305,6 +318,59 @@ jQuery(document).ready(function($){
             }
         });
     });
+
+
+    /**
+     * Sending emails in Favors section
+     */
+
+    $('body').on('click', '.favor-subitem', function () {
+
+        var message_first = $(this).parent().parent().find('span').text(),
+            message_second = $(this).text(),
+            current_user_id = user_id,
+            selected_user_id = $(this).parent().parent().parent().parent().parent().find('.avatar').data('user-id'),
+            $this = $(this),
+            favor_menu = $(this).parent().parent().parent().parent().parent().find('.favor-menu');
+
+        $this.html('<i class="fa fa-cog fa-spin fa-3x fa-fw" aria-hidden="true"></i>');
+
+        $.ajax({
+            url: ajaxurl,
+            type: 'POST',
+            dataType: 'json',
+            data: {
+                action: 'send_favor',
+                current_user: current_user_id,
+                selected_user: selected_user_id,
+                message_first: message_first,
+                message_second: message_second,
+                title: title
+            },
+            success: function( response ) {
+                if ( response == true ) {
+                    $this.html("Sent!");
+                    setTimeout(function () {
+                        $('.favor-menu').hide('fast');
+                        favor_menu.empty();
+                    }, 1500)
+                } else {
+                    $this.html("Error with sending message to the user!");
+                }
+            },
+            error: function( response ) {
+                console.log( response )
+            }
+        });
+
+
+
+    });
+
+
+
+
+
 
     /**
      * Refreshing users
@@ -334,5 +400,38 @@ jQuery(document).ready(function($){
             }
         });
     })
+
+
+    /**
+     * Triggering favor menus
+     */
+
+    $('body').on( 'hover', '.favor-trigger', function(){
+        var $this = $(this),
+            favor_menu = $this.parent().next();
+
+        favor_menu.show("fast");
+
+    });
+
+    $('body').on( 'mouseleave', '.favor-menu', function(){
+        $(this).hide("fast");
+    })
+    //
+    // /**
+    //  * Triggering second level menu on favor menus
+    //  */
+    //
+    // $('body').on( 'hover', '.favor-item', function(){
+    //     var $this = $(this),
+    //         second_menu = $this.find('.favor-second-level');
+    //
+    //     second_menu.show("fast");
+    //
+    // });
+    //
+    // $('body').on( 'mouseleave', '.favor-second-level', function(){
+    //     $(this).hide("fast");
+    // })
 
 });

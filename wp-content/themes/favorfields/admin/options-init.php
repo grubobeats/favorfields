@@ -736,6 +736,55 @@
             )
         ) );
 
+    Redux::setSection( $opt_name, array(
+        'title'      => __( 'Social', 'redux-framework-demo' ),
+        'desc'       => __( 'Here you can maintain social options.', 'redux-framework-demo' ),
+        'id'         => 'vp-social',
+        'subsection' => false,
+        'fields'     => array(
+            array(
+                'id'       => 'social_first',
+                'type'     => 'text',
+                'title'    => __('Menu item #1', 'redux-framework-demo'),
+                'default'  => ''
+            ),
+            array(
+                'id'       => 'social_first_inner',
+                'type'     => 'textarea',
+                'title'    => __('Menu item #1 options', 'redux-framework-demo'),
+                'description'  => 'Each row is one option',
+                'default'  => ''
+            ),
+
+            array(
+                'id'       => 'social_second',
+                'type'     => 'text',
+                'title'    => __('Menu item #2', 'redux-framework-demo'),
+                'default'  => ''
+            ),
+            array(
+                'id'       => 'social_second_inner',
+                'type'     => 'textarea',
+                'title'    => __('Menu item #2 options', 'redux-framework-demo'),
+                'description'  => 'Each row is one option',
+                'default'  => ''
+            ),
+
+            array(
+                'id'       => 'social_third',
+                'type'     => 'text',
+                'title'    => __('Menu item #3', 'redux-framework-demo'),
+                'default'  => ''
+            ),
+            array(
+                'id'       => 'social_third_inner',
+                'type'     => 'textarea',
+                'title'    => __('Menu item #3 options', 'redux-framework-demo'),
+                'description'  => 'Each row is one option',
+                'default'  => ''
+            ),
+        )
+    ) );
     /*
      * <--- END SECTIONS
      */

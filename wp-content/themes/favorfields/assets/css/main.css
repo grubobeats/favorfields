@@ -2899,6 +2899,62 @@ body.is-menu-visible #menu {
       transition: .5s; }
       #main.social-mode .fake-input.animate-text {
         opacity: 0.3; }
+      #main.social-mode .fake-input .avatar {
+        position: relative;
+        left: -100px;
+        width: 100px;
+        margin-right: -65px;
+        height: 80px;
+        text-align: center; }
+        #main.social-mode .fake-input .avatar img {
+          width: 100%; }
+
+/**
+  Favor menu
+ */
+.favor-menu {
+  display: none;
+  width: 350px;
+  color: white;
+  position: absolute;
+  z-index: 30;
+  margin-top: -60px;
+  margin-left: 10px; }
+  .favor-menu.show-favor-menu {
+    display: block; }
+  .favor-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0; }
+    .favor-menu ul li {
+      border: 1px solid white;
+      cursor: pointer; }
+      .favor-menu ul li:hover {
+        font-weight: bold; }
+        .favor-menu ul li:hover > .favor-second-level {
+          display: block; }
+      .favor-menu ul li .favor-second-level {
+        display: none;
+        position: absolute;
+        width: 500px;
+        background: black;
+        left: 350px;
+        margin-top: -36px;
+        transition: .5s; }
+        .favor-menu ul li .favor-second-level li {
+          font-weight: normal; }
+          .favor-menu ul li .favor-second-level li:hover {
+            font-weight: bold; }
+
+.clearfix {
+  *zoom: 1; }
+
+.clearfix:before, .clearfix:after {
+  content: "";
+  display: table; }
+
+.clearfix:after {
+  clear: both; }
 
 .filter-form {
   width: 100%;
