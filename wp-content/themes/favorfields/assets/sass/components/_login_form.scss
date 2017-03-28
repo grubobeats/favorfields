@@ -1,0 +1,23 @@
+.login-form {
+  display: none;
+  top: calc(50% - 250px);
+  left: calc(50% - 200px);
+  width: 400px;
+  min-height: 500px;
+  position: fixed;
+  z-index: 100;
+  background: $light_blue;
+  padding: 20px;
+  border: 1px solid white;
+
+  input, button, .info, .quote {
+    width: 100%;
+  }
+
+  .quote {
+
+    .quote-author, .quote-text {
+      width: 100%;
+    }
+  }
+}

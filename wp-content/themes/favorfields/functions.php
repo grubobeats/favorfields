@@ -264,3 +264,37 @@ function add_state_var($vars){
 }
 
 add_rewrite_rule('^my-wellgorithms/([^/]+)/?$','index.php?pagename=my-wellgorithms&creator=$matches[1]','top');
+
+
+/**
+ * Login form shortcode
+ */
+
+// [login-form]
+function make_login_form( ) {
+
+    $query = array(
+        'post_type'         => 'quotes',
+        'order'             => 'rand',
+        'posts_per_page'    =>  1,
+        'post_status'       => 'publish'
+    );
+    $quotes = new WP_Query($query);
+
+    $author = "";
+    $content = "";
+
+    while($quotes->have_posts()) : $quotes->the_post();
+        $post_id = get_the_ID();
+        $author .= get_the_title();
+        $content .= get_post_field('post_content', $post_id);
+    endwhile;
+    wp_reset_query();
+
+    $output = sprintf( '<div class="login-form"><ins><i class="fa fa-times close-login-form" aria-hidden="true"></i></ins><input type="text" id="user_username" placeholder="Username"><input id="user_password" type="password" placeholder="Password"><button class="go-wellgorithm">Do a wellgorithm</button><button class="go-profile">Go to my Sanctuary</button><span class="info" id="login-info"></span><div class="quote"><p class="quote-text">%s</p><p class="quote-author">%s</p></div></div>',
+        $content, $author
+        );
+
+    return $output;
+}
+add_shortcode( 'login-form', 'make_login_form' );

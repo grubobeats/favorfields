@@ -14,7 +14,8 @@
  * Template name: Algolia search
  */
 
-get_header(); ?>
+get_header();
+?>
 <script src="//cdn.jsdelivr.net/instantsearch.js/1/instantsearch.min.js"></script>
 <link href="//cdn.jsdelivr.net/instantsearch.js/1/instantsearch.min.css" rel="stylesheet" />
 <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css" rel="stylesheet" />
@@ -515,3 +516,5 @@ get_header(); ?>
 
 
     </script>
+
+<? get_footer() ?>

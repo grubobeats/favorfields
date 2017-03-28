@@ -432,3 +432,38 @@ function sendFavor() {
 }
 
 add_action( 'wp_ajax_send_favor', 'sendFavor' );
+
+
+/**
+ * Login user
+ */
+
+function login_user() {
+    check_ajax_referer('secure-site', 'security');
+
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+//    $userdata = wp_authenticate( $username, $password );
+
+    $creds = array(
+        'user_login'    => $username,
+        'user_password' => $password,
+        'remember'      => true
+    );
+
+    $user = wp_signon( $creds, false );
+
+    if ( is_wp_error( $user ) ) {
+        $user = $user->get_error_message();
+    } else {
+        $user = true;
+    }
+
+    echo json_encode($user);
+
+    wp_die();
+}
+
+add_action( 'wp_ajax_nopriv_login_user_now', 'login_user' );
+//add_action( 'wp_ajax_login_user_now', 'login_user' );

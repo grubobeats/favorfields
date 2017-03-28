@@ -1871,6 +1871,22 @@ button,
         width: 100%;
         margin: 1.25em 0 0 0; } }
 
+.login-form {
+  display: none;
+  top: calc(50% - 250px);
+  left: calc(50% - 200px);
+  width: 400px;
+  min-height: 500px;
+  position: fixed;
+  z-index: 100;
+  background: #74bfe6;
+  padding: 20px;
+  border: 1px solid white; }
+  .login-form input, .login-form button, .login-form .info, .login-form .quote {
+    width: 100%; }
+  .login-form .quote .quote-author, .login-form .quote .quote-text {
+    width: 100%; }
+
 /* Header */
 #header {
   padding: 0px 0;

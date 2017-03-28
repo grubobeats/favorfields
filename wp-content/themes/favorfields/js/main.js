@@ -197,4 +197,44 @@
 
 	});
 
+
+	function loginUser(username, password, target){
+		target.html('<i class="fa fa-cog fa-spin fa-3x fa-fw" aria-hidden="true"></i>');
+
+		var data = {
+			action: 'login_user_now',
+			security: secure_site,
+			username: username,
+			password: password
+		}
+
+		$.post(ajaxurl, data, function( response ){
+			if ( response === "true" ) {
+				target.html('Success!')
+                window.location.href = '/my-wellgorithms';
+			} else {
+				target.html('Wrong login or password!')
+			}
+		});
+	}
+
+
+	$('.open-login ').click(function(){
+		$('.login-form').show('fast');
+	});
+
+	$('body').on('click', 'ins', function () {
+		$('.login-form').hide('fast');
+    });
+
+    $('body').on('click', '.go-profile', function () {
+
+        var username = $('#user_username').val(),
+			password = $('#user_password').val(),
+			login_info = $('#login-info');
+
+        loginUser(username, password, login_info);
+
+    });
+
 })(jQuery);

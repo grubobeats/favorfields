@@ -30,6 +30,9 @@ if ( $user->ID == 0 ) {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!--[if lte IE 8]><script src="<?php get_template_directory_uri() ?>js/ie/html5shiv.js"></script><![endif]-->
     <?php wp_head(); ?>
+    <script>
+        var ajaxurl = "<?= admin_url( 'admin-ajax.php' ) ?>";
+    </script>
 </head>
 <body <?php body_class(); ?>>
 <!-- Wrapper -->
@@ -62,12 +65,11 @@ if ( $user->ID == 0 ) {
     </header>
 
     <!-- Menu -->
-    <nav id="menu">
-
-            <h2>Menu</h2>
-            <?php wp_nav_menu( array(
-                'theme_location' => 'primary',
-                'menu_id' => 'primary-menu',
-                'container' => false
-            ) ); ?>
+    <nav id="menu" class="background-color-4">
+        <h2>Menu</h2>
+        <?php wp_nav_menu( array(
+            'theme_location' => 'primary',
+            'menu_id' => 'primary-menu',
+            'container' => false
+        ) ); ?>
     </nav>

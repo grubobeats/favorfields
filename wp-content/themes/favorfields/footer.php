@@ -56,5 +56,10 @@ if ($favorfields['enable-footer']) :
 
 <?php wp_footer(); ?>
 <script>var secure_site = '<?= wp_create_nonce('secure-site') ?>';</script>
+
+<?= do_shortcode('[login-form]') ?>
+
+
+
 </body>
 </html>
