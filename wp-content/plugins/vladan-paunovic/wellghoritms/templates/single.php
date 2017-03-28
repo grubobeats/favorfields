@@ -221,8 +221,8 @@ setcookie($cookie_name, $banner_image_src, time() + (3600), "/");
             <div class="wellgo-avatars"></div>
             <p for="pladge">Pledge to do the <span><?= get_the_title() ?></span> for</p>
             <select name="pladge" id="pladge">
-                <option value="null">Choose...</option>
-                <? for ($i=7; $i <= 30; $i++) : ?>
+                <option value="null"></option>
+                <? for ($i=3; $i <= 30; $i++) : ?>
                     <option value="<?= $i ?>"><?= $i ?> days</option>
                 <? endfor; ?>
             </select>

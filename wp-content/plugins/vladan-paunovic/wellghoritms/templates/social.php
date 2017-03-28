@@ -131,7 +131,6 @@ if( isset($_COOKIE["banner_image"]) ) {
                                                         foreach ($list_1 as $li) {
                                                             echo "<li class='favor-subitem'>" . $li . "</li>";
                                                         }
-
                                                     ?>
                                                 </ul>
                                             </li>
@@ -139,11 +138,10 @@ if( isset($_COOKIE["banner_image"]) ) {
                                                 <span><?= $favorfields['social_second'] ?></span>
                                                 <ul class="favor-second-level background-color-1">
                                                     <?
-                                                    $list_1 = explode(PHP_EOL, $favorfields['social_second_inner']);
-                                                    foreach ($list_1 as $li) {
-                                                        echo "<li class='favor-subitem'>" . $li . "</li>";
-                                                    }
-
+                                                        $list_2 = explode(PHP_EOL, $favorfields['social_second_inner']);
+                                                        foreach ($list_2 as $li) {
+                                                            echo "<li class='favor-subitem'>" . $li . "</li>";
+                                                        }
                                                     ?>
                                                 </ul>
                                             </li>
@@ -151,11 +149,10 @@ if( isset($_COOKIE["banner_image"]) ) {
                                                 <span><?= $favorfields['social_third'] ?></span>
                                                 <ul class="favor-second-level background-color-1">
                                                     <?
-                                                    $list_1 = explode(PHP_EOL, $favorfields['social_third_inner']);
-                                                    foreach ($list_1 as $li) {
-                                                        echo "<li class='favor-subitem'>" . $li . "</li>";
-                                                    }
-
+                                                        $list_3 = explode(PHP_EOL, $favorfields['social_third_inner']);
+                                                        foreach ($list_3 as $li) {
+                                                            echo "<li class='favor-subitem'>" . $li . "</li>";
+                                                        }
                                                     ?>
                                                 </ul>
                                             </li>

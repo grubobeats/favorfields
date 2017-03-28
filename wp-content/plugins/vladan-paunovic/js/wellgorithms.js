@@ -366,7 +366,7 @@ jQuery(document).ready(function($){
     /*
         Limiting maximum number of characters in questions
      */
-    var maximumNumberOfCharacters = 333;
+    var maximumNumberOfCharacters = 300;
     $('.fake-input').keyup(function(){
        if( $(this).html().length >= maximumNumberOfCharacters ) {
            alert("To many characters.");
