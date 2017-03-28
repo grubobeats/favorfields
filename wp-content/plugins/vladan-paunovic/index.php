@@ -12,6 +12,7 @@ Author URI: https://givemejobtoday.com
 require_once 'wellghoritms/wellghoritms.php';
 require_once 'color-templates/color-template.php';
 require_once 'user-answers/user-answers.php';
+require_once 'quotes/quotes.php';
 require_once 'algolia/custom-fields.php';
 require_once 'wellghoritms/ajax-jobs.php';
 require_once 'duplicate-post.php';
