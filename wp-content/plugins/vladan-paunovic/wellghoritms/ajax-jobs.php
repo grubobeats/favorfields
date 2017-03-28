@@ -11,6 +11,8 @@
  * AJAX saving posts to user_answers
  */
 function saveUserWellgo() {
+    check_ajax_referer('secure-site', 'security');
+
     $userid = $_POST['user_id'];
     $related = $_POST['related'];
     $permalink = $_POST['permalink'];

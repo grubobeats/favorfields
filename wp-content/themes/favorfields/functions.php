@@ -264,4 +264,3 @@ function add_state_var($vars){
 }
 
 add_rewrite_rule('^my-wellgorithms/([^/]+)/?$','index.php?pagename=my-wellgorithms&creator=$matches[1]','top');
-

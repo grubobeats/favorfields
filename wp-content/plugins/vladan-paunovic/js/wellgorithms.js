@@ -22,8 +22,8 @@ jQuery(document).ready(function($){
                 marked_as: recommend
             },
             success: function( response ) {
-                console.log( "success: " + response )
-                console.log( post_id, recommend )
+                // console.log( "success: " + response )
+                // console.log( post_id, recommend )
                 $(target).html( response );
             },
             error: function( response ) {
@@ -79,7 +79,7 @@ jQuery(document).ready(function($){
                 user: user_id
             },
             success: function( response ) {
-                console.log( "Success: " + response );
+                // console.log( "Success: " + response );
                 $this.prop('disabled', true);
                 $('#pladge option:first').text('Thank you!')
             },
@@ -141,7 +141,7 @@ jQuery(document).ready(function($){
         Showing next question
      */
     var question = $('.wellghoritm'),
-        input = $(question).find('input');
+        input = $(question).find('input'); // TODO: Make this more specific
 
     $(input).click(function(){
 
@@ -214,6 +214,7 @@ jQuery(document).ready(function($){
                         dataType: "json",
                         data: {
                             action: "save_wellgo",
+                            security: secure_site,
                             user_id: user_id,
                             permalink: permalink,
                             related: post_id,
@@ -230,6 +231,8 @@ jQuery(document).ready(function($){
                             recommended: recommended
                         },
                         success: function( response ) {
+                            console.log(secure_site);
+
                             savedBox
                                 .html("<p></p>")
 
@@ -395,14 +398,4 @@ jQuery(document).ready(function($){
         e.stopPropagation();
         $(this).parent().next().next().next().fadeIn('slow');
     });
-
-
-
-
-
-
-
-
-
-
 });

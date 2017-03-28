@@ -14,8 +14,6 @@
 <?php
     global $favorfields;
     $welgorithm = $logic->getWellghoritm();
-
-
     $ct_prefix = is_singular('my_wellgorithms') ? "user_" : "";
 
     $color_scheme = $welgorithm[$ct_prefix.'basic_settings_color-template'][0];
@@ -26,7 +24,7 @@
     $color_4 = $logic->getColorTemplate($color_scheme, 'basic_settings_color-4');
 
     $category = get_the_category();
-//    $category_name = ($category[0]->name == "Hellgo") ? "Hellgorithm" : "Wellgorithm";
+    // $category_name = ($category[0]->name == "Hellgo") ? "Hellgorithm" : "Wellgorithm";
     $category_name = $category[0]->name;
 
     $user = wp_get_current_user();
@@ -37,7 +35,6 @@
         $username = $user->user_login;
         $avatar = get_wp_user_avatar($user->ID, 96);
     }
-
 ?>
 <head>
     <title><?php bloginfo( 'name' ); ?> - <?= get_the_title() ?></title>
