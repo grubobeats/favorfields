@@ -298,3 +298,19 @@ function make_login_form( ) {
     return $output;
 }
 add_shortcode( 'login-form', 'make_login_form' );
+
+
+/**
+ * Showing different menus to logged in users
+ */
+
+function my_wp_nav_menu_args( $args = '' ) {
+
+    if( is_user_logged_in() ) {
+        $args['menu'] = 'logged-in';
+    } else {
+        $args['menu'] = 'logged-out';
+    }
+    return $args;
+}
+add_filter( 'wp_nav_menu_args', 'my_wp_nav_menu_args' );
