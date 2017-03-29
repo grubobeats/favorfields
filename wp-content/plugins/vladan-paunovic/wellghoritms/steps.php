@@ -93,22 +93,6 @@ class Wellgorithms_Steps
                 $(selectBoxAnswerOne).val( $(this).val() )
             });
 
-            $('#user_answer_finder').change(function(){
-                var step = $('#step_finder').val(),
-                    option = $('#option_finder').val(),
-                    answer = $(this).val(),
-                    table = $('table')[step];
-
-                if ( option == "0" ) {
-                    var answered = $(table).find('select[name="chosen_first_answer[]"] option:eq(' + answer + ')');
-                } else {
-                    var answered = $(table).find('select[name="chosen_second_answer[]"] option:eq(' + answer + ')');
-                }
-
-                var prepared_text = answered.text().substr(3);
-
-                $('#found_option').text(prepared_text)
-            })
 
         });
     </script>
@@ -138,28 +122,7 @@ class Wellgorithms_Steps
         $clicks = unserialize( get_post_meta($post->ID, 'answer_clicks')[0] );
         ?>
         <div class="inside_steps">
-            <h4>Select user answers:</h4>
-            <div class="find-text">
-                <div class="left">
-                    <select name="step_finder" id="step_finder">
-                        <? for ( $s=1; $s <= $number_of_steps; $s++ ) : ?>
-                            <option value="<?= $s ?>">Step #<?= $s ?></option>
-                        <? endfor; ?>
-                    </select>
-                    <select name="option_finder" id="option_finder">
-                        <option value="0">First option</option>
-                        <option value="1">Second option</option>
-                    </select>
-                    <select name="user_answer_finder" id="user_answer_finder">
-                        <? for($q = 1; $q < count($user_answers); $q++ ) : ?>
-                            <option value="<?= $q ?>">User answer #<?= $q ?></option>
-                        <? endfor; ?>
-                    </select>
-                </div>
-                <div class="right">
-                    <textarea name="found_option" id="found_option" cols="30" rows="1" placeholder="Select option"></textarea>
-                </div>
-            </div>
+
             <?php for ($i=0; $i <= $number_of_steps; $i++) : ?>
                 <!-- Step #<?php print(1 + $i); ?> -->
                 <table class="steps">
@@ -174,11 +137,11 @@ class Wellgorithms_Steps
                             <textarea name="questions[]" class="questions" cols="30" rows="5" placeholder="Question..."><?php if($question_values[$i]) : echo $question_values[$i]; endif;?></textarea>
                         </td>
                         <td>
-                            <label for="first_answer">First Answer (<strong><?= $clicks[$i][0] ?></strong>)</label>
+                            <label for="first_answer">First Answer (<strong style="font-size: 15px;color: blue;"><?= $clicks[$i][0] ?></strong>)</label>
                             <textarea name="first_answers[]" class="first_answer" cols="30" rows="5" placeholder="First answer..."><?php if($first_answers_values[$i]) : echo $first_answers_values[$i]; endif;?></textarea>
                         </td>
                         <td>
-                            <label for="second_answer">Second Answer (<strong><?= $clicks[$i][1] ?></strong>)</label>
+                            <label for="second_answer">Second Answer (<strong style="font-size: 15px;color: blue;"><?= $clicks[$i][1] ?></strong>)</label>
                             <textarea name="second_answers[]" class="second_answer" cols="30" rows="5" placeholder="Second answer..."><?php if($second_answers_values[$i]) : echo $second_answers_values[$i]; endif;?></textarea>
                         </td>
                     </tr>
