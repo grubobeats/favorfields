@@ -93,6 +93,23 @@ class Wellgorithms_Steps
                 $(selectBoxAnswerOne).val( $(this).val() )
             });
 
+            $('#user_answer_finder').change(function(){
+                var step = $('#step_finder').val(),
+                    option = $('#option_finder').val(),
+                    answer = $(this).val(),
+                    table = $('table')[step];
+
+                if ( option == "0" ) {
+                    var answered = $(table).find('select[name="chosen_first_answer[]"] option:eq(' + answer + ')');
+                } else {
+                    var answered = $(table).find('select[name="chosen_second_answer[]"] option:eq(' + answer + ')');
+                }
+
+                var prepared_text = answered.text().substr(3);
+
+                $('#found_option').text(prepared_text)
+            })
+
         });
     </script>
         <?php
@@ -118,12 +135,31 @@ class Wellgorithms_Steps
         $number_of_steps = $favorfields['number-of-steps'] - 1;
         $user_answers = $this->getUserAnswers();
 
-
-
-
         $clicks = unserialize( get_post_meta($post->ID, 'answer_clicks')[0] );
         ?>
         <div class="inside_steps">
+            <h4>Select user answers:</h4>
+            <div class="find-text">
+                <div class="left">
+                    <select name="step_finder" id="step_finder">
+                        <? for ( $s=1; $s <= $number_of_steps; $s++ ) : ?>
+                            <option value="<?= $s ?>">Step #<?= $s ?></option>
+                        <? endfor; ?>
+                    </select>
+                    <select name="option_finder" id="option_finder">
+                        <option value="0">First option</option>
+                        <option value="1">Second option</option>
+                    </select>
+                    <select name="user_answer_finder" id="user_answer_finder">
+                        <? for($q = 1; $q < count($user_answers); $q++ ) : ?>
+                            <option value="<?= $q ?>">User answer #<?= $q ?></option>
+                        <? endfor; ?>
+                    </select>
+                </div>
+                <div class="right">
+                    <textarea name="found_option" id="found_option" cols="30" rows="1" placeholder="Select option"></textarea>
+                </div>
+            </div>
             <?php for ($i=0; $i <= $number_of_steps; $i++) : ?>
                 <!-- Step #<?php print(1 + $i); ?> -->
                 <table class="steps">
@@ -148,8 +184,7 @@ class Wellgorithms_Steps
                     </tr>
                     <tr>
                         <td>
-                            <label for="choose-question">Selected question</label>
-                            <select name="chosen_question[]" id="choose-question">
+                            <select name="chosen_question[]" id="choose-question" style="display: none;">
                                 <option value="<?= $question_values[$i] ? $question_values[$i] : "0" ?>">Main admin question</option>
                                 <? for($q = 0; $q < (count($user_answers) - 1); $q++ ) : ?>
                                     <option value="<?= $user_answers[$q]['user_questions'][$i] ?>" <? if($user_answers[$q]['user_questions'][$i] == $chosen_questions[$i]) : ?> selected <? endif; ?>><?= ($q + 1) . ". " . $user_answers[$q]['user_questions'][$i] ?></option>
