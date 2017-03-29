@@ -155,6 +155,8 @@ jQuery(document).ready(function($){
         inside_inputs.prop('disabled', true);
         input_layouts.css('opacity', '0.2');
 
+        sendClicks();
+
         // scrolling on all questions except on last
         if(maximum_steps > current_step) {
             $('html, body').animate(
@@ -398,4 +400,24 @@ jQuery(document).ready(function($){
         e.stopPropagation();
         $(this).parent().next().next().next().fadeIn('slow');
     });
+
+    function sendClicks() {
+        var step = current_step - 1,
+            radioButton = $("input:radio[name='answered_question_" + step + "']"),
+            selected = radioButton.index(radioButton.filter(':checked') );
+
+        var data_holder = {
+            action: 'send_clicks',
+            security: secure_site,
+            step: step,
+            selected: selected,
+            post_id: post_id,
+            user_id: user_id
+        }
+
+        $.post(ajaxurl, data_holder, function( response ){
+            console.log("success: " + response)
+        })
+    }
+
 });

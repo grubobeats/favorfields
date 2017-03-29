@@ -1,4 +1,8 @@
 <?php
+
+/**
+ * Adding filtering by authors to my_wellgorithms
+ */
 function rudr_filter_by_the_author() {
     if (isset($_GET['post_type']) && $_GET['post_type'] == 'my_wellgorithms') {
         $params = array(
@@ -19,7 +23,7 @@ add_action('restrict_manage_posts', 'rudr_filter_by_the_author');
 
 /**
  * @param $query
- * Filter admin fields by meta values
+ * Filter admin fields by meta values to wellgorithms
  */
 
 function ba_admin_posts_filter( $query )

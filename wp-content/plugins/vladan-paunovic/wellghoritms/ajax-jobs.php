@@ -316,12 +316,17 @@ function savePledge() {
     $days = $_POST['days'];
     $user_id = $_POST['user'];
 
+    $todays_date = date('Y-m-d H:i:s');
+    $pladged_date = date("Y-m-d", time() + (86400 * $days));
+
     global $wpdb;
 
     $wpdb->insert( 'pladge_groups', array(
-        'post_id' => $post_id,
-        'user_id' => $user_id,
-        'chosen_days' => $days
+        'post_id'           => $post_id,
+        'user_id'           => $user_id,
+        'chosen_days'       => $days,
+        'pladged_date_start'=> $todays_date,
+        'pladged_date_finish'=> $pladged_date,
     ) );
 
     echo $post_id . " " . $days . " " . $user_id;
@@ -330,6 +335,7 @@ function savePledge() {
 }
 
 add_action( 'wp_ajax_save_pledge', 'savePledge' );
+
 
 
 /**
@@ -373,7 +379,8 @@ function listPladges() {
     $results_users = count( $wpdb->get_results($query_users) );
 
     $data['html'] = $output;
-    $data['isDoneByUser'] = ( $results_users >= 1 ) ? true : false;
+    // $data['isDoneByUser'] = ( $results_users >= 1 ) ? true : false;
+    $data['isDoneByUser'] = false;
 
     echo json_encode($data);
 
@@ -467,3 +474,40 @@ function login_user() {
 
 add_action( 'wp_ajax_nopriv_login_user_now', 'login_user' );
 //add_action( 'wp_ajax_login_user_now', 'login_user' );
+
+
+/**
+ * Send answer clicks to database
+ */
+ function sendClicks() {
+     $step = (int) $_POST['step'];
+     $choice = (int) $_POST['selected'];
+     $post_id = (int) $_POST['post_id'];
+     // $user_id = (int) $_POST['user_id'];
+
+     $get_clicks = get_post_meta($post_id, "answer_clicks")[0];
+
+     if ( $get_clicks || $get_clicks != "" ) {
+
+         $old_clicks = unserialize($get_clicks);
+         $old_clicks[$step][$choice]++;
+         update_post_meta( $post_id, 'answer_clicks', serialize($old_clicks) );
+
+         echo json_encode('added');
+
+     } else {
+         $first_bite_clicks = array();
+
+         for ($i=0; $i<=15; $i++) {
+             $first_bite_clicks[] = array( 0, 0 );
+         }
+
+         $first_bite_clicks[$step][$choice] = 1;
+
+         update_post_meta( $post_id, 'answer_clicks', serialize($first_bite_clicks) );
+         echo json_encode( "created");
+     }
+
+     wp_die();
+ }
+ add_action( 'wp_ajax_send_clicks', 'sendClicks');

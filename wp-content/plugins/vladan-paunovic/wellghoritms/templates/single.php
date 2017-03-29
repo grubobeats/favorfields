@@ -56,7 +56,8 @@ setcookie($cookie_name, $banner_image_src, time() + (3600), "/");
         username = "<?= $username ?>",
         current_step = 1,
         isLoggedIn = "<?= $logged = ( is_user_logged_in() == true ) ? 1 : 0; ?>",
-        current_post_id = "<?= get_the_ID() ?>"
+        current_post_id = "<?= get_the_ID() ?>",
+        pladged = "<?= $logic->checkPladged() ?>";
 </script>
 
     <!-- Main -->
@@ -219,6 +220,8 @@ setcookie($cookie_name, $banner_image_src, time() + (3600), "/");
             <div class="is-saved"></div>
             <p>Join these wonderful community members who have created a <span><?= get_the_title() ?></span> pledge group:</p>
             <div class="wellgo-avatars"></div>
+
+            <? if ( $logic->checkPladged() == "true" ) : ?>
             <p for="pladge">Pledge to do the <span><?= get_the_title() ?></span> for</p>
             <select name="pladge" id="pladge">
                 <option value="null"></option>
@@ -226,6 +229,9 @@ setcookie($cookie_name, $banner_image_src, time() + (3600), "/");
                     <option value="<?= $i ?>"><?= $i ?> days</option>
                 <? endfor; ?>
             </select>
+            <? else : ?>
+                <p for="pladge">You already pladged to do this wellgorithm</p>
+            <? endif; ?>
 
             <p>People who did the <span><?= get_the_title() ?></span> also did the:</p>
             <div class="related_wellgorithms">

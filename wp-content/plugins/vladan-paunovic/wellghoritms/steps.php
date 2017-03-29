@@ -118,6 +118,10 @@ class Wellgorithms_Steps
         $number_of_steps = $favorfields['number-of-steps'] - 1;
         $user_answers = $this->getUserAnswers();
 
+
+
+
+        $clicks = unserialize( get_post_meta($post->ID, 'answer_clicks')[0] );
         ?>
         <div class="inside_steps">
             <?php for ($i=0; $i <= $number_of_steps; $i++) : ?>
@@ -134,11 +138,11 @@ class Wellgorithms_Steps
                             <textarea name="questions[]" class="questions" cols="30" rows="5" placeholder="Question..."><?php if($question_values[$i]) : echo $question_values[$i]; endif;?></textarea>
                         </td>
                         <td>
-                            <label for="first_answer">First Answer</label>
+                            <label for="first_answer">First Answer (<strong><?= $clicks[$i][0] ?></strong>)</label>
                             <textarea name="first_answers[]" class="first_answer" cols="30" rows="5" placeholder="First answer..."><?php if($first_answers_values[$i]) : echo $first_answers_values[$i]; endif;?></textarea>
                         </td>
                         <td>
-                            <label for="second_answer">Second Answer</label>
+                            <label for="second_answer">Second Answer (<strong><?= $clicks[$i][1] ?></strong>)</label>
                             <textarea name="second_answers[]" class="second_answer" cols="30" rows="5" placeholder="Second answer..."><?php if($second_answers_values[$i]) : echo $second_answers_values[$i]; endif;?></textarea>
                         </td>
                     </tr>

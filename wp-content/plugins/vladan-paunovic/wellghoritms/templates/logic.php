@@ -216,6 +216,27 @@ class Template_logic
         return $output;
     }
 
+    /**
+     * Check if user pladged for this wellgorithm or not
+     */
+    function checkPladged() {
+        $user_id = wp_get_current_user()->ID;
+        $post_id = $this->getWellgorithmPostID();
+        $today = date('Y-m-d H:i:s');;
+        global $wpdb;
+
+        $query = "SELECT * FROM `pladge_groups` WHERE `post_id` = \"$post_id\" and `user_id` = $user_id";
+
+        $pladged_date_prepare = $wpdb->get_results($query)[0]->pladged_date_finish;
+
+        if ((time()-(60*60*24)) < strtotime($pladged_date_prepare)) {
+            $output = "false";
+        } else {
+            $output = "true";
+        }
+
+        return $output;
+    }
 
 }
 
