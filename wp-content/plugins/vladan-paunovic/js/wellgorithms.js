@@ -275,6 +275,7 @@ jQuery(document).ready(function($){
 
             recommendedPosts( ".related_wellgorithms", selectedIndex );
             listPladges( ".wellgo-avatars" );
+            saveToPassedWellgorithms();
 
             // Send event to Google analytics
             dataLayer.push({
@@ -419,5 +420,21 @@ jQuery(document).ready(function($){
             console.log("success: " + response)
         })
     }
+
+    function saveToPassedWellgorithms() {
+
+        var data = {
+            action: "count_passed_wellgorithm",
+            security: secure_site,
+            post_id: post_id,
+            user_id: user_id
+        };
+
+        $.post(ajaxurl, data, function(response){
+
+        })
+    }
+
+
 
 });

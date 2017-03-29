@@ -60,7 +60,11 @@ if( isset($_COOKIE["banner_image"]) ) {
     <div id="main" class="social-mode background-color-1">
         <div class="banner-image border-color-1">
             <img src="<?= $_COOKIE["banner_image"] ?>" alt="">
-            <a href="<?= get_permalink() ?>" class="circle-focus border-color-1"></a>
+            <div class="focus-bar">
+                <div class="circle-focus">1</div>
+                <a class="circle-focus" href="<?= get_permalink() ?>">2</a>
+                <div class="circle-focus">3</div>
+            </div>
         </div>
 
         <? for($i = 0; $i < $number_of_questions; $i++) : ?>

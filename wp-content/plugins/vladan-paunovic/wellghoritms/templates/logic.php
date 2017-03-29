@@ -228,14 +228,38 @@ class Template_logic
         $query = "SELECT * FROM `pladge_groups` WHERE `post_id` = \"$post_id\" and `user_id` = $user_id";
 
         $pladged_date_prepare = $wpdb->get_results($query)[0]->pladged_date_finish;
+        $days_left = 0;
 
         if ((time()-(60*60*24)) < strtotime($pladged_date_prepare)) {
             $output = "false";
+            $days_left = floor( (strtotime($pladged_date_prepare) - (time()-(60*60*24))) / 86400 );
         } else {
             $output = "true";
         }
 
-        return $output;
+        return array(
+            'permission' => $output,
+            'days_left' => $days_left
+        );
+    }
+
+
+    /**
+     * Get how many time user passed that wellgorithm
+     */
+    function countPassingTimes() {
+        global $wpdb;
+
+        $post_id = $this->getWellgorithmPostID();
+        $user_id = wp_get_current_user()->ID;
+        $query = "SELECT `passed` FROM `ff_finished_wellgorithms` WHERE `post_id`=$post_id AND `user_id`=$user_id";
+        $result = $wpdb->get_results($query)[0];
+
+        if ( !$result ) {
+            return 0;
+        } else {
+            return $result->passed;
+        }
     }
 
 }

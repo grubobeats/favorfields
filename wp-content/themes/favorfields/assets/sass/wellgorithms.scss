@@ -553,20 +553,29 @@ $question_height: 748px;
   margin: 0 auto;
 }
 
-.circle-focus {
-  width: 30px;
-  height: 30px;
-  background: white;
-  position: relative;
-  border-radius: 50%;
-  border: 1px solid $light_blue;
-  left: calc(50% - 15px);
-  top: -24px;
-  display: block;
-  transition: 1s;
+.focus-bar {
+  display: flex;
+  width: 200px;
+  margin: -25px auto 0 auto;
+  justify-content: space-around;
 
-  &:hover {
-    background: $light_blue;
-    border-bottom-color: none;
+
+  .circle-focus {
+    width: 30px;
+    height: 30px;
+    background: white;
+    position: static;
+    z-index: 2;
+    border-radius: 50%;
+    border: 1px solid $light_blue;
+    //left: calc(50% - 15px);
+    //top: -24px;
+    display: block;
+    transition: 1s;
+
+    &:hover {
+      background: $light_blue;
+      border-bottom-color: none;
+    }
   }
 }

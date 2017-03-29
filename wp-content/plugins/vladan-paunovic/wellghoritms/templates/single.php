@@ -57,14 +57,21 @@ setcookie($cookie_name, $banner_image_src, time() + (3600), "/");
         current_step = 1,
         isLoggedIn = "<?= $logged = ( is_user_logged_in() == true ) ? 1 : 0; ?>",
         current_post_id = "<?= get_the_ID() ?>",
-        pladged = "<?= $logic->checkPladged() ?>";
+        pladged = "<?= $logic->checkPladged()['permission'] ?>",
+        days_left_to_pladge = "<?= $logic->checkPladged()['days_left'] ?>";
 </script>
 
     <!-- Main -->
     <div id="main">
         <div class="banner-image border-color-1">
             <img src="<?= $banner_image_src; ?>" alt="">
-            <a href="<?= get_permalink($logic->getWellgorithmPostID()) ?>social" class="circle-focus"></a>
+            <div class="focus-bar">
+                <? if ( is_user_logged_in() ) : ?>
+                    <div class="circle-focus"><?= $logic->countPassingTimes() ?></div>
+                <? endif; ?>
+                <a class="circle-focus" href="<?= get_permalink($logic->getWellgorithmPostID()) ?>social">2</a>
+                <div class="circle-focus"><?= $logic->checkPladged()['days_left'] ?></div>
+            </div>
         </div>
 
         <div class="inner">
@@ -221,7 +228,7 @@ setcookie($cookie_name, $banner_image_src, time() + (3600), "/");
             <p>Join these wonderful community members who have created a <span><?= get_the_title() ?></span> pledge group:</p>
             <div class="wellgo-avatars"></div>
 
-            <? if ( $logic->checkPladged() == "true" ) : ?>
+            <? if ( $logic->checkPladged()['permission'] == "true" ) : ?>
             <p for="pladge">Pledge to do the <span><?= get_the_title() ?></span> for</p>
             <select name="pladge" id="pladge">
                 <option value="null"></option>

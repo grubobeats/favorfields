@@ -511,3 +511,50 @@ add_action( 'wp_ajax_nopriv_login_user_now', 'login_user' );
      wp_die();
  }
  add_action( 'wp_ajax_send_clicks', 'sendClicks');
+
+
+ /**
+  * Saving and counting how many times user finished the wellgorithm
+  */
+ function countPassedWellgorithm() {
+     check_ajax_referer('secure-site', 'security');
+
+     $post_id = (int) $_POST['post_id'];
+     $user_id = (int) $_POST['user_id'];
+
+     global $wpdb;
+
+     $query = "SELECT * FROM `ff_finished_wellgorithms` WHERE `post_id`=\"$post_id\" AND `user_id`=\"$user_id\"";
+     $results = $wpdb->get_results($query)[0];
+
+     if ( !$results ) {
+         $data_to_insert = array(
+             'post_id'  => $post_id,
+             'user_id'  => $user_id,
+             'passed'   => 1
+         );
+         $wpdb->insert( 'ff_finished_wellgorithms', $data_to_insert );
+
+         echo json_encode( "saved" );
+     } else {
+
+         $where = array(
+             'post_id'  => $post_id,
+             'user_id'  => $user_id,
+         );
+
+         $update = array(
+             'passed'   => $results->passed + 1
+         );
+
+         $wpdb->update( 'ff_finished_wellgorithms', $update, $where );
+
+
+         echo json_encode( "updated" );
+     }
+
+
+     wp_die();
+ }
+
+ add_action( 'wp_ajax_count_passed_wellgorithm', 'countPassedWellgorithm');
