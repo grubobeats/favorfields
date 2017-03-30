@@ -307,8 +307,6 @@ jQuery(document).ready(function($){
         }
     });
 
-
-
     /*
         Edit question popup (heart)
      */
