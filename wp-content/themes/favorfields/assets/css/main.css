@@ -2824,6 +2824,16 @@ body.is-menu-visible #menu {
       background: #74bfe6;
       border-bottom-color: none; }
 
+.info-popup {
+  display: none;
+  position: absolute;
+  margin-top: 30px;
+  padding: 30px;
+  background: white;
+  border: 1px solid black;
+  border-radius: 20px;
+  z-index: 1000; }
+
 .no-results {
   text-align: center;
   font-weight: 500;

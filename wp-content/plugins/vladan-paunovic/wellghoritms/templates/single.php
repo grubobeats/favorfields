@@ -37,7 +37,6 @@ setcookie($cookie_name, $banner_image_src, time() + (3600), "/");
 
 ?>
 <script>
-
     var all_steps = <?= $welgorithm[ $prefix . 'basic_settings_steps' ][0]; ?>,
         steps = <?= $number_of_questions; ?>,
         maximum_steps = <?= $maximum_questions ?>,
@@ -66,11 +65,16 @@ setcookie($cookie_name, $banner_image_src, time() + (3600), "/");
         <div class="banner-image border-color-1">
             <img src="<?= $banner_image_src; ?>" alt="">
             <div class="focus-bar">
-                <? if ( is_user_logged_in() ) : ?>
-                    <div class="circle-focus"><?= $logic->countPassingTimes() ?></div>
+                <? if ( is_user_logged_in() ) :
+                    $icon = ( $logic->checkPladged()['permission'] == "true" ) ? "" : "<i class=\"fa fa-heartbeat\" aria-hidden=\"true\"></i>";
+
+                    ?>
+                    <div class="circle-focus passed open-info-popup"><?= $logic->countPassingTimes() ?></div>
+                    <div class="info-popup">You’ve done this Wellgorithm <?= $logic->countPassingTimes() ?> times</div>
                 <? endif; ?>
                 <a class="circle-focus" href="<?= get_permalink($logic->getWellgorithmPostID()) ?>social">2</a>
-                <div class="circle-focus"><?= $logic->checkPladged()['days_left'] ?></div>
+                <div class="circle-focus open-info-popup"><?= $icon ?></div>
+                <div class="info-popup">You’ve pledged to do this Wellgorithm for <?= $logic->checkPladged()['days_left'] ?> days.</div>
             </div>
         </div>
 

@@ -402,6 +402,15 @@ jQuery(document).ready(function($){
         $(this).parent().next().next().next().fadeIn('slow');
     });
 
+    // Opening mini popups ( toolbars )
+    $('.open-info-popup').hover(function () {
+        $(this).next().show('fast');
+    });
+
+    $('.open-info-popup').mouseout(function () {
+        $('.info-popup').delay('500').hide('fast');
+    });
+
     function sendClicks() {
         var step = current_step - 1,
             radioButton = $("input:radio[name='answered_question_" + step + "']"),
@@ -417,7 +426,7 @@ jQuery(document).ready(function($){
         }
 
         $.post(ajaxurl, data_holder, function( response ){
-            console.log("success: " + response)
+            // console.log("success: " + response)
         })
     }
 
