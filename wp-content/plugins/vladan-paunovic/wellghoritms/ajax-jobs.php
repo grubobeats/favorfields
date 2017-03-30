@@ -431,6 +431,28 @@ function sendFavor() {
 
     if ( mail($to,$subject,$message,$headers) ) {
         echo json_encode( true );
+
+        // If everything is all right than save it to database
+        global $wpdb;
+
+        $data_to_save = array(
+            'favor_from'    => $_POST['current_user'],
+            'favor_to'      => $_POST['selected_user'],
+            'favor_text_first'  => $message_first,
+            'favor_text_second' => $message_second
+        );
+        $wpdb->insert( 'ff_favored_people', $data_to_save );
+
+        // Add one point to userdata
+        $favor_points = get_user_meta( $_POST['current_user'], 'favor_points', true);
+
+        if ( $favor_points && $favor_points != "") {
+            update_user_meta( $_POST['current_user'], 'favor_points', $favor_points + 1 );
+        } else {
+            update_user_meta( $_POST['current_user'], 'favor_points', $favor_points + 1 );
+        }
+
+
     } else  {
         echo json_encode( false );
     }

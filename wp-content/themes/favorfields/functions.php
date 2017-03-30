@@ -133,11 +133,15 @@ function favorfields_scripts() {
 
 	// Scripts & Styles for algolia search
     wp_enqueue_style( 'favorfields-font-awesome', get_template_directory_uri() . '/assets/css/algolia-styles.css' );
-//    wp_enqueue_script( 'favorfields-font-awesome', get_template_directory_uri() . '/js/algolia_search.js', array(), '20130115', false );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
+
+	// Scripts for my sanctuary page
+    if ( is_page(5108) ) {
+        wp_enqueue_script( 'favorfields-my-sanctuary', get_template_directory_uri() . '/js/my-sanctuary.js', array(), '20130115', true );
+    }
 }
 add_action( 'wp_enqueue_scripts', 'favorfields_scripts' );
 

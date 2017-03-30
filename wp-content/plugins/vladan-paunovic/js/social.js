@@ -357,6 +357,7 @@ jQuery(document).ready(function($){
                 } else {
                     $this.html("Error with sending message to the user!");
                 }
+
             },
             error: function( response ) {
                 console.log( response )
@@ -417,21 +418,6 @@ jQuery(document).ready(function($){
     $('body').on( 'mouseleave', '.favor-menu', function(){
         $(this).hide("fast");
     })
-    //
-    // /**
-    //  * Triggering second level menu on favor menus
-    //  */
-    //
-    // $('body').on( 'hover', '.favor-item', function(){
-    //     var $this = $(this),
-    //         second_menu = $this.find('.favor-second-level');
-    //
-    //     second_menu.show("fast");
-    //
-    // });
-    //
-    // $('body').on( 'mouseleave', '.favor-second-level', function(){
-    //     $(this).hide("fast");
-    // })
+
 
 });
