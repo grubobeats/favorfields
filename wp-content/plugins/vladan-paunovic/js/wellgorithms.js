@@ -409,6 +409,17 @@ jQuery(document).ready(function($){
         $('.info-popup').delay('500').hide('fast');
     });
 
+    $('.popup-extra-menu div:not(.first)').click(function() {
+        var type = $(this).parent().find('.first').text(),
+            text = $(this).text(),
+            extra_menu = $('.popup-extra-menu');
+
+        saveBreaktroughts(type, text, extra_menu);
+    })
+
+    /**
+     * Saves answers clicks to database so they can be used for analytics
+     */
     function sendClicks() {
         var step = current_step - 1,
             radioButton = $("input:radio[name='answered_question_" + step + "']"),
@@ -428,6 +439,9 @@ jQuery(document).ready(function($){
         })
     }
 
+    /**
+     * Adds +1 to passed wellgorithm in database
+     */
     function saveToPassedWellgorithms() {
 
         var data = {
@@ -442,6 +456,24 @@ jQuery(document).ready(function($){
         })
     }
 
+    /**
+     * Saving blocks, breaktroughts and pladges to database
+     */
+    function saveBreaktroughts(type, text, target) {
+
+        var data = {
+            action: "save_breaktroughts",
+            security: secure_site,
+            post_id: post_id,
+            user_id: user_id,
+            type: type,
+            text: text
+        };
+
+        $.post(ajaxurl, data, function( response ){
+            target.hide();
+        })
+    }
 
 
 });

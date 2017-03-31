@@ -211,7 +211,7 @@
 		$.post(ajaxurl, data, function( response ){
 			if ( response === "true" ) {
 				target.html('Success!')
-                window.location.href = '/my-wellgorithms';
+                window.location.href = '/my-sanctuary/';
 			} else {
 				target.html('Wrong login or password!')
 			}

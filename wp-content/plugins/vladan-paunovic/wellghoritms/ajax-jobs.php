@@ -580,3 +580,30 @@ add_action( 'wp_ajax_nopriv_login_user_now', 'login_user' );
  }
 
  add_action( 'wp_ajax_count_passed_wellgorithm', 'countPassedWellgorithm');
+
+
+ /**
+  * Saving blocks, breaktroughts and pladges to database
+  */
+ function saveBreaktroughts() {
+     $post_id = $_POST['post_id'];
+     $user_id = $_POST['user_id'];
+     $type = strtolower( trim( $_POST['type'] ) );
+     $text = trim( $_POST['text'] ) ;
+
+     global $wpdb;
+
+     $data = array (
+         'post_id' => $post_id,
+         'user_id' => $user_id,
+         'type' => $type,
+         'text' => $text
+     );
+
+     $wpdb->insert( 'ff_blocks_braketroughts_pladges', $data );
+
+     echo json_encode( 'saved' );
+     wp_die();
+ }
+
+ add_action( 'wp_ajax_save_breaktroughts', 'saveBreaktroughts' );

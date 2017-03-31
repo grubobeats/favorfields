@@ -111,6 +111,7 @@ if ( is_user_logged_in() ) :
                     <? foreach( $profile_page->myMostPopularWellgorithms() as $post ) : ?>
                         <li>
                             <a href="<?= $post->guid ?>"><?= $post->post_title ?></a>
+                            <span><?= $profile_page->countPassedTimeOfWellgorithm( $post->ID ) ?> times</span>
                         </li>
                     <? endforeach; ?>
                 </ul>
@@ -165,11 +166,7 @@ if ( is_user_logged_in() ) :
         <div class="row">
             <p>Are you Gratitude Bars getting too low?</p>
             <ul>
-                <li>1</li>
-                <li>2</li>
-                <li>3</li>
-                <li>4</li>
-                <li>5</li>
+                <?= $profile_page->getPostsByTag('gratitude') ?>
             </ul>
         </div>
         <div class="row">
@@ -178,21 +175,13 @@ if ( is_user_logged_in() ) :
         <div class="row">
             <p>Blocks</p>
             <ul>
-                <li>1</li>
-                <li>2</li>
-                <li>3</li>
-                <li>4</li>
-                <li>5</li>
+                <?= $profile_page->getBreaktroughts('blocks') ?>
             </ul>
         </div>
         <div class="row">
             <p>Braketroughts</p>
             <ul>
-                <li>1</li>
-                <li>2</li>
-                <li>3</li>
-                <li>4</li>
-                <li>5</li>
+                <?= $profile_page->getBreaktroughts('breaktroughts') ?>
             </ul>
         </div>
         <div class="row">
