@@ -29,6 +29,10 @@ if ( is_user_logged_in() ) :
     $avatar = get_wp_user_avatar($user->ID, 96);
     $favor_points = ( get_user_meta( $user->ID, 'favor_points', true ) ) ? get_user_meta( $user->ID, 'favor_points', true ) : 0 ;
 
+    $headline = ( get_user_meta( $user->ID, 'headline', true ) && get_user_meta( $user->ID, 'headline', true ) != "" ) ? get_user_meta( $user->ID, 'headline', true ) : "A better world starts with a better me.";
+    $subhead = ( get_user_meta( $user->ID, 'subhead', true ) && get_user_meta( $user->ID, 'subhead', true ) != "" ) ? get_user_meta( $user->ID, 'subhead', true ) : "Congratulations for visiting your Inner Sanctuary. You’re on your way to becoming your best possible self";
+
+
 ?>
 <script>
     var ajaxurl = "<?= admin_url( 'admin-ajax.php' ) ?>";
@@ -41,9 +45,9 @@ if ( is_user_logged_in() ) :
 
 <div id="main">
 
-    <div class="my-sanctuary">
+    <div class="my-journey">
 
-        <h1>My sanctuary page</h1>
+        <h1><?= get_the_title() ?></h1>
         <div class="row">
             <div class="user-avatar"><img class="user-logo" src="<?= $avatar; ?>" alt=""></div>
             <div class="username"><?= $user->user_login ?></div>
@@ -95,8 +99,8 @@ if ( is_user_logged_in() ) :
             </div>
         </div>
         <div class="row">
-            <h2>A better world starts with a better me.</h2>
-            <h4>Congratulations for visiting your Inner Sanctuary. You’re on your way to becoming your best possible self</h4>
+            <h2><?= $headline ?></h2>
+            <h4><?= $subhead ?></h4>
         </div>
         <div class="row">
             <p><?= $profile_page->countFinishedWellgorithms() ?> of wellgorithms completed</p>
@@ -185,10 +189,10 @@ if ( is_user_logged_in() ) :
             </ul>
         </div>
         <div class="row">
-            <p>Do yourself a favor today — <a href="#">Make favor fields your home page</a></p>
+            <p>Do yourself a favor today — <span onClick="this.style.behavior='url(#default#homepage)'; this.setHomePage('http://www.favorfields.com');">Make favor fields your home page</span></p>
         </div>
         <div class="row">
-            <a href="#">Settings page</a>
+            <a href="<?= get_permalink() ?>settings">Settings page</a>
         </div>
         <div class="row">
             <div class="algolia-box">

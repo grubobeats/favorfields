@@ -140,7 +140,7 @@ function favorfields_scripts() {
 
 	// Scripts for my sanctuary page
     if ( is_page(5108) ) {
-        wp_enqueue_script( 'favorfields-my-sanctuary', get_template_directory_uri() . '/js/my-sanctuary.js', array(), '20130115', true );
+        wp_enqueue_script( 'favorfields-my-journey', get_template_directory_uri() . '/js/my-sanctuary.js', array(), '20130115', true );
     }
 }
 add_action( 'wp_enqueue_scripts', 'favorfields_scripts' );
@@ -318,3 +318,34 @@ function my_wp_nav_menu_args( $args = '' ) {
     return $args;
 }
 add_filter( 'wp_nav_menu_args', 'my_wp_nav_menu_args' );
+
+
+/**
+ * Saving user changes from "Settings" page
+ */
+
+function saveUserChanges() {
+    $user = wp_get_current_user();
+
+    if( isset( $_POST['user_bio'] ) ) {
+        update_user_meta( $user->ID, 'description', $_POST['user_bio']);
+    }
+
+    if( isset( $_POST['user_gender'] ) ) {
+        update_user_meta( $user->ID, 'user_gender', $_POST['user_gender']);
+    }
+
+    if( isset( $_POST['user_new_password'] ) && $_POST['user_new_password'] != "" && strlen( $_POST['user_new_password'] ) > 3 ) {
+        wp_set_password( $_POST['user_new_password'], $user->ID );
+    }
+
+    if( isset( $_POST['headline'] ) ) {
+        update_user_meta( $user->ID, 'headline', $_POST['headline']);
+    }
+
+    if( isset( $_POST['subhead'] ) ) {
+        update_user_meta( $user->ID, 'subhead', $_POST['subhead']);
+    }
+
+    echo "saved changes";
+}
