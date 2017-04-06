@@ -16,123 +16,151 @@
 
 get_header();
 ?>
+
 <script src="//cdn.jsdelivr.net/instantsearch.js/1/instantsearch.min.js"></script>
 <link href="//cdn.jsdelivr.net/instantsearch.js/1/instantsearch.min.css" rel="stylesheet" />
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.6.8-fix/jquery.nicescroll.min.js"></script>
+
 <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css" rel="stylesheet" />
 
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-
+<!-- Home-top-banner -->
+<div class="home-top-banner">
+    <h1 class="banner-title">Do yourself a favor today.</h1>
+    <div class="banner-desc">Grow, laugh and love with a Wellgorithm</div>
+</div>
 
 <!-- Main -->
 <div id="main">
-    <div class="inner">
+    <section class="algolia-search-container">
         <div class="container">
-            <div class="row first">
-                <div class="col-sm-3 wellgo-title">
-                    <img class="img-responsive" src="http://favorfields.wpengine.com/wp-content/uploads/2017/02/wellgo1.png">
-                    <p>Wellgo</p>
-                    <p>"A bot on a mission"</p>
-                </div>
-                <div class="col-sm-6 intro-text">
-                    <p>I’m Wellgo. I was made with love, for love. I’m a new kind of bot — not that ‘computer-voiced-shiny-robot’ type. I exist because a bunch of people were in some serious emotional pain. They got together to create me. So I could help them. And you.</p>
-                    <p>What are the secrets of transformation? Explore the answers in the Fields below.</p>
-                </div>
-                <div class="col-sm-3 checkboxes">
-                    <ul>
-                        <li>
-                            <i class="fa fa-check-square" aria-hidden="true"></i> How do we transform?
-                        </li>
-                        <li>
-                            <i class="fa fa-check-square" aria-hidden="true"></i> Eliminate bad habits?
-                        </li>
-                        <li>
-                            <i class="fa fa-check-square" aria-hidden="true"></i> Master emotions?
-                        </li>
-                        <li>
-                            <i class="fa fa-check-square" aria-hidden="true"></i> Create a new story?
-                        </li>
-                        <li>
-                            <i class="fa fa-check-square" aria-hidden="true"></i> Heal the world?
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-
-        <script id="movie" type="text/x-handlebars-template">
-            <a class="movie" href="{{{ permalink }}}">
-                <img class="movie-image" src="{{ vp_icon }}" />
-                <div class="movie-meta">
-                    <span class="movie-title {{{ taxonomies.category }}}">
-                        {{{ post_title }}}
-                    </span>
-
-                    <div class="movie-rating">
-                        {{#stars}}
-                        <span class="ais-star-rating--star{{^.}}__empty{{/.}}">
-          </span>
-                        {{/stars}}
-                    </div>
-
-                    <div class="movie-genres">
-                        {{#genre}}
-                        <div class="movie-genre">
-                            {{.}}
+            <div class="row">
+                <div class="col-sm-12">
+                    <!-- <div class="container">
+                        <div class="row first">
+                            <div class="col-sm-3 wellgo-title">
+                                <img class="img-responsive" src="http://favorfields.wpengine.com/wp-content/uploads/2017/02/wellgo1.png">
+                                <p>Wellgo</p>
+                                <p>"A bot on a mission"</p>
+                            </div>
+                            <div class="col-sm-6 intro-text">
+                                <p>I’m Wellgo. I was made with love, for love. I’m a new kind of bot — not that ‘computer-voiced-shiny-robot’ type. I exist because a bunch of people were in some serious emotional pain. They got together to create me. So I could help them. And you.</p>
+                                <p>What are the secrets of transformation? Explore the answers in the Fields below.</p>
+                            </div>
+                            <div class="col-sm-3 checkboxes">
+                                <ul>
+                                    <li>
+                                        <i class="fa fa-check-square" aria-hidden="true"></i> How do we transform?
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-check-square" aria-hidden="true"></i> Eliminate bad habits?
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-check-square" aria-hidden="true"></i> Master emotions?
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-check-square" aria-hidden="true"></i> Create a new story?
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-check-square" aria-hidden="true"></i> Heal the world?
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
-                        {{/genre}}
+                    </div> -->
+
+                    <script id="movie" type="text/x-handlebars-template">
+                        <a class="movie" href="{{{ permalink }}}">
+                            <img class="movie-image" src="{{ vp_icon }}" />
+                            <div class="movie-meta">
+                                <span class="movie-title {{{ taxonomies.category }}}">
+                                    {{{ post_title }}}
+                                </span>
+
+                                <div class="movie-rating">
+                                    {{#stars}}
+                                    <span class="ais-star-rating--star{{^.}}__empty{{/.}}">
+                      </span>
+                                    {{/stars}}
+                                </div>
+
+                                <div class="movie-genres">
+                                    {{#genre}}
+                                    <div class="movie-genre">
+                                        {{.}}
+                                    </div>
+                                    {{/genre}}
+                                </div>
+                            </div>
+                        </a>
+                    </script>
+
+                    <div class="algolia-search">
+                        <div class="top">
+                            <div class="input-container">
+                                <input type="text" id="search-box" class="clearable"/>
+                                <div id="stats"></div>   
+                                <input type="text" id="search-box-replica" class="clearable"/>
+                            </div>
+                        </div>
+
+                        <div class="content">
+                            <div class="facets">
+                                <div class="facet">
+                                    <div class="facet-title"> &nbsp; </div>
+                                    <div id="focus"></div>
+                                </div>
+                            </div>
+
+                            <div class="canvas">
+                                <!-- <h3 class="search__h3"> &nbsp; </h3> -->
+                                <div id="hits" style="margin-top: 25px;"></div>
+                                <div id="pagination"></div>
+                            </div>
+
+                            <div class="facets">
+                                <div class="facet">
+                                    <div class="facet-title"> &nbsp; </div>
+                                    <div id="mood"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="footer">
+                            <div class="facet">
+                                <div id="category"></div>
+                            </div>
+                            <div class="facet">
+                                <div id="level"></div>
+                            </div>
+                            <div class="facet">
+                                <div id="confidence"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </a>
-        </script>
+            </div>
+       </div> 
+    </section>
 
+    <div class="inner">
 
-        <div class="algolia-search">
-            <div class="top">
-                <div class="input-container">
-                    <input type="text" id="search-box" />
-                    <input type="text" id="search-box-replica" />
-                    <div id="stats"></div>
+        <section id="loving-kindness">
+            <div class="row tex-center">
+                <span class="title-span">The final frontier of Artificial Intelligence:</span>
+                <h2 class="title-span">Loving Kindness.</h2>
+                <div class="col-sm-8">
+                    <img src="http://favorfields.com//wp-content/themes/favorfields/assets/images/video.jpg" class="img-responsive" alt="Video">
+                </div>
+                <div class="col-sm-4">
+                    <span class="text-span">We have self-driving cars. But what about self-loving souls? </span>
+                    <span class="text-span">Artificial Intelligence can help us do just about everything these days except relax. Take a deep breath. Honor the miracle of being alive. Love ourselves and others deeply – no matter our circumstances.</span>
+                    <span class="text-span">In Favor Field’s, we’re re-imagining the human experience in a post-AI universe.</span>
+                    <span class="text-span text-center"> <a href="#" class="btn btn-default discover-btn" title="discover"> Discover</a></span>
                 </div>
             </div>
-
-            <div class="content">
-                <div class="facets">
-                    <div class="facet">
-                        <div class="facet-title">Focus</div>
-                        <div id="focus"></div>
-                    </div>
-                </div>
-
-                <div class="canvas">
-                    <h3 class="search__h3">Popular wellgorithms</h3>
-                    <div id="hits"></div>
-                    <div id="pagination"></div>
-                </div>
-
-                <div class="facets">
-                    <div class="facet">
-                        <div class="facet-title">Mood</div>
-                        <div id="mood"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="footer">
-                <div class="facet">
-                    <div id="category"></div>
-                </div>
-                <div class="facet">
-                    <div id="level"></div>
-                </div>
-                <div class="facet">
-                    <div id="confidence"></div>
-                </div>
-            </div>
-        </div>
-
-        <div class="divider"></div>
+        </section> <!--loving-kindness section ends-->
 
         <section>
             <span class="title-span">Meet my friends — the “Favor Bots”</span>
@@ -191,10 +219,10 @@ get_header();
 
         <div class="divider"></div>
     </div>
-
 </div>
 
     <script>
+        // TODO: All of this have to be moved to the separate JS file
 
         'use strict';
 
@@ -208,7 +236,7 @@ get_header();
 
         search.addWidget(instantsearch.widgets.searchBox({
             container: '#search-box',
-            placeholder: 'I feel...',
+            placeholder: 'I am feeling...',
             autofocus: false
         }));
 
@@ -256,7 +284,7 @@ get_header();
             max: 10,
             pips: false,
             templates: {
-                footer: 'Confidence Range'
+                footer: 'Confidence'
             }
         }));
 
@@ -353,9 +381,9 @@ get_header();
 
         search_replica.addWidget(instantsearch.widgets.searchBox({
             container: '#search-box-replica',
-            placeholder: 'I seek...',
-            autofocus: true,
-            poweredBy: true
+            placeholder: 'I am seeking...',
+            autofocus: false,
+            poweredBy: false
         }));
 
         var hitTemplate = document.getElementById('movie').innerHTML;
@@ -402,7 +430,7 @@ get_header();
             max: 10,
             pips: false,
             templates: {
-                footer: 'Confidence Range'
+                footer: 'Confidence'
             }
         }));
 
@@ -511,10 +539,38 @@ get_header();
                     $(this).removeClass('justLoaded');
                 });
             });
+          
+           // Nice Scroll
+           jQuery('#hits').niceScroll();
+
+            // Clearing inputs
+            function tog(v) {
+                return v?'addClass':'removeClass';
+            }
+            $(document).on('input', '.clearable', function(){
+                $(this)[tog(this.value)]('x');
+            }).on('mousemove', '.x', function( e ){
+                $(this)[tog(this.offsetWidth - 100 < e.clientX-this.getBoundingClientRect().left)]('onX');
+            }).on('touchstart click', '.onX', function( ev ){
+                ev.preventDefault();
+                $(this).removeClass('x onX').val('').change();
+
+                search.helper.setQuery('').search();
+                justLoaded();
+            });
         });
 
-
-
+        // Sticky Menu //
+        jQuery(window).scroll(function() {
+        if (jQuery(this).scrollTop() > 200)
+            {  
+                jQuery('#header').addClass("sticky");
+            }
+            else
+            {
+                jQuery('#header').removeClass("sticky");
+            }
+        });
     </script>
 
 <? get_footer() ?>

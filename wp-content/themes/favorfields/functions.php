@@ -140,7 +140,10 @@ function favorfields_scripts() {
 
 	// Scripts for my sanctuary page
     if ( is_page(5108) ) {
+        wp_enqueue_script( 'favorfields-my-journey-moment-js', '//cdnjs.cloudflare.com/ajax/libs/moment.js/2.5.1/moment.min.js', array(), '20130115', true );
         wp_enqueue_script( 'favorfields-my-journey', get_template_directory_uri() . '/js/my-sanctuary.js', array(), '20130115', true );
+        wp_enqueue_script( 'favorfields-my-journey-calendar', get_template_directory_uri() . '/js/profile_page/calendar.js', array(), '20130115', true );
+        wp_enqueue_style( 'favorfields-my-jurney-calendar-css', get_template_directory_uri() . '/js/profile_page/calendar.css' );
     }
 }
 add_action( 'wp_enqueue_scripts', 'favorfields_scripts' );
@@ -349,3 +352,23 @@ function saveUserChanges() {
 
     echo "saved changes";
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

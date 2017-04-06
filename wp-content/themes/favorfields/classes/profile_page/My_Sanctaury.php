@@ -22,12 +22,12 @@ class My_Sanctaury
         return $rowcount;
     }
 
-    public function myMostPopularWellgorithms() {
+    public function myMostPopularWellgorithms($count = 5) {
 
         $args = array(
             'post_type'         => 'wellgorithms',
             'order'             => 'DESC',
-            'posts_per_page'    => 5,
+            'posts_per_page'    => $count,
             'post__in'           => $this->mostlyPassedWellgorithms()
         );
 
@@ -179,4 +179,144 @@ class My_Sanctaury
 
         return $result;
     }
+
+    /**
+     * Get date range of pladges for calender
+     */
+    /**
+     * Creating date collection between two dates
+     *
+     * <code>
+     * <?php
+     * # Example 1
+     * date_range("2014-01-01", "2014-01-20", "+1 day", "m/d/Y");
+     *
+     * # Example 2. you can use even time
+     * date_range("01:00:00", "23:00:00", "+1 hour", "H:i:s");
+     * </code>
+     *
+     * @author Ali OYGUR <alioygur@gmail.com>
+     * @param string since any date, time or datetime format
+     * @param string until any date, time or datetime format
+     * @param string step
+     * @param string date of output format
+     * @return array
+     */
+    function date_range($first, $last, $post, $link, $color, $step = '+1 day' ) {
+
+        $dates = array();
+        $current = strtotime($first);
+        $last = strtotime($last);
+
+        $counter = 0;
+        while( $current <= $last ) {
+
+            $dates[$counter]['date'] = date("m/d/Y", $current);
+            $dates[$counter]['eventName'] = $post;
+            $dates[$counter]['link'] = $link;
+            $dates[$counter]['color'] = $color;
+            $dates[$counter]['calendar'] = 'work';
+
+            $current = strtotime($step, $current);
+
+            $counter++;
+        }
+
+        return $dates;
+    }
+
+
+    function getDateRanges() {
+
+        global $wpdb;
+
+        $query = "SELECT * FROM `pladge_groups` WHERE `user_id`=$this->user_id";
+        $result = $wpdb->get_results($query);
+
+        $pladges = array();
+
+        foreach ($result as $post) {
+            $title = get_the_title($post->post_id);
+            $link = get_permalink($post->post_id);
+            $category = get_the_category($post->post_id)[0]->name;
+
+            $pladges[] = $this->date_range($post->pladged_date_start, $post->pladged_date_finish, $title, $link, $category);
+        }
+
+
+        $newArray = call_user_func_array('array_merge', $pladges);
+
+        return json_encode( $newArray );
+    }
+
+    function listMostUsedTags() {
+
+        $output = [];
+
+        $most_populas_posts = $this->myMostPopularWellgorithms(10);
+
+
+        $counter = 0;
+        foreach ( $most_populas_posts as $post ) {
+
+
+            foreach ( wp_get_post_tags( $post->ID ) as $tag ) {
+
+                $time_passed = $this->countPassedTimeOfWellgorithm( $post->ID );
+
+                $output[] = array(
+                    'name' => $tag->name,
+                    'y' => (int) $time_passed,
+                );
+
+                $counter++;
+            }
+        }
+
+        usort($output, function($a, $b) {
+            return $a['time_passed'] <=> $b['time_passed'];
+        });
+
+        $output = array_slice($output, -10);
+
+        return json_encode( $output );
+
+    }
+
+    function listMostPopularWellgorithmsJSON() {
+        $output = [];
+
+        foreach ($this->myMostPopularWellgorithms(10) as $post) {
+
+            $output[] = array(
+                'name' => $post->post_title,
+                'y' => (int) $this->countPassedTimeOfWellgorithm($post->ID)
+            );
+        }
+
+        $output = array_slice( $output, -10 );
+
+        return json_encode($output) ;
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

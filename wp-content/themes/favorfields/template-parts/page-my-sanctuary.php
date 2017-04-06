@@ -39,6 +39,9 @@ if ( is_user_logged_in() ) :
     var permalink = "<?= get_permalink(); ?>";
     var user_id = "<?= get_current_user_id(); ?>";
     var title = "<?= get_the_title(); ?>";
+    var date = <?= $profile_page->getDateRanges() ?>;
+    var most_used_tags = <?= $profile_page->listMostUsedTags() ?>;
+    var most_passed_wellgorithms = <?= $profile_page->listMostPopularWellgorithmsJSON() ?>;
 </script>
 <div class="separator" style="height: 150px; width: 100%"></div>
 <!-- Main -->
@@ -48,9 +51,13 @@ if ( is_user_logged_in() ) :
     <div class="my-journey">
 
         <h1><?= get_the_title() ?></h1>
+
         <div class="row">
             <div class="user-avatar"><img class="user-logo" src="<?= $avatar; ?>" alt=""></div>
             <div class="username"><?= $user->user_login ?></div>
+        </div>
+        <div class="calendar_row">
+            <div id="calendar"></div>
         </div>
         <div class="row">
             <div class="col-sm-4">
