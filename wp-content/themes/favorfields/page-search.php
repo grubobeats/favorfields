@@ -13,7 +13,6 @@
  *
  * Template name: Algolia search
  */
-
 get_header();
 ?>
 
@@ -38,38 +37,7 @@ get_header();
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
-                    <!-- <div class="container">
-                        <div class="row first">
-                            <div class="col-sm-3 wellgo-title">
-                                <img class="img-responsive" src="http://favorfields.wpengine.com/wp-content/uploads/2017/02/wellgo1.png">
-                                <p>Wellgo</p>
-                                <p>"A bot on a mission"</p>
-                            </div>
-                            <div class="col-sm-6 intro-text">
-                                <p>I’m Wellgo. I was made with love, for love. I’m a new kind of bot — not that ‘computer-voiced-shiny-robot’ type. I exist because a bunch of people were in some serious emotional pain. They got together to create me. So I could help them. And you.</p>
-                                <p>What are the secrets of transformation? Explore the answers in the Fields below.</p>
-                            </div>
-                            <div class="col-sm-3 checkboxes">
-                                <ul>
-                                    <li>
-                                        <i class="fa fa-check-square" aria-hidden="true"></i> How do we transform?
-                                    </li>
-                                    <li>
-                                        <i class="fa fa-check-square" aria-hidden="true"></i> Eliminate bad habits?
-                                    </li>
-                                    <li>
-                                        <i class="fa fa-check-square" aria-hidden="true"></i> Master emotions?
-                                    </li>
-                                    <li>
-                                        <i class="fa fa-check-square" aria-hidden="true"></i> Create a new story?
-                                    </li>
-                                    <li>
-                                        <i class="fa fa-check-square" aria-hidden="true"></i> Heal the world?
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div> -->
+
 
                     <script id="movie" type="text/x-handlebars-template">
                         <a class="movie" href="{{{ permalink }}}">
@@ -223,7 +191,7 @@ get_header();
 
     <script>
         // TODO: All of this have to be moved to the separate JS file
-
+        
         'use strict';
 
         // Instasearch instance 1
@@ -572,5 +540,4 @@ get_header();
             }
         });
     </script>
-
 <? get_footer() ?>
