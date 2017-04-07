@@ -143,6 +143,8 @@ function favorfields_scripts() {
         wp_enqueue_script( 'favorfields-my-journey-moment-js', '//cdnjs.cloudflare.com/ajax/libs/moment.js/2.5.1/moment.min.js', array(), '20130115', true );
         wp_enqueue_script( 'favorfields-my-journey', get_template_directory_uri() . '/js/my-sanctuary.js', array(), '20130115', true );
         wp_enqueue_script( 'favorfields-my-journey-calendar', get_template_directory_uri() . '/js/profile_page/calendar.js', array(), '20130115', true );
+        wp_enqueue_script( 'favorfields-my-journey-highcharts','https://code.highcharts.com/highcharts.js', array(), '20130115', true );
+        wp_enqueue_script( 'favorfields-my-journey-highcharts-charts', get_template_directory_uri() . '/js/profile_page/charts.js', array(), '20130115', true );
         wp_enqueue_style( 'favorfields-my-jurney-calendar-css', get_template_directory_uri() . '/js/profile_page/calendar.css' );
     }
 }

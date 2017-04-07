@@ -60,6 +60,12 @@ if ( is_user_logged_in() ) :
             <div id="calendar"></div>
         </div>
         <div class="row">
+            <div id="most-used-tags"></div>
+        </div>
+        <div class="row">
+            <div id="most-used-wellgorithms"></div>
+        </div>
+        <div class="row">
             <div class="col-sm-4">
                 <button class="favor-trigger">Favor me</button>
                 <div class="favor-menu">
@@ -113,9 +119,6 @@ if ( is_user_logged_in() ) :
             <p><?= $profile_page->countFinishedWellgorithms() ?> of wellgorithms completed</p>
         </div>
         <div class="row">
-            <p>Longest daily streak: [#] days</p>
-        </div>
-        <div class="row">
             <p>My most popular Wellgorithms:</p>
             <div class="list-my-wellgorithms">
                 <ul>
@@ -165,23 +168,10 @@ if ( is_user_logged_in() ) :
             </ul>
         </div>
         <div class="row">
-            <p>Pledge successes</p>
-            <ul>
-                <li>1</li>
-                <li>2</li>
-                <li>3</li>
-                <li>4</li>
-                <li>5</li>
-            </ul>
-        </div>
-        <div class="row">
             <p>Are you Gratitude Bars getting too low?</p>
             <ul>
                 <?= $profile_page->getPostsByTag('gratitude') ?>
             </ul>
-        </div>
-        <div class="row">
-            <div class="calender">[CALENDER]</div>
         </div>
         <div class="row">
             <p>Blocks</p>
