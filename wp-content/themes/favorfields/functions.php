@@ -356,21 +356,130 @@ function saveUserChanges() {
 }
 
 
+/**
+ * Preparing data and outputing as CSV file
+ *
+ * @param $type
+ * @param $post_id
+ * @return array
+ */
+
+function getQuestionsAnswers( $type, $post_id ) {
+
+    $input = get_post_meta( $post_id, $type, true );
+    $output = [];
+    for ( $i=0; $i <= count($input); $i++ ) {
+        $output[] = $input[$i];
+    }
+
+    return $output;
+}
+
+function prepareDataForExcel() {
+	$titles = [
+		'post_id',
+		'post_title',
+		'url',
+        'synonyms',
+	];
+
+	for ( $i=0; $i <=15; $i++ ) {
+	    $titles[] = "question_$i";
+    }
+
+	for ( $i=0; $i <=15; $i++ ) {
+		$titles[] = "chosen_first_answer_$i";
+	}
+
+	for ( $i=0; $i <=15; $i++ ) {
+		$titles[] = "chosen_second_answer_$i";
+	}
+
+	$data = [];
+
+	$args = [
+		'post_type'         => 'wellgorithms',
+		'order'             => 'DESC',
+		'posts_per_page'    => 5000,
+	];
+
+	$wellgorithms = new WP_Query( $args );
+
+	$counter = 0;
+	while ( $wellgorithms->have_posts() ) {
+		$wellgorithms->the_post();
 
 
+		$id = get_the_ID();
+		$title = get_the_title();
+		$url = get_permalink();
+		$synonyms = get_post_meta($id, 'basic_settings_synonyms', true);
+		$questions = getQuestionsAnswers('questions', $id);
+		$first_answers = getQuestionsAnswers('chosen_first_answer', $id);
+		$second_answers = getQuestionsAnswers('chosen_second_answer', $id);
+
+	    $data[] = array(
+            $id,
+            $title,
+            $url,
+            $synonyms
+        );
+
+	    $data[$counter] = array_merge($data[$counter], $questions );
+	    $data[$counter] = array_merge($data[$counter], $first_answers );
+	    $data[$counter] = array_merge($data[$counter], $second_answers );
+        $counter++;
+    }
+
+    // array_unshift( $data, $titles );
+
+    return array('titles' => $titles, 'data' => $data);
+}
+
+function saveToExcel() {
+
+	$data = prepareDataForExcel();
+
+	require get_template_directory() . '/assets/PhpToExcel.php';
 
 
+	$filename = 'wellgorithms.xls'; // The file name you want any resulting file to be called.
 
+    #create an instance of the class
+	$xls = new ExportXLS($filename);
 
+	$header = "Exported Wellgorithms";
+	$xls->addHeader($header);
 
+    #add blank line
+	$header = null;
+	$xls->addHeader($header);
 
+	$xls->addHeader($data['titles']);
 
+    #second line
+	foreach ($data['data'] as $line) {
+		$xls->addRow($line);
+	}
 
+    # Return xls as a string;
+	$sheet = $xls->returnSheet();
 
+	$csvName = get_template_directory() . '/wellgorithms.xls';
 
+	$fp = fopen( $csvName, 'w');
+	fwrite($fp, $sheet);
+	fclose($fp);
 
+	$link = 'http://www.favorfields.com/wp-content/themes/favorfields/wellgorithms.xls';
 
+	echo "<br><a href='$link' download>Click to download excel file</a>";
 
+}
 
+function new_link_page() {
+	if (function_exists('add_submenu_page') )
+        add_menu_page( __('Export to Excel'), __('Export to Excel'), 'manage_options', 'export-to-excel', 'saveToExcel', 'dashicons-media-text', $position);
+}
 
-
+add_action('admin_menu', 'new_link_page');
