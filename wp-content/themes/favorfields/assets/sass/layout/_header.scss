@@ -13,6 +13,7 @@
 		width: 100%;
 		z-index: 10;
 		left: 0;
+		top: 47px;
 		//border-bottom: 2px solid #464545;
 
 		&.homepage {
@@ -23,12 +24,8 @@
 				align-items: center;
 				justify-content: space-between;
 				height: 50px;
-				width: 1140px;
-				max-width: 1140px !important;
-				padding-top: 20px;
-				-webkit-transition: padding-top 0.3s ease-in-out;
-				-moz-transition: padding-top 0.3s ease-in-out;
-				-o-transition: padding-top 0.3s ease-in-out;
+				width: 1300px;
+				max-width: 1300px !important;
 			}
 		}
 
@@ -59,7 +56,7 @@
 			color: #ffffff;
 			font-size: 19pt;
 			font-family: 'Montserrat', sans-serif;
-			//letter-spacing: 2px;
+			letter-spacing: 2px;
 
 			&:after {
 				content: "TM";
@@ -89,9 +86,9 @@
 			}
 
 			.user-logo {
-				width: 40px;
+				width: 21px;
 				height: auto;
-				margin: 0 25px;
+				margin: 0 15px;
 			}
 
 			nav {
@@ -140,7 +137,7 @@
 			.title {
 				text-transform: none;
 				font-family: "Source Sans Pro", Helvetica, sans-serif;
-				//letter-spacing: 0.1em;
+				letter-spacing: 0.1em;
 				font-weight: 100;
 				line-height: 1;
 				font-size: 1.5em;
@@ -167,7 +164,7 @@
 					a {
 						display: block;
 						position: relative;
-						// height: 30px;
+						height: 30px;
 						line-height: 3em;
 						padding: 0 1.5em;
 						//background-color: transparentize(_palette(bg), 0.5);
@@ -181,9 +178,9 @@
 
 					a[href="#menu"] {
 						-webkit-tap-highlight-color: transparent;
-						// width: 35px;
+						width: 35px;
 						text-indent: 4em;
-						// font-size: 1em;
+						font-size: 1em;
 						overflow: hidden;
 						padding: 0;
 						white-space: nowrap;
@@ -199,7 +196,7 @@
 							height: 100%;
 							background-position: center;
 							background-repeat: no-repeat;
-							background-size: 1.5em 2em;
+							background-size: 2em 2em;
 						}
 
 						&:before {
@@ -245,110 +242,3 @@
 			}
 		}
 	}
-
-/* Updated on 02-april-2017 by Sumit */
-.page-id-2034 {
-	#header {
-		background-color: transparent;
-		-webkit-transition: all 0.3s ease-in-out;
-		-moz-transition: all 0.3s ease-in-out;
-		-o-transition: all 0.3s ease-in-out;
-    transition: all 0.3s ease-in-out;
-		.title {display: none;}
-	}
-}
-#header.sticky {
-	background-color: #74bfe6;
-	-webkit-transition: all 0.3s ease-in-out;
-		-moz-transition: all 0.3s ease-in-out;
-		-o-transition: all 0.3s ease-in-out;
-	.inner {
-		padding-top: 0px;
-		-webkit-transition: padding-top 0.3s ease-in-out;
-		-moz-transition: padding-top 0.3s ease-in-out;
-		-o-transition: padding-top 0.3s ease-in-out;
-	}
-}
-
-/* Homepage Top Banner */
-.home-top-banner {
-	height: 360px;
-  width: 100%;
-  background: url(../images/back3.jpg) center center / cover no-repeat;
-  text-align: center;
-  color: white;
-	padding-top: 47px;
-
-  .banner-title {
-		font-family: 'Montserrat', sans-serif;
-		font-size: 42px;
-		font-weight: 600;
-		letter-spacing: 1px;
-
-		&:after {
-	    content: "TM";
-	    font-size: 8pt;
-	    font-family: 'Lato', sans-serif;
-	    font-weight: 400;
-	    letter-spacing: 2px;
-	    padding-left: 3px;
-	    vertical-align: super;
-		}
-  }
-  .banner-desc {
-  	font-family: 'Lato', sans-serif;
-		font-size: 22px;
-		font-weight: 300;
-  }
-}
-
-#header {
-	.right-header {
-		nav {
-			ul {
-				li {
-					&:last-child {
-				    border: 1px solid #fff;
-				    border-radius: 50%;
-				    height: 36px;
-				    width: 36px;
-				    line-height: 36px;
-				    text-align: center;
-					}
-				}
-			}
-		}
-	}
-}
-
-.btn-default.discover-btn {
-  width: 160px;
-  height: 40px;
-  background-color: #6aa6c0;
-  color: white;
-  border-radius: 0;
-  text-transform: uppercase;
-  font-size: 18px;
-  font-family: 'Lato', sans-serif;
-  border: 0;
-}
-
-#loving-kindness {
-	span.title-span {
-    font-weight: 400;
-    color: black;
-    padding-bottom: 0;
-    padding-top: 0;
-    margin-top: 45px;
-    font-size: 40px;
-	}
-	h2.title-span {
-		letter-spacing: 0;
-		text-transform: capitalize;
-		margin: 0;
-		padding-top: 0;
-		padding-bottom: 57px;
-		font-size: 40px;
-		color: #6aa6c0;
-	}
-}

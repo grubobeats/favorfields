@@ -1,14 +1,21 @@
 <?php
 /**
- * @description: Template for displaying single wellghoritm
- * @author: Vladan Paunovic
- * @contact: https://givemejobtoday.com
- * @date: 15/02/2017
+ * The template for displaying all pages.
+ *
+ * This is the template that displays all pages by default.
+ * Please note that this is the WordPress construct of pages
+ * and that other 'pages' on your WordPress site may use a
+ * different template.
+ *
+ * @link https://codex.wordpress.org/Template_Hierarchy
+ *
+ * @package FavorFields
+ *
+ * Template name: Wellgorithms
  */
-global $post;
-
-require_once 'logic.php';
+// get_header();
 require_once 'header.php';
+
 
 $number_of_questions = count(array_filter($welgorithm['questions']));
 $counter = 1;
@@ -19,16 +26,16 @@ $def_second_answers = is_singular('my_wellgorithms') ? "user_second_answers" : "
 $question_animations = ($category[0]->name == "Hellgo") ? "h_question-animations" : "question-animations";
 $hellgo_prefix = "";
 if ( $category[0]->name == "Hellgo" ) {
-    $hellgo_prefix = "h_";
+	$hellgo_prefix = "h_";
 } elseif ( $category[0]->name == "Letgo" ) {
-    $hellgo_prefix = "l_";
+	$hellgo_prefix = "l_";
 }
 $logic->checkForCustomWellgo();
 
 $maximum_questions = 3;
 
 if( is_user_logged_in() ) {
-    $maximum_questions = $welgorithm[ $prefix . 'basic_settings_steps' ][0];
+	$maximum_questions = $welgorithm[ $prefix . 'basic_settings_steps' ][0];
 }
 
 $cookie_name = "banner_image";
@@ -36,221 +43,288 @@ $banner_image_src = ( get_the_post_thumbnail_url() ) ? get_the_post_thumbnail_ur
 setcookie($cookie_name, $banner_image_src, time() + (3600), "/");
 
 ?>
-<script>
-    var all_steps = <?= $welgorithm[ $prefix . 'basic_settings_steps' ][0]; ?>,
-        steps = <?= $number_of_questions; ?>,
-        maximum_steps = <?= $maximum_questions ?>,
-        question_animation = "<?= $favorfields[ $question_animations ] ?>",
-        ajaxurl = "<?= admin_url( 'admin-ajax.php' ) ?>",
-        permalink = "<?= get_permalink(); ?>",
-        user_id = "<?= get_current_user_id(); ?>",
-        title = "<?= get_the_title(); ?>",
-        icon = "<?= $welgorithm[ $prefix . 'basic_settings_icon' ][0] ?>",
-        color_template = "<?= $color_scheme ?>",
-        mood = "<?= $welgorithm[ $prefix . 'basic_settings_mood' ][0] ?>",
-        level = "<?= $welgorithm[ $prefix . 'basic_settings_level' ][0] ?>",
-        confidence = "<?= $welgorithm[ $prefix . 'basic_settings_confidence' ][0] ?>",
-        recommended = "<?= $welgorithm[ $prefix . 'basic_settings_recommended' ][0] ?>",
-        post_id = "<?= $logic->getWellgorithmPostID(); ?>",
-        username = "<?= $username ?>",
-        current_step = 1,
-        isLoggedIn = "<?= $logged = ( is_user_logged_in() == true ) ? 1 : 0; ?>",
-        current_post_id = "<?= get_the_ID() ?>",
-        pladged = "<?= $logic->checkPladged()['permission'] ?>",
-        days_left_to_pladge = "<?= $logic->checkPladged()['days_left'] ?>";
-</script>
+    <script>
+        var all_steps = <?= $welgorithm[ $prefix . 'basic_settings_steps' ][0]; ?>,
+            steps = <?= $number_of_questions; ?>,
+            maximum_steps = <?= $maximum_questions ?>,
+            question_animation = "<?= $favorfields[ $question_animations ] ?>",
+            ajaxurl = "<?= admin_url( 'admin-ajax.php' ) ?>",
+            permalink = "<?= get_permalink(); ?>",
+            user_id = "<?= get_current_user_id(); ?>",
+            title = "<?= get_the_title(); ?>",
+            icon = "<?= $welgorithm[ $prefix . 'basic_settings_icon' ][0] ?>",
+            color_template = "<?= $color_scheme ?>",
+            mood = "<?= $welgorithm[ $prefix . 'basic_settings_mood' ][0] ?>",
+            level = "<?= $welgorithm[ $prefix . 'basic_settings_level' ][0] ?>",
+            confidence = "<?= $welgorithm[ $prefix . 'basic_settings_confidence' ][0] ?>",
+            recommended = "<?= $welgorithm[ $prefix . 'basic_settings_recommended' ][0] ?>",
+            post_id = "<?= $logic->getWellgorithmPostID(); ?>",
+            username = "<?= $username ?>",
+            current_step = 1,
+            isLoggedIn = "<?= $logged = ( is_user_logged_in() == true ) ? 1 : 0; ?>",
+            current_post_id = "<?= get_the_ID() ?>",
+            pladged = "<?= $logic->checkPladged()['permission'] ?>",
+            days_left_to_pladge = "<?= $logic->checkPladged()['days_left'] ?>";
+    </script>
 
+    <!-- Latest compiled and minified CSS  -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400i|Raleway:400,600|Open+Sans:400,600" rel="stylesheet">
     <!-- Main -->
+
     <div id="main">
-        <div class="banner-image border-color-1">
-            <img src="<?= $banner_image_src; ?>" alt="">
-            <div class="focus-bar">
-                <? if ( is_user_logged_in() ) :
-                    $icon = ( $logic->checkPladged()['permission'] == "true" ) ? "" : "<i class=\"fa fa-heartbeat\" aria-hidden=\"true\"></i>";
+        <div class="main-wellgorithms">
 
-                    ?>
-                    <div class="circle-focus passed open-info-popup"><?= $logic->countPassingTimes() ?></div>
-                    <div class="info-popup">You’ve done this Wellgorithm <?= $logic->countPassingTimes() ?> times</div>
-                <? endif; ?>
-                <a class="circle-focus" href="<?= get_permalink($logic->getWellgorithmPostID()) ?>social">2</a>
-                <div class="circle-focus open-info-popup"><?= $icon ?></div>
-                <div class="info-popup">You’ve pledged to do this Wellgorithm for <?= $logic->checkPladged()['days_left'] ?> days.</div>
+            <!-- wellgorithms-main-banner starts -->
+            <div class="wellgorithms-main-banner">
+                <div class="wellgo-transparent-overlay background-color-3">
+                </div> <!-- wellgo-transparent-overlay -->
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+
+                            <div class="wellgorightem-content">
+                                <figure class="wellgo-mood-img">
+                                    <img src="<?= $welgorithm['basic_settings_icon'][0] ?>" alt="" class="img-responsive">
+                                </figure>
+                                <h1 class="wellgo-main-title">
+                                    <small>It's time to do the </small>
+                                    <span><?= get_the_title(); ?></span>
+                                </h1>
+                            </div> <!-- wellgorightem-content ends -->
+
+                            <div class="right-faded-logo">
+                                <img src="<?php bloginfo('stylesheet_directory'); ?>/assets/images/FFLOGO2.svg" alt="FFLOGO" class="img-responsive">
+                            </div>  <!-- right-faded-logo ends -->
+                        </div> <!-- col-sm-12 ends -->
+                    </div> <!-- row ends -->
+                </div> <!-- container ends-->
             </div>
-        </div>
+            <!-- wellgorithms-main-banner ends -->
 
-        <div class="inner">
+            <!-- wellgorithms-questionnaire starts -->
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <!--=========================== Quiz Box Loop Starts Here ===========================-->
 
-            <? for($i = 0; $i < $number_of_questions; $i++) : ?>
+						<? for($i = 0; $i < $number_of_questions; $i++) : ?>
 
-                <div class="wellghoritm<? if ($i > 0 ) : ?> hidden<? endif;?>">
-                    <? if ($i == 0 ) : ?>
-                        <div class="progressbar">
-                            <div class="outline border-color-1">
-                                <div class="inside background-color-1" style="width:1%">
-                                    1%
+                        <div class="wellgo-questionnaire-container background-color-2<? if ($i > 0 ) : ?> hidden<? endif;?>">
+                            <div class="wellgo-questionnaire">
+                                <h2 class="wellgo-main-title color-3">
+									<?= $welgorithm[$def_questions][$i]; ?>
+                                </h2>
+
+                                <div class="wellgo-quiz-box border-color-4">
+                                    <div class="col-sm-5 wellgo-quiz-option">
+                                        <p contenteditable="true"><?= $welgorithm[$def_first_answers][$i]; ?></p>
+                                        <div class="media wellgo-user hidden">
+                                            <figure class="media-left wellgo-user-img border-color-4">
+                                                <img src="http://favorfields.com/wp-content/uploads/2017/02/mm9.png" alt="user" class="img-responsive">
+                                            </figure>
+                                            <div class="media-body">
+                                                <span class="wellgo-user-name color-4"> JACQUELINE </span>
+                                                <button class="wellgo-favor-btn background-color-4"> Favor </button>
+                                            </div>
+                                        </div>
+                                        <!-- wellgo-user ends -->
+                                    </div>
+                                    <!-- col-sm-5 wellgo-quiz-option ends -->
+                                    <div class="col-sm-2 wellgo-main-img text-center">
+                                        <ul class="background-color-4">
+                                            <li>
+                                                <img id="Image-Maps-Com-image-maps-2017-04-09-153318" src="<?php bloginfo('stylesheet_directory'); ?>/assets/images/center-btn.png" border="0" width="87" height="261" orgWidth="87" orgHeight="261" usemap="#image-maps-2017-04-09-153318" alt="" />
+                                                <map name="image-maps-2017-04-09-153318" id="ImageMapsCom-image-maps-2017-04-09-153318">
+                                                    <area  alt="" title="" href="#" shape="rect" coords="0,5,87,88" style="outline:none;" target="_self"     />
+                                                    <area  alt="" title="" href="#" shape="rect" coords="0,87,87,172" style="outline:none;" target="_self"     />
+                                                    <area  alt="" title="" href="#" shape="rect" coords="0,171,87,254" style="outline:none;" target="_self"     />
+                                                    <area shape="rect" coords="85,259,87,261" alt="Image Map" style="outline:none;" title="Image Map" href="#" />
+                                                </map>
+                                            </li>
+                                        </ul>
+                                    </div> <!-- col-sm-2 wellgo-main-img ends -->
+
+                                    <div class="col-sm-5 wellgo-quiz-option">
+                                        <p contenteditable="true"><?= $welgorithm[$def_second_answers][$i]; ?></p>
+                                        <div class="media wellgo-user hidden">
+                                            <figure class="media-left wellgo-user-img border-color-4">
+                                                <img src="http://favorfields.com/wp-content/uploads/2017/02/mm9.png" alt="user" class="img-responsive">
+                                            </figure>
+                                            <div class="media-body">
+                                                <span class="wellgo-user-name color-4"> JONATHAN </span>
+                                                <button class="wellgo-favor-btn background-color-4"> Favor </button>
+                                            </div>
+                                        </div>
+                                        <!-- wellgo-user ends -->
+                                    </div>
+                                    <!-- col-sm-5 wellgo-quiz-option ends -->
+
+                                    <div class="circle">
+                                        <div class="radio">
+                                            <input type="radio" name="answered_question_<?= $i; ?>" id="selected_answer_<?= $counter; ?>" value="<?= $welgorithm['first_answers'][$i]; ?>" data-recommend="Good">
+                                            <label for="selected_answer_<?= $counter; ?>" class="radio-label border-color-4"></label>
+                                        </div> <!-- option 1 -->
+                                        <div class="radio">
+                                            <input type="radio" name="answered_question_<?= $i; ?>" id="selected_answer_<? print( $counter + 1 ); ?>" value="<?= $welgorithm['second_answers'][$i]; ?>" data-recommend="Bad">
+                                            <label  for="selected_answer_<? print( $counter + 1 ); ?>" class="radio-label border-color-4"></label>
+                                        </div> <!-- option 2 -->
+                                    </div>
+                                    <!-- Radio Buttons -->
+
                                 </div>
+                                <!-- wellgo-quiz-box ends -->
+
+                                <!-- wellgo-btn-sm btns -->
+                                <button type="button" class="wellgo-btn-sm previous border-color-4"></button>
+                                <button type="button" class="wellgo-btn-sm next border-color-4"></button>
+                                <button type="button" class="wellgo-btn-sm top-next border-color-4"></button>
+
+                                <!-- progressbar ends -->
+                                <ul class="progressbar">
+                                    <? for( $step_li=0; $step_li < $number_of_questions; $step_li++ ) : ?>
+                                        <?
+                                            switch ($step_li) {
+                                                case $step_li < $i:
+													$progress_bar_classname = "step-completed background-color-4";
+													break;
+                                                case $step_li == $i:
+													$progress_bar_classname = "active background-color-3";
+													break;
+                                                default;
+                                                    $progress_bar_classname = "";
+                                                    break;
+                                            }
+										?>
+
+                                        <li class="<?= $progress_bar_classname; ?>"></li>
+                                    <? endfor; ?>
+                                </ul>
+                                <!-- progressbar ends -->
+
+                                <div class="clearfix"></div>
+
+                                <!-- wellgo-random-users list -->
+                                <ul class="wellgo-random-users list-inline hidden">
+                                    <li>
+                                        <a href="#">
+                                            <img src="http://favorfields.com/wp-content/uploads/2017/02/mm9.png" alt="user" class="img-responsive border-color-4">
+                                            <span class="color-4"> Jonathan</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <img src="http://favorfields.com/wp-content/uploads/2017/02/mm9.png" alt="user" class="img-responsive border-color-4">
+                                            <span class="color-4"> Jacqueline</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <img src="http://favorfields.com/wp-content/uploads/2017/02/mm9.png" alt="user" class="img-responsive border-color-4">
+                                            <span class="color-4"> Tony</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <img src="http://favorfields.com/wp-content/uploads/2017/02/mm9.png" alt="user" class="img-responsive border-color-4">
+                                            <span class="color-4"> Karl</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <img src="http://favorfields.com/wp-content/uploads/2017/02/mm9.png" alt="user" class="img-responsive border-color-4">
+                                            <span class="color-4"> Bonny</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <!-- wellgo-random-users list ends here -->
+
+                                <div class="shuffle-users hidden">
+                                    <a href="javascript:void(0)" title="Suffle Users" class="border-color-4">
+                                        <i class="fa fa-repeat reload_search" aria-hidden="true"> </i>
+                                    </a>
+                                </div>
+                                <!-- shuffle-users btn ends -->
+                            </div>
+                            <!-- wellgorightem-questionnaire ends -->
+                        </div>
+							<? $counter = $counter + 2; ?>
+                        <!--=========================== Quiz Box Loop Ends Here ===========================-->
+                        <? endfor; ?>
+
+                        <!--=========================== Thank You & Confirmation Message ===========================-->
+                        <div class="popups background-color-2">
+                            <div class="prompt-save border-color-1" style="display: none;">
+                                <p class="greetings_msg">Great job, <span><?= $username ?>!</span></p>
+                                <div class="is-saved"></div>
+                                <p class="join-community">Join these wonderful community members who have created a
+                                    <br/> <span><?= get_the_title() ?></span> pledge group:
+                                </p>
+                                <div class="wellgo-avatars"></div>
+
+								<? if ( $logic->checkPladged()['permission'] == "true" ) : ?>
+                                    <p for="pladge">Pledge to do the <span><?= get_the_title() ?></span> for</p>
+                                    <select name="pladge" id="pladge">
+                                        <option value="null"></option>
+										<? for ($i=3; $i <= 30; $i++) : ?>
+                                            <option value="<?= $i ?>"><?= $i ?> days</option>
+										<? endfor; ?>
+                                    </select>
+								<? else : ?>
+                                    <p for="pladge" class="already-pladged">You already pladged to do this wellgorithm</p>
+								<? endif; ?>
+
+                                <p class="people-who-did">People who did the <span><?= get_the_title() ?></span> also did the:</p>
+                                <div class="related_wellgorithms"></div>
                             </div>
                         </div>
-                    <? endif; ?>
-                    <div class="question">
-                        <div class="wide-separator"></div>
-                        <span class="color-3">
-                            <?= $welgorithm[$def_questions][$i]; ?>
-                        </span>
+                        <!--===========================  Thank You & Confirmation Message ===========================-->
 
-                        <div class="wide-separator">
-<!--                            <i class="fa fa-heart question__like color-1" aria-hidden="true"></i>-->
-                            <div class="question__like border-color-1"></div>
-
-                            <div class="popup-suggest-question background-color-1 box-shadow-color-1">
-                                <div class="row first">
-                                    <div class="suggest__icon"><i class="fa fa-heart"></i></div>
-                                    <div class="suggest__text">Love this!</div>
-                                </div>
-                                <div class="row second">
-                                    <div class="suggest__icon"><i class="fa fa-lightbulb-o"></i></div>
-                                    <div class="suggest__text">
-                                        <p>I have a suggestion for improvment:</p>
-                                        <textarea class="question_sugestion" name="question_suggestion_<?= $i ?>" id="question_suggestion_<?= $i ?>" cols="30" rows="1"></textarea>
+                        <div class="tooltip1">Hover over me
+                            <div class="tooltiptext">
+                                <div class="tooltipcontent">
+                                    <div class="col-sm-4">
+                                        <h3>FAVOR SARA</h3>
+                                        <figure class="text-center">
+                                            <img src="http://favorfields.com/wp-content/uploads/2017/02/mm9.png" alt="sumit" class="user-avatar border-color-4">
+                                        </figure>
+                                        <h4> <span>LOVING KINDNESS</span> <span>PEACE</span> <span>BLESSINGS</span> </h4>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <p><a href="#">Breathing in, I smile thinking of you.</a> </p>
+                                        <p><a href="#"> Breathing out, I realize what a blessing you are to the world.</a></p>
+                                        <p class="last"><a href="#"> Breathing in, I marvel at your resilience.</a> </p>
+                                        <form>
+                                            <textarea name="" class="form-control" rows="4"> </textarea>
+                                        </form>
+                                        <a href=""> <i class="fa fa-heart"></i> </a>
                                     </div>
                                 </div>
                             </div>
                         </div>
+
+
                     </div>
-
-
-                    <div class="answer first">
-                        <div class="answer__radio">
-                            <label for="selected_answer_<?= $counter; ?>"></label>
-                            <input type="radio" name="answered_question_<?= $i; ?>" id="selected_answer_<?= $counter; ?>" value="<?= $welgorithm['first_answers'][$i]; ?>" data-recommend="Good">
-                            <div class="check border-color-1">
-                                <div class="inside background-color-1"></div>
-                            </div>
-                        </div>
-                        <div class="answer__input">
-                            <div>
-                                <div contenteditable="true" class="fake-input border-color-1"><?= $welgorithm[$def_first_answers][$i]; ?></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="answer second">
-                        <div class="answer__radio">
-                            <label for="selected_answer_<? print( $counter + 1 ); ?>"></label>
-                            <input type="radio" name="answered_question_<?= $i; ?>" id="selected_answer_<? print( $counter + 1 ); ?>" value="<?= $welgorithm['second_answers'][$i]; ?>" data-recommend="Bad">
-                            <div class="check border-color-1">
-                                <div class="inside background-color-1"></div>
-                            </div>
-                        </div>
-                        <div class="answer__input">
-                            <div>
-                                <div contenteditable="true" class="fake-input border-color-1"><?= $welgorithm[$def_second_answers][$i]; ?></div>
-                            </div>
-                        </div>
-                    </div>
-
-
-
-                    <div class="extra-menu">
-                        <ul>
-                            <li class="first">
-                                <div class="circle border-color-1"></div>
-                            </li>
-                            <li class="second">
-                                <div class="circle border-color-1"></div>
-                            </li>
-                            <li class="third">
-                                <div class="circle border-color-1"></div>
-                            </li>
-                        </ul>
-
-                        <div class="popup-extra-menu left background-color-1 box-shadow-color-1">
-                            <div class="rows first">
-                                <?= $favorfields[$hellgo_prefix . 'wellgo_extra_menu_1']?>
-                            </div>
-                            <div class="rows">
-                                <?= $favorfields[$hellgo_prefix . 'wellgo_extra_menu_2']?>
-                            </div>
-                            <div class="rows">
-                                <?= $favorfields[$hellgo_prefix . 'wellgo_extra_menu_3']?>
-                            </div>
-                            <div class="rows">
-                                <?= $favorfields[$hellgo_prefix . 'wellgo_extra_menu_4']?>
-                            </div>
-                            <div class="rows">
-                                <textarea name="extra-menu-first[]" id="" placeholder="Enter # of days"></textarea>
-                            </div>
-                        </div>
-
-                        <div class="popup-extra-menu middle background-color-1 box-shadow-color-1">
-                            <div class="rows first">
-                                <?= $favorfields[$hellgo_prefix . 'wellgo_extra_menu_1-2']?>
-                            </div>
-                            <div class="rows">
-                                <?= $favorfields[$hellgo_prefix . 'wellgo_extra_menu_2-2']?>
-                            </div>
-                            <div class="rows">
-                                <?= $favorfields[$hellgo_prefix . 'wellgo_extra_menu_3-2']?>
-                            </div>
-                            <div class="rows">
-                                <?= $favorfields[$hellgo_prefix . 'wellgo_extra_menu_4-2']?>
-                            </div>
-                            <div class="rows">
-                                <textarea name="extra-menu-first[]" id="" placeholder="Enter # of days"></textarea>
-                            </div>
-                        </div>
-
-                        <div class="popup-extra-menu right background-color-1 box-shadow-color-1">
-                            <div class="rows first">
-                                <?= $favorfields[$hellgo_prefix . 'wellgo_extra_menu_1-3']?>
-                            </div>
-                            <div class="rows">
-                                <?= $favorfields[$hellgo_prefix . 'wellgo_extra_menu_2-3']?>
-                            </div>
-                            <div class="rows">
-                                <?= $favorfields[$hellgo_prefix . 'wellgo_extra_menu_3-3']?>
-                            </div>
-                            <div class="rows">
-                                <?= $favorfields[$hellgo_prefix . 'wellgo_extra_menu_4-3']?>
-                            </div>
-                            <div class="rows">
-                                <textarea name="extra-menu-first[]" id="" placeholder="Enter # of days"></textarea>
-                            </div>
-                        </div>
-                    </div>
+                    <!-- col-sm-12 ends -->
                 </div>
-                <div class="separator background-color-1"></div>
-                <? $counter = $counter + 2; ?>
-            <? endfor; ?>
-
-        </div>
-    </div>
-
-    <div class="popups">
-        <div class="prompt-save border-color-1 ">
-            <p>Great job, <span><?= $username ?>!</span></p>
-            <div class="is-saved"></div>
-            <p>Join these wonderful community members who have created a <span><?= get_the_title() ?></span> pledge group:</p>
-            <div class="wellgo-avatars"></div>
-
-            <? if ( $logic->checkPladged()['permission'] == "true" ) : ?>
-            <p for="pladge">Pledge to do the <span><?= get_the_title() ?></span> for</p>
-            <select name="pladge" id="pladge">
-                <option value="null"></option>
-                <? for ($i=3; $i <= 30; $i++) : ?>
-                    <option value="<?= $i ?>"><?= $i ?> days</option>
-                <? endfor; ?>
-            </select>
-            <? else : ?>
-                <p for="pladge">You already pladged to do this wellgorithm</p>
-            <? endif; ?>
-
-            <p>People who did the <span><?= get_the_title() ?></span> also did the:</p>
-            <div class="related_wellgorithms">
-                <div class="wellgo-user">
-                    1
-                </div>
+                <!-- row ends -->
             </div>
+            <!-- container ends -->
         </div>
+        <!-- main-wellgorithms ends -->
     </div>
+    <!-- #main ends -->
 
+    <!-- <script type="text/javascript">
+	  jQuery(window).scroll(function() {
+	  if (jQuery(this).scrollTop() > 100)
+		{
+		  jQuery('#header').addClass("sticky");
+		}
+		else
+		{
+		  jQuery('#header').removeClass("sticky");
+		}
+	  });
+	</script> -->
 <?php get_footer(); ?>

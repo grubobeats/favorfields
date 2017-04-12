@@ -23,7 +23,6 @@ jQuery(document).ready(function($){
             },
             success: function( response ) {
                 // console.log( "success: " + response )
-                // console.log( post_id, recommend )
                 $(target).html( response );
             },
             error: function( response ) {
@@ -140,12 +139,12 @@ jQuery(document).ready(function($){
     /*
         Showing next question
      */
-    var question = $('.wellghoritm'),
+    var question = $('.wellgo-questionnaire-container'),
         input = $(question).find('input'); // TODO: Make this more specific
 
     $(input).click(function(){
 
-        var wellghoritm = $(this).parent().parent().parent(),
+        var wellghoritm = $(this).parent().parent().parent().parent().parent(),
             input_name = $(wellghoritm).find('input').attr('name'),
             inside_inputs = $('input[name="' + input_name + '"]'),
             input_layouts = $(wellghoritm).find('.check'),
@@ -158,22 +157,22 @@ jQuery(document).ready(function($){
         sendClicks();
 
         // scrolling on all questions except on last
-        if(maximum_steps > current_step) {
+        if(maximum_steps > current_step ) {
             $('html, body').animate(
                 {
-                    scrollTop: $(wellghoritm).next().offset().top - 70
+                    // scrollTop: $(wellghoritm).offset().top - 70
+                    scrollTop: eval( $(wellghoritm).offset().top + $(wellghoritm).height() ) - 37
                 },
                 1000);
 
             $(wellghoritm)
                 .next()
-                .next()
+                // .next() // If there is a separator this will be useful
                 .removeClass('hidden')
                 .addClass('animated ' + question_animation);
 
-            changePercentage(current_step, all_steps, maximum_steps);
+            // changePercentage(current_step, all_steps, maximum_steps);
             current_step++;
-
 
         } else {
             // Check if user changed more than 10 letters
@@ -233,8 +232,6 @@ jQuery(document).ready(function($){
                             recommended: recommended
                         },
                         success: function( response ) {
-                            console.log(secure_site);
-
                             savedBox
                                 .html("<p></p>")
 
@@ -265,11 +262,11 @@ jQuery(document).ready(function($){
 
             if ( isLoggedIn === "1" ) {
                 current_step + 2;
-                changePercentage(current_step, all_steps, maximum_steps);
+                // changePercentage(current_step, all_steps, maximum_steps);
             }
 
 
-            var last_answer_num = $('.wellghoritm').length - 1,
+            var last_answer_num = $('.wellgo-questionnaire-container').length - 1,
                 radioButtons = $('input:radio[name="answered_question_' + last_answer_num + '"]'),
                 selectedIndex = radioButtons.index(radioButtons.filter(':checked'));
 
@@ -277,7 +274,7 @@ jQuery(document).ready(function($){
             listPladges( ".wellgo-avatars" );
             saveToPassedWellgorithms();
 
-            // Send event to Google analytics
+            // Send event to Google Tag Manager
             dataLayer.push({
                 'event':'finished_wellgorithm',
                 'attributes': {
@@ -434,9 +431,7 @@ jQuery(document).ready(function($){
             user_id: user_id
         }
 
-        $.post(ajaxurl, data_holder, function( response ){
-            // console.log("success: " + response)
-        })
+        $.post(ajaxurl, data_holder, function( response ){})
     }
 
     /**

@@ -105,9 +105,6 @@
   }
 }
 
-/**
-  Favor menu
- */
 
 .favor-menu {
   display: none;
@@ -135,35 +132,14 @@
       &:hover {
         font-weight: bold;
 
-        & > .favor-second-level {
-          display: block;
+        .favor-second-level {
+          //display: block;
         }
       }
 
       .favor-second-level {
         display: none;
-        position: absolute;
-        width: 500px;
-        background: black;
-        left: 350px;
-        margin-top: -36px;
-        transition: .5s;
-
-        li {
-          font-weight: normal;
-
-          &:hover {
-            font-weight: bold;
-          }
-        }
       }
     }
   }
 }
-
-.clearfix { *zoom: 1; }
-.clearfix:before, .clearfix:after {
-  content: "";
-  display: table;
-}
-.clearfix:after { clear: both; }
