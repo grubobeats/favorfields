@@ -28,6 +28,27 @@ class Basic_Settings {
             'label' => 'Color #4',
             'type' => 'color',
         ),
+		array(
+			'id' => 'main_png',
+			'label' => 'Main png',
+			'type' => 'media',
+		),
+		array(
+			'id' => 'favor_png',
+			'label' => 'Favor png',
+			'type' => 'media',
+		),
+		array(
+			'id' => 'buttons_style',
+			'label' => 'Button style',
+			'type' => 'select',
+			'options' => array(
+				'Diamond',
+				'Circle',
+				'Square',
+				'Hexagon',
+			),
+		)
     );
 
     /**
@@ -76,15 +97,58 @@ class Basic_Settings {
             $db_value = get_post_meta( $post->ID, 'basic_settings_' . $field['id'], true );
             switch ( $field['type'] ) {
                 case 'media':
-                    $input = sprintf(
-                        '<input id="%s" name="%s" type="text" value="%s"> <input class="button rational-metabox-media" id="%s_button" name="%s_button" type="button" value="Upload" />',
-                        $field['id'],
-                        $field['id'],
-                        $db_value,
-                        $field['id'],
-                        $field['id']
-                    );
-                    break;
+					$input = sprintf(
+						'<input class="regular-text small-png" id="%s" name="%s" type="text" value="%s"> <input class="button rational-metabox-media" id="%s_button" name="%s_button" type="button" value="Upload" />',
+						$field['id'],
+						$field['id'],
+						$db_value,
+						$field['id'],
+						$field['id']
+					);
+
+					if (isset($db_value) && $db_value != "") {
+						$input .= sprintf("<img src='%s' width='200px'><span class=\"dashicons dashicons-no\"></span>", $db_value);
+					}
+					break;
+				case 'select':
+					if($field['id'] == 'mood') {
+						$input = sprintf(
+							'<select id="%s" name="%s">',
+							$field['id'],
+							$field['id']
+						);
+
+						$counter = 1;
+
+						foreach ( $field['options'] as $key => $value ) {
+							$field_value = $counter;
+							$input .= sprintf(
+								'<option %s value="%s" >%s</option>',
+								(int) $db_value === (int) $field_value ? "selected" : "",
+								$field_value,
+								$value
+							);
+							$counter++;
+						}
+						$input .= '</select>';
+					} else {
+						$input = sprintf(
+							'<select id="%s" name="%s" class="small-png">',
+							$field['id'],
+							$field['id']
+						);
+						foreach ( $field['options'] as $key => $value ) {
+							$field_value = $value;
+							$input .= sprintf(
+								'<option %s value="%s" >%s</option>',
+								$db_value === $field_value ? 'selected' : '',
+								$field_value,
+								$value
+							);
+						}
+						$input .= '</select>';
+					}
+					break;
                 default:
                     $input = sprintf(
                         '<input id="%s" name="%s" type="%s" value="%s">',

@@ -25,3 +25,7 @@ span.dashicons.dashicons-no {
 span.dashicons.dashicons-no:hover {
     color: #000;
 }
+
+.small-png {
+    width: 100%;
+}

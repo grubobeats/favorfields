@@ -60,6 +60,11 @@ class Wellgorithms_Settings {
                 'label' => 'Steps',
                 'type' => 'text',
             ),
+			array(
+				'id' => 'subhead',
+				'label' => 'Subhead',
+				'type' => 'text',
+			),
             array(
                 'id' => 'color-template',
                 'label' => 'Color template',

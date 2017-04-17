@@ -38,10 +38,6 @@ if( is_user_logged_in() ) {
 	$maximum_questions = $welgorithm[ $prefix . 'basic_settings_steps' ][0];
 }
 
-$cookie_name = "banner_image";
-$banner_image_src = ( get_the_post_thumbnail_url() ) ? get_the_post_thumbnail_url() : $logic->getRandomImage($color_scheme, true);
-setcookie($cookie_name, $banner_image_src, time() + (3600), "/");
-
 ?>
     <script>
         var all_steps = <?= $welgorithm[ $prefix . 'basic_settings_steps' ][0]; ?>,
@@ -76,9 +72,8 @@ setcookie($cookie_name, $banner_image_src, time() + (3600), "/");
         <div class="main-wellgorithms">
 
             <!-- wellgorithms-main-banner starts -->
-            <div class="wellgorithms-main-banner">
-                <div class="wellgo-transparent-overlay background-color-3">
-                </div> <!-- wellgo-transparent-overlay -->
+            <div class="wellgorithms-main-banner cs-image-overlayed">
+                <div class="wellgo-transparent-overlay background-color-1"></div> <!-- wellgo-transparent-overlay -->
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-12">
@@ -88,7 +83,7 @@ setcookie($cookie_name, $banner_image_src, time() + (3600), "/");
                                     <img src="<?= $welgorithm['basic_settings_icon'][0] ?>" alt="" class="img-responsive">
                                 </figure>
                                 <h1 class="wellgo-main-title">
-                                    <small>It's time to do the </small>
+                                    <small><?= $subhead ?></small>
                                     <span><?= get_the_title(); ?></span>
                                 </h1>
                             </div> <!-- wellgorightem-content ends -->
@@ -107,11 +102,23 @@ setcookie($cookie_name, $banner_image_src, time() + (3600), "/");
                 <div class="row">
                     <div class="col-sm-12">
                         <!--=========================== Quiz Box Loop Starts Here ===========================-->
-
+                        <? $main_loop_counter = 0; ?>
 						<? for($i = 0; $i < $number_of_questions; $i++) : ?>
 
                         <div class="wellgo-questionnaire-container background-color-2<? if ($i > 0 ) : ?> hidden<? endif;?>">
+
+                            <? if ($i != 0) : ?>
+                                <div class="wellgorithms-main-banner">
+                                    <div class="wellgo-transparent-overlay background-color-3"></div>
+                                </div> <!-- Banner with Wellgo Quiz -->
+                            <? endif; ?>
+
                             <div class="wellgo-questionnaire">
+                                <div class="wellgo-btn-container">
+                                    <button type="button" class="border-color-4"></button>
+                                    <button type="button" class="border-color-4"></button>
+                                    <button type="button" class="border-color-4"></button>
+                                </div>
                                 <h2 class="wellgo-main-title color-3">
 									<?= $welgorithm[$def_questions][$i]; ?>
                                 </h2>
@@ -125,7 +132,7 @@ setcookie($cookie_name, $banner_image_src, time() + (3600), "/");
                                             </figure>
                                             <div class="media-body">
                                                 <span class="wellgo-user-name color-4"> JACQUELINE </span>
-                                                <button class="wellgo-favor-btn background-color-4"> Favor </button>
+                                                <button class="wellgo-favor-btn background-color-4 cs-background-image"> Favor </button>
                                             </div>
                                         </div>
                                         <!-- wellgo-user ends -->
@@ -134,7 +141,7 @@ setcookie($cookie_name, $banner_image_src, time() + (3600), "/");
                                     <div class="col-sm-2 wellgo-main-img text-center">
                                         <ul class="background-color-4">
                                             <li>
-                                                <img id="Image-Maps-Com-image-maps-2017-04-09-153318" src="<?php bloginfo('stylesheet_directory'); ?>/assets/images/center-btn.png" border="0" width="87" height="261" orgWidth="87" orgHeight="261" usemap="#image-maps-2017-04-09-153318" alt="" />
+                                                <img id="Image-Maps-Com-image-maps-2017-04-09-153318" src="<?= $main_png; ?>" border="0" width="87" height="261" orgWidth="87" orgHeight="261" usemap="#image-maps-2017-04-09-153318" alt="" />
                                                 <map name="image-maps-2017-04-09-153318" id="ImageMapsCom-image-maps-2017-04-09-153318">
                                                     <area  alt="" title="" href="#" shape="rect" coords="0,5,87,88" style="outline:none;" target="_self"     />
                                                     <area  alt="" title="" href="#" shape="rect" coords="0,87,87,172" style="outline:none;" target="_self"     />
@@ -153,21 +160,21 @@ setcookie($cookie_name, $banner_image_src, time() + (3600), "/");
                                             </figure>
                                             <div class="media-body">
                                                 <span class="wellgo-user-name color-4"> JONATHAN </span>
-                                                <button class="wellgo-favor-btn background-color-4"> Favor </button>
+                                                <button class="wellgo-favor-btn background-color-4 cs-background-image"> Favor </button>
                                             </div>
                                         </div>
                                         <!-- wellgo-user ends -->
                                     </div>
                                     <!-- col-sm-5 wellgo-quiz-option ends -->
 
-                                    <div class="circle">
+                                    <div class="<?= $buttons_style; ?>">
                                         <div class="radio">
                                             <input type="radio" name="answered_question_<?= $i; ?>" id="selected_answer_<?= $counter; ?>" value="<?= $welgorithm['first_answers'][$i]; ?>" data-recommend="Good">
-                                            <label for="selected_answer_<?= $counter; ?>" class="radio-label border-color-4"></label>
+                                            <label for="selected_answer_<?= $counter; ?>" class="radio-label border-before-color-4"></label>
                                         </div> <!-- option 1 -->
                                         <div class="radio">
                                             <input type="radio" name="answered_question_<?= $i; ?>" id="selected_answer_<? print( $counter + 1 ); ?>" value="<?= $welgorithm['second_answers'][$i]; ?>" data-recommend="Bad">
-                                            <label  for="selected_answer_<? print( $counter + 1 ); ?>" class="radio-label border-color-4"></label>
+                                            <label  for="selected_answer_<? print( $counter + 1 ); ?>" class="radio-label border-before-color-4"></label>
                                         </div> <!-- option 2 -->
                                     </div>
                                     <!-- Radio Buttons -->
@@ -176,20 +183,26 @@ setcookie($cookie_name, $banner_image_src, time() + (3600), "/");
                                 <!-- wellgo-quiz-box ends -->
 
                                 <!-- wellgo-btn-sm btns -->
-                                <button type="button" class="wellgo-btn-sm previous border-color-4"></button>
-                                <button type="button" class="wellgo-btn-sm next border-color-4"></button>
-                                <button type="button" class="wellgo-btn-sm top-next border-color-4"></button>
+                                <button type="button" class="wellgo-btn-sm top-next border-left-color-4"></button>
 
                                 <!-- progressbar ends -->
                                 <ul class="progressbar">
                                     <? for( $step_li=0; $step_li < $number_of_questions; $step_li++ ) : ?>
+
                                         <?
                                             switch ($step_li) {
                                                 case $step_li < $i:
-													$progress_bar_classname = "step-completed background-color-4";
+													$progress_bar_classname = "step-completed background-color-before-color-4 background-color-after-color-4";
 													break;
-                                                case $step_li == $i:
-													$progress_bar_classname = "active background-color-3";
+                                                case $i:
+													$progress_bar_classname = "active background-color-before-color-3 background-color-after-color-3";
+													break;
+                                                case 0:
+                                                    if ($main_loop_counter == 0) {
+														$progress_bar_classname = "active background-color-before-color-3 background-color-after-color-3";
+													} else {
+														$progress_bar_classname = "background-color-before-color-3 background-color-after-color-3";
+                                                    }
 													break;
                                                 default;
                                                     $progress_bar_classname = "";
@@ -249,6 +262,7 @@ setcookie($cookie_name, $banner_image_src, time() + (3600), "/");
                             <!-- wellgorightem-questionnaire ends -->
                         </div>
 							<? $counter = $counter + 2; ?>
+							<? $main_loop_counter++; ?>
                         <!--=========================== Quiz Box Loop Ends Here ===========================-->
                         <? endfor; ?>
 
@@ -281,23 +295,27 @@ setcookie($cookie_name, $banner_image_src, time() + (3600), "/");
                         <!--===========================  Thank You & Confirmation Message ===========================-->
 
                         <div class="tooltip1">Hover over me
-                            <div class="tooltiptext">
+                            <div class="tooltiptext background-color-4">
                                 <div class="tooltipcontent">
                                     <div class="col-sm-4">
-                                        <h3>FAVOR SARA</h3>
+                                        <h3 class="color-3">FAVOR SARA</h3>
                                         <figure class="text-center">
                                             <img src="http://favorfields.com/wp-content/uploads/2017/02/mm9.png" alt="sumit" class="user-avatar border-color-4">
                                         </figure>
-                                        <h4> <span>LOVING KINDNESS</span> <span>PEACE</span> <span>BLESSINGS</span> </h4>
+                                        <h4 class="color-3">
+                                            <a href="#"><span>Loving Kindness</span></a>
+                                            <a href="#"><span>Peace &amp; Blessings</span></a>
+                                            <a href="#"><span>Inspiration &amp; Insights</span></a>
+                                        </h4>
                                     </div>
                                     <div class="col-sm-8">
                                         <p><a href="#">Breathing in, I smile thinking of you.</a> </p>
                                         <p><a href="#"> Breathing out, I realize what a blessing you are to the world.</a></p>
                                         <p class="last"><a href="#"> Breathing in, I marvel at your resilience.</a> </p>
                                         <form>
-                                            <textarea name="" class="form-control" rows="4"> </textarea>
+                                            <div class="textarea-wrapper"><textarea name="" class="form-control" rows="1" style="overflow: hidden; resize: none; height: 68px;"> </textarea></div>
                                         </form>
-                                        <a href=""> <i class="fa fa-heart"></i> </a>
+                                        <a href=""> <i class="fa fa-heart color-4"></i> </a>
                                     </div>
                                 </div>
                             </div>
