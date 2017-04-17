@@ -127,20 +127,12 @@ if( is_user_logged_in() ) {
                                 <div class="wellgo-quiz-box border-color-4">
                                     <div class="col-sm-5 wellgo-quiz-option">
                                         <p contenteditable="true"><?= $welgorithm[$def_first_answers][$i]; ?></p>
-                                        <div class="media wellgo-user hidden">
-                                            <figure class="media-left wellgo-user-img border-color-4">
-                                                <img src="http://favorfields.com/wp-content/uploads/2017/02/mm9.png" alt="user" class="img-responsive">
-                                            </figure>
-                                            <div class="media-body">
-                                                <span class="wellgo-user-name color-4"> JACQUELINE </span>
-                                                <button class="wellgo-favor-btn background-color-4 cs-background-image"> Favor </button>
-                                            </div>
-                                        </div>
+                                        <div class="media wellgo-user"></div>
                                         <!-- wellgo-user ends -->
                                     </div>
                                     <!-- col-sm-5 wellgo-quiz-option ends -->
                                     <div class="col-sm-2 wellgo-main-img text-center">
-                                        <ul class="background-color-4" data-step="<?= $i ?>">
+                                        <ul class="background-color-4 cs-main-background-image" data-step="<?= $i ?>">
                                             <li class="top-part mode-solo"></li>
                                             <li class="middle-part mode-default"></li>
                                             <li class="bottom-part mode-social"></li>
@@ -149,15 +141,7 @@ if( is_user_logged_in() ) {
 
                                     <div class="col-sm-5 wellgo-quiz-option">
                                         <p contenteditable="true"><?= $welgorithm[$def_second_answers][$i]; ?></p>
-                                        <div class="media wellgo-user hidden">
-                                            <figure class="media-left wellgo-user-img border-color-4">
-                                                <img src="http://favorfields.com/wp-content/uploads/2017/02/mm9.png" alt="user" class="img-responsive">
-                                            </figure>
-                                            <div class="media-body">
-                                                <span class="wellgo-user-name color-4"> JONATHAN </span>
-                                                <button class="wellgo-favor-btn background-color-4 cs-background-image"> Favor </button>
-                                            </div>
-                                        </div>
+                                        <div class="media wellgo-user"></div>
                                         <!-- wellgo-user ends -->
                                     </div>
                                     <!-- col-sm-5 wellgo-quiz-option ends -->
@@ -213,9 +197,7 @@ if( is_user_logged_in() ) {
                                 <div class="clearfix"></div>
 
                                 <!-- wellgo-random-users list -->
-                                <ul class="wellgo-random-users list-inline">
-
-                                </ul>
+                                <ul class="wellgo-random-users list-inline"></ul>
                                 <!-- wellgo-random-users list ends here -->
 
                                 <div class="shuffle-users" data-step="<?= $i ?>">

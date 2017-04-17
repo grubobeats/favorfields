@@ -427,6 +427,8 @@ jQuery(document).ready(function($){
 
         if ( $('.reload_users').has('hidden') != true ) {
             $('.reload_users').addClass('hidden');
+            $('.wellgo-user').empty()
+            $('.wellgo-random-users').empty()
         }
     });
 
@@ -461,6 +463,8 @@ jQuery(document).ready(function($){
 
             if ( $('.reload_users').has('hidden') != true ) {
                 $('.reload_users').addClass('hidden');
+                $('.wellgo-user').empty()
+                $('.wellgo-random-users').empty()
             }
         }, 'json');
     }
@@ -475,10 +479,10 @@ jQuery(document).ready(function($){
                     .eq( this_step )
                     .find('.wellgo-random-users');
 
-        getSocialAnswers(this_step + 1, target);
+        enterSocialMode(this_step + 1, target);
     });
 
-    function getSocialAnswers( step, target ) {
+    function enterSocialMode( step, target ) {
 
         var data_holder = {
             action: 'refresh_users',
@@ -493,6 +497,71 @@ jQuery(document).ready(function($){
             $('.reload_users').removeClass('hidden');
         }, 'html');
     }
+
+
+    /**
+     * Reading user answers from DB - Ajax
+     */
+
+    $('body').on('click', '.user-avatar', function () {
+
+        var $this = $(this),
+            post_id = $(this).data('post-id'),
+            user_id = $(this).data('user-id'),
+            image_src = $(this).attr('src'),
+            username = $(this).attr('alt'),
+            step_count = $(this).data('step'),
+            step_container = $(this).parent().parent().parent().parent().parent(),
+            first_answer = $(step_container).find('.wellgo-quiz-option').first(),
+            second_answer = $(step_container).find('.wellgo-quiz-option').last();
+
+        // Fading out text div
+        first_answer.toggleClass('animate-text');
+        second_answer.toggleClass('animate-text');
+
+        $.ajax({
+            url: ajaxurl,
+            type: "POST",
+            dataType: "json",
+            data: {
+                action: "read_social_answers",
+                post_id: post_id,
+                step: step_count
+            },
+            success: function( response ) {
+
+                var html = '<figure class="media-left wellgo-user-img border-color-4">' +
+                    '<img src="' + image_src + '" alt="user" class="img-responsive">' +
+                    '</figure>' +
+                    '<div class="media-body">' +
+                    '<span class="wellgo-user-name color-4"> ' + username + ' </span>' +
+                    '<button class="wellgo-favor-btn background-color-4 cs-background-image"> Favor </button>' +
+                    '</div>';
+
+                first_answer.find('.wellgo-user')
+                    .attr('data-user-id', user_id)
+                    .html( html )
+                    .addClass('favor-trigger');
+
+                second_answer.find('.wellgo-user')
+                    .attr('data-user-id', user_id)
+                    .html( html )
+                    .addClass('favor-trigger');
+
+
+                first_answer.find('p').html( response.first_answer );
+                second_answer.find('p').html( response.second_answer );
+
+
+                // fading in text div after retrieving the results
+                first_answer.toggleClass('animate-text');
+                second_answer.toggleClass('animate-text');
+            },
+            error: function( error ) {
+                console.log( "Error " + error );
+            }
+        });
+    });
 
 
 

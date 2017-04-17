@@ -164,7 +164,7 @@ function ajaxGetRelatedUsers() {
 	$output = "";
 	foreach ( $render_users as $user ) {
 		$output .= "<li class=\"user\" data-step=\"$step\"><a>";
-		$output .= sprintf('<img src="%s" alt="%s" class="img-responsive border-color-4" data-user-id="%s" data-post-id="%s" data-step="%s"><span class="color-4">%s</span>',
+		$output .= sprintf('<img src="%s" alt="%s" class="img-responsive border-color-4 user-avatar" data-user-id="%s" data-post-id="%s" data-step="%s"><span class="color-4">%s</span>',
 			$user['user_avatar'],
 			$user['user_username'],
 			$user['user_id'],

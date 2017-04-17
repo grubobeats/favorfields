@@ -108,11 +108,15 @@ $subhead = ($welgorithm['basic_settings_subhead'][0]) ? $welgorithm['basic_setti
         }
 
         .cs-background-image {
-            background-image: url("<?= $favor_png?>") !important;
+            background-image: url("<?= $favor_png ?>") !important;
         }
 
         .cs-image-overlayed {
             background-image: url("<?= $banner_image_src; ?>");
+        }
+
+        .cs-main-background-image {
+            background-image: url("<?= $main_png ?>") !important;
         }
     </style>
 
