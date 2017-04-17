@@ -199,13 +199,6 @@ if( is_user_logged_in() ) {
                                 <!-- wellgo-random-users list -->
                                 <ul class="wellgo-random-users list-inline"></ul>
                                 <!-- wellgo-random-users list ends here -->
-
-                                <div class="shuffle-users" data-step="<?= $i ?>">
-                                    <a title="Suffle Users" class="border-color-4 reload_users hidden">
-                                        <i class="fa fa-repeat reload_search" aria-hidden="true"> </i>
-                                    </a>
-                                </div>
-                                <!-- shuffle-users btn ends -->
                             </div>
                             <!-- wellgorightem-questionnaire ends -->
                         </div>

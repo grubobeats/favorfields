@@ -137,7 +137,8 @@ function ajaxGetRelatedUsers() {
         if (!empty($users[$random_key]['post_id'])) {
             $render_users[] = $users[$random_key];
             if( count($users) > 3 ) {
-                $reload_string = "<div class=\"user reload\"><i class=\"fa fa-repeat reload_users color-2\" aria-hidden=\"true\"></i></div>";
+//                $reload_string = "<div class=\"user reload\"><i class=\"fa fa-repeat reload_users color-2\" aria-hidden=\"true\"></i></div>";
+                $reload_string = "<div class=\"shuffle-users\" data-step=\"$step\"><a title=\"Suffle Users\" class=\"border-color-4 reload_users hidden\"><i class=\"fa fa-repeat reload_search\" aria-hidden=\"true\"> </i></a></div>";
             }
         } else {
             $i--;

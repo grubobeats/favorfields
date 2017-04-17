@@ -449,6 +449,10 @@ jQuery(document).ready(function($){
 
     function getDefaultAnswers( step, target ) {
 
+        target.each(function(){
+            $(this).html('<i class="fa fa-cog fa-spin fa-3x fa-fw" aria-hidden="true"></i>');
+        });
+
         var data_holder = {
             action: 'getDefaultAnswers',
             security: secure_site,
@@ -473,16 +477,21 @@ jQuery(document).ready(function($){
      * Mode Social. Getting step related social answers
      */
     $(document).on( 'click', '.mode-social, .reload_users', function(){
+
         var this_step = $(this).parent().data('step'),
             target =
                 $('.wellgo-questionnaire')
                     .eq( this_step )
                     .find('.wellgo-random-users');
 
-        enterSocialMode(this_step + 1, target);
+        enterSocialMode(this_step, target);
     });
 
     function enterSocialMode( step, target ) {
+
+        target.html('<i class="fa fa-cog fa-spin fa-3x fa-fw" aria-hidden="true"></i>');
+
+        // target.empty();
 
         var data_holder = {
             action: 'refresh_users',
@@ -492,6 +501,7 @@ jQuery(document).ready(function($){
         };
 
         $.post(ajaxurl, data_holder, function( response ){
+
             target.html( response );
 
             $('.reload_users').removeClass('hidden');
@@ -518,6 +528,9 @@ jQuery(document).ready(function($){
         // Fading out text div
         first_answer.toggleClass('animate-text');
         second_answer.toggleClass('animate-text');
+
+        first_answer.find('p').html('<i class="fa fa-cog fa-spin fa-3x fa-fw" aria-hidden="true"></i>');
+        second_answer.find('p').html('<i class="fa fa-cog fa-spin fa-3x fa-fw" aria-hidden="true"></i>');
 
         $.ajax({
             url: ajaxurl,
