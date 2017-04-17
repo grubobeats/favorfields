@@ -412,7 +412,89 @@ jQuery(document).ready(function($){
             extra_menu = $('.popup-extra-menu');
 
         saveBreaktroughts(type, text, extra_menu);
-    })
+    });
+
+
+    /**
+     * Mode: Solo. Clearing all inputs
+     */
+    $(document).on('click', '.mode-solo', function () {
+        var answers = $('.wellgo-questionnaire').eq( $(this).parent().data('step') ).find('.wellgo-quiz-option').find('p');
+
+        answers.each(function (e) {
+            $(this).empty();
+        });
+
+        if ( $('.reload_users').has('hidden') != true ) {
+            $('.reload_users').addClass('hidden');
+        }
+    });
+
+
+    /**
+     * Mode Default. Getting default values
+     */
+    $(document).on( 'click', '.mode-default', function () {
+        var this_step = $(this).parent().data('step'),
+            answers =
+            $('.wellgo-questionnaire')
+                .eq( this_step )
+                .find('.wellgo-quiz-option')
+                .find('p');
+
+        getDefaultAnswers( this_step + 1, answers );
+    });
+
+    function getDefaultAnswers( step, target ) {
+
+        var data_holder = {
+            action: 'getDefaultAnswers',
+            security: secure_site,
+            step: step,
+            post_id: post_id,
+            isCustom: 0 // TODO: Check if it is custom or not
+        };
+
+        $.post(ajaxurl, data_holder, function( response ){
+            target.eq(0).text( response.first );
+            target.eq(1).text( response.second );
+
+            if ( $('.reload_users').has('hidden') != true ) {
+                $('.reload_users').addClass('hidden');
+            }
+        }, 'json');
+    }
+
+    /**
+     * Mode Social. Getting step related social answers
+     */
+    $(document).on( 'click', '.mode-social, .reload_users', function(){
+        var this_step = $(this).parent().data('step'),
+            target =
+                $('.wellgo-questionnaire')
+                    .eq( this_step )
+                    .find('.wellgo-random-users');
+
+        getSocialAnswers(this_step + 1, target);
+    });
+
+    function getSocialAnswers( step, target ) {
+
+        var data_holder = {
+            action: 'refresh_users',
+            security: secure_site,
+            step: step,
+            related_wellgo: post_id
+        };
+
+        $.post(ajaxurl, data_holder, function( response ){
+            target.html( response );
+
+            $('.reload_users').removeClass('hidden');
+        }, 'html');
+    }
+
+
 
     /**
      * Saves answers clicks to database so they can be used for analytics

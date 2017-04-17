@@ -109,7 +109,8 @@ if( is_user_logged_in() ) {
 
                             <? if ($i != 0) : ?>
                                 <div class="wellgorithms-main-banner">
-                                    <div class="wellgo-transparent-overlay background-color-3"></div>
+                                    <div class="wellgo-transparent-overlay background-color-1"></div>
+                                    <h3 class="wellgo-main-title"> <span><?= get_the_title(); ?></span></h3>
                                 </div> <!-- Banner with Wellgo Quiz -->
                             <? endif; ?>
 
@@ -139,16 +140,10 @@ if( is_user_logged_in() ) {
                                     </div>
                                     <!-- col-sm-5 wellgo-quiz-option ends -->
                                     <div class="col-sm-2 wellgo-main-img text-center">
-                                        <ul class="background-color-4">
-                                            <li>
-                                                <img id="Image-Maps-Com-image-maps-2017-04-09-153318" src="<?= $main_png; ?>" border="0" width="87" height="261" orgWidth="87" orgHeight="261" usemap="#image-maps-2017-04-09-153318" alt="" />
-                                                <map name="image-maps-2017-04-09-153318" id="ImageMapsCom-image-maps-2017-04-09-153318">
-                                                    <area  alt="" title="" href="#" shape="rect" coords="0,5,87,88" style="outline:none;" target="_self"     />
-                                                    <area  alt="" title="" href="#" shape="rect" coords="0,87,87,172" style="outline:none;" target="_self"     />
-                                                    <area  alt="" title="" href="#" shape="rect" coords="0,171,87,254" style="outline:none;" target="_self"     />
-                                                    <area shape="rect" coords="85,259,87,261" alt="Image Map" style="outline:none;" title="Image Map" href="#" />
-                                                </map>
-                                            </li>
+                                        <ul class="background-color-4" data-step="<?= $i ?>">
+                                            <li class="top-part mode-solo"></li>
+                                            <li class="middle-part mode-default"></li>
+                                            <li class="bottom-part mode-social"></li>
                                         </ul>
                                     </div> <!-- col-sm-2 wellgo-main-img ends -->
 
@@ -183,7 +178,7 @@ if( is_user_logged_in() ) {
                                 <!-- wellgo-quiz-box ends -->
 
                                 <!-- wellgo-btn-sm btns -->
-                                <button type="button" class="wellgo-btn-sm top-next border-left-color-4"></button>
+                                <button type="button" class="wellgo-btn-sm top-next border-color-4"></button>
 
                                 <!-- progressbar ends -->
                                 <ul class="progressbar">
@@ -218,42 +213,13 @@ if( is_user_logged_in() ) {
                                 <div class="clearfix"></div>
 
                                 <!-- wellgo-random-users list -->
-                                <ul class="wellgo-random-users list-inline hidden">
-                                    <li>
-                                        <a href="#">
-                                            <img src="http://favorfields.com/wp-content/uploads/2017/02/mm9.png" alt="user" class="img-responsive border-color-4">
-                                            <span class="color-4"> Jonathan</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <img src="http://favorfields.com/wp-content/uploads/2017/02/mm9.png" alt="user" class="img-responsive border-color-4">
-                                            <span class="color-4"> Jacqueline</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <img src="http://favorfields.com/wp-content/uploads/2017/02/mm9.png" alt="user" class="img-responsive border-color-4">
-                                            <span class="color-4"> Tony</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <img src="http://favorfields.com/wp-content/uploads/2017/02/mm9.png" alt="user" class="img-responsive border-color-4">
-                                            <span class="color-4"> Karl</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <img src="http://favorfields.com/wp-content/uploads/2017/02/mm9.png" alt="user" class="img-responsive border-color-4">
-                                            <span class="color-4"> Bonny</span>
-                                        </a>
-                                    </li>
+                                <ul class="wellgo-random-users list-inline">
+
                                 </ul>
                                 <!-- wellgo-random-users list ends here -->
 
-                                <div class="shuffle-users hidden">
-                                    <a href="javascript:void(0)" title="Suffle Users" class="border-color-4">
+                                <div class="shuffle-users" data-step="<?= $i ?>">
+                                    <a title="Suffle Users" class="border-color-4 reload_users hidden">
                                         <i class="fa fa-repeat reload_search" aria-hidden="true"> </i>
                                     </a>
                                 </div>
@@ -333,16 +299,20 @@ if( is_user_logged_in() ) {
     </div>
     <!-- #main ends -->
 
-    <!-- <script type="text/javascript">
-	  jQuery(window).scroll(function() {
-	  if (jQuery(this).scrollTop() > 100)
-		{
-		  jQuery('#header').addClass("sticky");
-		}
-		else
-		{
-		  jQuery('#header').removeClass("sticky");
-		}
-	  });
-	</script> -->
+    <script type="text/javascript">
+	 //  jQuery(window).scroll(function() {
+	 //  if (jQuery(this).scrollTop() > 100)
+		// {
+		//   jQuery('#header').addClass("sticky");
+		// }
+		// else
+		// {
+		//   jQuery('#header').removeClass("sticky");
+		// }
+	 //  });
+
+        jQuery(".wellgo-questionnaire .radio .radio-label").click(function(){
+            jQuery(this).addClass('background-color-before-color-4');
+        });
+	</script>
 <?php get_footer(); ?>

@@ -132,7 +132,7 @@ function ajaxGetRelatedUsers() {
     }
 
     // Prepare array for output
-    for ($i=0; $i < 3; $i++) {
+    for ($i=0; $i < 5; $i++) {
         $random_key = rand(0, count($users) - 1);
         if (!empty($users[$random_key]['post_id'])) {
             $render_users[] = $users[$random_key];
@@ -144,7 +144,7 @@ function ajaxGetRelatedUsers() {
         }
     }
 
-
+    /*
     $output = "";
     foreach ( $render_users as $user ) {
         $output .= "<div class=\"user\" data-step=\"$step\">";
@@ -159,6 +159,22 @@ function ajaxGetRelatedUsers() {
         $output .= "</div>";
     }
     $output .= $reload_string;
+    */
+
+	$output = "";
+	foreach ( $render_users as $user ) {
+		$output .= "<li class=\"user\" data-step=\"$step\"><a>";
+		$output .= sprintf('<img src="%s" alt="%s" class="img-responsive border-color-4" data-user-id="%s" data-post-id="%s" data-step="%s"><span class="color-4">%s</span>',
+			$user['user_avatar'],
+			$user['user_username'],
+			$user['user_id'],
+			$user['post_id'],
+			$step,
+			$user['user_username']
+		);
+		$output .= "</a></li>";
+	}
+	$output .= $reload_string;
 
 
     echo $output;
@@ -607,3 +623,32 @@ add_action( 'wp_ajax_nopriv_login_user_now', 'login_user' );
  }
 
  add_action( 'wp_ajax_save_breaktroughts', 'saveBreaktroughts' );
+
+
+ /**
+  * Get default step answers from db ( mode: default )
+  */
+ function  getDefaultAnswers() {
+
+     $step = (int) $_POST['step'];
+     $post_id = (int) $_POST['post_id'];
+     $isCustom = (int) $_POST['isCustom'];
+
+     if ( $isCustom == 1 ) {
+		 $first_answers = get_post_meta( $post_id, 'user_first_answers' )[0];
+		 $second_answers = get_post_meta( $post_id, 'user_second_answers' )[0];
+     } else {
+		 $first_answers = get_post_meta( $post_id, 'chosen_first_answer' )[0];
+		 $second_answers = get_post_meta( $post_id, 'chosen_second_answer' )[0];
+     }
+
+     $output = array(
+         'first' => $first_answers[$step - 1],
+         'second' => $second_answers[$step - 1],
+     );
+
+     echo json_encode($output);
+     wp_die();
+ }
+
+ add_action( 'wp_ajax_getDefaultAnswers', 'getDefaultAnswers' );
