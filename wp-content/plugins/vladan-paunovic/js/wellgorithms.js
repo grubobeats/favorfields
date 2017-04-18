@@ -544,7 +544,7 @@ jQuery(document).ready(function($){
             success: function( response ) {
 
                 var html = '<figure class="media-left wellgo-user-img border-color-4">' +
-                    '<img src="' + image_src + '" alt="user" class="img-responsive">' +
+                    '<img src="' + image_src + '" alt="' + username + '" class="img-responsive">' +
                     '</figure>' +
                     '<div class="media-body">' +
                     '<span class="wellgo-user-name color-4"> ' + username + ' </span>' +
@@ -575,6 +575,46 @@ jQuery(document).ready(function($){
             }
         });
     });
+
+    /**
+     * Show and hide favor menu
+     */
+    $(document).on( 'click', '.wellgo-favor-btn', function(){
+
+        var image = $(this).parent().prev().find('img'),
+            image_src = image.attr('src'),
+            username = image.attr('alt'),
+            user_id = $(this).parent().parent().data('user-id'),
+            favormenu = $('.favormenu');
+
+
+        favormenu.find('.user-avatar').attr('src', image_src),
+        favormenu.find('.user-avatar').attr('data-user-id', user_id),
+        favormenu.find('h3').text('Favor ' + username);
+
+        favormenu
+            .show('fast')
+            .css('visibility', 'visible')
+            .css('top', -($(this).offset().top - 400) )
+    });
+
+
+    $(window).click(function(event) {
+
+        if ( $(event.target).hasClass('wellgo-favor-btn') != true ) {
+            $('.favormenu').hide('fast');
+        }
+    });
+
+    $('.favormenu, .wellgo-favor-btn').click(function(event){
+        event.stopPropagation();
+    });
+
+
+
+
+
+
 
 
 

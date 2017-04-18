@@ -236,7 +236,7 @@ if( is_user_logged_in() ) {
                         <!--===========================  Thank You & Confirmation Message ===========================-->
 
                         <div class="tooltip1">Hover over me
-                            <div class="tooltiptext background-color-4">
+                            <div class="tooltiptext background-color-4 favormenu">
                                 <div class="tooltipcontent">
                                     <div class="col-sm-4">
                                         <h3 class="color-3">FAVOR SARA</h3>
