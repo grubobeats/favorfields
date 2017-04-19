@@ -125,7 +125,7 @@ if( is_user_logged_in() ) {
                                 </h2>
 
                                 <div class="wellgo-quiz-box border-color-4">
-                                    <div class="col-sm-5 wellgo-quiz-option">
+                                    <div class="col-sm-5 wellgo-quiz-option first">
                                         <p contenteditable="true"><?= $welgorithm[$def_first_answers][$i]; ?></p>
                                         <div class="media wellgo-user"></div>
                                         <!-- wellgo-user ends -->
@@ -139,7 +139,7 @@ if( is_user_logged_in() ) {
                                         </ul>
                                     </div> <!-- col-sm-2 wellgo-main-img ends -->
 
-                                    <div class="col-sm-5 wellgo-quiz-option">
+                                    <div class="col-sm-5 wellgo-quiz-option second">
                                         <p contenteditable="true"><?= $welgorithm[$def_second_answers][$i]; ?></p>
                                         <div class="media wellgo-user"></div>
                                         <!-- wellgo-user ends -->

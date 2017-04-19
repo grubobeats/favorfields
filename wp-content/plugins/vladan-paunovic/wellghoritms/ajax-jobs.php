@@ -13,11 +13,14 @@
 function saveUserWellgo() {
     check_ajax_referer('secure-site', 'security');
 
+
+
+
     $userid = $_POST['user_id'];
     $related = $_POST['related'];
     $permalink = $_POST['permalink'];
     $title = $_POST['title'];
-    $questions = serialize($_POST['questions']);
+    // $questions = serialize($_POST['questions']);
     $first_answers = serialize($_POST['first_answers']);
     $second_answers = serialize($_POST['second_answers']);
     $icon = $_POST['icon'];
@@ -27,6 +30,8 @@ function saveUserWellgo() {
     $level = $_POST['level'];
     $confidence = $_POST['confidence'];
     $recommended = $_POST['recommended'];
+    $answers_object = serialize($_POST['answers_object']);
+
 
     $postarr = array(
         'post_title' => $title,
@@ -42,13 +47,21 @@ function saveUserWellgo() {
             'user_basic_settings_level' => $level,
             'user_basic_settings_confidence' => $confidence,
             'user_basic_settings_recommended' => $recommended,
-            'user_questions' => $questions,
+            // 'user_questions' => $questions,
             'user_first_answers' => $first_answers,
             'user_second_answers' => $second_answers
         )
     );
 
-    wp_insert_post( $postarr );
+    $new_post = wp_insert_post( $postarr );
+
+    if ( $new_post != 0 ) {
+    	update_post_meta( $new_post, 'user_answers_object', $answers_object );
+    }
+
+	echo $new_post;
+
+    wp_die();
 }
 
 add_action( 'wp_ajax_save_wellgo', 'saveUserWellgo' );
@@ -71,9 +84,15 @@ function socialGetUserAnswers(){
     $second_answers = $wpdb->get_results($query_second_answer);
     $unserialized_second_answer = unserialize($second_answers[0]->meta_value);
 
+    $user_answered = unserialize( get_post_meta($post_id, 'user_answers_object', true) );
+
+
+
+
     $answers = array(
         'first_answer' => $unserialized_first_answer[$step],
         'second_answer' => $unserialized_second_answer[$step],
+        'user_answered' => (int) $user_answered[$step]
     );
 
     echo json_encode( $answers );

@@ -2,6 +2,9 @@
  * Created by vladan on 13/02/2017.
  */
 
+var customAnswers = [];
+
+
 jQuery(document).ready(function($){
 
 
@@ -121,7 +124,7 @@ jQuery(document).ready(function($){
         Check if input fields are changed or not
      */
     var keypress_counter = 0,
-        all_inputs = $('div[contenteditable="true"]');
+        all_inputs = $('p[contenteditable="true"]');
 
     $(all_inputs).keyup(function(){
         keypress_counter++;
@@ -134,6 +137,37 @@ jQuery(document).ready(function($){
     $('.save-question-no').click(function(){
         $('.prompt-save').fadeOut();
     });
+
+
+    /**
+     * Checking for changes inside step answers
+     * and returning:
+     *  0 = no changes
+     *  1 = first answer changed
+     *  2 = second answer changed
+     *  3 = both answers changed
+     *
+     * @param wellghoritm
+     */
+    function checkForChanges(wellghoritm) {
+        var changesMeasurer = 0,
+            first_answer = wellghoritm.find('.first').find('p'),
+            second_answer = wellghoritm.find('.second').find('p');
+
+        if(first_answer.hasClass('changed')) changesMeasurer = 1;
+        if(second_answer.hasClass('changed')) changesMeasurer = 2;
+        if(first_answer.hasClass('changed') && second_answer.hasClass('changed')) changesMeasurer = 3;
+
+        customAnswers.push( changesMeasurer );
+    }
+
+    function markAsChanged() {
+        $(this).addClass('changed');
+    }
+
+    $('p[contenteditable]').on("keypress", markAsChanged );
+
+    // End of checking for changes
 
 
     /*
@@ -149,6 +183,10 @@ jQuery(document).ready(function($){
             inside_inputs = $('input[name="' + input_name + '"]'),
             input_layouts = $(wellghoritm).find('.check'),
             prompt_save = $('.prompt-save');
+
+
+        checkForChanges(wellghoritm);
+
 
         // disabling inputs on clicked question
         inside_inputs.prop('disabled', true);
@@ -181,6 +219,10 @@ jQuery(document).ready(function($){
             if ( !isLoggedIn || isLoggedIn === "" || isLoggedIn === "0" ) {
                 $(prompt_save).html("<h3>You must be logged in to continue.</h3>")
             } else {
+
+
+
+
                 if( keypress_counter > 10 && isLoggedIn === "1" ) {
 
                     /*
@@ -194,17 +236,17 @@ jQuery(document).ready(function($){
 
                     savedBox.html('<h3><i class="fa fa-cog fa-spin fa-3x fa-fw" aria-hidden="true"></i></h3>');
 
-                    $('.question span').each(function(){
-                        var question = $.trim($(this).text());
-                        questionsArray.push(question);
-                    });
+                    // $('.question span').each(function(){
+                    //     var question = $.trim($(this).text());
+                    //     questionsArray.push(question);
+                    // });
 
-                    $('.first div[contenteditable="true"]').each(function(){
+                    $('.first p[contenteditable="true"]').each(function(){
                         var firstAnswer = $.trim($(this).text());
                         firstAnswersArray.push(firstAnswer);
                     });
 
-                    $('.second div[contenteditable="true"]').each(function(){
+                    $('.second p[contenteditable="true"]').each(function(){
                         var secondAnswer = $.trim($(this).text());
                         secondAnswersArray.push(secondAnswer);
                     });
@@ -220,7 +262,7 @@ jQuery(document).ready(function($){
                             permalink: permalink,
                             related: post_id,
                             title: title,
-                            questions: questionsArray,
+                            // questions: questionsArray,
                             first_answers: firstAnswersArray,
                             second_answers: secondAnswersArray,
                             icon: icon,
@@ -229,9 +271,13 @@ jQuery(document).ready(function($){
                             mood: mood,
                             level: level,
                             confidence: confidence,
-                            recommended: recommended
+                            recommended: recommended,
+                            answers_object: customAnswers
                         },
                         success: function( response ) {
+
+                            console.log('saved as');
+
                             savedBox
                                 .html("<p></p>")
 
