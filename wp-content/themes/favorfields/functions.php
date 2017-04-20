@@ -381,6 +381,7 @@ function prepareDataForExcel() {
 		'post_title',
 		'url',
         'synonyms',
+        'tags',
 	];
 
 	for ( $i=0; $i <=15; $i++ ) {
@@ -409,11 +410,17 @@ function prepareDataForExcel() {
 	while ( $wellgorithms->have_posts() ) {
 		$wellgorithms->the_post();
 
-
 		$id = get_the_ID();
 		$title = get_the_title();
 		$url = get_permalink();
 		$synonyms = get_post_meta($id, 'basic_settings_synonyms', true);
+		$tag_string = "";
+
+		$tags = wp_get_post_tags($id);
+		foreach ( $tags as $tag ) {
+			$tag_string .= "{$tag->name}, ";
+		}
+
 		$questions = getQuestionsAnswers('questions', $id);
 		$first_answers = getQuestionsAnswers('chosen_first_answer', $id);
 		$second_answers = getQuestionsAnswers('chosen_second_answer', $id);
@@ -422,7 +429,8 @@ function prepareDataForExcel() {
             $id,
             $title,
             $url,
-            $synonyms
+            $synonyms,
+			$tag_string
         );
 
 	    $data[$counter] = array_merge($data[$counter], $questions );
