@@ -325,19 +325,7 @@
                     ),
                     array(
                         'id'       => 'wellgo_extra_menu_2',
-                        'type'     => 'text',
-                        'title'    => __('Text', 'redux-framework-demo'),
-                        'default'  => 'Some text goes here'
-                    ),
-                    array(
-                        'id'       => 'wellgo_extra_menu_3',
-                        'type'     => 'text',
-                        'title'    => __('Text', 'redux-framework-demo'),
-                        'default'  => 'Some text goes here'
-                    ),
-                    array(
-                        'id'       => 'wellgo_extra_menu_4',
-                        'type'     => 'text',
+                        'type'     => 'textarea',
                         'title'    => __('Text', 'redux-framework-demo'),
                         'default'  => 'Some text goes here'
                     ),
@@ -364,19 +352,7 @@
                     ),
                     array(
                         'id'       => 'wellgo_extra_menu_2-2',
-                        'type'     => 'text',
-                        'title'    => __('Text', 'redux-framework-demo'),
-                        'default'  => 'Some text goes here'
-                    ),
-                    array(
-                        'id'       => 'wellgo_extra_menu_3-2',
-                        'type'     => 'text',
-                        'title'    => __('Text', 'redux-framework-demo'),
-                        'default'  => 'Some text goes here'
-                    ),
-                    array(
-                        'id'       => 'wellgo_extra_menu_4-2',
-                        'type'     => 'text',
+                        'type'     => 'textarea',
                         'title'    => __('Text', 'redux-framework-demo'),
                         'default'  => 'Some text goes here'
                     ),
@@ -403,19 +379,7 @@
                     ),
                     array(
                         'id'       => 'wellgo_extra_menu_2-3',
-                        'type'     => 'text',
-                        'title'    => __('Text', 'redux-framework-demo'),
-                        'default'  => 'Some text goes here'
-                    ),
-                    array(
-                        'id'       => 'wellgo_extra_menu_3-3',
-                        'type'     => 'text',
-                        'title'    => __('Text', 'redux-framework-demo'),
-                        'default'  => 'Some text goes here'
-                    ),
-                    array(
-                        'id'       => 'wellgo_extra_menu_4-3',
-                        'type'     => 'text',
+                        'type'     => 'textarea',
                         'title'    => __('Text', 'redux-framework-demo'),
                         'default'  => 'Some text goes here'
                     ),
@@ -478,19 +442,7 @@
                     ),
                     array(
                         'id'       => 'h_wellgo_extra_menu_2',
-                        'type'     => 'text',
-                        'title'    => __('Text', 'redux-framework-demo'),
-                        'default'  => 'Some text goes here'
-                    ),
-                    array(
-                        'id'       => 'h_wellgo_extra_menu_3',
-                        'type'     => 'text',
-                        'title'    => __('Text', 'redux-framework-demo'),
-                        'default'  => 'Some text goes here'
-                    ),
-                    array(
-                        'id'       => 'h_wellgo_extra_menu_4',
-                        'type'     => 'text',
+                        'type'     => 'textarea',
                         'title'    => __('Text', 'redux-framework-demo'),
                         'default'  => 'Some text goes here'
                     ),
@@ -509,30 +461,18 @@
                     'indent' => true
                 ),
 
-                array(
-                    'id'       => 'h_wellgo_extra_menu_1-2',
-                    'type'     => 'text',
-                    'title'    => __('Title', 'redux-framework-demo'),
-                    'default'  => 'Blocks'
-                ),
-                array(
-                    'id'       => 'h_wellgo_extra_menu_2-2',
-                    'type'     => 'text',
-                    'title'    => __('Text', 'redux-framework-demo'),
-                    'default'  => 'Some text goes here'
-                ),
-                array(
-                    'id'       => 'h_wellgo_extra_menu_3-2',
-                    'type'     => 'text',
-                    'title'    => __('Text', 'redux-framework-demo'),
-                    'default'  => 'Some text goes here'
-                ),
-                array(
-                    'id'       => 'h_wellgo_extra_menu_4-2',
-                    'type'     => 'text',
-                    'title'    => __('Text', 'redux-framework-demo'),
-                    'default'  => 'Some text goes here'
-                ),
+					array(
+						'id'       => 'h_wellgo_extra_menu_1-2',
+						'type'     => 'text',
+						'title'    => __('Title', 'redux-framework-demo'),
+						'default'  => 'Blocks'
+					),
+					array(
+						'id'       => 'h_wellgo_extra_menu_2-2',
+						'type'     => 'textarea',
+						'title'    => __('Text', 'redux-framework-demo'),
+						'default'  => 'Some text goes here'
+					),
 
                 array(
                     'id'     => 'h_section-end-2',
@@ -556,19 +496,7 @@
                     ),
                     array(
                         'id'       => 'h_wellgo_extra_menu_2-3',
-                        'type'     => 'text',
-                        'title'    => __('Text', 'redux-framework-demo'),
-                        'default'  => 'Some text goes here'
-                    ),
-                    array(
-                        'id'       => 'h_wellgo_extra_menu_3-3',
-                        'type'     => 'text',
-                        'title'    => __('Text', 'redux-framework-demo'),
-                        'default'  => 'Some text goes here'
-                    ),
-                    array(
-                        'id'       => 'h_wellgo_extra_menu_4-3',
-                        'type'     => 'text',
+                        'type'     => 'textarea',
                         'title'    => __('Text', 'redux-framework-demo'),
                         'default'  => 'Some text goes here'
                     ),
@@ -633,19 +561,7 @@
                     ),
                     array(
                         'id'       => 'l_wellgo_extra_menu_2',
-                        'type'     => 'text',
-                        'title'    => __('Text', 'redux-framework-demo'),
-                        'default'  => 'Some text goes here'
-                    ),
-                    array(
-                        'id'       => 'l_wellgo_extra_menu_3',
-                        'type'     => 'text',
-                        'title'    => __('Text', 'redux-framework-demo'),
-                        'default'  => 'Some text goes here'
-                    ),
-                    array(
-                        'id'       => 'l_wellgo_extra_menu_4',
-                        'type'     => 'text',
+                        'type'     => 'textarea',
                         'title'    => __('Text', 'redux-framework-demo'),
                         'default'  => 'Some text goes here'
                     ),
@@ -672,19 +588,7 @@
                     ),
                     array(
                         'id'       => 'l_wellgo_extra_menu_2-2',
-                        'type'     => 'text',
-                        'title'    => __('Text', 'redux-framework-demo'),
-                        'default'  => 'Some text goes here'
-                    ),
-                    array(
-                        'id'       => 'l_wellgo_extra_menu_3-2',
-                        'type'     => 'text',
-                        'title'    => __('Text', 'redux-framework-demo'),
-                        'default'  => 'Some text goes here'
-                    ),
-                    array(
-                        'id'       => 'l_wellgo_extra_menu_4-2',
-                        'type'     => 'text',
+                        'type'     => 'textarea',
                         'title'    => __('Text', 'redux-framework-demo'),
                         'default'  => 'Some text goes here'
                     ),
@@ -711,19 +615,7 @@
                     ),
                     array(
                         'id'       => 'l_wellgo_extra_menu_2-3',
-                        'type'     => 'text',
-                        'title'    => __('Text', 'redux-framework-demo'),
-                        'default'  => 'Some text goes here'
-                    ),
-                    array(
-                        'id'       => 'l_wellgo_extra_menu_3-3',
-                        'type'     => 'text',
-                        'title'    => __('Text', 'redux-framework-demo'),
-                        'default'  => 'Some text goes here'
-                    ),
-                    array(
-                        'id'       => 'l_wellgo_extra_menu_4-3',
-                        'type'     => 'text',
+                        'type'     => 'textarea',
                         'title'    => __('Text', 'redux-framework-demo'),
                         'default'  => 'Some text goes here'
                     ),
@@ -737,54 +629,165 @@
         ) );
 
     Redux::setSection( $opt_name, array(
-        'title'      => __( 'Social', 'redux-framework-demo' ),
+        'title'      => __( 'Social ( Favors )', 'redux-framework-demo' ),
         'desc'       => __( 'Here you can maintain social options.', 'redux-framework-demo' ),
         'id'         => 'vp-social',
-        'subsection' => false,
-        'fields'     => array(
-            array(
-                'id'       => 'social_first',
-                'type'     => 'text',
-                'title'    => __('Menu item #1', 'redux-framework-demo'),
-                'default'  => ''
-            ),
-            array(
-                'id'       => 'social_first_inner',
-                'type'     => 'textarea',
-                'title'    => __('Menu item #1 options', 'redux-framework-demo'),
-                'description'  => 'Each row is one option',
-                'default'  => ''
-            ),
+        'subsection' => false
+	));
 
-            array(
-                'id'       => 'social_second',
-                'type'     => 'text',
-                'title'    => __('Menu item #2', 'redux-framework-demo'),
-                'default'  => ''
-            ),
-            array(
-                'id'       => 'social_second_inner',
-                'type'     => 'textarea',
-                'title'    => __('Menu item #2 options', 'redux-framework-demo'),
-                'description'  => 'Each row is one option',
-                'default'  => ''
-            ),
 
-            array(
-                'id'       => 'social_third',
-                'type'     => 'text',
-                'title'    => __('Menu item #3', 'redux-framework-demo'),
-                'default'  => ''
-            ),
-            array(
-                'id'       => 'social_third_inner',
-                'type'     => 'textarea',
-                'title'    => __('Menu item #3 options', 'redux-framework-demo'),
-                'description'  => 'Each row is one option',
-                'default'  => ''
-            ),
-        )
-    ) );
+		Redux::setSection( $opt_name, array(
+			'title'      => __( 'Wellgo', 'redux-framework-demo' ),
+			'desc'       => __( 'Settings for Wellgo wellgorithms.', 'redux-framework-demo' ),
+			'id'         => 'social-wellgo-wellgo',
+			'subsection' => true,
+			'fields'     => array(
+				array(
+					'id'       => 'social_first',
+					'type'     => 'text',
+					'title'    => __('Menu item #1', 'redux-framework-demo'),
+					'default'  => ''
+				),
+				array(
+					'id'       => 'social_first_inner',
+					'type'     => 'textarea',
+					'title'    => __('Menu item #1 options', 'redux-framework-demo'),
+					'description'  => 'Each row is one option',
+					'default'  => ''
+				),
+
+				array(
+					'id'       => 'social_second',
+					'type'     => 'text',
+					'title'    => __('Menu item #2', 'redux-framework-demo'),
+					'default'  => ''
+				),
+				array(
+					'id'       => 'social_second_inner',
+					'type'     => 'textarea',
+					'title'    => __('Menu item #2 options', 'redux-framework-demo'),
+					'description'  => 'Each row is one option',
+					'default'  => ''
+				),
+
+				array(
+					'id'       => 'social_third',
+					'type'     => 'text',
+					'title'    => __('Menu item #3', 'redux-framework-demo'),
+					'default'  => ''
+				),
+				array(
+					'id'       => 'social_third_inner',
+					'type'     => 'textarea',
+					'title'    => __('Menu item #3 options', 'redux-framework-demo'),
+					'description'  => 'Each row is one option',
+					'default'  => ''
+				),
+			)
+		) );
+
+		Redux::setSection( $opt_name, array(
+			'title'      => __( 'Letgo', 'redux-framework-demo' ),
+			'desc'       => __( 'Settings for Letgo wellgorithms.', 'redux-framework-demo' ),
+			'id'         => 'social-wellgo-letgo',
+			'subsection' => true,
+			'fields'     => array(
+				array(
+					'id'       => 'l_social_first',
+					'type'     => 'text',
+					'title'    => __('Menu item #1', 'redux-framework-demo'),
+					'default'  => ''
+				),
+				array(
+					'id'       => 'l_social_first_inner',
+					'type'     => 'textarea',
+					'title'    => __('Menu item #1 options', 'redux-framework-demo'),
+					'description'  => 'Each row is one option',
+					'default'  => ''
+				),
+
+				array(
+					'id'       => 'l_social_second',
+					'type'     => 'text',
+					'title'    => __('Menu item #2', 'redux-framework-demo'),
+					'default'  => ''
+				),
+				array(
+					'id'       => 'l_social_second_inner',
+					'type'     => 'textarea',
+					'title'    => __('Menu item #2 options', 'redux-framework-demo'),
+					'description'  => 'Each row is one option',
+					'default'  => ''
+				),
+
+				array(
+					'id'       => 'l_social_third',
+					'type'     => 'text',
+					'title'    => __('Menu item #3', 'redux-framework-demo'),
+					'default'  => ''
+				),
+				array(
+					'id'       => 'l_social_third_inner',
+					'type'     => 'textarea',
+					'title'    => __('Menu item #3 options', 'redux-framework-demo'),
+					'description'  => 'Each row is one option',
+					'default'  => ''
+				),
+			)
+		) );
+
+
+		Redux::setSection( $opt_name, array(
+			'title'      => __( 'Hellgo', 'redux-framework-demo' ),
+			'desc'       => __( 'Settings for Hellgo wellgorithms.', 'redux-framework-demo' ),
+			'id'         => 'social-wellgo-hellgo',
+			'subsection' => true,
+			'fields'     => array(
+				array(
+					'id'       => 'h_social_first',
+					'type'     => 'text',
+					'title'    => __('Menu item #1', 'redux-framework-demo'),
+					'default'  => ''
+				),
+				array(
+					'id'       => 'h_social_first_inner',
+					'type'     => 'textarea',
+					'title'    => __('Menu item #1 options', 'redux-framework-demo'),
+					'description'  => 'Each row is one option',
+					'default'  => ''
+				),
+
+				array(
+					'id'       => 'h_social_second',
+					'type'     => 'text',
+					'title'    => __('Menu item #2', 'redux-framework-demo'),
+					'default'  => ''
+				),
+				array(
+					'id'       => 'h_social_second_inner',
+					'type'     => 'textarea',
+					'title'    => __('Menu item #2 options', 'redux-framework-demo'),
+					'description'  => 'Each row is one option',
+					'default'  => ''
+				),
+
+				array(
+					'id'       => 'h_social_third',
+					'type'     => 'text',
+					'title'    => __('Menu item #3', 'redux-framework-demo'),
+					'default'  => ''
+				),
+				array(
+					'id'       => 'h_social_third_inner',
+					'type'     => 'textarea',
+					'title'    => __('Menu item #3 options', 'redux-framework-demo'),
+					'description'  => 'Each row is one option',
+					'default'  => ''
+				),
+			)
+		) );
+
+
     /*
      * <--- END SECTIONS
      */

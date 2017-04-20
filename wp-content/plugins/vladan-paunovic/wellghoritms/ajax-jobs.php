@@ -443,6 +443,7 @@ function sendFavor() {
 
 
     $to = $selected_user;
+    // $to = 'v.paunovic@biplane.ru';
     $subject = "You’ve been favored!";
 
     $message = "
@@ -461,12 +462,10 @@ function sendFavor() {
     // Always set content-type when sending HTML email
     $headers = "MIME-Version: 1.0" . "\r\n";
     $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-
-    // More headers
     $headers .= 'From: <' . $current_user . '>' . "\r\n";
 
     if ( mail($to,$subject,$message,$headers) ) {
-        echo json_encode( true );
+        echo $message;
 
         // If everything is all right than save it to database
         global $wpdb;
@@ -672,3 +671,35 @@ add_action( 'wp_ajax_nopriv_login_user_now', 'login_user' );
  }
 
  add_action( 'wp_ajax_getDefaultAnswers', 'getDefaultAnswers' );
+
+
+ /**
+  * List favor options randomly
+  */
+ function listFavorOptions() {
+
+     $favor_option = $_POST['favor_option'];
+     $first_text = $_POST['first_text'];
+
+     global $favorfields;
+
+     $output = "";
+
+	 $list_1 = explode(PHP_EOL, $favorfields[$favor_option] );
+	 shuffle($list_1);
+	 for ($list=0; $list < 3; $list++ ) {
+		 $list_text = $list_1[$list];
+		 $class = "favor-menu-option__inner";
+		 if( $list == 2 ) { $class = "favor-menu-option__inner last"; }
+
+		 $output .= "<p class='$class'><span data-first-text='$first_text'>  $list_text</span> </p>";
+	 }
+
+	 $output .= "<form><div class=\"textarea-wrapper\"><textarea name=\"\" class=\"form-control\" rows=\"1\" style=\"overflow: hidden; resize: none; height: 68px;\"> </textarea></div></form><a href=\"\"> <i class=\"fa fa-heart color-4\"></i> </a>";
+
+     echo $output;
+
+     wp_die();
+ }
+
+ add_action( 'wp_ajax_favor_options', 'listFavorOptions' );

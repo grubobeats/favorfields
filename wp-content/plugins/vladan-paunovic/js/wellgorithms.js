@@ -4,7 +4,6 @@
 
 var customAnswers = [];
 
-
 jQuery(document).ready(function($){
 
     /* ------------------------------------
@@ -94,6 +93,28 @@ jQuery(document).ready(function($){
         });
     }
 
+
+    /**
+     * Getting another favor options
+     */
+
+    $('.favor-menu-option').click(function(){
+        var $this = $(this),
+            favor_option = $this.data('option'),
+            favor_options_wrapper = $('.favor-menu-option__wrapper'),
+            first_text = $this.text(),
+            data = {
+                action: 'favor_options',
+                favor_option: favor_option,
+                first_text: first_text
+            };
+
+        favor_options_wrapper.empty();
+
+        $.post(ajaxurl, data, function( response ){
+            favor_options_wrapper.html( response );
+        }, 'html');
+    });
 
 
     $('#pladge').change(function(){
@@ -488,6 +509,59 @@ jQuery(document).ready(function($){
 
         saveBreaktroughts(type, text, extra_menu);
     });
+
+
+    /**
+     * Sending emails in Favors section
+     */
+    $('.favormenu').on('click', '.favor-menu-option__inner span', sendEmailToUser );
+
+    function sendEmailToUser() {
+        console.log("clicked");
+
+        var message_first = $(this).data('data-first-text'),
+            message_second = $(this).text(),
+            current_user_id = user_id,
+            $this = $(this),
+            $this_favor_box = $(this).parent().parent().parent().parent(),
+            selected_user_id = $this_favor_box.find('.user-avatar').data('user-id');
+
+        // favor_menu = $(this).parent().parent().parent().parent().parent().find('.favor-menu');
+
+        $this.html('<i class="fa fa-cog fa-spin fa-3x fa-fw" aria-hidden="true"></i>');
+
+        $.ajax({
+            url: ajaxurl,
+            type: 'POST',
+            dataType: 'html',
+            data: {
+                action: 'send_favor',
+                current_user: current_user_id,
+                selected_user: selected_user_id,
+                message_first: message_first,
+                message_second: message_second,
+                title: title
+            },
+            success: function( response ) {
+                if ( response == true ) {
+
+
+
+                    $this.html("Sent!");
+                    setTimeout(function () {
+                        $this_favor_box.hide('fast');
+                        // favor_menu.empty();
+                    }, 1500)
+                } else {
+                    $this.html("Error with sending message to the user!");
+                }
+
+            },
+            error: function( response ) {
+                console.log( response )
+            }
+        });
+    }
 
 
     /**
