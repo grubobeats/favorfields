@@ -163,11 +163,11 @@ class Wellgorithms_Steps
                             <select name="chosen_first_answer[]" id="choose-first-answer">
                                 <option value="<?= $first_answers_values[$i] ? $first_answers_values[$i] : "0" ?>">Main admin answer</option>
                                 <?  for($q = 0; $q < (count($user_answers) - 1); $q++ ) :
-//                                        if ( $user_answers[$q]['user_answers_object'][$i] == 1 || $user_answers[$q]['user_answers_object'][$i] == 3 ) {
+                                        if ( $user_answers[$q]['user_answers_object'][$i] == 1 || $user_answers[$q]['user_answers_object'][$i] == 3 ) {
                                             ?>
                                             <option answered="<?= $user_answers[$q]['user_answers_object'][$i] ?>" value="<?= $user_answers[$q]['user_first_answers'][$i] ?>" <? if($user_answers[$q]['user_first_answers'][$i] == $chosen_first_answers[$i]) : ?> selected <? endif; ?> ><?= ($q + 1) . ". " . $user_answers[$q]['user_first_answers'][$i] ?></option>
                                         <?
-//                                        }
+                                        }
                                     endfor;
                                 ?>
                             </select>
@@ -177,10 +177,10 @@ class Wellgorithms_Steps
                             <select name="chosen_second_answer[]" id="choose-second-answer">
                                 <option value="<?= $second_answers_values[$i] ? $second_answers_values[$i] : "0" ?>">Main admin answer</option>
                                 <?  for($q = 0; $q < (count($user_answers) - 1); $q++ ) :
-//                                        if ( $user_answers[$q]['user_answers_object'][$i] == 2 || $user_answers[$q]['user_answers_object'][$i] == 3 ) {
+                                        if ( $user_answers[$q]['user_answers_object'][$i] == 2 || $user_answers[$q]['user_answers_object'][$i] == 3 ) {
 										?>
                                             <option value="<?= $user_answers[$q]['user_second_answers'][$i] ?>" <? if($user_answers[$q]['user_second_answers'][$i] == $chosen_second_answers[$i]) : ?> selected <? endif; ?>  ><?= ($q + 1) . ". " . $user_answers[$q]['user_second_answers'][$i] ?></option>
-                                        <? //}
+                                        <? }
                                     endfor; ?>
                             </select>
                         </td>
