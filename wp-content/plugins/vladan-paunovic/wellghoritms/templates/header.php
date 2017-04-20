@@ -29,6 +29,7 @@ $color_4 = $logic->getColorTemplate($color_scheme, 'basic_settings_color-4');
 $buttons_style = strtolower( $logic->getColorTemplate($color_scheme, 'basic_settings_buttons_style') );
 $main_png = $logic->getColorTemplate($color_scheme, 'basic_settings_main_png');
 $favor_png = $logic->getColorTemplate($color_scheme, 'basic_settings_favor_png');
+$favor_card_png = $logic->getColorTemplate($color_scheme, 'basic_settings_favor_card_png');
 
 if( !$buttons_style ) {
 	$buttons_style = "circle";
@@ -118,6 +119,16 @@ $subhead = ($welgorithm['basic_settings_subhead'][0]) ? $welgorithm['basic_setti
         .cs-main-background-image {
             background-image: url("<?= $main_png ?>") !important;
         }
+
+        .hexagon label {background-color: <?= $color_4 ?>;}
+        .hexagon label::before {border-bottom-color: <?= $color_4 ?>;}
+        .hexagon label::after {border-top-color: <?= $color_4 ?>;}
+
+        .hexagon-focus {background-color: <?= $color_1 ?> !important;}
+        .hexagon-focus::before {border-bottom-color: <?= $color_1 ?> !important;}
+        .hexagon-focus::after {border-top-color: <?= $color_1 ?> !important;}
+
+        .favor-card-png { background-image: url('<?= $favor_card_png ?>') !important; }
     </style>
 
     <script>

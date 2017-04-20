@@ -29,6 +29,11 @@ class Basic_Settings {
             'type' => 'color',
         ),
 		array(
+			'id' => 'color-5',
+			'label' => 'Color #5 (for hover)',
+			'type' => 'color',
+		),
+		array(
 			'id' => 'main_png',
 			'label' => 'Main png',
 			'type' => 'media',
@@ -36,6 +41,11 @@ class Basic_Settings {
 		array(
 			'id' => 'favor_png',
 			'label' => 'Favor png',
+			'type' => 'media',
+		),
+		array(
+			'id' => 'favor_card_png',
+			'label' => 'Favor card png',
 			'type' => 'media',
 		),
 		array(

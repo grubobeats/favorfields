@@ -7,6 +7,35 @@ var customAnswers = [];
 
 jQuery(document).ready(function($){
 
+    /* ------------------------------------
+     * Summit code
+    ------------------------------------ */
+    // Initializing Sparkleh Function
+    $(".sparkley").sparkleh();
+
+    // Changing 3 Dots Hover Button's Text when clicking
+    $('.wellgo-btn-container button').eq(0).click(function(e){
+        $(this).find('.btn1').text("awesome!")
+    })
+    $('.wellgo-btn-container button').eq(1).click(function(){
+        $(this).find('.btn2').text("way to go!")
+    })
+    $('.wellgo-btn-container button').eq(2).click(function(){
+        $(this).find('.btn3').text("you are amazing!")
+    })
+
+    // Adding Class on Radio Different Shape Button Click
+    $(".wellgo-questionnaire .radio .radio-label").click(function(){
+        if( $(this).hasClass('border-before-color-4') ) {
+            $(this).addClass('background-color-before-color-1')
+        } else {
+            $(this).addClass('hexagon-focus')
+        }
+    });
+    /* ------------------------------------
+     * end of Summit code
+     ------------------------------------ */
+
 
     /* ------------------------------------
      * FUNCTIONS

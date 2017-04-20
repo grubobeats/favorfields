@@ -115,11 +115,22 @@ if( is_user_logged_in() ) {
                             <? endif; ?>
 
                             <div class="wellgo-questionnaire">
+                                <div class="wellgo-type"> <span><?= $category[0]->name ?></span> </div>
+                                <!-- Wellgo-Type ends -->
+
                                 <div class="wellgo-btn-container">
-                                    <button type="button" class="border-color-4"></button>
-                                    <button type="button" class="border-color-4"></button>
-                                    <button type="button" class="border-color-4"></button>
+                                    <button type="button">
+                                        <span class="btn1 sparkley" style="border:2px solid white !important;">Inspiration</span>
+                                    </button>
+                                    <button type="button">
+                                        <span class="btn2 sparkley" style="border:2px solid white !important;">Aha Moment </span>
+                                    </button>
+                                    <button type="button">
+                                        <span class="btn3 sparkley" style="border:2px solid white !important;">Breakthrough </span>
+                                    </button>
                                 </div>
+                                <!-- Wellgo-btn-container ends -->
+
                                 <h2 class="wellgo-main-title color-3">
 									<?= $welgorithm[$def_questions][$i]; ?>
                                 </h2>
@@ -149,11 +160,11 @@ if( is_user_logged_in() ) {
                                     <div class="<?= $buttons_style; ?>">
                                         <div class="radio">
                                             <input type="radio" name="answered_question_<?= $i; ?>" id="selected_answer_<?= $counter; ?>" value="<?= $welgorithm['first_answers'][$i]; ?>" data-recommend="Good">
-                                            <label for="selected_answer_<?= $counter; ?>" class="radio-label border-before-color-4"></label>
+                                            <label for="selected_answer_<?= $counter; ?>" class="radio-label <? if($buttons_style != "hexagon") :?>border-before-color-4<? endif; ?>"></label>
                                         </div> <!-- option 1 -->
                                         <div class="radio">
                                             <input type="radio" name="answered_question_<?= $i; ?>" id="selected_answer_<? print( $counter + 1 ); ?>" value="<?= $welgorithm['second_answers'][$i]; ?>" data-recommend="Bad">
-                                            <label  for="selected_answer_<? print( $counter + 1 ); ?>" class="radio-label border-before-color-4"></label>
+                                            <label  for="selected_answer_<? print( $counter + 1 ); ?>" class="radio-label <? if($buttons_style != "hexagon") :?>border-before-color-4<? endif; ?>"></label>
                                         </div> <!-- option 2 -->
                                     </div>
                                     <!-- Radio Buttons -->
@@ -170,19 +181,19 @@ if( is_user_logged_in() ) {
 
                                         <?
                                             switch ($step_li) {
-                                                case $step_li < $i:
-													$progress_bar_classname = "step-completed background-color-before-color-4 background-color-after-color-4";
-													break;
-                                                case $i:
+
+												case $i:
 													$progress_bar_classname = "active background-color-before-color-3 background-color-after-color-3";
 													break;
-                                                case 0:
-                                                    if ($main_loop_counter == 0) {
-														$progress_bar_classname = "active background-color-before-color-3 background-color-after-color-3";
-													} else {
-														$progress_bar_classname = "background-color-before-color-3 background-color-after-color-3";
-                                                    }
+
+                                                case $step_li <= $i:
+													$progress_bar_classname = "step-completed background-color-before-color-4 background-color-after-color-4";
 													break;
+
+												case 0:
+													$progress_bar_classname = "step-completed background-color-before-color-4 background-color-after-color-4";
+													break;
+
                                                 default;
                                                     $progress_bar_classname = "";
                                                     break;
@@ -236,7 +247,7 @@ if( is_user_logged_in() ) {
                         <!--===========================  Thank You & Confirmation Message ===========================-->
 
                         <div class="tooltip1">Hover over me
-                            <div class="tooltiptext background-color-4 favormenu">
+                            <div class="tooltiptext background-color-4 favormenu favor-card-png">
                                 <div class="tooltipcontent">
                                     <div class="col-sm-4">
                                         <h3 class="color-3">FAVOR SARA</h3>
@@ -274,20 +285,8 @@ if( is_user_logged_in() ) {
     </div>
     <!-- #main ends -->
 
+    <!-- Sparkleh Main File -->
+    <script type='text/javascript' src='http://favorfields.com/wp-content/themes/favorfields/js/sparkleh.js'></script>
     <script type="text/javascript">
-	 //  jQuery(window).scroll(function() {
-	 //  if (jQuery(this).scrollTop() > 100)
-		// {
-		//   jQuery('#header').addClass("sticky");
-		// }
-		// else
-		// {
-		//   jQuery('#header').removeClass("sticky");
-		// }
-	 //  });
-
-        jQuery(".wellgo-questionnaire .radio .radio-label").click(function(){
-            jQuery(this).addClass('background-color-before-color-4');
-        });
-	</script>
+    </script>
 <?php get_footer(); ?>

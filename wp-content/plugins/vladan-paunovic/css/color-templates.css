@@ -1,7 +1,8 @@
 input#color-1,
 input#color-2,
 input#color-3,
-input#color-4 {
+input#color-4,
+input#color-5 {
     width: 100%;
     height: 35px;
 }
