@@ -274,9 +274,6 @@ jQuery(document).ready(function($){
                 $(prompt_save).html("<h3>You must be logged in to continue.</h3>")
             } else {
 
-
-
-
                 if( keypress_counter > 10 && isLoggedIn === "1" ) {
 
                     /*
@@ -287,8 +284,6 @@ jQuery(document).ready(function($){
                         questionsArray = [],
                         firstAnswersArray = [],
                         secondAnswersArray = [];
-
-
 
                     savedBox.html('<h3><i class="fa fa-cog fa-spin fa-3x fa-fw" aria-hidden="true"></i></h3>');
 
@@ -443,28 +438,15 @@ jQuery(document).ready(function($){
         Emptying divs that are acting as input fields on click
      */
     var inputText;
-    $('.fake-input').focus(function(){
+    $('p[contenteditable="true"]').focus(function(){
         inputText = $(this).html();
         $(this).html("");
     });
 
-    $('.fake-input').blur(function(){
+    $('p[contenteditable="true"]').blur(function(){
         if ( $(this).html() === "" ) {
             $(this).html(inputText);
         }
-    });
-
-    /*
-        Suggestion questions writing
-     */
-    $('.question_sugestion').keyup( function () {
-        var questionText = $(this).val(),
-            maximumCharacters = 333;
-
-        if( $(this).val().length > maximumCharacters ) {
-            alert("To many characters.");
-        }
-
     });
 
 
@@ -559,9 +541,7 @@ jQuery(document).ready(function($){
                 title: title
             },
             success: function( response ) {
-                if ( response == true ) {
-
-
+                if ( response != false ) {
 
                     $this.html("Sent!");
                     setTimeout(function () {

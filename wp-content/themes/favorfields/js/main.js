@@ -209,7 +209,8 @@
 		$.post(ajaxurl, data, function( response ){
 			if ( response === "true" ) {
 				target.html('Success!')
-                window.location.href = '/my-journey/';
+                // window.location.href = '/my-journey/';
+                window.location.reload();
 			} else {
 				target.html('Wrong login or password!')
 			}

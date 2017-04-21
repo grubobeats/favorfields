@@ -29,6 +29,8 @@ $color_1 = $logic->getColorTemplate($color_scheme, 'basic_settings_color-1');
 $color_2 = $logic->getColorTemplate($color_scheme, 'basic_settings_color-2');
 $color_3 = $logic->getColorTemplate($color_scheme, 'basic_settings_color-3');
 $color_4 = $logic->getColorTemplate($color_scheme, 'basic_settings_color-4');
+$color_5 = $logic->getColorTemplate($color_scheme, 'basic_settings_color-5');
+$color_6 = $logic->getColorTemplate($color_scheme, 'basic_settings_color-6');
 $buttons_style = strtolower( $logic->getColorTemplate($color_scheme, 'basic_settings_buttons_style') );
 $main_png = $logic->getColorTemplate($color_scheme, 'basic_settings_main_png');
 $favor_png = $logic->getColorTemplate($color_scheme, 'basic_settings_favor_png');
@@ -64,7 +66,7 @@ setcookie($cookie_name, $banner_image_src, time() + (3600), "/");
 $subhead = ($welgorithm['basic_settings_subhead'][0]) ? $welgorithm['basic_settings_subhead'][0] : "It is time to do the";
 ?>
 <head>
-    <title><?php bloginfo( 'name' ); ?> - <?php bloginfo( 'description')?></title>
+    <title><?php bloginfo( 'name' ); ?> - <?= the_title() ?></title>
     <meta charset="<?php bloginfo( 'charset' ); ?>">
     <link rel="profile" href="http://gmpg.org/xfn/11">
     <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
@@ -73,6 +75,9 @@ $subhead = ($welgorithm['basic_settings_subhead'][0]) ? $welgorithm['basic_setti
 	<?php wp_head(); ?>
 
     <style>.color-1 { color: <?= $color_1 ?> !important; } .color-2 { color: <?= $color_2 ?> !important; } .color-3 { color: <?= $color_3 ?> !important; } .color-4 { color: <?= $color_4 ?> !important; } .background-color-1 { background-color: <?= $color_1 ?> !important; } .background-color-2 { background-color: <?= $color_2 ?> !important; } .background-color-3 { background-color: <?= $color_3 ?> !important; } .background-color-4 { background-color: <?= $color_4 ?> !important; } .border-color-1 { border-color: <?= $color_1 ?> !important; } .border-color-2 { border-color: <?= $color_2 ?> !important; } .border-color-3 { border-color: <?= $color_3 ?> !important; } .border-color-4 { border-color: <?= $color_4 ?> !important; } .box-shadow-color-1 { box-shadow: 0 0 0 1px <?= $color_1 ?> !important; } .border-left-color-1 {border-left-color: <?= $color_1?> !important;} .border-left-color-2 {border-left-color: <?= $color_2 ?> !important;} .border-left-color-3 {border-left-color: <?= $color_3?> !important;} .border-left-color-4 {border-left-color: <?= $color_4?> !important;}
+
+        .background-color-6 { background-color: <?= $color_6 ?> }
+
         .border-before-color-1::before {
             border-color: <?= $color_1 ?> !important;
         }
@@ -147,7 +152,7 @@ $subhead = ($welgorithm['basic_settings_subhead'][0]) ? $welgorithm['basic_setti
         <div class="inner top-bar">
             <div class="left-header">
                 <a href="<?php echo esc_url( home_url( '/' ) ); ?>">
-                    <img class="main-logo" src="<?php bloginfo('stylesheet_directory'); ?>/assets/images/ff-logo.png" alt="Favor Fields">
+                    <img class="main-logo" src="<?php bloginfo('stylesheet_directory'); ?>/assets/images/favor-fields-logo-ap19.png" alt="Favor Fields">
                 </a>
             </div>
 

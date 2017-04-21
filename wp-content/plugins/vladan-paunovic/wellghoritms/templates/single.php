@@ -69,7 +69,7 @@ if( is_user_logged_in() ) {
     <!-- Main -->
 
     <div id="main">
-        <div class="main-wellgorithms">
+        <div class="main-wellgorithms background-color-6">
 
             <!-- wellgorithms-main-banner starts -->
             <div class="wellgorithms-main-banner cs-image-overlayed">
