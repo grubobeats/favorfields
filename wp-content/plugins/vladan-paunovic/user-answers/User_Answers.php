@@ -56,7 +56,6 @@ class User_Answers
         global $favorfields;
 
         $number_of_steps = $favorfields['number-of-steps'] - 1;
-
         ?>
         <div class="inside_steps">
             <?php for ($i=0; $i <= $number_of_steps; $i++) : ?>

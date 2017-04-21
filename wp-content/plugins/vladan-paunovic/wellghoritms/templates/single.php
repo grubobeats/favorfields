@@ -73,7 +73,7 @@ if( is_user_logged_in() ) {
 
             <!-- wellgorithms-main-banner starts -->
             <div class="wellgorithms-main-banner cs-image-overlayed">
-                <div class="wellgo-transparent-overlay background-color-1"></div> <!-- wellgo-transparent-overlay -->
+                <div class="wellgo-transparent-overlay background-color-1" <? if($color_masking_off) : ?> style="background-color: rgba(68, 45, 45, 0) !important;" <? endif; ?>></div> <!-- wellgo-transparent-overlay -->
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-12">
@@ -173,7 +173,21 @@ if( is_user_logged_in() ) {
                                 <!-- wellgo-quiz-box ends -->
 
                                 <!-- wellgo-btn-sm btns -->
-                                <button type="button" class="wellgo-btn-sm top-next border-color-4"></button>
+                                <button type="button" class="question__like wellgo-btn-sm top-next border-color-4" data-step="<?= $i ?>"></button>
+                                <div class="popup-suggest-question background-color-1 box-shadow-color-1">
+                                    <div class="row first">
+                                        <div class="suggest__icon"><i class="fa fa-heart"></i></div>
+                                        <div class="suggest__text">Love this!</div>
+                                    </div>
+                                    <div class="row second">
+                                        <div class="suggest__icon"><i class="fa fa-lightbulb-o"></i></div>
+                                        <div class="suggest__text">
+                                            <p>I have a suggestion for improvment:</p>
+                                            <textarea class="question_sugestion" name="question_suggestion_<?= $i ?>" id="question_suggestion_<?= $i ?>" cols="30" rows="1"></textarea>
+                                            <button class="btn btn-default suggest__button" data-step="<?= $i ?>">Send</button>
+                                        </div>
+                                    </div>
+                                </div>
 
                                 <!-- progressbar ends -->
                                 <ul class="progressbar">

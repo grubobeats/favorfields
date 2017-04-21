@@ -150,11 +150,12 @@ class Wellgorithms_Steps
                     </tr>
                     <tr>
                         <td>
-                            <select name="chosen_question[]" id="choose-question" style="display: none;">
+                            <select name="chosen_question[]" id="choose-question">
                                 <option value="<?= $question_values[$i] ? $question_values[$i] : "0" ?>">Main admin question</option>
                                 <?  for($q = 0; $q < (count($user_answers) - 1); $q++ ) : ?>
-                                            <option answered="<?= $user_answers[ $q ][ 'user_answers_object' ][ $i ] ?>"
-                                                    value="<?= $user_answers[ $q ][ 'user_questions' ][ $i ] ?>" <? if ( $user_answers[ $q ][ 'user_questions' ][ $i ] == $chosen_questions[ $i ] ) : ?> selected <? endif; ?>><?= ( $q + 1 ) . ". " . $user_answers[ $q ][ 'user_questions' ][ $i ] ?></option>
+                                    <? if ( $user_answers[ $q ][ 'user_questions' ][ $i ] != "" ) : ?>
+                                            <option value="<?= $user_answers[ $q ][ 'user_questions' ][ $i ] ?>" <? if ( $user_answers[ $q ][ 'user_questions' ][ $i ] == $chosen_questions[ $i ] ) : ?> selected <? endif; ?>><?= ( $q + 1 ) . ". " . $user_answers[ $q ][ 'user_questions' ][ $i ] ?></option>
+                                    <? endif; ?>
                                 <? endfor; ?>
                             </select>
                         </td>

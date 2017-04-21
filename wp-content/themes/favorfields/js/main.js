@@ -1,8 +1,4 @@
-/*
-	Phantom by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-*/
+
 
 (function($) {
 
@@ -208,6 +204,8 @@
 			password: password
 		}
 
+		console.log(data);
+
 		$.post(ajaxurl, data, function( response ){
 			if ( response === "true" ) {
 				target.html('Success!')
@@ -219,15 +217,17 @@
 	}
 
 
-	$('.open-login ').click(function(){
+	$('.open-login').click(function(){
 		$('.login-form').show('fast');
+		$('.login-form-container').show('fast');
 	});
 
 	$('body').on('click', 'ins', function () {
 		$('.login-form').hide('fast');
+		$('.login-form-container').hide('fast');
     });
 
-    $('body').on('click', '.go-profile', function () {
+    $('body').on('click', '.go-wellgorithm', function () {
 
         var username = $('#user_username').val(),
 			password = $('#user_password').val(),

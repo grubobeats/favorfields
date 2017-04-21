@@ -7,6 +7,9 @@
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
  * @package FavorFields
+ *
+ * @author Vladan Paunovic
+ *         https://givemejobtoday.com
  */
 
 ?><!DOCTYPE HTML>
@@ -30,6 +33,7 @@ $buttons_style = strtolower( $logic->getColorTemplate($color_scheme, 'basic_sett
 $main_png = $logic->getColorTemplate($color_scheme, 'basic_settings_main_png');
 $favor_png = $logic->getColorTemplate($color_scheme, 'basic_settings_favor_png');
 $favor_card_png = $logic->getColorTemplate($color_scheme, 'basic_settings_favor_card_png');
+$color_masking_off = (boolean) $logic->getColorTemplate($color_scheme, 'basic_settings_off_color_masking');
 
 if( !$buttons_style ) {
 	$buttons_style = "circle";
@@ -120,13 +124,13 @@ $subhead = ($welgorithm['basic_settings_subhead'][0]) ? $welgorithm['basic_setti
             background-image: url("<?= $main_png ?>") !important;
         }
 
-        .hexagon label {background-color: <?= $color_4 ?>;}
-        .hexagon label::before {border-bottom-color: <?= $color_4 ?>;}
-        .hexagon label::after {border-top-color: <?= $color_4 ?>;}
+        .hexagon label {background-color: <?= $color_4 ?> !important;}
+        .hexagon label::before {border-bottom-color: <?= $color_4 ?> !important;}
+        .hexagon label::after {border-top-color: <?= $color_4 ?> !important;}
 
-        .hexagon-focus {background-color: <?= $color_1 ?> !important;}
-        .hexagon-focus::before {border-bottom-color: <?= $color_1 ?> !important;}
-        .hexagon-focus::after {border-top-color: <?= $color_1 ?> !important;}
+        .hexagon .hexagon-focus {background-color: <?= $color_1 ?> !important;}
+        .hexagon .hexagon-focus::before {border-bottom-color: <?= $color_1 ?> !important;}
+        .hexagon .hexagon-focus::after {border-top-color: <?= $color_1 ?> !important;}
 
         .favor-card-png { background-image: url('<?= $favor_card_png ?>') !important; }
     </style>
@@ -135,7 +139,7 @@ $subhead = ($welgorithm['basic_settings_subhead'][0]) ? $welgorithm['basic_setti
         var ajaxurl = "<?= admin_url( 'admin-ajax.php' ) ?>";
     </script>
 </head>
-<body <?php body_class(); ?>>
+<body <?php body_class("all-wellgorithms"); ?>>
 <!-- Wrapper -->
 <div id="wrapper" class="wellgorithms">
 
@@ -146,7 +150,6 @@ $subhead = ($welgorithm['basic_settings_subhead'][0]) ? $welgorithm['basic_setti
                     <img class="main-logo" src="<?php bloginfo('stylesheet_directory'); ?>/assets/images/ff-logo.png" alt="Favor Fields">
                 </a>
             </div>
-
 
             <div class="right-header">
 				<? if ( is_user_logged_in() ) :

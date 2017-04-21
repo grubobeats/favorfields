@@ -9,6 +9,11 @@ class Basic_Settings {
     );
     private $fields = array(
         array(
+            'id' => 'off_color_masking',
+            'label' => 'Color masking off?',
+            'type' => 'checkbox',
+        ),
+		array(
             'id' => 'color-1',
             'label' => 'Color #1',
             'type' => 'color',
@@ -31,6 +36,11 @@ class Basic_Settings {
 		array(
 			'id' => 'color-5',
 			'label' => 'Color #5 (for hover)',
+			'type' => 'color',
+		),
+		array(
+			'id' => 'color-6',
+			'label' => 'Color #6',
 			'type' => 'color',
 		),
 		array(
@@ -120,6 +130,16 @@ class Basic_Settings {
 						$input .= sprintf("<img src='%s' width='200px'><span class=\"dashicons dashicons-no\"></span>", $db_value);
 					}
 					break;
+
+				case 'checkbox':
+					$input = sprintf(
+						'<input %s id="%s" name="%s" type="checkbox" value="1">',
+						$db_value === '1' ? 'checked' : '',
+						$field['id'],
+						$field['id']
+					);
+					break;
+
 				case 'select':
 					if($field['id'] == 'mood') {
 						$input = sprintf(

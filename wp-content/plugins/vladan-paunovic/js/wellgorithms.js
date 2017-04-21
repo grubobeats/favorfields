@@ -2,7 +2,8 @@
  * Created by vladan on 13/02/2017.
  */
 
-var customAnswers = [];
+var customAnswers = [],
+    favored_to = "other";
 
 jQuery(document).ready(function($){
 
@@ -14,14 +15,17 @@ jQuery(document).ready(function($){
 
     // Changing 3 Dots Hover Button's Text when clicking
     $('.wellgo-btn-container button').eq(0).click(function(e){
+        favored_to = 'inspirations';
         $(this).find('.btn1').text("awesome!")
-    })
+    });
     $('.wellgo-btn-container button').eq(1).click(function(){
+        favored_to = 'aha';
         $(this).find('.btn2').text("way to go!")
-    })
+    });
     $('.wellgo-btn-container button').eq(2).click(function(){
+        favored_to = 'breaktroughs';
         $(this).find('.btn3').text("you are amazing!")
-    })
+    });
 
     // Adding Class on Radio Different Shape Button Click
     $(".wellgo-questionnaire .radio .radio-label").click(function(){
@@ -284,12 +288,14 @@ jQuery(document).ready(function($){
                         firstAnswersArray = [],
                         secondAnswersArray = [];
 
+
+
                     savedBox.html('<h3><i class="fa fa-cog fa-spin fa-3x fa-fw" aria-hidden="true"></i></h3>');
 
-                    // $('.question span').each(function(){
-                    //     var question = $.trim($(this).text());
-                    //     questionsArray.push(question);
-                    // });
+                    $('.question_sugestion').each(function(){
+                         var question = $.trim($(this).val());
+                         questionsArray.push(question);
+                    });
 
                     $('.first p[contenteditable="true"]').each(function(){
                         var firstAnswer = $.trim($(this).text());
@@ -300,6 +306,9 @@ jQuery(document).ready(function($){
                         var secondAnswer = $.trim($(this).text());
                         secondAnswersArray.push(secondAnswer);
                     });
+
+                    console.log(questionsArray);
+
 
                     $.ajax({
                         url: ajaxurl,
@@ -312,7 +321,7 @@ jQuery(document).ready(function($){
                             permalink: permalink,
                             related: post_id,
                             title: title,
-                            // questions: questionsArray,
+                            questions: questionsArray,
                             first_answers: firstAnswersArray,
                             second_answers: secondAnswersArray,
                             icon: icon,
@@ -322,7 +331,8 @@ jQuery(document).ready(function($){
                             level: level,
                             confidence: confidence,
                             recommended: recommended,
-                            answers_object: customAnswers
+                            answers_object: customAnswers,
+                            favored_to: favored_to
                         },
                         success: function( response ) {
 
@@ -445,19 +455,25 @@ jQuery(document).ready(function($){
     });
 
     /*
-        Changing question texts
+        Suggestion questions writing
      */
-    $('.question_sugestion').keyup(function () {
+    $('.question_sugestion').keyup( function () {
         var questionText = $(this).val(),
-            thisQuestion = $(this).parent().parent().parent().parent().parent().find('span'),
             maximumCharacters = 333;
 
-        if( $(this).val().length <= maximumCharacters ) {
-            $(thisQuestion).html(questionText);
-        } else {
+        if( $(this).val().length > maximumCharacters ) {
             alert("To many characters.");
         }
 
+    });
+
+
+    $('.suggest__button').click( function () {
+        var text = $(this).parent().find('.question_sugestion').val(),
+            this_step = $(this).data('step');
+
+        console.log(this_step, text)
+        questionsSuggestions.push([this_step, text]);
     });
 
     /*

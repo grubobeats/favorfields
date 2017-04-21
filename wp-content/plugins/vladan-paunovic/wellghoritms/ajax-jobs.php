@@ -13,14 +13,11 @@
 function saveUserWellgo() {
     check_ajax_referer('secure-site', 'security');
 
-
-
-
     $userid = $_POST['user_id'];
     $related = $_POST['related'];
     $permalink = $_POST['permalink'];
     $title = $_POST['title'];
-    // $questions = serialize($_POST['questions']);
+    $questions = serialize($_POST['questions']);
     $first_answers = serialize($_POST['first_answers']);
     $second_answers = serialize($_POST['second_answers']);
     $icon = $_POST['icon'];
@@ -31,7 +28,7 @@ function saveUserWellgo() {
     $confidence = $_POST['confidence'];
     $recommended = $_POST['recommended'];
     $answers_object = serialize($_POST['answers_object']);
-
+    $favored_to = $_POST['favored_to'];
 
     $postarr = array(
         'post_title' => $title,
@@ -47,7 +44,7 @@ function saveUserWellgo() {
             'user_basic_settings_level' => $level,
             'user_basic_settings_confidence' => $confidence,
             'user_basic_settings_recommended' => $recommended,
-            // 'user_questions' => $questions,
+            'user_questions' => $questions,
             'user_first_answers' => $first_answers,
             'user_second_answers' => $second_answers
         )
@@ -57,6 +54,7 @@ function saveUserWellgo() {
 
     if ( $new_post != 0 ) {
     	update_post_meta( $new_post, 'user_answers_object', $answers_object );
+    	update_post_meta( $new_post, 'user_favored_to', $favored_to );
     }
 
 	echo $new_post;
