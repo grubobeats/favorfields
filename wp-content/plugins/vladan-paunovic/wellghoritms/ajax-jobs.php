@@ -17,7 +17,8 @@ function saveUserWellgo() {
     $related = $_POST['related'];
     $permalink = $_POST['permalink'];
     $title = $_POST['title'];
-    $questions = serialize($_POST['questions']);
+    $admin_questions = serialize($_POST['questions']);
+//    $user_questions = serialize($_POST['user_questions']);
     $first_answers = serialize($_POST['first_answers']);
     $second_answers = serialize($_POST['second_answers']);
     $icon = $_POST['icon'];
@@ -44,7 +45,8 @@ function saveUserWellgo() {
             'user_basic_settings_level' => $level,
             'user_basic_settings_confidence' => $confidence,
             'user_basic_settings_recommended' => $recommended,
-            'user_questions' => $questions,
+            'questions' => $admin_questions,
+//            'user_questions' => $user_questions,
             'user_first_answers' => $first_answers,
             'user_second_answers' => $second_answers
         )
@@ -693,7 +695,7 @@ add_action( 'wp_ajax_nopriv_login_user_now', 'login_user' );
 		 $output .= "<p class='$class'><span data-first-text='$first_text'>  $list_text</span> </p>";
 	 }
 
-	 $output .= "<form><div class=\"textarea-wrapper\"><textarea name=\"\" class=\"form-control\" rows=\"1\" style=\"overflow: hidden; resize: none; height: 68px;\"> </textarea></div></form><a href=\"\"> <i class=\"fa fa-heart color-4\"></i> </a>";
+	 $output .= "<form><div class=\"textarea-wrapper\"><textarea name=\"\" class=\"form-control\" rows=\"1\" style=\"overflow: hidden; resize: none; height: 68px;\"> </textarea></div></form><div> <i class=\"fa fa-heart color-4\"></i> </div>";
 
      echo $output;
 

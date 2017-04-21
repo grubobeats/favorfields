@@ -300,8 +300,8 @@ function make_login_form( ) {
     endwhile;
     wp_reset_query();
 
-    $output = sprintf( '<div class="login-form"><ins><i class="fa fa-times close-login-form" aria-hidden="true"></i></ins><input type="text" id="user_username" placeholder="Username"><input id="user_password" type="password" placeholder="Password"><button class="go-wellgorithm">Do a wellgorithm</button><button class="go-profile">Go to my Sanctuary</button><span class="info" id="login-info"></span><div class="quote"><p class="quote-text">%s</p><p class="quote-author">%s</p></div></div>',
-        $content, $author
+    $output = sprintf( '<div class="login-form-container"><div class="login-form"><ins><i class="fa fa-times close-login-form" aria-hidden="true"></i></ins><div class="form-group"><input type="text" id="user_username" class="form-control" placeholder="Username"></div><div class="form-group"><input id="user_password" type="password" class="form-control" placeholder="Password"></div><div class="form-group"><button class="go-wellgorithm">Enter the Fields</button><span class="info" id="login-info"></span><div class="quote"><p class="quote-text">%s</p><p class="quote-author">%s</p></div></div></div></div>',
+		html_entity_decode($content), $author
         );
 
     return $output;

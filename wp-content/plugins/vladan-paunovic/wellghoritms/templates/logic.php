@@ -63,8 +63,15 @@ class Template_logic
      * @date: 15/02/2017
      */
     public function getWellghoritm() {
-        $stored_data = get_post_meta( get_the_ID() );
-        $stored_data['questions'] = unserialize($stored_data['questions'][0]);
+
+		$stored_data = get_post_meta( get_the_ID() );
+
+		// Getting questions from related wellgo
+		$stored_data['admin_questions'] = get_post_meta( $this->getWellgorithmPostID(), 'chosen_question' )[0];
+		$stored_data['admin_icon'] = get_post_meta( $this->getWellgorithmPostID(), 'basic_settings_icon' )[0];
+
+		// Getting the rest of the data from original wellgo
+		$stored_data['questions'] = unserialize($stored_data['questions'][0]);
         $stored_data['first_answers'] = unserialize($stored_data['first_answers'][0]);
         $stored_data['second_answers'] = unserialize($stored_data['second_answers'][0]);
         $stored_data['chosen_question'] = unserialize($stored_data['chosen_question'][0]);

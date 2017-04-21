@@ -13,11 +13,10 @@
  *
  * Template name: Wellgorithms
  */
-// get_header();
 require_once 'header.php';
 
+$number_of_questions = count(array_filter($welgorithm['admin_questions']));
 
-$number_of_questions = count(array_filter($welgorithm['questions']));
 $counter = 1;
 $prefix = is_singular('my_wellgorithms') ? "user_" : "";
 $def_questions = is_singular('my_wellgorithms') ? "user_questions" : "chosen_question";
@@ -80,7 +79,7 @@ if( is_user_logged_in() ) {
 
                             <div class="wellgorightem-content">
                                 <figure class="wellgo-mood-img">
-                                    <img src="<?= $welgorithm['basic_settings_icon'][0] ?>" alt="" class="img-responsive">
+                                    <img src="<?= $welgorithm['admin_icon'] ?>" alt="" class="img-responsive">
                                 </figure>
                                 <h1 class="wellgo-main-title">
                                     <small><?= $subhead ?></small>
@@ -120,19 +119,27 @@ if( is_user_logged_in() ) {
 
                                 <div class="wellgo-btn-container">
                                     <button type="button">
-                                        <span class="btn1 sparkley" style="border:2px solid white !important;">Inspiration</span>
+                                        <span class="btn1 sparkley background-color-5" style="border:2px solid white !important;">Inspiration</span>
                                     </button>
                                     <button type="button">
-                                        <span class="btn2 sparkley" style="border:2px solid white !important;">Aha Moment </span>
+                                        <span class="btn2 sparkley background-color-5" style="border:2px solid white !important;">Aha Moment </span>
                                     </button>
                                     <button type="button">
-                                        <span class="btn3 sparkley" style="border:2px solid white !important;">Breakthrough </span>
+                                        <span class="btn3 sparkley background-color-5" style="border:2px solid white !important;">Breakthrough </span>
                                     </button>
                                 </div>
                                 <!-- Wellgo-btn-container ends -->
 
                                 <h2 class="wellgo-main-title color-3">
-									<?= $welgorithm[$def_questions][$i]; ?>
+									<?
+                                        if ( $welgorithm[$def_questions][$i] != "" ) {
+                                            echo $welgorithm[$def_questions][$i];
+                                        } else {
+											echo $welgorithm['admin_questions'][$i];
+                                        }
+                                    ?>
+
+
                                 </h2>
 
                                 <div class="wellgo-quiz-box border-color-4">
@@ -180,11 +187,12 @@ if( is_user_logged_in() ) {
                                         <div class="suggest__text">Love this!</div>
                                     </div>
                                     <div class="row second">
+                                        <button class="cross__icon"><i class="fa fa-close"></i></button>
                                         <div class="suggest__icon"><i class="fa fa-lightbulb-o"></i></div>
                                         <div class="suggest__text">
                                             <p>I have a suggestion for improvment:</p>
                                             <textarea class="question_sugestion" name="question_suggestion_<?= $i ?>" id="question_suggestion_<?= $i ?>" cols="30" rows="1"></textarea>
-                                            <button class="btn btn-default suggest__button" data-step="<?= $i ?>">Send</button>
+                                            <!-- <button class="btn btn-default suggest__button" data-step="<?= $i ?>">Send</button> -->
                                         </div>
                                     </div>
                                 </div>
@@ -292,7 +300,7 @@ if( is_user_logged_in() ) {
                                         <form>
                                             <div class="textarea-wrapper"><textarea name="" class="form-control" rows="1" style="overflow: hidden; resize: none; height: 68px;"> </textarea></div>
                                         </form>
-                                        <a href=""> <i class="fa fa-heart color-4"></i> </a>
+                                        <div> <i class="fa fa-heart color-4"></i> </div>
                                     </div>
                                 </div>
                             </div>

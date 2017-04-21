@@ -279,17 +279,22 @@ jQuery(document).ready(function($){
                     /*
                      Ajax saving to DB
                      */
-
                     var savedBox = $('.is-saved'),
                         questionsArray = [],
                         firstAnswersArray = [],
-                        secondAnswersArray = [];
+                        secondAnswersArray = [],
+                        adminQuestionsArray = [];
 
                     savedBox.html('<h3><i class="fa fa-cog fa-spin fa-3x fa-fw" aria-hidden="true"></i></h3>');
 
                     $('.question_sugestion').each(function(){
                          var question = $.trim($(this).val());
                          questionsArray.push(question);
+                    });
+
+                    $('h2.wellgo-main-title').each(function(){
+                        var adminQuestion = $.trim($(this).text());
+                        adminQuestionsArray.push(adminQuestion);
                     });
 
                     $('.first p[contenteditable="true"]').each(function(){
@@ -301,8 +306,6 @@ jQuery(document).ready(function($){
                         var secondAnswer = $.trim($(this).text());
                         secondAnswersArray.push(secondAnswer);
                     });
-
-                    console.log(questionsArray);
 
 
                     $.ajax({
@@ -316,6 +319,7 @@ jQuery(document).ready(function($){
                             permalink: permalink,
                             related: post_id,
                             title: title,
+                            // user_questions: questionsArray,
                             questions: questionsArray,
                             first_answers: firstAnswersArray,
                             second_answers: secondAnswersArray,
@@ -330,15 +334,11 @@ jQuery(document).ready(function($){
                             favored_to: favored_to
                         },
                         success: function( response ) {
-
-                            console.log('saved as');
-
                             savedBox
                                 .html("<p></p>")
-
                         },
                         error: function( error ) {
-                            console.log( "You have an error regarding your ajax request." );
+                            console.log( "You have an error regarding your database request." );
                             console.log( error );
                         }
 
@@ -512,17 +512,33 @@ jQuery(document).ready(function($){
     /**
      * Sending emails in Favors section
      */
-    $('.favormenu').on('click', '.favor-menu-option__inner span', sendEmailToUser );
+    $('.favormenu').on('click', '.favor-menu-option__inner span', function(){
 
-    function sendEmailToUser() {
-        console.log("clicked");
-
-        var message_first = $(this).data('data-first-text'),
+        var $this = $(this),
+            message_first = $(this).data('data-first-text'),
             message_second = $(this).text(),
-            current_user_id = user_id,
-            $this = $(this),
             $this_favor_box = $(this).parent().parent().parent().parent(),
             selected_user_id = $this_favor_box.find('.user-avatar').data('user-id');
+
+        sendEmailToUser( $this, message_first, message_second, $this_favor_box, selected_user_id  )
+
+    } );
+
+
+    $('.favormenu').on('click', '.fa-heart.color-4', function(){
+
+        var $this = $(this).parent().parent().find('.favor-menu-option__inner span').first(),
+            message_first = $this.data('data-first-text'),
+            message_second = $(this).parent().prev().find('.form-control').val(),
+            $this_favor_box = $this.parent().parent().parent().parent(),
+            selected_user_id = $this_favor_box.find('.user-avatar').data('user-id');
+
+        console.log( $this, message_first, message_second, $this_favor_box, selected_user_id  );
+        sendEmailToUser( $this, message_first, message_second, $this_favor_box, selected_user_id  )
+    } );
+
+    function sendEmailToUser( $this, message_first, message_second, $this_favor_box, selected_user_id  ) {
+        console.log("clicked");
 
         // favor_menu = $(this).parent().parent().parent().parent().parent().find('.favor-menu');
 
@@ -534,7 +550,7 @@ jQuery(document).ready(function($){
             dataType: 'html',
             data: {
                 action: 'send_favor',
-                current_user: current_user_id,
+                current_user: user_id,
                 selected_user: selected_user_id,
                 message_first: message_first,
                 message_second: message_second,
