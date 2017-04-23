@@ -118,13 +118,13 @@ if( is_user_logged_in() ) {
                                 <!-- Wellgo-Type ends -->
 
                                 <div class="wellgo-btn-container">
-                                    <button type="button">
+                                    <button type="button" class="border-color-4">
                                         <span class="btn1 sparkley background-color-5" style="border:2px solid white !important;">Inspiration</span>
                                     </button>
-                                    <button type="button">
+                                    <button type="button" class="border-color-4">
                                         <span class="btn2 sparkley background-color-5" style="border:2px solid white !important;">Aha Moment </span>
                                     </button>
-                                    <button type="button">
+                                    <button type="button" class="border-color-4">
                                         <span class="btn3 sparkley background-color-5" style="border:2px solid white !important;">Breakthrough </span>
                                     </button>
                                 </div>
