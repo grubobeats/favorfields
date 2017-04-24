@@ -487,7 +487,7 @@ function saveToExcel() {
 
 function new_link_page() {
 	if (function_exists('add_submenu_page') )
-        add_menu_page( __('Export to Excel'), __('Export to Excel'), 'manage_options', 'export-to-excel', 'saveToExcel', 'dashicons-media-text', $position);
+        add_menu_page( __('Export to Excel'), __('Export to Excel'), 'manage_options', 'export-to-excel', 'saveToExcel', 'dashicons-media-text');
 }
 
 add_action('admin_menu', 'new_link_page');

@@ -42,9 +42,8 @@ if ( $user->ID == 0 ) {
         <div class="inner top-bar">
             <div class="left-header">
                 <a href="<?php echo esc_url( home_url( '/' ) ); ?>">
-                    <img class="logo" src="<?= $favorfields['logo']['url'];?>" alt="<?php bloginfo( 'description')?>" />
+                    <img class="main-logo" src="<?php bloginfo('stylesheet_directory'); ?>/assets/images/favor-fields-logo-ap19.png" alt="Favor Fields">
                 </a>
-                <img class="main-logo" src="<?= $favorfields['main-logo']['url'] ?>" alt="<?php bloginfo( 'description')?>" >
                 <span class="category"><?= $category_name; ?></span>
             </div>
 
@@ -52,6 +51,10 @@ if ( $user->ID == 0 ) {
             <span class="title"><?php bloginfo( 'description')?></span>
 
             <div class="right-header">
+                <!-- <a href="javascript:void(0)" class="favor-cion"> 
+                    <img src="<?php // bloginfo('stylesheet_directory'); ?>/assets/images/favor-icon.png" alt="Favor"> 
+                </a>
+                <div class="wellgo-test-counts color-3"> 27 </div> -->
                 <div class="user"><?= $username ?></div>
                 <img class="user-logo" src="<?= $avatar; ?>" alt="">
                 <!-- Nav -->

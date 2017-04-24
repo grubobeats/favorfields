@@ -357,7 +357,7 @@ jQuery(document).ready(function($){
                 } else {
                     $this.html("Error with sending message to the user!");
                 }
-
+                
             },
             error: function( response ) {
                 console.log( response )

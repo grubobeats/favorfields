@@ -42,7 +42,7 @@ if ( $user->ID == 0 ) {
 		<div class="inner top-bar">
 			<div class="left-header">
 				<a href="<?php echo esc_url( home_url( '/' ) ); ?>">
-					<img class="main-logo" src="<?php bloginfo('stylesheet_directory'); ?>/assets/images/ff-logo.png" alt="Favor Fields">
+					<img class="main-logo" src="<?php bloginfo('stylesheet_directory'); ?>/assets/images/favor-fields-logo-ap19.png" alt="Favor Fields">
 				</a>
 				<span class="category"><?= $category_name; ?></span>
 			</div>
@@ -53,7 +53,7 @@ if ( $user->ID == 0 ) {
 				<a href="javascript:void(0)" class="favor-cion"> 
 					<img src="<?php bloginfo('stylesheet_directory'); ?>/assets/images/favor-icon.png" alt="Favor"> 
 				</a>
-				<div class="wellgo-test-counts"> 27 </div>
+				<div class="wellgo-test-counts color-3"> 27 </div>
 				<div class="user"><?= $username ?></div>
 				<img class="user-logo" src="<?= $avatar; ?>" alt="">
 				<!-- Nav -->

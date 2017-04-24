@@ -28,7 +28,7 @@ if ( is_user_logged_in() ) :
     $user = wp_get_current_user();
     $avatar = get_wp_user_avatar($user->ID, 96);
     $favor_points = ( get_user_meta( $user->ID, 'favor_points', true ) ) ? get_user_meta( $user->ID, 'favor_points', true ) : 0 ;
-
+    
     if ( isset($_POST['submit']) ) {
         saveUserChanges();
     }

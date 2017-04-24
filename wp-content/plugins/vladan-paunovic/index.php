@@ -50,7 +50,6 @@ function get_templates( $original_template ) {
         wp_enqueue_script( 'vp_wellghoritms', plugins_url( 'js/wellgorithms.js', __FILE__ ), array(), '20130115', true );
 
 
-
         if($current_fp == 'social') {
             wp_dequeue_script( 'vp_wellghoritms' );
             wp_enqueue_script( 'vp_wellghoritms-social', plugins_url( 'js/social.js', __FILE__ ), array(), '20130115', true );
