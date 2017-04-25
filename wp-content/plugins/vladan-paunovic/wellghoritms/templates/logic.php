@@ -17,7 +17,7 @@ class Template_logic
         (SELECT ID
         FROM $wpdb->posts
         WHERE post_type = 'color_template'
-          AND post_title = '$color_scheme') AND meta_key = '$key'
+          AND post_title = '$color_scheme' LIMIT 1) AND meta_key = '$key' LIMIT 1
         "
         );
 
@@ -39,7 +39,7 @@ class Template_logic
         (SELECT ID
         FROM $wpdb->posts
         WHERE post_type = 'color_template'
-          AND post_title = '$color_scheme') AND meta_key LIKE '%multiple_images_image%' AND meta_value != ''
+          AND post_title = '$color_scheme' LIMIT 1) AND meta_key LIKE '%multiple_images_image%' AND meta_value != ''
         "
         );
 

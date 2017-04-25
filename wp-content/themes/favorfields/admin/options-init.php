@@ -791,3 +791,5 @@
     /*
      * <--- END SECTIONS
      */
+
+    require_once 'homepage.php';
