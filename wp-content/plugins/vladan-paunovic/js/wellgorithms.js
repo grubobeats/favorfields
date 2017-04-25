@@ -742,12 +742,16 @@ jQuery(document).ready(function($){
      */
     $(document).on( 'click', '.wellgo-favor-btn', function(){
 
+        console.log('Clicked button');
+
         var image = $(this).parent().prev().find('img'),
             image_src = image.attr('src'),
             username = image.attr('alt'),
             user_id = $(this).parent().parent().data('user-id'),
             favormenu = $('.favormenu');
 
+
+        console.log(favormenu)
 
         favormenu.find('.user-avatar').attr('src', image_src),
         favormenu.find('.user-avatar').attr('data-user-id', user_id),

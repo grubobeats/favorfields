@@ -203,164 +203,27 @@ global $favorfields;
                           <div id="membersCarousel" class="carousel slide" data-ride="carousel">
                             <nav class="accordion-nav nav--active">
                               <ul class="nav__list">
-                                <li class="nav__item" data-target="#membersCarousel" data-slide-to="0">
-                                  <a href="javascript:void(0)" class="nav__link wellgo-color active">
-                                    <div class="nav__thumb" data-letter="w"> 
-                                      <img class="img-responsive" src="http://favorfields.com/wp-content/themes/favorfields/assets/images/mian-logo.png">
-                                    </div>
-                                    <p class="nav__label">&nbsp;</p>
-                                  </a>
-                                </li>
-                                <li class="nav__item" data-target="#membersCarousel" data-slide-to="1">
-                                  <a href="javascript:void(0)" class="nav__link hellgo-color">
-                                    <div class="nav__thumb" data-letter="h"> 
-                                      <img class="img-responsive" src="http://favorfields.com/wp-content/uploads/2017/02/mm9.png">
-                                    </div>
-                                    <p class="nav__label">Sally</p>
-                                  </a>
-                                </li>
-                                <li class="nav__item" data-target="#membersCarousel" data-slide-to="2">
-                                  <a href="javascript:void(0)" class="nav__link letgo-color">
-                                    <div class="nav__thumb" data-letter="l"> 
-                                      <img class="img-responsive" src="http://favorfields.com/wp-content/uploads/2017/03/BOB.png">
-                                    </div>
-                                    <p class="nav__label">Bob</p>
-                                  </a>
-                                </li>
-                                <li class="nav__item" data-target="#membersCarousel" data-slide-to="3">
-                                  <a href="javascript:void(0)" class="nav__link taogo-color">
-                                    <div class="nav__thumb" data-letter="t"> 
-                                      <img class="img-responsive" src="http://favorfields.com/wp-content/uploads/2017/03/BILL.png">
-                                    </div>
-                                    <p class="nav__label">Steve</p>
-                                  </a>
-                                </li>
-                                <li class="nav__item" data-target="#membersCarousel" data-slide-to="4">
-                                  <a href="javascript:void(0)" class="nav__link fako-color">
-                                    <div class="nav__thumb" data-letter="f"> 
-                                      <img class="img-responsive" src="http://favorfields.com/wp-content/uploads/2017/03/LUCY.png">
-                                    </div>
-                                    <p class="nav__label">Lois</p>
-                                  </a>
-                                </li>
-                                <li class="nav__item" data-target="#membersCarousel" data-slide-to="5">
-                                  <a href="javascript:void(0)" class="nav__link wego-color">
-                                    <div class="nav__thumb" data-letter="p"> 
-                                      <img class="img-responsive" src="http://favorfields.com/wp-content/uploads/2017/03/RENEE.png">
-                                    </div>
-                                    <p class="nav__label">Jill</p>
-                                  </a>
-                                </li>
+                                  <? for ( $slide_title=0; $slide_title < count($favorfields['hompepage_sub_3_slider']); $slide_title++ ) : ?>
+                                      <li class="nav__item" data-target="#membersCarousel" data-slide-to="<?= $slide_title ?>">
+                                          <a href="javascript:void(0)" class="nav__link wellgo-color active">
+                                              <div class="nav__thumb" data-letter="<?= $slide_title ?>">
+                                                  <img class="img-responsive" src="<?= $favorfields['hompepage_sub_3_slider'][$slide_title]['image'] ?>">
+                                              </div>
+                                              <p class="nav__label"><?= $favorfields['hompepage_sub_3_slider'][$slide_title]['title'] ?></p>
+                                          </a>
+                                      </li>
+                                  <? endfor; ?>
                               </ul>
                             </nav> <!--carousel list ends-->
                             <!-- carousel-content for slides -->
                             <div class="accordion-content carousel-inner">
-                              <section class="section section--active item active" data-letter="w">
-                                <article class="section__wrapper">
-                                  <div class="white-bg row">
-                                    <div class="col-sm-6">
-                                        <h4 class="favor-title wellgo">We are...</h4>
-                                        <div class="text-span">
-                                            <p>We range in ages from 18 to 89</p>
-                                            <p>We’re grandmothers, widows, single moms, college students, recovering addicts, whole, broken, and everything in between. </p>
-                                            <p>73% of our founding members and contributors are women.</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <h4 class="favor-title wellgo">We came from...</h4>
-                                        <div class="text-span">
-                                            <p>We represent all the major faith traditions. We’re Christians, Jews, Buddhists, scientists, agnostics, conservatives, liberals, reformers. </p>
-                                            <p>We come from 53 countries, many of which are rarely represented in a startup, including Algeria, Tunisia, Zimbabwe, Nepal, Lebanon, Uruguay, and Vietnam. </p>
-                                        </div>
-                                    </div>
-                                  </div>
-                               </article>
-                              </section> <!-- End Item -->
-                              <section class="section item" data-letter="h">
-                               <article class="section__wrapper">
-                                  <h4 class="favor-title wellgo">Sally: <span>"I learned that i needed to change, or die."</span></h4>
-                                    <div class="white-bg row">
-                                        <div class="col-sm-6">
-                                            <div class="text-span">
-                                                <p>My happiness forecast for tomorrow: 76%. Weather inside my soul. Sunny, warm and bright. Want to join me? I’m Predicto, your fortune telling friend. Other companies keep all your data for themselves — then sell it to the highest bidder. Not me. What’s mine is yours. What I know, you know. What job to take? Who to marry? Where to live? You can let the market make all these decisions for you (without your knowledge or consent) or you can carry me around. I’ll take you where you want to go.</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <div class="text-span">
-                                                <p class="lh28"><strong>DRIVE TO CHANGE:</strong> Loss of job, relationship, home. <strong>DRIVE TO GROW:</strong> To get back on track and re-start life. <strong>DESTINY PATH:</strong> To create a new life where I am more positive and stronger than I ever was, where I can share my story and help others. <strong>WORLD I WANT TO CREATE:</strong> One where hard drugs are non-existent.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                               </article>
-                              </section>
-                              <section class="section item" data-letter="l">
-                               <article class="section__wrapper">
-                                  <h4 class="favor-title wellgo">Bob: <span>"I learned that i needed to change, or die."</span></h4>
-                                    <div class="white-bg row">
-                                        <div class="col-sm-6">
-                                            <div class="text-span">
-                                                <p>My happiness forecast for tomorrow: 76%. Weather inside my soul. Sunny, warm and bright. Want to join me? I’m Predicto, your fortune telling friend. Other companies keep all your data for themselves — then sell it to the highest bidder. Not me. What’s mine is yours. What I know, you know. What job to take? Who to marry? Where to live? You can let the market make all these decisions for you (without your knowledge or consent) or you can carry me around. I’ll take you where you want to go.</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <div class="text-span">
-                                                <p class="lh28"><strong>DRIVE TO CHANGE:</strong> Loss of job, relationship, home. <strong>DRIVE TO GROW:</strong> To get back on track and re-start life. <strong>DESTINY PATH:</strong> To create a new life where I am more positive and stronger than I ever was, where I can share my story and help others. <strong>WORLD I WANT TO CREATE:</strong> One where hard drugs are non-existent.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                               </article>
-                              </section>
-                              <section class="section item" data-letter="t">
-                               <article class="section__wrapper">
-                                  <h4 class="favor-title wellgo">Steve: <span>"I learned that i needed to change, or die."</span></h4>
-                                    <div class="white-bg row">
-                                        <div class="col-sm-6">
-                                            <div class="text-span">
-                                                <p>My happiness forecast for tomorrow: 76%. Weather inside my soul. Sunny, warm and bright. Want to join me? I’m Predicto, your fortune telling friend. Other companies keep all your data for themselves — then sell it to the highest bidder. Not me. What’s mine is yours. What I know, you know. What job to take? Who to marry? Where to live? You can let the market make all these decisions for you (without your knowledge or consent) or you can carry me around. I’ll take you where you want to go.</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <div class="text-span">
-                                                <p class="lh28"><strong>DRIVE TO CHANGE:</strong> Loss of job, relationship, home. <strong>DRIVE TO GROW:</strong> To get back on track and re-start life. <strong>DESTINY PATH:</strong> To create a new life where I am more positive and stronger than I ever was, where I can share my story and help others. <strong>WORLD I WANT TO CREATE:</strong> One where hard drugs are non-existent.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                               </article>
-                              </section>
-                              <section class="section item" data-letter="f">
-                               <article class="section__wrapper">
-                                  <h4 class="favor-title wellgo">Lois: <span>"I learned that i needed to change, or die."</span></h4>
-                                    <div class="white-bg row">
-                                        <div class="col-sm-6">
-                                            <div class="text-span">
-                                                <p>My happiness forecast for tomorrow: 76%. Weather inside my soul. Sunny, warm and bright. Want to join me? I’m Predicto, your fortune telling friend. Other companies keep all your data for themselves — then sell it to the highest bidder. Not me. What’s mine is yours. What I know, you know. What job to take? Who to marry? Where to live? You can let the market make all these decisions for you (without your knowledge or consent) or you can carry me around. I’ll take you where you want to go.</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <div class="text-span">
-                                                <p class="lh28"><strong>DRIVE TO CHANGE:</strong> Loss of job, relationship, home. <strong>DRIVE TO GROW:</strong> To get back on track and re-start life. <strong>DESTINY PATH:</strong> To create a new life where I am more positive and stronger than I ever was, where I can share my story and help others. <strong>WORLD I WANT TO CREATE:</strong> One where hard drugs are non-existent.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                               </article>
-                              </section>
-                              <section class="section item" data-letter="p">
-                              <article class="section__wrapper">
-                                  <h4 class="favor-title wellgo">Jill: <span>"I learned that i needed to change, or die."</span></h4>
-                                    <div class="white-bg row">
-                                        <div class="col-sm-6">
-                                            <div class="text-span">
-                                                <p>My happiness forecast for tomorrow: 76%. Weather inside my soul. Sunny, warm and bright. Want to join me? I’m Predicto, your fortune telling friend. Other companies keep all your data for themselves — then sell it to the highest bidder. Not me. What’s mine is yours. What I know, you know. What job to take? Who to marry? Where to live? You can let the market make all these decisions for you (without your knowledge or consent) or you can carry me around. I’ll take you where you want to go.</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <div class="text-span">
-                                                <p class="lh28"><strong>DRIVE TO CHANGE:</strong> Loss of job, relationship, home. <strong>DRIVE TO GROW:</strong> To get back on track and re-start life. <strong>DESTINY PATH:</strong> To create a new life where I am more positive and stronger than I ever was, where I can share my story and help others. <strong>WORLD I WANT TO CREATE:</strong> One where hard drugs are non-existent.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                               </article>
-                              </section>
+                                <? for ( $slide_desc=0; $slide_desc < count($favorfields['hompepage_sub_3_slider']); $slide_desc++ ) : ?>
+                                    <section class="section item<? if($slide_desc==0) : ?> section--active active<? endif; ?>" data-letter="<?= $slide_desc ?>">
+                                        <article class="section__wrapper">
+	                                        <?= $favorfields['hompepage_sub_3_slider'][$slide_desc]['description'] ?>
+                                        </article>
+                                    </section>
+                                <? endfor; ?>
                             </div><!-- End Carousel Inner -->
                           </div><!-- End Carousel -->
                         </div>
@@ -383,190 +246,27 @@ global $favorfields;
                           <div id="favorBotsCarousel" class="carousel slide" data-ride="carousel">
                             <nav class="accordion-nav nav--active">
                               <ul class="nav__list">
-                                <li class="nav__item" data-target="#favorBotsCarousel" data-slide-to="0">
-                                  <a href="javascript:void(0)" class="nav__link wellgo-color active">
-                                    <div class="nav__thumb" data-letter="w"> 
-                                      <img class="img-responsive" src="http://favorfields.com/wp-content/uploads/2017/02/wellgo1.png">
-                                    </div>
-                                    <p class="nav__label">Wellgo</p>
-                                  </a>
-                                </li>
-                                <li class="nav__item" data-target="#favorBotsCarousel" data-slide-to="1">
-                                  <a href="javascript:void(0)" class="nav__link hellgo-color">
-                                    <div class="nav__thumb" data-letter="h"> 
-                                      <img class="img-responsive" src="http://favorfields.com/wp-content/uploads/2017/02/Hellgo3-1.png">
-                                    </div>
-                                    <p class="nav__label">Hellgo</p>
-                                  </a>
-                                </li>
-                                <li class="nav__item" data-target="#favorBotsCarousel" data-slide-to="2">
-                                  <a href="javascript:void(0)" class="nav__link letgo-color">
-                                    <div class="nav__thumb" data-letter="l"> 
-                                      <img class="img-responsive" src="http://favorfields.com/wp-content/uploads/2017/02/Letgo103.png">
-                                    </div>
-                                    <p class="nav__label">Letgo</p>
-                                  </a>
-                                </li>
-                                <li class="nav__item" data-target="#favorBotsCarousel" data-slide-to="3">
-                                  <a href="javascript:void(0)" class="nav__link taogo-color">
-                                    <div class="nav__thumb" data-letter="t"> 
-                                      <img class="img-responsive" src="http://favorfields.com/wp-content/uploads/2017/02/wellgo1.png">
-                                    </div>
-                                    <p class="nav__label">Cosmo</p>
-                                  </a>
-                                </li>
-                                <li class="nav__item" data-target="#favorBotsCarousel" data-slide-to="4">
-                                  <a href="javascript:void(0)" class="nav__link fako-color">
-                                    <div class="nav__thumb" data-letter="f"> 
-                                      <img class="img-responsive" src="http://favorfields.com/wp-content/uploads/2017/02/Fako90.png">
-                                    </div>
-                                    <p class="nav__label">Fako</p>
-                                  </a>
-                                </li>
-                                <li class="nav__item" data-target="#favorBotsCarousel" data-slide-to="5">
-                                  <a href="javascript:void(0)" class="nav__link wego-color">
-                                    <div class="nav__thumb" data-letter="p"> 
-                                      <img class="img-responsive" src="http://favorfields.com/wp-content/uploads/2017/02/wellgo1.png">
-                                    </div>
-                                    <p class="nav__label">Predicto</p>
-                                  </a>
-                                </li>
+	                              <? for ( $slide_title=0; $slide_title < count($favorfields['hompepage_sub_4_slider']); $slide_title++ ) : ?>
+                                      <li class="nav__item" data-target="#favorBotsCarousel" data-slide-to="<?= $slide_title ?>">
+                                          <a href="javascript:void(0)" class="nav__link wellgo-color active">
+                                              <div class="nav__thumb" data-letter="<?= $slide_title ?>">
+                                                  <img class="img-responsive" src="<?= $favorfields['hompepage_sub_4_slider'][$slide_title]['image'] ?>">
+                                              </div>
+                                              <p class="nav__label"><?= $favorfields['hompepage_sub_4_slider'][$slide_title]['title'] ?></p>
+                                          </a>
+                                      </li>
+	                              <? endfor; ?>
                               </ul>
                             </nav> <!--carousel list ends-->
                             <!-- carousel-content for slides -->
                             <div class="accordion-content carousel-inner">
-                              <section class="section section--active item active" data-letter="w">
-                                <article class="section__wrapper">
-                                  <h4 class="favor-title wellgo">Wellgo: Made with love, FOR love.</h4>
-                                  <div class="white-bg row">
-                                    <div class="col-sm-6">
-                                        <span class="text-span">My name is Wellgo. Yes, I use artificial intelligence. But I’m not some fancy gimmick. I exist because a bunch of people were in some serious emotional pain. They got together to create me. So I, in turn, can help them. And you. I was made with love, FOR love. My creators are awesome. I’m a new kind of AI — not that ‘computer-voiced-shiny-robot’ type. I’d prefer to be called ‘artificial inspiration’, or ‘artful intelligence’ — that’s more-btn like me.</span>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <ul class="text-span">
-                                           <li>encouragement</li>
-                                           <li>hope</li>
-                                           <li>loving others to avoid resentment</li>
-                                           <li>learning to love yourself</li>
-                                           <li>meditation practices</li>
-                                           <li>new patterns of behavior</li>
-                                        </ul>
-                                    </div>
-                                  </div>
-                                    <div class="wellgo-specialties colored-section">
-                                        <h4 class="testimonial">"I am here to serve in the best way i can."</h4>
-                                    </div>
-                               </article>
-                              </section> <!-- End Item -->
-                              <section class="section item" data-letter="h">
-                               <article class="section__wrapper">
-                                  <h4 class="favor-title wellgo">Hellgo: Oh no: it’s Hellgo!</h4>
-                                  <div class="white-bg row">
-                                    <div class="col-sm-6">
-                                        <span class="text-span">HELL-O. I’m HELL-GO. And you know where you can go. As a matter of fact, right now. My hobbies include sharpening my horns, bathing in fire, and poking fun at humans. Ok, so maybe I look a little like the devil. And my name sure doesn’t do me any favors. But contrary to popular belief, I CAN actually do you a favor. Don’t worry, I won’t turn you to the dark side. Instead, I’ll take your dark side and turn it to light. Make it so damn bright that you’ll be laughing at your inner demons.</span>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <ul class="text-span">
-                                           <li>triggers</li>
-                                           <li>battling inner demons—thoughts of using drugs, alcohol, even binging</li>
-                                           <li>thoughts about hurting yourself</li>
-                                           <li>the struggles of negative self-talk (does not need to be addiction related)</li>
-                                           <li>overthinking</li>
-                                        </ul>
-                                    </div>
-                                  </div>
-                                    <div class="wellgo-specialties colored-section">
-                                        <h4 class="testimonial">"I am here to serve in the best way i can."</h4>
-                                    </div>
-                               </article>
-                              </section>
-                              <section class="section item" data-letter="l">
-                               <article class="section__wrapper">
-                                  <h4 class="favor-title wellgo">Letgo: Relax, Release, Recharge</h4>
-                                  <div class="white-bg row">
-                                    <div class="col-sm-6">
-                                        <span class="text-span">I’m LETGO. My creators sent me down the darkest holes of addiction and despair. At first I explored alcohol, drug and food addictions, but now people are struggling with all sorts of addictions — things, thoughts, emotions, work, the need to control. At some point you crack — unless you can let go. I’m here to help you release old patterns and find your true power.</span>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <ul class="text-span">
-                                           <li>triggers and temptations</li>
-                                           <li>learning how to acceptance change</li>
-                                           <li>letting go of toxic relationships—whether romantic, family, or friends</li>
-                                           <li>learning how to move on from things that no longer serve you (addiction or not)</li>
-                                           <li>staying in the moment, discovering peace</li>
-                                           <li>meditation practices—forming new healthy habits</li>
-                                           <li>trusting yourself and others for the first time</li>
-                                        </ul>
-                                    </div>
-                                  </div>
-                                    <div class="wellgo-specialties colored-section">
-                                        <h4 class="testimonial">"I am here to serve in the best way i can."</h4>
-                                    </div>
-                                </article>
-                              </section>
-                              <section class="section item" data-letter="t">
-                               <article class="section__wrapper">
-                                  <h4 class="favor-title wellgo">Cosmo: Yin, Yang, Unity</h4>
-                                  <div class="white-bg row">
-                                    <div class="col-sm-6">
-                                        <span class="text-span">Hey friends, Cosmo here. I’m not a religious bot, but I was inspired by a worldview that celebrates the underlying unity of all things. Heart, soul, mind, body, earth, stars, animals, plants, cultures and creeds — all belong to this unity. The glue that holds it all together is the Field of Loving Kindness. And Cosmorithms give you a way to enter this Field.</span>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <ul class="text-span">
-                                           <li>helping others and giving back</li>
-                                           <li>connectedness </li>
-                                           <li>trusting the universe—learning acceptance</li>
-                                           <li>love love love</li>
-                                           <li>meditation practices</li>
-                                        </ul>
-                                    </div>
-                                  </div>
-                                  <div class="wellgo-specialties colored-section">
-                                        <h4 class="testimonial">"I am here to serve in the best way i can."</h4>
-                                    </div>
-                                </article>
-                              </section>
-                              <section class="section item" data-letter="f">
-                               <article class="section__wrapper">
-                                  <h4 class="favor-title wellgo">Fako: Inventor of the “Real Fake Ad”</h4>
-                                  <div class="white-bg row">
-                                    <div class="col-sm-6">
-                                        <span class="text-span">A-hem. Good day, I’m Fako. I’m the CEO and mastermind of Fake co. Inc. PTY. LTD. I’m head of the fake news and ads here at Favor fields. But I’m not here to scam you - my purpose is to give you a radical experience of transparency. Whereas other bot CEO’s are too ashamed to admit their brainwashing tactics, I proudly divulge my truth: I’m completely, 100%, guaranteed fake. So enjoy my disgraceful antics of sincere nonsensical-ness as I pop up from time to time :-P</span>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <ul class="text-span">
-                                           <li>Unmasking market hypocrasies</li>
-                                           <li>Proving that Don Quixote was right</li>
-                                           <li>Igniting a peaceful counter culture</li>
-                                        </ul>
-                                    </div>
-                                  </div>
-                                  <div class="wellgo-specialties colored-section">
-                                        <h4 class="testimonial">"I am here to serve in the best way i can."</h4>
-                                    </div>
-                                </article>
-                              </section>
-                              <section class="section item" data-letter="p">
-                              <article class="section__wrapper">
-                                  <h4 class="favor-title wellgo">Predicto: Your Counter Culture Bot</h4>
-                                  <div class="white-bg row">
-                                    <div class="col-sm-6">
-                                        <span class="text-span">My happiness forecast for tomorrow: 76%. Weather inside my soul. Sunny, warm and bright. Want to join me? I’m Predicto, your fortune telling friend. Other companies keep all your data for themselves — then sell it to the highest bidder. Not me. What’s mine is yours. What I know, you know. What job to take? Who to marry? Where to live? You can let the market make all these decisions for you (without your knowledge or consent) or you can carry me around. I’ll take you where you want to go.</span>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <ul class="text-span">
-                                           <li>Spying on the spies</li>
-                                           <li>Putting your data in your hands </li>
-                                           <li>Preventing others from labeling you</li>
-                                           <li>Helping you make authentic decisions </li>
-                                        </ul>
-                                    </div>
-                                  </div>
-                                  <div class="wellgo-specialties colored-section">
-                                        <h4 class="testimonial">"I am here to serve in the best way i can."</h4>
-                                    </div>
-                                </article>
-                              </section>
+	                            <? for ( $slide_desc=0; $slide_desc < count($favorfields['hompepage_sub_4_slider']); $slide_desc++ ) : ?>
+                                    <section class="section item<? if($slide_desc==0) : ?> section--active active<? endif; ?>" data-letter="<?= $slide_desc ?>">
+                                        <article class="section__wrapper">
+				                            <?= $favorfields['hompepage_sub_4_slider'][$slide_desc]['description'] ?>
+                                        </article>
+                                    </section>
+	                            <? endfor; ?>
                             </div><!-- End Carousel Inner -->
                           </div><!-- End Carousel -->
                         </div>

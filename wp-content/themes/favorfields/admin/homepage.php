@@ -187,7 +187,7 @@ Redux::setSection( $opt_name, array(
 
 
 		Redux::setSection( $opt_name, array(
-			'title'      => __( 'Section #3', 'redux-framework-demo' ),
+			'title'      => __( 'Section #3 (slider)', 'redux-framework-demo' ),
 			'desc'       => '',
 			'id'         => 'homepage-sec-3',
 			'subsection' => true,
@@ -209,12 +209,24 @@ Redux::setSection( $opt_name, array(
 					'description'  => '',
 					'default'  => 'An uncommon community with a common aspiration: to be the peace we wish to see in the world.'
 				),
+
+				array(
+					'id'          => 'hompepage_sub_3_slider',
+					'type'        => 'slides',
+					'title'       => __('Slides', 'redux-framework-demo'),
+					'subtitle'    => 'You can sort those slider by drag and drop',
+				    'placeholder' => array(
+						'title'           => __('Enter title', 'redux-framework-demo'),
+						'description'     => __('Enter Description', 'redux-framework-demo'),
+						'url'             => __('Link (optional)', 'redux-framework-demo'),
+					),
+				),
 			)));
 
 
 
 		Redux::setSection( $opt_name, array(
-			'title'      => __( 'Section #4', 'redux-framework-demo' ),
+			'title'      => __( 'Section #4 (slider)', 'redux-framework-demo' ),
 			'desc'       => '',
 			'id'         => 'homepage-sec-4',
 			'subsection' => true,
@@ -235,6 +247,18 @@ Redux::setSection( $opt_name, array(
 					'title'    => __('Section #4 subhead', 'redux-framework-demo'),
 					'description'  => '',
 					'default'  => '“Let’s completely rethink social media, reinvent the news feed, and laugh away the tears.”'
+				),
+
+				array(
+					'id'          => 'hompepage_sub_4_slider',
+					'type'        => 'slides',
+					'title'       => __('Slides', 'redux-framework-demo'),
+					'subtitle'    => 'You can sort those slider by drag and drop',
+					'placeholder' => array(
+						'title'           => __('Enter title', 'redux-framework-demo'),
+						'description'     => __('Enter Description', 'redux-framework-demo'),
+						'url'             => __('Link (optional)', 'redux-framework-demo'),
+					),
 				),
 			)));
 
