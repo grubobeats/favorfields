@@ -37,6 +37,13 @@ if( is_user_logged_in() ) {
 	$maximum_questions = $welgorithm[ $prefix . 'basic_settings_steps' ][0];
 }
 
+
+$right_faded_logo = explode(",", $favorfields[ $hellgo_prefix . 'logo_gallery']);
+shuffle($right_faded_logo);
+
+$right_faded_logo_url = wp_get_attachment_url($right_faded_logo[0]);
+
+
 ?>
     <script>
         var all_steps = <?= $welgorithm[ $prefix . 'basic_settings_steps' ][0]; ?>,
@@ -88,7 +95,7 @@ if( is_user_logged_in() ) {
                             </div> <!-- wellgorightem-content ends -->
 
                             <div class="right-faded-logo">
-                                <img src="<?php bloginfo('stylesheet_directory'); ?>/assets/images/FFLOGO2.svg" alt="FFLOGO" class="img-responsive">
+                                <img src="<?= $right_faded_logo_url ?>" alt="FFLOGO" class="img-responsive">
                             </div>  <!-- right-faded-logo ends -->
                         </div> <!-- col-sm-12 ends -->
                     </div> <!-- row ends -->

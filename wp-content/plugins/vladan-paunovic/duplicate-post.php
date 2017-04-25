@@ -10,6 +10,7 @@
  * Function creates post duplicate as a draft and redirects then to the edit post screen
  */
 function duplicate_post_as_draft(){
+
     global $wpdb;
     if (! ( isset( $_GET['post']) || isset( $_POST['post'])  || ( isset($_REQUEST['action']) && 'duplicate_post_as_draft' == $_REQUEST['action'] ) ) ) {
         wp_die('No post to duplicate has been supplied!');
@@ -113,6 +114,8 @@ add_action( 'admin_action_duplicate_post_as_draft', 'duplicate_post_as_draft' );
  * Add the duplicate link to action list for post_row_actions
  */
 function rd_duplicate_post_link( $actions, $post ) {
+
+
     if (current_user_can('edit_posts')) {
         $actions['duplicate'] = '<a href="' . wp_nonce_url('admin.php?action=duplicate_post_as_draft&post=' . $post->ID, basename(__FILE__), 'duplicate_nonce' ) . '" title="Duplicate this item" rel="permalink">Duplicate</a>';
     }

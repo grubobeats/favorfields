@@ -38,11 +38,12 @@ function color_templates() {
         'filter_items_list'     => __( 'Filter items list', 'text_domain' ),
     );
     $args = array(
+	    'query_var'             => true,
         'label'                 => __( 'Color template', 'text_domain' ),
         'description'           => __( 'Color Templates Description', 'text_domain' ),
         'labels'                => $labels,
         'supports'              => array( 'title', 'thumbnail', ),
-        'hierarchical'          => false,
+        'hierarchical'          => true,
         'public'                => true,
         'show_ui'               => true,
         'show_in_menu'          => true,

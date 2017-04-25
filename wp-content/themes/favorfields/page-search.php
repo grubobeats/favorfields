@@ -408,7 +408,13 @@ global $favorfields;
             attributeName: 'vp_category',
             limit: 3,
             autoHideContainer: false,
-            options: [{ start: 4, end: 4, name: 'Hellgo' }, { start: 3, end: 3, name: 'Wellgo' }, { start: 5, end: 5, name: 'Letgo' }],
+            options: [
+                { start: 4, end: 4, name: 'Hellgo' },
+                { start: 3, end: 3, name: 'Wellgo' },
+                { start: 5, end: 5, name: 'Letgo' },
+                { start: 148, end: 148, name: 'Cosmo' },
+                { start: 147, end: 147, name: 'Predicto' }
+                ],
             templates: {
                 item: function item(data) {
                     var output = "";
@@ -418,6 +424,10 @@ global $favorfields;
                         output = "<img src='http://favorfields.com/wp-content/uploads/2017/03/letgo1.png'><span class='letgo'>Letgo</span>";
                     } else if (data.name == 'Wellgo') {
                         output = "<img src='http://favorfields.wpengine.com/wp-content/uploads/2017/02/wellgo1.png'><span class='wellgo'>Wellgo</span>";
+                    } else if (data.name == 'Cosmo') {
+                        output = "<img src='http://favorfields.wpengine.com/wp-content/uploads/2017/02/wellgo1.png'><span class='wellgo'>Cosmo</span>";
+                    } else if (data.name == 'Predicto') {
+                        output = "<img src='http://favorfields.wpengine.com/wp-content/uploads/2017/02/wellgo1.png'><span class='wellgo'>Predicto</span>";
                     }
                     return output;
                 }
@@ -554,7 +564,13 @@ global $favorfields;
             attributeName: 'vp_category',
             limit: 3,
             autoHideContainer: false,
-            options: [{ start: 4, end: 4, name: 'Hellgo' }, { start: 3, end: 3, name: 'Wellgo' }, { start: 5, end: 5, name: 'Letgo' }],
+            options: [
+                { start: 4, end: 4, name: 'Hellgo' },
+                { start: 3, end: 3, name: 'Wellgo' },
+                { start: 5, end: 5, name: 'Letgo' },
+                { start: 148, end: 148, name: 'Cosmo' },
+                { start: 147, end: 147, name: 'Predicto' }
+                ],
             templates: {
                 item: function item(data) {
                     var output = "";
@@ -564,6 +580,10 @@ global $favorfields;
                         output = "<img src='http://favorfields.com/wp-content/uploads/2017/03/letgo1.png'><span class='letgo'>Letgo</span>";
                     } else if (data.name == 'Wellgo') {
                         output = "<img src='http://favorfields.wpengine.com/wp-content/uploads/2017/02/wellgo1.png'><span class='wellgo'>Wellgo</span>";
+                    } else if (data.name == 'Cosmo') {
+                        output = "<img src='http://favorfields.wpengine.com/wp-content/uploads/2017/02/wellgo1.png'><span class='wellgo'>Cosmo</span>";
+                    } else if (data.name == 'Predicto') {
+                        output = "<img src='http://favorfields.wpengine.com/wp-content/uploads/2017/02/wellgo1.png'><span class='wellgo'>Predicto</span>";
                     }
                     return output;
                 }
