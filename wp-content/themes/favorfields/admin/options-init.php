@@ -226,7 +226,13 @@
                 'title'    => __('Footer On/Off', 'redux-framework-demo'),
                 'subtitle' => __('Enable and disable footer', 'redux-framework-demo'),
                 'default'  => true,
-            )
+            ),
+	        array(
+		        'id'       => 'footer_copyright',
+		        'type'     => 'textarea',
+		        'title'    => __('Copyright', 'redux-framework-demo'),
+		        'default'  => ''
+	        ),
         )
     ) );
 
