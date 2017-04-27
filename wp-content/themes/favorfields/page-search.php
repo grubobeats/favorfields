@@ -16,6 +16,7 @@
 get_header();
 
 global $favorfields;
+$algolia_avatars_array = explode(',',$favorfields['homepage_search_agolia_avatars']);
 ?>
 
 <script src="//cdn.jsdelivr.net/instantsearch.js/1/instantsearch.min.js"></script>
@@ -419,15 +420,15 @@ global $favorfields;
                 item: function item(data) {
                     var output = "";
                     if (data.name == 'Hellgo') {
-                        output = "<img src='http://favorfields.wpengine.com/wp-content/uploads/2017/02/hellgo3.png'><span class='hellgo'>Hellgo</span>";
+                        output = "<img src='<?= wp_get_attachment_url($algolia_avatars_array[0]); ?>'><span class='hellgo'>Hellgo</span>";
                     } else if (data.name == 'Letgo') {
-                        output = "<img src='http://favorfields.com/wp-content/uploads/2017/03/letgo1.png'><span class='letgo'>Letgo</span>";
+                        output = "<img src='<?= wp_get_attachment_url($algolia_avatars_array[1]); ?>'><span class='letgo'>Letgo</span>";
                     } else if (data.name == 'Wellgo') {
-                        output = "<img src='http://favorfields.wpengine.com/wp-content/uploads/2017/02/wellgo1.png'><span class='wellgo'>Wellgo</span>";
+                        output = "<img src='<?= wp_get_attachment_url($algolia_avatars_array[2]); ?>'><span class='wellgo'>Wellgo</span>";
                     } else if (data.name == 'Cosmo') {
-                        output = "<img src='http://favorfields.wpengine.com/wp-content/uploads/2017/02/wellgo1.png'><span class='wellgo'>Cosmo</span>";
+                        output = "<img src='<?= wp_get_attachment_url($algolia_avatars_array[3]); ?>'><span class='wellgo'>Cosmo</span>";
                     } else if (data.name == 'Predicto') {
-                        output = "<img src='http://favorfields.wpengine.com/wp-content/uploads/2017/02/wellgo1.png'><span class='wellgo'>Predicto</span>";
+                        output = "<img src='<?= wp_get_attachment_url($algolia_avatars_array[4]); ?>'><span class='wellgo'>Predicto</span>";
                     }
                     return output;
                 }
@@ -575,15 +576,15 @@ global $favorfields;
                 item: function item(data) {
                     var output = "";
                     if (data.name == 'Hellgo') {
-                        output = "<img src='http://favorfields.wpengine.com/wp-content/uploads/2017/02/hellgo3.png'><span class='hellgo'>Hellgo</span>";
+                        output = "<img src='<?= wp_get_attachment_url($algolia_avatars_array[0]); ?>'><span class='hellgo'>Hellgo</span>";
                     } else if (data.name == 'Letgo') {
-                        output = "<img src='http://favorfields.com/wp-content/uploads/2017/03/letgo1.png'><span class='letgo'>Letgo</span>";
+                        output = "<img src='<?= wp_get_attachment_url($algolia_avatars_array[1]); ?>'><span class='letgo'>Letgo</span>";
                     } else if (data.name == 'Wellgo') {
-                        output = "<img src='http://favorfields.wpengine.com/wp-content/uploads/2017/02/wellgo1.png'><span class='wellgo'>Wellgo</span>";
+                        output = "<img src='<?= wp_get_attachment_url($algolia_avatars_array[2]); ?>'><span class='wellgo'>Wellgo</span>";
                     } else if (data.name == 'Cosmo') {
-                        output = "<img src='http://favorfields.wpengine.com/wp-content/uploads/2017/02/wellgo1.png'><span class='wellgo'>Cosmo</span>";
+                        output = "<img src='<?= wp_get_attachment_url($algolia_avatars_array[3]); ?>'><span class='wellgo'>Cosmo</span>";
                     } else if (data.name == 'Predicto') {
-                        output = "<img src='http://favorfields.wpengine.com/wp-content/uploads/2017/02/wellgo1.png'><span class='wellgo'>Predicto</span>";
+                        output = "<img src='<?= wp_get_attachment_url($algolia_avatars_array[4]); ?>'><span class='wellgo'>Predicto</span>";
                     }
                     return output;
                 }

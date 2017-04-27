@@ -74,6 +74,12 @@ Redux::setSection( $opt_name, array(
 				'description'  => 'Each word in new row',
 				'default'  => ''
 			),
+			array(
+				'id'       => 'homepage_search_agolia_avatars',
+				'type'     => 'gallery',
+				'title'    => __('Add/Edit Avatars', 'redux-framework-demo'),
+				'subtitle' => __('Note to have exact number of avatars and in order as they are shown on homepage.', 'redux-framework-demo'),
+			)
 		)));
 
 
