@@ -414,8 +414,9 @@ $algolia_avatars_array = explode(',',$favorfields['homepage_search_agolia_avatar
                 { start: 3, end: 3, name: 'Wellgo' },
                 { start: 5, end: 5, name: 'Letgo' },
                 { start: 148, end: 148, name: 'Cosmo' },
-                { start: 147, end: 147, name: 'Predicto' }
-                ],
+                { start: 147, end: 147, name: 'Predicto' },
+                { start: 152, end: 152, name: 'Quacko' }
+            ],
             templates: {
                 item: function item(data) {
                     var output = "";
@@ -426,9 +427,11 @@ $algolia_avatars_array = explode(',',$favorfields['homepage_search_agolia_avatar
                     } else if (data.name == 'Wellgo') {
                         output = "<img src='<?= wp_get_attachment_url($algolia_avatars_array[2]); ?>'><span class='wellgo'>Wellgo</span>";
                     } else if (data.name == 'Cosmo') {
-                        output = "<img src='<?= wp_get_attachment_url($algolia_avatars_array[3]); ?>'><span class='wellgo'>Cosmo</span>";
+                        output = "<img src='<?= wp_get_attachment_url($algolia_avatars_array[3]); ?>'><span class='cosmo'>Cosmo</span>";
                     } else if (data.name == 'Predicto') {
-                        output = "<img src='<?= wp_get_attachment_url($algolia_avatars_array[4]); ?>'><span class='wellgo'>Predicto</span>";
+                        output = "<img src='<?= wp_get_attachment_url($algolia_avatars_array[4]); ?>'><span class='predicto'>Predicto</span>";
+                    } else if (data.name == 'Quacko') {
+                        output = "<img src='<?= wp_get_attachment_url($algolia_avatars_array[5]); ?>'><span class='quacko'>Quacko</span>";
                     }
                     return output;
                 }
@@ -570,7 +573,8 @@ $algolia_avatars_array = explode(',',$favorfields['homepage_search_agolia_avatar
                 { start: 3, end: 3, name: 'Wellgo' },
                 { start: 5, end: 5, name: 'Letgo' },
                 { start: 148, end: 148, name: 'Cosmo' },
-                { start: 147, end: 147, name: 'Predicto' }
+                { start: 147, end: 147, name: 'Predicto' },
+                { start: 152, end: 152, name: 'Quacko' }
                 ],
             templates: {
                 item: function item(data) {
@@ -582,9 +586,11 @@ $algolia_avatars_array = explode(',',$favorfields['homepage_search_agolia_avatar
                     } else if (data.name == 'Wellgo') {
                         output = "<img src='<?= wp_get_attachment_url($algolia_avatars_array[2]); ?>'><span class='wellgo'>Wellgo</span>";
                     } else if (data.name == 'Cosmo') {
-                        output = "<img src='<?= wp_get_attachment_url($algolia_avatars_array[3]); ?>'><span class='wellgo'>Cosmo</span>";
+                        output = "<img src='<?= wp_get_attachment_url($algolia_avatars_array[3]); ?>'><span class='cosmo'>Cosmo</span>";
                     } else if (data.name == 'Predicto') {
-                        output = "<img src='<?= wp_get_attachment_url($algolia_avatars_array[4]); ?>'><span class='wellgo'>Predicto</span>";
+                        output = "<img src='<?= wp_get_attachment_url($algolia_avatars_array[4]); ?>'><span class='predicto'>Predicto</span>";
+                    } else if (data.name == 'Quacko') {
+                        output = "<img src='<?= wp_get_attachment_url($algolia_avatars_array[5]); ?>'><span class='quacko'>Quacko</span>";
                     }
                     return output;
                 }

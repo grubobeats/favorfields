@@ -35,11 +35,11 @@ get_template_part( 'header-wellgorithms');
 
   					<div class="wellgorightem-content">
 	  					<figure class="wellgo-mood-img">
-	  						<img src="http://favorfields.com/wp-content/uploads/2017/02/wellgo1.png" alt="" class="img-responsive">					
+	  						<img src="http://favorfields.com/wp-content/uploads/2017/02/wellgo1.png" alt="" class="img-responsive">
 	  					</figure>
 	  					<h1 class="wellgo-main-title">
-	  						<small>It's time to do the </small> 
-	  						<span>Peace Infuser</span> 
+	  						<small>It's time to do the </small>
+	  						<span>Peace Infuser</span>
 	  					</h1>
 	  				</div> <!-- wellgorightem-content ends -->
 
@@ -50,9 +50,9 @@ get_template_part( 'header-wellgorithms');
   				</div> <!-- col-sm-12 ends -->
   			</div> <!-- row ends -->
   		</div> <!-- container ends-->
-  	</div> 
+  	</div>
   	<!-- wellgorithms-main-banner ends -->
-		
+
 		<!-- wellgorithms-questionnaire starts -->
   	<div class="container">
   		<div class="row">
@@ -80,8 +80,8 @@ get_template_part( 'header-wellgorithms');
 	  						<div class="col-sm-5 wellgo-quiz-option">
 	  							<p contenteditable="true">I know it won't be easy. But I'm up for the challenge. I've done if before and i can do it again.</p>
 	  							<div class="media wellgo-user">
-	  								<figure class="media-left wellgo-user-img border-color-4"> 
-	  									<img src="http://favorfields.com/wp-content/uploads/2017/02/mm9.png" alt="user" class="img-responsive"> 
+	  								<figure class="media-left wellgo-user-img border-color-4">
+	  									<img src="http://favorfields.com/wp-content/uploads/2017/02/mm9.png" alt="user" class="img-responsive">
 	  								</figure>
 	  								<div class="media-body">
 		  								<span class="wellgo-user-name color-4"> JACQUELINE </span>
@@ -89,7 +89,7 @@ get_template_part( 'header-wellgorithms');
 	  								</div>
 	  							</div>
 	  							<!-- wellgo-user ends -->
-	  						</div> 
+	  						</div>
 	  						<!-- col-sm-5 wellgo-quiz-option ends -->
 
 	  						<div class="col-sm-2 wellgo-main-img text-center">
@@ -103,8 +103,8 @@ get_template_part( 'header-wellgorithms');
 	  						<div class="col-sm-5 wellgo-quiz-option">
 	  							<p contenteditable="true">Honestly I wish it was that easy. No matter how hard I try, I just can't seem to get myself together.</p>
 	  							<div class="media wellgo-user">
-	  								<figure class="media-left wellgo-user-img border-color-4"> 
-	  									<img src="http://favorfields.com/wp-content/uploads/2017/02/mm9.png" alt="user" class="img-responsive"> 
+	  								<figure class="media-left wellgo-user-img border-color-4">
+	  									<img src="http://favorfields.com/wp-content/uploads/2017/02/mm9.png" alt="user" class="img-responsive">
 	  								</figure>
 	  								<div class="media-body">
 		  								<span class="wellgo-user-name color-4"> JONATHAN </span>
@@ -112,7 +112,7 @@ get_template_part( 'header-wellgorithms');
 	  								</div>
 	  							</div>
 	  							<!-- wellgo-user ends -->
-	  						</div> 
+	  						</div>
 	  						<!-- col-sm-5 wellgo-quiz-option ends -->
 
 	  						<div class="circle">
@@ -128,12 +128,12 @@ get_template_part( 'header-wellgorithms');
 								<!-- Radio Buttons -->
 
 	  					</div>
-	  					<!-- wellgo-quiz-box ends -->							
-							
+	  					<!-- wellgo-quiz-box ends -->
+
 							<!-- wellgo-btn-sm btns -->
   						<button type="button" class="wellgo-btn-sm top-next border-color-4"></button>
-							
-							<!-- progressbar ends -->	
+
+							<!-- progressbar ends -->
 							<ul class="progressbar">
 				        <li class="step-completed background-color-4"></li>
 				        <li class="step-completed background-color-4"></li>
@@ -142,60 +142,60 @@ get_template_part( 'header-wellgorithms');
 				        <li></li>
 				        <li></li>
 				        <li></li>
-				    	</ul> 
+				    	</ul>
 				    	<!-- progressbar ends -->
-							
+
 							<div class="clearfix"></div>
 
-							<!-- wellgo-random-users list -->					
+							<!-- wellgo-random-users list -->
 				    	<ul class="wellgo-random-users list-inline">
 				    		<li>
-				    			<a href="#"> 
+				    			<a href="#">
 				    				<img src="http://favorfields.com/wp-content/uploads/2017/02/mm9.png" alt="user" class="img-responsive border-color-4">
 				    				<span class="color-4"> Jonathan</span>
 				    			</a>
 				    		</li>
 				    		<li>
-				    			<a href="#"> 
+				    			<a href="#">
 				    				<img src="http://favorfields.com/wp-content/uploads/2017/02/mm9.png" alt="user" class="img-responsive border-color-4">
 				    				<span class="color-4"> Jacqueline</span>
 				    			</a>
 				    		</li>
 				    		<li>
-				    			<a href="#"> 
+				    			<a href="#">
 				    				<img src="http://favorfields.com/wp-content/uploads/2017/02/mm9.png" alt="user" class="img-responsive border-color-4">
 				    				<span class="color-4"> Tony</span>
 				    			</a>
 				    		</li>
 				    		<li>
-				    			<a href="#"> 
+				    			<a href="#">
 				    				<img src="http://favorfields.com/wp-content/uploads/2017/02/mm9.png" alt="user" class="img-responsive border-color-4">
 				    				<span class="color-4"> Karl</span>
 				    			</a>
 				    		</li>
 				    		<li>
-				    			<a href="#"> 
+				    			<a href="#">
 				    				<img src="http://favorfields.com/wp-content/uploads/2017/02/mm9.png" alt="user" class="img-responsive border-color-4">
 				    				<span class="color-4"> Bonny</span>
 				    			</a>
 				    		</li>
 
-			    			<div class="shuffle-users"> 
-					    		<a href="javascript:void(0)" title="Suffle Users" class="border-color-4"> 
-					    			<i class="fa fa-repeat reload_search" aria-hidden="true"> </i> 
-					    		</a> 
+			    			<div class="shuffle-users">
+					    		<a href="javascript:void(0)" title="Suffle Users" class="border-color-4">
+					    			<i class="fa fa-repeat reload_search" aria-hidden="true"> </i>
+					    		</a>
 					    	</div>
 					    	<!-- shuffle-users btn ends -->
 				    	</ul>
 							<!-- wellgo-random-users list ends here -->
-	  				</div> 
+	  				</div>
 	  				<!-- wellgorightem-questionnaire ends -->
   				</div>
   				<!--=========================== Quiz Box Loop Ends Here ===========================-->
 
-  			</div> 
+  			</div>
   			<!-- col-sm-12 ends -->
-			 	 
+
 			 	<!-- wellgo-login-box starts here -->
   			<div class="col-sm-12 wellgo-login-box text-center">
   				<form class="form-inline">
@@ -245,11 +245,11 @@ get_template_part( 'header-wellgorithms');
   			</div>
   		  <!-- wellgo-Signup-box ends here -->
 
-  		</div> 
+  		</div>
   		<!-- row ends -->
-  	</div> 
+  	</div>
   	<!-- container ends -->
-  </div> 
+  </div>
   <!-- main-wellgorithms ends -->
 </div>
 <!-- #main ends -->
