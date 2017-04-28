@@ -238,4 +238,27 @@
 
     });
 
+
+    // Sending email from footer
+	$('#footer-send').click(function (e) {
+		e.preventDefault();
+
+		var from = $('#footer-email').val(),
+        	to = 'vladan.paunovic.bg@gmail.com',
+        	name = $('#footer-name').val(),
+        	message = $('#footer-text').val(),
+			data = {
+				action: 'send_email',
+				from: from,
+				to: to,
+				name: name,
+				message: message
+			};
+
+        $.post(ajaxurl, data, function( response ){
+			$('#footer-msg-status').html(response);
+        });
+
+    });
+
 })(jQuery);

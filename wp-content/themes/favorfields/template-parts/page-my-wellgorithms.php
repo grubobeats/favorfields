@@ -43,38 +43,210 @@ if ( is_user_logged_in() || $shared != 0 ) :
 
 
 ?>
+<!-- Latest compiled and minified CSS  -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css?family=Playfair+Display:400i|Raleway:400,600,700|Open+Sans:400,600" rel="stylesheet">
+
 <script>
     var tags, weather, ajaxurl = "<?= admin_url( 'admin-ajax.php' ) ?>";
 </script>
-<div class="separator" style="height: 150px; width: 100%"></div>
-<!-- Main -->
 
 <div id="main">
+    <!-- my-wellgorithms-main-banner starts -->
+    <div class="wellgorithms-main-banner">
+        <div class="wellgo-transparent-overlay background-color-3">
+        </div> <!-- wellgo-transparent-overlay -->
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="my-wellgorightem-content">
+                        <figure class="">
+                            <img class="img-responsive img-bordered" src="http://favorfields.com/wp-content/uploads/2017/03/RENEE.png">
+                        </figure>
+                        <button type="button" class="btn btn-default favor-me">Favor</button>
+
+                        <form action="<?= $form_action_link ?>" class="filter-form">
+                            <select name="category-filter" id="category-filter">
+                                <option value="0">Bot</option>
+                                <? foreach( get_categories() as $category ) : ?>
+                                    <option value="<?= $category->cat_ID?>"><?= $category->name?></option>
+                                <? endforeach; ?>
+                            </select>
+                            <select name="tags-filter" id="tags-filter">
+                                <option value="0">Focus</option>
+                            </select>
+                            <select name="mood-filter" id="mood-filter">
+                                <option value="1">Mood</option>
+                            </select>
+                            <button type="submit" class="submit-filter">Go</button>
+                        </form> <!-- Filter Form Ends Here -->
+
+                        <h1 class="my-wellgo-top-title">
+                            <span>Shae's</span> 
+                            <strong>Journey</strong>
+                        </h1> <!-- My-wellgo-top-title -->
+
+                        <a href="javascript:void(0)" title="Suffle Users" class="refresh-btn border-color-4"> 
+                            <i class="fa fa-repeat" aria-hidden="true"> </i> 
+                        </a>
+                    </div> <!-- wellgorightem-content ends -->
+
+                    <div class="right-faded-logo">
+                        <img src="http://favorfields.com/wp-content/themes/favorfields/assets/images/mian-logo.png" alt="FFLOGO" class="img-responsive">
+                    </div>  <!-- right-faded-logo ends -->
+
+                </div> <!-- col-sm-12 ends -->
+            </div> <!-- row ends -->
+        </div> <!-- container ends-->
+    </div> 
+    <!-- my-wellgorithms-main-banner ends -->
+        
+    <div class="container my-wellgos-container">
+        <div class="row">
+            <div class="col-sm-12 big-matrix">
+                <ul>
+                    <li class="col-sm-3">
+                        <div class="single-wellgo">
+                            <span>Peace<br>Pollinator</span>
+                            <p>"Now I pledge, to myself and everyone in the Universe, that from this moment on I am sculping myself into the masterpiece."</p>
+                            <ul class="list-inline action-btn-wrap">
+                                <li> <a href="javascript:void(0)"> <i class="fa fa-eye" aria-hidden="true"></i> </a></li>
+                                <li> <a href="javascript:void(0)"> <i class="fa fa-lock" aria-hidden="true"></i> </a></li>
+                                <li> <a href="javascript:void(0)"> <i class="fa fa-trash-o" aria-hidden="true"></i> </a></li>
+                            </ul>
+                        </div> 
+                    </li>
+                    <li class="col-sm-3">
+                        <div class="single-wellgo">
+                            <span>Peace<br>Pollinator</span>
+                            <p>"Now I pledge, to myself and everyone in the Universe, that from this moment on I am sculping myself into the masterpiece."</p>
+                            <ul class="list-inline action-btn-wrap">
+                                <li> <a href="javascript:void(0)"> <i class="fa fa-eye" aria-hidden="true"></i> </a></li>
+                                <li> <a href="javascript:void(0)"> <i class="fa fa-lock" aria-hidden="true"></i> </a></li>
+                                <li> <a href="javascript:void(0)"> <i class="fa fa-trash-o" aria-hidden="true"></i> </a></li>
+                            </ul>
+                        </div> 
+                    </li>
+                    <li class="col-sm-3">
+                        <div class="single-wellgo">
+                            <span>Peace<br>Pollinator</span>
+                            <p>"Now I pledge, to myself and everyone in the Universe, that from this moment on I am sculping myself into the masterpiece."</p>
+                            <ul class="list-inline action-btn-wrap">
+                                <li> <a href="javascript:void(0)"> <i class="fa fa-eye" aria-hidden="true"></i> </a></li>
+                                <li> <a href="javascript:void(0)"> <i class="fa fa-lock" aria-hidden="true"></i> </a></li>
+                                <li> <a href="javascript:void(0)"> <i class="fa fa-trash-o" aria-hidden="true"></i> </a></li>
+                            </ul>
+                        </div> 
+                    </li>
+                    <li class="col-sm-3 meta-wellgo">
+                        <span class="side-title"> Inspirations </span>
+                        <a href="javascript:void(0)" title="Suffle Users" class="refresh-btn border-color-4"> 
+                            <i class="fa fa-repeat" aria-hidden="true"> </i> 
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="space-md clearfix"></div>
+
+            <div class="col-sm-12 big-matrix orange">
+                <ul>
+                    <li class="col-sm-3">
+                        <div class="single-wellgo">
+                            <span>Peace<br>Pollinator</span>
+                            <p>"Now I pledge, to myself and everyone in the Universe, that from this moment on I am sculping myself into the masterpiece."</p>
+                            <ul class="list-inline action-btn-wrap">
+                                <li> <a href="javascript:void(0)"> <i class="fa fa-eye" aria-hidden="true"></i> </a></li>
+                                <li> <a href="javascript:void(0)"> <i class="fa fa-lock" aria-hidden="true"></i> </a></li>
+                                <li> <a href="javascript:void(0)"> <i class="fa fa-trash-o" aria-hidden="true"></i> </a></li>
+                            </ul>
+                        </div> 
+                    </li>
+                    <li class="col-sm-3">
+                        <div class="single-wellgo">
+                            <span>Peace<br>Pollinator</span>
+                            <p>"Now I pledge, to myself and everyone in the Universe, that from this moment on I am sculping myself into the masterpiece."</p>
+                            <ul class="list-inline action-btn-wrap">
+                                <li> <a href="javascript:void(0)"> <i class="fa fa-eye" aria-hidden="true"></i> </a></li>
+                                <li> <a href="javascript:void(0)"> <i class="fa fa-lock" aria-hidden="true"></i> </a></li>
+                                <li> <a href="javascript:void(0)"> <i class="fa fa-trash-o" aria-hidden="true"></i> </a></li>
+                            </ul>
+                        </div> 
+                    </li>
+                    <li class="col-sm-3">
+                        <div class="single-wellgo">
+                            <span>Peace<br>Pollinator</span>
+                            <p>"Now I pledge, to myself and everyone in the Universe, that from this moment on I am sculping myself into the masterpiece."</p>
+                            <ul class="list-inline action-btn-wrap">
+                                <li> <a href="javascript:void(0)"> <i class="fa fa-eye" aria-hidden="true"></i> </a></li>
+                                <li> <a href="javascript:void(0)"> <i class="fa fa-lock" aria-hidden="true"></i> </a></li>
+                                <li> <a href="javascript:void(0)"> <i class="fa fa-trash-o" aria-hidden="true"></i> </a></li>
+                            </ul>
+                        </div> 
+                    </li>
+                    <li class="col-sm-3 meta-wellgo">
+                        <span class="side-title"> Aha Moments </span>
+                        <a href="javascript:void(0)" title="Suffle Users" class="refresh-btn border-color-4"> 
+                            <i class="fa fa-repeat" aria-hidden="true"> </i> 
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="space-md clearfix"></div>
+
+            <div class="col-sm-12 big-matrix gray">
+                <ul>
+                    <li class="col-sm-3">
+                        <div class="single-wellgo">
+                            <span>Peace<br>Pollinator</span>
+                            <p>"Now I pledge, to myself and everyone in the Universe, that from this moment on I am sculping myself into the masterpiece."</p>
+                            <ul class="list-inline action-btn-wrap">
+                                <li> <a href="javascript:void(0)"> <i class="fa fa-eye" aria-hidden="true"></i> </a></li>
+                                <li> <a href="javascript:void(0)"> <i class="fa fa-lock" aria-hidden="true"></i> </a></li>
+                                <li> <a href="javascript:void(0)"> <i class="fa fa-trash-o" aria-hidden="true"></i> </a></li>
+                            </ul>
+                        </div> 
+                    </li>
+                    <li class="col-sm-3">
+                        <div class="single-wellgo">
+                            <span>Peace<br>Pollinator</span>
+                            <p>"Now I pledge, to myself and everyone in the Universe, that from this moment on I am sculping myself into the masterpiece."</p>
+                            <ul class="list-inline action-btn-wrap">
+                                <li> <a href="javascript:void(0)"> <i class="fa fa-eye" aria-hidden="true"></i> </a></li>
+                                <li> <a href="javascript:void(0)"> <i class="fa fa-lock" aria-hidden="true"></i> </a></li>
+                                <li> <a href="javascript:void(0)"> <i class="fa fa-trash-o" aria-hidden="true"></i> </a></li>
+                            </ul>
+                        </div> 
+                    </li>
+                    <li class="col-sm-3">
+                        <div class="single-wellgo">
+                            <span>Peace<br>Pollinator</span>
+                            <p>"Now I pledge, to myself and everyone in the Universe, that from this moment on I am sculping myself into the masterpiece."</p>
+                            <ul class="list-inline action-btn-wrap">
+                                <li> <a href="javascript:void(0)"> <i class="fa fa-eye" aria-hidden="true"></i> </a></li>
+                                <li> <a href="javascript:void(0)"> <i class="fa fa-lock" aria-hidden="true"></i> </a></li>
+                                <li> <a href="javascript:void(0)"> <i class="fa fa-trash-o" aria-hidden="true"></i> </a></li>
+                            </ul>
+                        </div> 
+                    </li>
+                    <li class="col-sm-3 meta-wellgo">
+                        <span class="side-title"> Breakthroughs </span>
+                        <a href="javascript:void(0)" title="Suffle Users" class="refresh-btn border-color-4"> 
+                            <i class="fa fa-repeat" aria-hidden="true"> </i> 
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>    
+    <div class="space-md clearfix"></div>
 
     <? if ($shared != 0) : ?>
     <div class="wellgo-creator">
         <h3><?= get_query_var('creator', 0) ?></h3>
     </div>
     <? endif; ?>
-
-    <form action="<?= $form_action_link ?>" class="filter-form">
-        <select name="category-filter" id="category-filter">
-            <option value="0">Category</option>
-            <? foreach( get_categories() as $category ) : ?>
-                <option value="<?= $category->cat_ID?>"><?= $category->name?></option>
-            <? endforeach; ?>
-        </select>
-        <select name="tags-filter" id="tags-filter">
-            <option value="0">Focus</option>
-
-        </select>
-
-        <select name="mood-filter" id="mood-filter">
-            <option value="1">Mood</option>
-        </select>
-
-        <button type="submit" class="submit-filter">Filter</button>
-    </form>
 
     <div class="wellgorithms-container">
         <?php
@@ -162,6 +334,7 @@ if ( is_user_logged_in() || $shared != 0 ) :
 
     </div>
 </div>
+
 <script>
     tags = <?= json_encode( array_values( array_unique( $tags, SORT_REGULAR ) ) )?>;
     weather = <?= json_encode( array_values( array_unique( $weather, SORT_REGULAR ) ) )?>;
@@ -266,17 +439,6 @@ if ( is_user_logged_in() || $shared != 0 ) :
             }
 
         })
-
-
-
-
-
-
-
-
-
-
-
 
     })
 </script>

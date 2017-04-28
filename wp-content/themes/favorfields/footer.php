@@ -37,17 +37,18 @@ if ($favorfields['enable-footer']) :
                         <h4>Say hello anytime.</h4>
                         <form class="contact-form row">
                           <div class="form-group col-sm-12">
-                            <textarea class="form-control" rows="3"></textarea>
+                            <textarea id="footer-text" required class="form-control" rows="3"></textarea>
                         </div> 
                         <div class="form-group col-sm-6">
-                            <input type="name" class="form-control" placeholder="name">
+                            <input id="footer-name" type="name" required class="form-control" placeholder="name">
                         </div>
                         <div class="form-group col-sm-6">
-                            <input type="email" class="form-control" placeholder="email">
+                            <input id="footer-email" type="email" required class="form-control" placeholder="email">
                         </div>
                         <div class="form-group col-sm-12">
-                            <button type="submit" class="btn btn-default">send</button>
+                            <button id="footer-send" class="btn btn-default">send</button>
                         </div>
+                        <div id="footer-msg-status" class="form-group col-sm-12"></div>
                     </form>
                 </div>
 
@@ -67,7 +68,7 @@ if ($favorfields['enable-footer']) :
                     ?>
                         <p><span class="cm">FavorFields</span>, Do yourself a favor <span class="tm">today</span>,  <span class="tm"><?= $wellgorithm ?></span>, <span class="cm"><?= $category[0]->name ?></span> and <span class="cm"><?= the_title() ?></span> are trademarks of Lightworkers of the Sphere, LLC.</p>
                     <? else : ?>
-                        <p><span class="cm">FavorFields</span>, Do yourself a favor <span class="tm">today</span>,  <span class="tm">Wellgorithm</span>, <span class="cm">Wellgo</span> and <span class="cm">Thought Grenade</span> are trademarks of Lightworkers of the Sphere, LLC.</p>
+                        <p><span class="cm">FavorFields</span>, Do yourself a favor <span class="tm">today</span>,  <span class="tm">Wellgorithm</span>, <span class="cm">Wellgo</span> and <span class="cm">Hellgo</span>, <span class="cm">Letgo</span>, <span class="cm">Cosmo</span>, <span class="cm">Predicto</span>, and <span class="cm">Quack Bot SaysTM</span> are trademarks of Lightworkers of the Sphere, LLC.</p>
                     <? endif; ?>
                       <?= $favorfields['footer_copyright'] ?>
                   </div>

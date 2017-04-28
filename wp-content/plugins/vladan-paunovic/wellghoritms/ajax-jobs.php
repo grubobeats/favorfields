@@ -703,3 +703,29 @@ add_action( 'wp_ajax_nopriv_login_user_now', 'login_user' );
  }
 
  add_action( 'wp_ajax_favor_options', 'listFavorOptions' );
+
+
+ function sendingEmail() {
+     $from = $_POST['from'];
+     $to = get_bloginfo('admin_email');
+     $name = $_POST['name'];
+     $text = $_POST['message'];
+	 $headers = "From: $from\r\n";
+     $subject = "Message from footer";
+     $message = "Name: $name  \r\n" . "Message: $text\r\n";
+
+     if ($from == "" || $to == "" || $name == "" || $text == "") {
+        echo "Please fill all fields.";
+        wp_die();
+     }
+
+     if ( mail($to,$subject,$message,$headers) ) {
+         echo "Thank you, dear friend, for your note. We’ll be in touch with you shortly.";
+     } else {
+         echo "There was a problem sending message.";
+     }
+
+    wp_die();
+ }
+
+ add_action( 'wp_ajax_send_email', 'sendingEmail' );

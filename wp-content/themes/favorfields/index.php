@@ -14,21 +14,121 @@
 
 get_header(); ?>
 
-	<div id="primary" class="content-area test">
-		<main id="main" class="site-main" role="main">
+<!-- Latest compiled and minified CSS  -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-		<?php if ( have_posts() ) : ?>
+<div id="primary" class="content-area test">
+	<main id="main" class="site-main" role="main">
+		<div class="wellgorithms-main-banner">
+			<div class="wellgo-transparent-overlay background-color-3">
+			</div> <!-- wellgo-transparent-overlay -->
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-12">
 
-			<?php if ( is_home() && ! is_front_page() ) : ?>
-				<header>
-					<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
-				</header>
-			<?php endif; ?>
+						<div class="top-banner-content">
+							<ul class="list-inline top-categories">
+								<li>
+									<figure class="wellgo-mood-img">
+										<a href=""> 
+											<img src="http://favorfields.com/wp-content/uploads/2017/02/Hellgo40-1.png" alt="" class="img-responsive">
+											<figcaption> Hellgo </figcaption>
+										</a>
+									</figure>
+								</li>
+								<li>
+									<figure class="wellgo-mood-img">
+										<a href=""> 
+											<img src="http://favorfields.com/wp-content/uploads/2017/02/Letgo5-1.png" alt="" class="img-responsive">
+											<figcaption> Wellgo </figcaption>
+										</a>
+									</figure>
+								</li>
+								<li>
+									<figure class="wellgo-mood-img">
+										<a href=""> 
+											<img src="http://favorfields.com/wp-content/uploads/2017/02/Wellgo12.png" alt="" class="img-responsive">
+											<figcaption> Letgo </figcaption>
+										</a>
+									</figure>
+								</li>
+								<li>
+									<figure class="wellgo-mood-img">
+										<a href=""> 
+											<img src="http://favorfields.com/wp-content/uploads/2017/02/Wellgo10.png" alt="" class="img-responsive">
+											<figcaption> Cosmo </figcaption>
+										</a>
+									</figure>
+								</li>
+								<li>
+									<figure class="wellgo-mood-img">
+										<a href=""> 
+											<img src="http://favorfields.com/wp-content/uploads/2017/02/Wellgo40.png" alt="" class="img-responsive">
+											<figcaption> Predicto </figcaption>
+										</a>
+									</figure>
+								</li>
+								<li>
+									<figure class="wellgo-mood-img">
+										<a href=""> 
+											<img src="http://favorfields.com/wp-content/uploads/2017/02/Wellgo58.png" alt="" class="img-responsive">
+											<figcaption> Quacko </figcaption>
+										</a>
+									</figure>
+								</li>
+								<li>
+									<figure class="wellgo-mood-img">
+										<a href=""> 
+											<img src="http://favorfields.com/wp-content/uploads/2017/02/Letgo47-1.png" alt="" class="img-responsive">
+											<figcaption> Fako </figcaption>
+										</a>
+									</figure>
+								</li>
+							</ul> <!-- top-categories -->
 
-			<?php /* Start the Loop */ ?>
-			<?php while ( have_posts() ) : the_post(); ?>
+							<div class="blog-page-heading">
+								<span class="heading"> Hellgo</span>
+								<span class="sub-heading">“Climbing out of your inner hell.”</span>
+							</div> <!-- blog-page-heading -->
 
-				<?php
+							<ul class="list-inline blog-random-tags">
+								<li> Gratitude </li>
+								<li> Peace </li>
+								<li> Faith </li>
+								<li> Joy </li>
+							</ul> <!-- blog-random-tags -->
+						</div> <!-- top-banner-content -->
+
+          	<div class="right-faded-logo">
+              <img src="http://favorfields.com/wp-content/themes/favorfields/assets/images/mian-logo.png" alt="FFLOGO" class="img-responsive">
+            </div>  <!-- right-faded-logo ends -->
+          </div> <!-- col-sm-12 ends -->
+        </div> <!-- row ends -->
+      </div> <!-- container ends-->
+    </div>
+
+    <div class="blog-container container">
+    	<div class="row">
+    		
+    		<div class="col-sm-12 big-matrix clearfix"> 
+	    		<a href="javascript:void(0)" title="Suffle Users" class="refresh-btn border-color-4"> 
+	          <i class="fa fa-repeat" aria-hidden="true"> </i> 
+	      	</a>
+    		</div>
+    		
+    		<div class="col-sm-8">
+    			<?php if ( have_posts() ) : ?>
+
+    				<?php if ( is_home() && ! is_front_page() ) : ?>
+    					<!-- <header>
+    						<h1 class="page-title screen-reader-text"><?php // single_post_title(); ?></h1>
+    					</header> -->
+    				<?php endif; ?>
+
+    				<?php /* Start the Loop */ ?>
+    				<?php while ( have_posts() ) : the_post(); ?>
+
+    					<?php
 
 					/*
 					 * Include the Post-Format-specific template for the content.
@@ -36,20 +136,21 @@ get_header(); ?>
 					 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
 					 */
 					get_template_part( 'template-parts/content', get_post_format() );
-				?>
+					?>
+					<?php endwhile; ?>
+						<?php the_posts_navigation(); ?>
+					<?php else : ?>
 
-			<?php endwhile; ?>
+					<?php get_template_part( 'template-parts/content', 'none' ); ?>
+					<?php endif; ?>
+				</div>
 
-			<?php the_posts_navigation(); ?>
+				<div class="col-sm-4">
+					<?php get_sidebar(); ?>
+				</div>
+			</div> <!-- .row -->
+		</div> <!-- .container -->
 
-		<?php else : ?>
-
-			<?php get_template_part( 'template-parts/content', 'none' ); ?>
-
-		<?php endif; ?>
-
-		</main><!-- #main -->
-	</div><!-- #primary -->
-
-<?php get_sidebar(); ?>
+	</main><!-- #main -->
+</div><!-- #primary -->
 <?php get_footer(); ?>
