@@ -14,7 +14,7 @@ class Blog {
 	 *
 	 * @return mixed
 	 */
-	function get_tag_cloud_by_category( $cat_id )
+	function get_tag_cloud_by_category( $cat_id = -1)
 	{
 		$query_args = array(
 			'cat' => $cat_id,
@@ -59,6 +59,85 @@ class Blog {
 			'taxonomy' => array( 'post_tag' ),
 		);
 
+
 		return wp_tag_cloud( $args );
+	}
+
+	/**
+	 * Getting clean tags based on categories
+	 * @param int $cat_id
+	 *
+	 * @return array
+	 */
+	function get_tags_by_category( $count_loop = 4, $cat_id = -1 )
+	{
+		$query_args = array(
+			'cat' => $cat_id,
+			'posts_per_page' => -1
+		);
+
+		$counter = 0;
+		$query = new WP_Query( $query_args );
+		$posttags = [];
+		while( $query->have_posts() ) {
+
+			if($counter >= $count_loop){ break; }
+
+			$query->the_post();
+
+			$pid = get_the_ID();
+
+			foreach ( wp_get_post_tags($pid)[0] as $tag_id ) {
+				$posttags[] = wp_get_post_tags($pid)[0]->term_id;
+			}
+
+			$counter++;
+		}
+
+		// Reset
+		wp_reset_postdata();
+
+		// Remove duplicates from array
+		$sortedtags = array_unique($posttags);
+
+		// Remove the blank entry due to get_the_tag_list
+		$sortedtags = array_values( array_filter($sortedtags) );
+
+		return $sortedtags;
+	}
+
+
+	/**
+	 * Getting the list of wellgorithms within category or out of category
+	 * @param int $count_loop
+	 * @param int $cat_id
+	 *
+	 * @return array
+	 */
+	function get_wellgorithms_by_category( $count_loop = 4, $cat_id = -1 )
+	{
+		$query_args = array(
+			'cat' => $cat_id,
+			'posts_per_page' => 50,
+			'post_type' => 'wellgorithms',
+			'post_status'=> 'publish',
+			'orderby' => 'rand'
+		);
+
+		$query = new WP_Query( $query_args );
+		$posttags = [];
+		while( $query->have_posts() ) {
+			$query->the_post();
+
+			$posttags[] = get_the_ID();
+		}
+
+		// Reset
+		wp_reset_postdata();
+
+
+		shuffle($posttags);
+
+		return array_slice($posttags, 0, $count_loop);
 	}
 }

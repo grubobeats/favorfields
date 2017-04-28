@@ -11,8 +11,9 @@ $blog = new Blog();
 $cat_id = -1;
 
 if ( is_archive() ) {
-	$cat_id = get_the_category()[0]->term_id;
+	$cat_id = get_query_var('cat');
 }
+
 ?>
 
 <div id="secondary" class="widget-area" role="complementary">
@@ -24,29 +25,16 @@ if ( is_archive() ) {
         </div>
     </aside>
     <aside id="search-2" class="widget widget_search">
-        <form role="search" method="get" class="search-form" action="http://favorfields.com/">
-            <label>
-                <span class="screen-reader-text">Search for:</span>
-                <input type="search" class="search-field" placeholder="Search …" value="" name="s">
-            </label>
-            <input type="submit" class="search-submit" value="Search">
-        </form>
+        <? get_search_form(); ?>
     </aside>
     <aside id="categories-2" class="widget widget_categories">
         <h2 class="widget-title">Wellgorithms</h2>
         <ul>
-            <li class="cat-item cat-item-151"><a href="http://favorfields.com/category/blog/">Blog</a>
-            </li>
-            <li class="cat-item cat-item-148"><a href="http://favorfields.com/category/cosmo/">Cosmo</a>
-            </li>
-            <li class="cat-item cat-item-4"><a href="http://favorfields.com/category/hellgo/">Hellgo</a>
-            </li>
-            <li class="cat-item cat-item-5"><a href="http://favorfields.com/category/letgo/">Letgo</a>
-            </li>
-            <li class="cat-item cat-item-147"><a href="http://favorfields.com/category/predicto/">Predicto</a>
-            </li>
-            <li class="cat-item cat-item-3"><a href="http://favorfields.com/category/wellgo/">Wellgo</a>
-            </li>
+            <? foreach( $blog->get_wellgorithms_by_category(5,$cat_id) as $wellgorithm ) : ?>
+                <li class="cat-item cat-item-151">
+                    <a href="<?= the_permalink($wellgorithm) ?>"><?= get_the_title($wellgorithm) ?></a>
+                </li>
+            <? endforeach; ?>
         </ul>
     </aside>
 </div>

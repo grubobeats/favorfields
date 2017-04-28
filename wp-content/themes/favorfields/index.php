@@ -16,11 +16,7 @@ get_header();
 require_once get_template_directory() . '/classes/blog/Blog.php';
 $blog = new Blog();
 
-
-
-
-
-
+$tag_list  = $blog->get_tags_by_category();
 ?>
 
 <!-- Latest compiled and minified CSS  -->
@@ -37,9 +33,9 @@ $blog = new Blog();
 
 						<div class="top-banner-content">
 							<ul class="list-inline top-categories">
-								<li>
+                                <li>
 									<figure class="wellgo-mood-img">
-										<a href=""> 
+										<a href="<?= get_category_link(4); ?>">
 											<img src="http://favorfields.com/wp-content/uploads/2017/02/Hellgo40-1.png" alt="" class="img-responsive">
 											<figcaption> Hellgo </figcaption>
 										</a>
@@ -47,7 +43,7 @@ $blog = new Blog();
 								</li>
 								<li>
 									<figure class="wellgo-mood-img">
-										<a href=""> 
+										<a href="<?= get_category_link(3); ?>">
 											<img src="http://favorfields.com/wp-content/uploads/2017/02/Letgo5-1.png" alt="" class="img-responsive">
 											<figcaption> Wellgo </figcaption>
 										</a>
@@ -55,7 +51,7 @@ $blog = new Blog();
 								</li>
 								<li>
 									<figure class="wellgo-mood-img">
-										<a href=""> 
+										<a href="<?= get_category_link(5); ?>">
 											<img src="http://favorfields.com/wp-content/uploads/2017/02/Wellgo12.png" alt="" class="img-responsive">
 											<figcaption> Letgo </figcaption>
 										</a>
@@ -63,7 +59,7 @@ $blog = new Blog();
 								</li>
 								<li>
 									<figure class="wellgo-mood-img">
-										<a href=""> 
+										<a href="<?= get_category_link(14); ?>">
 											<img src="http://favorfields.com/wp-content/uploads/2017/02/Wellgo10.png" alt="" class="img-responsive">
 											<figcaption> Cosmo </figcaption>
 										</a>
@@ -71,7 +67,7 @@ $blog = new Blog();
 								</li>
 								<li>
 									<figure class="wellgo-mood-img">
-										<a href=""> 
+										<a href="<?= get_category_link(147); ?>">
 											<img src="http://favorfields.com/wp-content/uploads/2017/02/Wellgo40.png" alt="" class="img-responsive">
 											<figcaption> Predicto </figcaption>
 										</a>
@@ -79,7 +75,7 @@ $blog = new Blog();
 								</li>
 								<li>
 									<figure class="wellgo-mood-img">
-										<a href=""> 
+										<a href="<?= get_category_link(152); ?>">
 											<img src="http://favorfields.com/wp-content/uploads/2017/02/Wellgo58.png" alt="" class="img-responsive">
 											<figcaption> Quacko </figcaption>
 										</a>
@@ -87,7 +83,7 @@ $blog = new Blog();
 								</li>
 								<li>
 									<figure class="wellgo-mood-img">
-										<a href=""> 
+										<a href="<?= get_category_link(3); ?>">
 											<img src="http://favorfields.com/wp-content/uploads/2017/02/Letgo47-1.png" alt="" class="img-responsive">
 											<figcaption> Fako </figcaption>
 										</a>
@@ -101,10 +97,9 @@ $blog = new Blog();
 							</div> <!-- blog-page-heading -->
 
 							<ul class="list-inline blog-random-tags">
-								<li> Gratitude </li>
-								<li> Peace </li>
-								<li> Faith </li>
-								<li> Joy </li>
+								<? foreach( $tag_list as $tag ) : ?>
+                                    <li><a href="<?= get_tag_link($tag) ?>"><?= get_tag($tag)->name; ?></a></li>
+								<? endforeach; ?>
 							</ul> <!-- blog-random-tags -->
 						</div> <!-- top-banner-content -->
 
