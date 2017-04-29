@@ -28,8 +28,9 @@ class Blog {
 
 			$pid = get_the_ID();
 
-			foreach ( wp_get_post_tags($pid)[0] as $tag_id ) {
-				$posttags[] = wp_get_post_tags($pid)[0]->term_id;
+
+			foreach ( wp_get_post_tags($pid) as $tag_id ) {
+				$posttags[] = $tag_id->term_id;
 			}
 	    }
 
@@ -69,7 +70,7 @@ class Blog {
 	 *
 	 * @return array
 	 */
-	function get_tags_by_category( $count_loop = 4, $cat_id = -1 )
+	function get_tags_by_category( $loop = 4, $cat_id = -1 )
 	{
 		$query_args = array(
 			'cat' => $cat_id,
@@ -81,14 +82,14 @@ class Blog {
 		$posttags = [];
 		while( $query->have_posts() ) {
 
-			if($counter >= $count_loop){ break; }
+			if( count($posttags) >= 3){ continue; }
 
 			$query->the_post();
 
 			$pid = get_the_ID();
 
-			foreach ( wp_get_post_tags($pid)[0] as $tag_id ) {
-				$posttags[] = wp_get_post_tags($pid)[0]->term_id;
+			foreach ( wp_get_post_tags($pid) as $tag_id ) {
+				$posttags[] = $tag_id->term_id;
 			}
 
 			$counter++;
@@ -97,13 +98,14 @@ class Blog {
 		// Reset
 		wp_reset_postdata();
 
+
 		// Remove duplicates from array
 		$sortedtags = array_unique($posttags);
 
 		// Remove the blank entry due to get_the_tag_list
 		$sortedtags = array_values( array_filter($sortedtags) );
 
-		return $sortedtags;
+		return array_slice($sortedtags, 0, $loop);
 	}
 
 

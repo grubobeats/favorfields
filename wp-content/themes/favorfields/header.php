@@ -34,7 +34,7 @@ if ( $user->ID == 0 ) {
         var ajaxurl = "<?= admin_url( 'admin-ajax.php' ) ?>";
     </script>
 </head>
-<body <?php body_class(); ?>>
+<body <?php if ( 'post' === get_post_type() ) : body_class('group-blog'); else: body_class(); endif;?>>
 <!-- Wrapper -->
 <div id="wrapper">
 

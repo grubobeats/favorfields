@@ -13,10 +13,14 @@
  */
 
 get_header();
+global $favorfields;
 require_once get_template_directory() . '/classes/blog/Blog.php';
 $blog = new Blog();
 $cat_ids = get_the_category()[0];
-$tag_list  = $blog->get_tags_by_category(4, $cat_ids->term_id);
+
+$this_cat_id = get_query_var('cat');
+
+$tag_list  = $blog->get_tags_by_category(4, $this_cat_id);
 ?>
 
 <!-- Latest compiled and minified CSS  -->
@@ -33,67 +37,21 @@ $tag_list  = $blog->get_tags_by_category(4, $cat_ids->term_id);
 
                         <div class="top-banner-content">
                             <ul class="list-inline top-categories">
-                                <li>
-                                    <figure class="wellgo-mood-img">
-                                        <a href="<?= get_category_link(4); ?>">
-                                            <img src="http://favorfields.com/wp-content/uploads/2017/02/Hellgo40-1.png" alt="" class="img-responsive">
-                                            <figcaption> Hellgo </figcaption>
-                                        </a>
-                                    </figure>
-                                </li>
-                                <li>
-                                    <figure class="wellgo-mood-img">
-                                        <a href="<?= get_category_link(3); ?>">
-                                            <img src="http://favorfields.com/wp-content/uploads/2017/02/Letgo5-1.png" alt="" class="img-responsive">
-                                            <figcaption> Wellgo </figcaption>
-                                        </a>
-                                    </figure>
-                                </li>
-                                <li>
-                                    <figure class="wellgo-mood-img">
-                                        <a href="<?= get_category_link(5); ?>">
-                                            <img src="http://favorfields.com/wp-content/uploads/2017/02/Wellgo12.png" alt="" class="img-responsive">
-                                            <figcaption> Letgo </figcaption>
-                                        </a>
-                                    </figure>
-                                </li>
-                                <li>
-                                    <figure class="wellgo-mood-img">
-                                        <a href="<?= get_category_link(14); ?>">
-                                            <img src="http://favorfields.com/wp-content/uploads/2017/02/Wellgo10.png" alt="" class="img-responsive">
-                                            <figcaption> Cosmo </figcaption>
-                                        </a>
-                                    </figure>
-                                </li>
-                                <li>
-                                    <figure class="wellgo-mood-img">
-                                        <a href="<?= get_category_link(147); ?>">
-                                            <img src="http://favorfields.com/wp-content/uploads/2017/02/Wellgo40.png" alt="" class="img-responsive">
-                                            <figcaption> Predicto </figcaption>
-                                        </a>
-                                    </figure>
-                                </li>
-                                <li>
-                                    <figure class="wellgo-mood-img">
-                                        <a href="<?= get_category_link(152); ?>">
-                                            <img src="http://favorfields.com/wp-content/uploads/2017/02/Wellgo58.png" alt="" class="img-responsive">
-                                            <figcaption> Quacko </figcaption>
-                                        </a>
-                                    </figure>
-                                </li>
-                                <li>
-                                    <figure class="wellgo-mood-img">
-                                        <a href="<?= get_category_link(153); ?>">
-                                            <img src="http://favorfields.com/wp-content/uploads/2017/02/Letgo47-1.png" alt="" class="img-responsive">
-                                            <figcaption> Fako </figcaption>
-                                        </a>
-                                    </figure>
-                                </li>
+	                            <? foreach( $favorfields['blog_categories_order'] as $category ) : ?>
+                                    <li>
+                                        <figure class="wellgo-mood-img">
+                                            <a href="<?= get_category_link( $category['url'] ); ?>">
+                                                <img src="<?= $category['image'] ?>" alt="" class="img-responsive">
+                                                <figcaption> <?= $category['title'] ?> </figcaption>
+                                            </a>
+                                        </figure>
+                                    </li>
+	                            <? endforeach; ?>
                             </ul> <!-- top-categories -->
 
                             <div class="blog-page-heading">
-                                <span class="heading"> <?= $cat_ids->name ?></span>
-                                <span class="sub-heading">“Climbing out of your inner hell.”</span>
+                                <span class="heading"> <?= get_the_category_by_ID($this_cat_id) ?></span>
+                                <span class="sub-heading">“<?= category_description( $this_cat_id ) ?>”</span>
                             </div> <!-- blog-page-heading -->
 
                             <ul class="list-inline blog-random-tags">

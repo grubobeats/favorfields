@@ -491,3 +491,6 @@ function new_link_page() {
 }
 
 add_action('admin_menu', 'new_link_page');
+
+// Remove <p> tags from category descriptions
+remove_filter('term_description','wpautop');
