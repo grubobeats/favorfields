@@ -17,7 +17,10 @@ global $favorfields;
 require_once get_template_directory() . '/classes/blog/Blog.php';
 $blog = new Blog();
 
-$tag_list  = $blog->get_tags_by_category();
+
+
+$tag_list  = $blog->get_tags_by_category(4);
+//wp_die('test');
 ?>
 
 <!-- Latest compiled and minified CSS  -->

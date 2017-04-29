@@ -70,19 +70,29 @@ class Blog {
 	 *
 	 * @return array
 	 */
-	function get_tags_by_category( $loop = 4, $cat_id = -1 )
+	function get_tags_by_category( $loop = 4, $cat_id = false )
 	{
-		$query_args = array(
-			'cat' => $cat_id,
-			'posts_per_page' => -1
-		);
+
+
+		if ( $cat_id ) {
+			$query_args = array(
+				'cat' => $cat_id,
+				'posts_per_page' => -1
+			);
+		} else {
+			$query_args = array(
+				'cat' => -1,
+				'posts_per_page' => -1
+			);
+		}
+
 
 		$counter = 0;
 		$query = new WP_Query( $query_args );
 		$posttags = [];
 		while( $query->have_posts() ) {
 
-			if( count($posttags) >= 3){ continue; }
+//			if( count($posttags) >= 3){ break; }
 
 			$query->the_post();
 

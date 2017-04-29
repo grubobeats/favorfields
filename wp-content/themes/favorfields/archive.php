@@ -12,15 +12,16 @@
  * @package FavorFields
  */
 
+
 get_header();
 global $favorfields;
 require_once get_template_directory() . '/classes/blog/Blog.php';
 $blog = new Blog();
+
 $cat_ids = get_the_category()[0];
-
-$this_cat_id = get_query_var('cat');
-
+$this_cat_id = ( get_query_var('cat') ) ? get_query_var('cat') : $cat_ids->term_id;
 $tag_list  = $blog->get_tags_by_category(4, $this_cat_id);
+
 ?>
 
 <!-- Latest compiled and minified CSS  -->

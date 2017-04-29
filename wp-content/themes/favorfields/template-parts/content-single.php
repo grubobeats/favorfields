@@ -25,6 +25,7 @@
 		<?php
 		echo get_the_content();
 		?>
+        <p><? the_tags( '', ', ', '<br />' ); ?></p>
 
 		<?php
 		wp_link_pages( array(
