@@ -18,6 +18,13 @@ if ( is_archive() ) {
 
 <div id="secondary" class="widget-area" role="complementary">
 	<?php //dynamic_sidebar( 'sidebar-1' ); ?>
+    <aside id="ask_lady_widget" class="widget widget_ask_lady">
+        <div class="ask_lady-metta">
+            <p class="pull-left"> <img class="img-responsive pull-left" src="http://favorfields.com/wp-content/uploads/2017/03/RENEE.png"> <span class="ask-lady-title pull-left">Ask <br>Lady Metta</span></p>
+            <p>Spiritual AI. Motivational Bots. Wellgorithms. Sound strange? Exactly! That’s why I’m here to help...</p>
+            <p class="text-center"><a href="#" class="explore-btn">Explore</a></p>
+        </div>
+    </aside>
     <aside id="tag_cloud-2" class="widget widget_tag_cloud">
         <h2 class="widget-title">Topics</h2>
         <div class="tagcloud">

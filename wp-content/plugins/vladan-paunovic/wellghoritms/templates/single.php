@@ -53,6 +53,7 @@ require_once 'template-parts/additional-js.php';
     <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400i|Raleway:400,600|Open+Sans:400,600" rel="stylesheet">
     <!-- Main -->
 
+
     <div id="main">
         <div class="main-wellgorithms background-color-6">
 
@@ -73,10 +74,11 @@ require_once 'template-parts/additional-js.php';
 
                         <!--=========================== Thank You & Confirmation Messages ===========================-->
 
-                        <? require_once 'template-parts/wellgorithm-done.php'; ?>
 
+                        <? require_once 'template-parts/fake-ads.php'; ?>
                         <? if ( !is_user_logged_in() ) : ?>
-                            <? require_once 'template-parts/login-box.php'; ?>
+	                        <? require_once 'template-parts/wellgorithm-done.php'; ?>
+	                        <? require_once 'template-parts/login-box.php'; ?>
                         <? endif; ?>
 
                         <? require_once 'template-parts/video-box.php'; ?>

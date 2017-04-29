@@ -269,6 +269,61 @@ class Template_logic
         }
     }
 
+	/**
+	 * Getting fake ads by category
+	 */
+    function getRandomFakeAd( $category_id ){
+
+	    $args = array(
+		    'post_type'         => 'fakoads',
+		    'order'             => 'rand',
+		    'cat'               => $category_id,
+		    'posts_per_page'    =>  1,
+		    'post_status'       => 'publish'
+	    );
+
+	    $output = [];
+
+	    $my_query = new WP_Query($args);
+	    if( $my_query->have_posts() ) {
+		    while ($my_query->have_posts()) : $my_query->the_post();
+			    $loop_post_id = get_the_ID();
+			    $output[] = $loop_post_id;
+		    endwhile;
+	    }
+	    wp_reset_query();
+
+
+	    return $output[0];
+    }
+
+
+    function FakoAd( $category_id ) {
+
+    	// Get random Fako Id from this category;
+	    $fako_id = $this->getRandomFakeAd( $category_id );
+
+
+	    $title = get_the_title($fako_id);
+		$meta = get_post_meta($fako_id);
+
+
+
+	    $output = [
+	    	'title'     => $title,
+		    'subtitle'  => $meta['fields_subtitle'][0],
+		    'headline'  => $meta['fields_headline'][0],
+		    'body'      => $meta['fields_body'][0],
+		    'quote_name'    => $meta['fields_quote-name'][0],
+		    'quote_author'  => $meta['fields_quote-author'][0],
+		    'quote_image'   => $meta['fields_quote-image'][0],
+		    'pro'           => $meta['fields_pro-fake-ad'][0],
+		    'pro_headline'  => $meta['fields_pro-headline'][0],
+		    'pro_body'      => $meta['fields_pro-body'][0],
+	    ];
+
+	    return (object) $output;
+    }
 }
 
 $logic = new Template_logic();

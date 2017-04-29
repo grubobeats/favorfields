@@ -15,10 +15,8 @@
 get_header();
 require_once get_template_directory() . '/classes/blog/Blog.php';
 $blog = new Blog();
-
-$cat_ids = get_the_category()[0]->term_id;
-
-$tag_list  = $blog->get_tags_by_category(4, $cat_ids);
+$cat_ids = get_the_category()[0];
+$tag_list  = $blog->get_tags_by_category(4, $cat_ids->term_id);
 ?>
 
 <!-- Latest compiled and minified CSS  -->
@@ -94,7 +92,7 @@ $tag_list  = $blog->get_tags_by_category(4, $cat_ids);
                             </ul> <!-- top-categories -->
 
                             <div class="blog-page-heading">
-                                <span class="heading"> Hellgo</span>
+                                <span class="heading"> <?= $cat_ids->name ?></span>
                                 <span class="sub-heading">“Climbing out of your inner hell.”</span>
                             </div> <!-- blog-page-heading -->
 

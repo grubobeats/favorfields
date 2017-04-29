@@ -17,6 +17,9 @@ require_once 'algolia/custom-fields.php';
 require_once 'wellghoritms/ajax-jobs.php';
 require_once 'duplicate-post.php';
 require_once 'admin-filters.php';
+require_once 'fakoads/fakoads.php';
+require_once 'posts/meta-boxes.php';
+
 /**
  * Adds the meta box stylesheet when appropriate
  */
