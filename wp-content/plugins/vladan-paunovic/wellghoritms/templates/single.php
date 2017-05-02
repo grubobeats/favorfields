@@ -49,13 +49,6 @@ require_once 'template-parts/additional-js.php';
 // Saving to session so it can be used in footer
 $_SESSION['cat'] = $logic->getWellgorithmPostID();
 ?>
-    <style>
-        .mode_bar.active {
-            opacity: 0.5;
-            background-color: white;
-        }
-    </style>
-
     <!-- Latest compiled and minified CSS  -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400i|Raleway:400,600|Open+Sans:400,600" rel="stylesheet">

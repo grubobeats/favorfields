@@ -67,14 +67,78 @@ $color_4 = getColorTemplate($favorfields['color-select'], 'basic_settings_color-
 $color_5 = getColorTemplate($favorfields['color-select'], 'basic_settings_color-5');
 $color_6 = getColorTemplate($favorfields['color-select'], 'basic_settings_color-6');
 $banner_image_src  = getRandomImage($favorfields['color-select'], true);
+$favor_png = getColorTemplate($favorfields['color-select'], 'basic_settings_favor_png');
+$favor_card_png = getColorTemplate($favorfields['color-select'], 'basic_settings_favor_card_png');
+$color_masking_off = (boolean) getColorTemplate($favorfields['color-select'], 'basic_settings_off_color_masking');
 ?>
 
-<style>.color-1 { color: <?= $color_1 ?> !important; } .color-2 { color: <?= $color_2 ?> !important; } .color-3 { color: <?= $color_3 ?> !important; } .color-4 { color: <?= $color_4 ?> !important; } .background-color-1 { background-color: <?= $color_1 ?> !important; } .background-color-2 { background-color: <?= $color_2 ?> !important; } .background-color-3 { background-color: <?= $color_3 ?> !important; } .background-color-4 { background-color: <?= $color_4 ?> !important; } .border-color-1 { border-color: <?= $color_1 ?> !important; } .border-color-2 { border-color: <?= $color_2 ?> !important; } .border-color-3 { border-color: <?= $color_3 ?> !important; } .border-color-4 { border-color: <?= $color_4 ?> !important; } .box-shadow-color-1 { box-shadow: 0 0 0 1px <?= $color_1 ?> !important; } .border-left-color-1 {border-left-color: <?= $color_1?> !important;} .border-left-color-2 {border-left-color: <?= $color_2 ?> !important;} .border-left-color-3 {border-left-color: <?= $color_3?> !important;} .border-left-color-4 {border-left-color: <?= $color_4?> !important;}
+<style>
+    .color-1 { color: <?= $color_1 ?> !important; } .color-2 { color: <?= $color_2 ?> !important; } .color-3 { color: <?= $color_3 ?> !important; } .color-4 { color: <?= $color_4 ?> !important; } .background-color-1 { background-color: <?= $color_1 ?> !important; } .background-color-2 { background-color: <?= $color_2 ?> !important; } .background-color-3 { background-color: <?= $color_3 ?> !important; } .background-color-4 { background-color: <?= $color_4 ?> !important; } .border-color-1 { border-color: <?= $color_1 ?> !important; } .border-color-2 { border-color: <?= $color_2 ?> !important; } .border-color-3 { border-color: <?= $color_3 ?> !important; } .border-color-4 { border-color: <?= $color_4 ?> !important; } .box-shadow-color-1 { box-shadow: 0 0 0 1px <?= $color_1 ?> !important; } .border-left-color-1 {border-left-color: <?= $color_1?> !important;} .border-left-color-2 {border-left-color: <?= $color_2 ?> !important;} .border-left-color-3 {border-left-color: <?= $color_3?> !important;} .border-left-color-4 {border-left-color: <?= $color_4?> !important;}.border-right-color-1 {border-right-color: <?= $color_1?> !important;} .border-right-color-2 {border-right-color: <?= $color_2 ?> !important;} .border-right-color-3 {border-right-color: <?= $color_3?> !important;} .border-right-color-4 {border-right-color: <?= $color_4?> !important;}
 
-    .background-color-5 { background-color: <?= $color_5 ?> }
-    .background-color-6 { background-color: <?= $color_6 ?> }
-    .background-image { background-image: url(<?= $banner_image_src ?>) !important; }
+    .wellgo-btn-container button:hover .btn1, .wellgo-btn-container button:hover .btn2, .wellgo-btn-container button:hover .btn3 { background-color: <?= $color_5 ?> !important; }
 
+    .wellgo-questionnaire-container .wellgo-questionnaire .wellgo-quiz-box .wellgo-user .wellgo-favor-btn:hover, .wellgo-questionnaire-container .wellgo-questionnaire .wellgo-quiz-box .wellgo-user .wellgo-favor-btn:focus { background-color: <?= $color_5 ?> !important; }
+
+    .background-color-5 { background-color: <?= $color_5 ?> !important;}
+    .background-color-6 { background-color: <?= $color_6 ?> !important;}
+
+    .border-before-color-1::before {
+        border-color: <?= $color_1 ?> !important;
+    }
+    .border-before-color-2::before {
+        border-color: <?= $color_2 ?> !important;
+    }
+    .border-before-color-3::before {
+        border-color: <?= $color_3 ?> !important;
+    }
+    .border-before-color-4::before {
+        border-color: <?= $color_4 ?> !important;
+    }
+
+    .background-color-before-color-1::before {
+        background-color: <?= $color_1 ?> !important;
+    }
+    .background-color-before-color-2::before {
+        background-color: <?= $color_2 ?> !important;
+    }
+    .background-color-before-color-3::before {
+        background-color: <?= $color_3 ?> !important;
+    }
+    .background-color-before-color-4::before {
+        background-color: <?= $color_4 ?> !important;
+    }
+
+    .background-color-after-color-1::after {
+        background-color: <?= $color_1 ?> !important;
+    }
+    .background-color-after-color-2::after {
+        background-color: <?= $color_2 ?> !important;
+    }
+    .background-color-after-color-3::after {
+        background-color: <?= $color_3 ?> !important;
+    }
+    .background-color-after-color-4::after {
+        background-color: <?= $color_4 ?> !important;
+    }
+
+    .cs-background-image {
+        background-image: url("<?= $favor_png ?>") !important;
+    }
+
+    .cs-image-overlayed {
+        background-image: url("<?= $banner_image_src; ?>");
+    }
+
+    .cs-main-background-image {
+        background-image: url("<?= $main_png ?>") !important;
+    }
+
+    .favor-card-png { background-image: url('<?= $favor_card_png ?>') !important; }
+
+    .ais-search-box::after { background-color: <?= $color_3 ?> }
+    .ais-hits { border-color: <?= $color_4 ?> }
+    .ais-hits--item { border-color: <?= $color_4 ?> }
+    .nicescroll-cursors { background-color: <?= $color_4 ?> !important;}
 </style>
 
 
@@ -101,8 +165,8 @@ $banner_image_src  = getRandomImage($favorfields['color-select'], true);
     </style>
 
 
-<div class="home-top-banner background-image">
-    <div class="homepage-transparent-overlay background-color-3"></div>
+<div class="home-top-banner cs-image-overlayed">
+    <div class="homepage-transparent-overlay background-color-3" <? if($color_masking_off) : ?> style="background-color: rgba(68, 45, 45, 0) !important;" <? endif; ?>></div>
 
     <div class="container">
         <div class="row">
@@ -121,9 +185,9 @@ $banner_image_src  = getRandomImage($favorfields['color-select'], true);
 </div>
 
 <!-- Main -->
-<div id="main">
+<div id="main" class="background-color-6">
     <section class="algolia-search-container">
-        <div class="container">
+        <div class="container background-color-6">
             <div class="row">
                 <div class="col-sm-12">
 
@@ -153,12 +217,12 @@ $banner_image_src  = getRandomImage($favorfields['color-select'], true);
                         </a>
                     </script>
 
-                    <div class="algolia-search">
-                        <div class="top">
+                    <div class="algolia-search border-left-color-3 border-right-color-3 background-color-2">
+                        <div class="top background-color-4">
                             <div class="input-container">
-                                <input type="text" id="search-box" class="clearable"/>
+                                <input type="text" id="search-box" class="clearable border-color-4"/>
                                 <div id="stats"></div>   
-                                <input type="text" id="search-box-replica" class="clearable"/>
+                                <input type="text" id="search-box-replica" class="clearable border-color-4"/>
                             </div>
                         </div>
 
@@ -167,7 +231,7 @@ $banner_image_src  = getRandomImage($favorfields['color-select'], true);
                                 <div class="facet">
                                     <div class="facet-title"></div>
                                     <div id="focus"></div>
-                                    <div id="focus_overlay">
+                                    <div id="focus_overlay" class="background-color-2">
                                         <div data-reactroot="">
                                             <div class="ais-root ais-refinement-list">
                                                 <div class="ais-body ais-refinement-list--body">
@@ -218,32 +282,32 @@ $banner_image_src  = getRandomImage($favorfields['color-select'], true);
     </section>
 
     <div class="inner">
-        <section id="loving-kindness" class="container">
+        <section id="loving-kindness" class="container background-color-6">
             <div class="row tex-center">
                 <div class="col-sm-12 text-center">
-                    <div class="bordered-container bg-white pad-top0">
-                        <div class="home-matrix-seperator clearfix">
-                            <h2 class="title-span"><?= $favorfields['homepage_sub_2'] ?></h2>
+                    <div class="bordered-container bg-white pad-top0 border-left-color-3 border-right-color-3 background-color-2">
+                        <div class="home-matrix-seperator background-color-4 clearfix">
+                            <h2 class="title-span color-4 border-color-4"><?= $favorfields['homepage_sub_2'] ?></h2>
                         </div>
-                        <h3 class="bold-text"><?= $favorfields['homepage_sub_2_text_1'] ?><br/><?= $favorfields['homepage_sub_2_text_2'] ?></h3>
+                        <h3 class="bold-text color-4"><?= $favorfields['homepage_sub_2_text_1'] ?><br/><?= $favorfields['homepage_sub_2_text_2'] ?></h3>
                         <div class="row">
                             <div class="col-sm-6 demo-video vid1">
                                 <div class="demo-video-container">
-                                    <img src="http://favorfields.com//wp-content/themes/favorfields/assets/images/lotus-video.jpg" class="img-responsive video-bordered" alt="Video">
-                                    <a class="play-video" href="javascript:void(0)"> <i class="fa fa-play" aria-hidden="true"></i> Watch</a>
+                                    <img src="http://favorfields.com//wp-content/themes/favorfields/assets/images/lotus-video.jpg" class="img-responsive video-bordered border-color-4" alt="Video">
+                                    <a class="play-video background-color-4" href="javascript:void(0)"> <i class="fa fa-play" aria-hidden="true"></i> Watch</a>
                                 </div>
-                                <h3 class="bold-text"> <span><?= $favorfields['homepage_sub_2_content_title_1'] ?></span> <br/> <strong><?= $favorfields['homepage_sub_2_content_subhead_1']?></strong></h3>
+                                <h3 class="bold-text color-4"> <span><?= $favorfields['homepage_sub_2_content_title_1'] ?></span> <br/> <strong><?= $favorfields['homepage_sub_2_content_subhead_1']?></strong></h3>
                                 <div class="text-left long-text"><?= $favorfields['homepage_sub_2_content_content_1'] ;?></div>
-                                <a href="<?= $favorfields['homepage_sub_2_content_button_1_link']; ?>" class="more-btn" title="More" target="_blank"> <?= $favorfields['homepage_sub_2_content_button_1']?> </a>
+                                <a href="<?= $favorfields['homepage_sub_2_content_button_1_link']; ?>" class="more-btn background-color-4" title="More" target="_blank"> <?= $favorfields['homepage_sub_2_content_button_1']?> </a>
                             </div>
                             <div class="col-sm-6 demo-video vid2">
                                 <div class="demo-video-container">
-                                    <img src="http://favorfields.com//wp-content/themes/favorfields/assets/images/video2.jpg" class="img-responsive video-bordered" alt="Video">
-                                    <a class="play-video" href="javascript:void(0)"> <i class="fa fa-play" aria-hidden="true"></i> Watch </a>
+                                    <img src="http://favorfields.com//wp-content/themes/favorfields/assets/images/video2.jpg" class="img-responsive video-bordered border-color-4" alt="Video">
+                                    <a class="play-video background-color-4 color-4" href="javascript:void(0)"> <i class="fa fa-play" aria-hidden="true"></i> Watch </a>
                                 </div>
-                                <h3 class="bold-text"> <span><?= $favorfields['homepage_sub_2_content_title_2'] ?></span> <br/> <strong><?= $favorfields['homepage_sub_2_content_subhead_2']?></strong></h3>
+                                <h3 class="bold-text color-4"> <span><?= $favorfields['homepage_sub_2_content_title_2'] ?></span> <br/> <strong><?= $favorfields['homepage_sub_2_content_subhead_2']?></strong></h3>
                                 <div class="text-left long-text"><?= $favorfields['homepage_sub_2_content_content_2'] ;?></div>
-                                <a href="<?= $favorfields['homepage_sub_2_content_button_2_link']; ?>" class="more-btn" title="More" target="_blank"> <?= $favorfields['homepage_sub_2_content_button_2']?> </a>
+                                <a href="<?= $favorfields['homepage_sub_2_content_button_2_link']; ?>" class="more-btn background-color-4" title="More" target="_blank"> <?= $favorfields['homepage_sub_2_content_button_2']?> </a>
                             </div>
                         </div>
                     </div>
@@ -252,14 +316,14 @@ $banner_image_src  = getRandomImage($favorfields['color-select'], true);
         </section> <!--loving-kindness section ends-->
         
          <!--====================== Favor Bots 3D Carousel Starts here ======================-->
-        <section id="meet-favor-bots" class="container" >
+        <section id="meet-favor-bots" class="container background-color-6">
             <div class="row">
                 <div class="col-sm-12">
-                    <div class="bordered-container pad-top0 pad-bottom100">
-                        <div class="home-matrix-seperator clearfix">
-                            <h2 class="title-span"><?= $favorfields['homepage_sub_4_title'] ?></h2>
+                    <div class="bordered-container pad-top0 pad-bottom100 border-left-color-3 border-right-color-3 background-color-2">
+                        <div class="home-matrix-seperator background-color-4 clearfix">
+                            <h2 class="title-span color-4 border-color-4"><?= $favorfields['homepage_sub_4_title'] ?></h2>
                         </div>
-                        <h3 class="bold-text text-center"><?= $favorfields['homepage_sub_4_subhead'] ?></h3>
+                        <h3 class="bold-text color-4 text-center"><?= $favorfields['homepage_sub_4_subhead'] ?></h3>
                         <ul id="botsCarousel">
                             <li>
                                 <img src="<?php bloginfo('stylesheet_directory'); ?>/assets/images/botcons.png" alt="" />
@@ -270,9 +334,9 @@ $banner_image_src  = getRandomImage($favorfields['color-select'], true);
                                 </div>
                                 <ul class="wellgolist">
                                     <h4>Specialities</h4>
-                                    <li> <a href="">Stress Blesser </a> </li>
-                                    <li> <a href="">Love Latte </a> </li>
-                                    <li> <a href="">Motivation Mocha </a> </li>
+                                    <li> <a href="" class="color-4">Stress Blesser </a> </li>
+                                    <li> <a href="" class="color-4">Love Latte </a> </li>
+                                    <li> <a href="" class="color-4">Motivation Mocha </a> </li>
                                 </ul>
                             </li>
                             <li>
@@ -284,9 +348,9 @@ $banner_image_src  = getRandomImage($favorfields['color-select'], true);
                                 </div>
                                 <ul class="wellgolist">
                                     <h4>Specialities</h4>
-                                    <li> <a href="">Stress Blesser </a> </li>
-                                    <li> <a href="">Love Latte </a> </li>
-                                    <li> <a href="">Motivation Mocha </a> </li>
+                                    <li> <a href="" class="color-4">Stress Blesser </a> </li>
+                                    <li> <a href="" class="color-4">Love Latte </a> </li>
+                                    <li> <a href="" class="color-4">Motivation Mocha </a> </li>
                                 </ul>
                             </li>
                             <li>
@@ -298,9 +362,9 @@ $banner_image_src  = getRandomImage($favorfields['color-select'], true);
                                 </div>
                                 <ul class="wellgolist">
                                     <h4>Specialities</h4>
-                                    <li> <a href="">Stress Blesser </a> </li>
-                                    <li> <a href="">Love Latte </a> </li>
-                                    <li> <a href="">Motivation Mocha </a> </li>
+                                    <li> <a href="" class="color-4">Stress Blesser </a> </li>
+                                    <li> <a href="" class="color-4">Love Latte </a> </li>
+                                    <li> <a href="" class="color-4">Motivation Mocha </a> </li>
                                 </ul>
                             </li>
                             <li>
@@ -312,9 +376,9 @@ $banner_image_src  = getRandomImage($favorfields['color-select'], true);
                                 </div>
                                 <ul class="wellgolist">
                                     <h4>Specialities</h4>
-                                    <li> <a href="">Stress Blesser </a> </li>
-                                    <li> <a href="">Love Latte </a> </li>
-                                    <li> <a href="">Motivation Mocha </a> </li>
+                                    <li> <a href="" class="color-4">Stress Blesser </a> </li>
+                                    <li> <a href="" class="color-4">Love Latte </a> </li>
+                                    <li> <a href="" class="color-4">Motivation Mocha </a> </li>
                                 </ul>
                             </li>
                             <li>
@@ -326,9 +390,9 @@ $banner_image_src  = getRandomImage($favorfields['color-select'], true);
                                 </div>
                                 <ul class="wellgolist">
                                     <h4>Specialities</h4>
-                                    <li> <a href="">Stress Blesser </a> </li>
-                                    <li> <a href="">Love Latte </a> </li>
-                                    <li> <a href="">Motivation Mocha </a> </li>
+                                    <li> <a href="" class="color-4">Stress Blesser </a> </li>
+                                    <li> <a href="" class="color-4">Love Latte </a> </li>
+                                    <li> <a href="" class="color-4">Motivation Mocha </a> </li>
                                 </ul>
                             </li>
                             <li>
@@ -340,9 +404,9 @@ $banner_image_src  = getRandomImage($favorfields['color-select'], true);
                                 </div>
                                 <ul class="wellgolist">
                                     <h4>Specialities</h4>
-                                    <li> <a href="">Stress Blesser </a> </li>
-                                    <li> <a href="">Love Latte </a> </li>
-                                    <li> <a href="">Motivation Mocha </a> </li>
+                                    <li> <a href="" class="color-4">Stress Blesser </a> </li>
+                                    <li> <a href="" class="color-4">Love Latte </a> </li>
+                                    <li> <a href="" class="color-4">Motivation Mocha </a> </li>
                                 </ul>
                             </li>
                             <li>
@@ -354,9 +418,9 @@ $banner_image_src  = getRandomImage($favorfields['color-select'], true);
                                 </div>
                                 <ul class="wellgolist">
                                     <h4>Specialities</h4>
-                                    <li> <a href="">Stress Blesser </a> </li>
-                                    <li> <a href="">Love Latte </a> </li>
-                                    <li> <a href="">Motivation Mocha </a> </li>
+                                    <li> <a href="" class="color-4">Stress Blesser </a> </li>
+                                    <li> <a href="" class="color-4">Love Latte </a> </li>
+                                    <li> <a href="" class="color-4">Motivation Mocha </a> </li>
                                 </ul>
                             </li>
                             <li>
@@ -368,9 +432,9 @@ $banner_image_src  = getRandomImage($favorfields['color-select'], true);
                                 </div>
                                 <ul class="wellgolist">
                                     <h4>Specialities</h4>
-                                    <li> <a href="">Stress Blesser </a> </li>
-                                    <li> <a href="">Love Latte </a> </li>
-                                    <li> <a href="">Motivation Mocha </a> </li>
+                                    <li> <a href="" class="color-4">Stress Blesser </a> </li>
+                                    <li> <a href="" class="color-4">Love Latte </a> </li>
+                                    <li> <a href="" class="color-4">Motivation Mocha </a> </li>
                                 </ul>
                             </li>
                             <li>
@@ -382,9 +446,9 @@ $banner_image_src  = getRandomImage($favorfields['color-select'], true);
                                 </div>
                                 <ul class="wellgolist">
                                     <h4>Specialities</h4>
-                                    <li> <a href="">Stress Blesser </a> </li>
-                                    <li> <a href="">Love Latte </a> </li>
-                                    <li> <a href="">Motivation Mocha </a> </li>
+                                    <li> <a href="" class="color-4">Stress Blesser </a> </li>
+                                    <li> <a href="" class="color-4">Love Latte </a> </li>
+                                    <li> <a href="" class="color-4">Motivation Mocha </a> </li>
                                 </ul>
                             </li>
                             <li>
@@ -396,9 +460,9 @@ $banner_image_src  = getRandomImage($favorfields['color-select'], true);
                                 </div>
                                 <ul class="wellgolist">
                                     <h4>Specialities</h4>
-                                    <li> <a href="">Stress Blesser </a> </li>
-                                    <li> <a href="">Love Latte </a> </li>
-                                    <li> <a href="">Motivation Mocha </a> </li>
+                                    <li> <a href="" class="color-4">Stress Blesser </a> </li>
+                                    <li> <a href="" class="color-4">Love Latte </a> </li>
+                                    <li> <a href="" class="color-4">Motivation Mocha </a> </li>
                                 </ul>
                             </li>
                             <li>
@@ -410,9 +474,9 @@ $banner_image_src  = getRandomImage($favorfields['color-select'], true);
                                 </div>
                                 <ul class="wellgolist">
                                     <h4>Specialities</h4>
-                                    <li> <a href="">Stress Blesser </a> </li>
-                                    <li> <a href="">Love Latte </a> </li>
-                                    <li> <a href="">Motivation Mocha </a> </li>
+                                    <li> <a href="" class="color-4">Stress Blesser </a> </li>
+                                    <li> <a href="" class="color-4">Love Latte </a> </li>
+                                    <li> <a href="" class="color-4">Motivation Mocha </a> </li>
                                 </ul>
                             </li>
                             <li>
@@ -424,9 +488,9 @@ $banner_image_src  = getRandomImage($favorfields['color-select'], true);
                                 </div>
                                 <ul class="wellgolist">
                                     <h4>Specialities</h4>
-                                    <li> <a href="">Stress Blesser </a> </li>
-                                    <li> <a href="">Love Latte </a> </li>
-                                    <li> <a href="">Motivation Mocha </a> </li>
+                                    <li> <a href="" class="color-4">Stress Blesser </a> </li>
+                                    <li> <a href="" class="color-4">Love Latte </a> </li>
+                                    <li> <a href="" class="color-4">Motivation Mocha </a> </li>
                                 </ul>
                             </li>
                             <li>
@@ -438,9 +502,9 @@ $banner_image_src  = getRandomImage($favorfields['color-select'], true);
                                 </div>
                                 <ul class="wellgolist">
                                     <h4>Specialities</h4>
-                                    <li> <a href="">Stress Blesser </a> </li>
-                                    <li> <a href="">Love Latte </a> </li>
-                                    <li> <a href="">Motivation Mocha </a> </li>
+                                    <li> <a href="" class="color-4">Stress Blesser </a> </li>
+                                    <li> <a href="" class="color-4">Love Latte </a> </li>
+                                    <li> <a href="" class="color-4">Motivation Mocha </a> </li>
                                 </ul>
                             </li>
                             <li>
@@ -452,9 +516,9 @@ $banner_image_src  = getRandomImage($favorfields['color-select'], true);
                                 </div>
                                 <ul class="wellgolist">
                                     <h4>Specialities</h4>
-                                    <li> <a href="">Stress Blesser </a> </li>
-                                    <li> <a href="">Love Latte </a> </li>
-                                    <li> <a href="">Motivation Mocha </a> </li>
+                                    <li> <a href="" class="color-4">Stress Blesser </a> </li>
+                                    <li> <a href="" class="color-4">Love Latte </a> </li>
+                                    <li> <a href="" class="color-4">Motivation Mocha </a> </li>
                                 </ul>
                             </li>
                         </ul>
@@ -474,14 +538,14 @@ $banner_image_src  = getRandomImage($favorfields['color-select'], true);
         <!--====================== Favor Bots 3D Carousel Ends here ======================-->
 
         <!--====================== Member 3D Carousel Starts here ======================-->
-        <section id="meet-the-members" class="container" >
+        <section id="meet-the-members" class="container background-color-6">
             <div class="row">
                 <div class="col-sm-12">
-                    <div class="bordered-container pad-top0 pad-bottom100">
-                        <div class="home-matrix-seperator clearfix">
-                            <h2 class="title-span"><?= $favorfields['homepage_sub_3_title'] ?></h2>
+                    <div class="bordered-container pad-top0 pad-bottom100 border-left-color-3 border-right-color-3 background-color-2">
+                        <div class="home-matrix-seperator background-color-4 clearfix">
+                            <h2 class="title-span color-4 border-color-4"><?= $favorfields['homepage_sub_3_title'] ?></h2>
                         </div>
-                        <h3 class="bold-text text-center"><?= $favorfields['homepage_sub_3_subhead'] ?></h3>
+                        <h3 class="bold-text color-4 text-center"><?= $favorfields['homepage_sub_3_subhead'] ?></h3>
                         <ul id="meetMemberCarousel">
                             <li>
                                 <img src="<?php bloginfo('stylesheet_directory'); ?>/assets/images/150x170.png" alt="" />
@@ -492,13 +556,13 @@ $banner_image_src  = getRandomImage($favorfields['color-select'], true);
                                 </div>
                                 <ul class="wellgolist">
                                     <h4>Favorite Wellgorithms</h4>
-                                    <li> <a href="">Stress Blesser </a> </li>
-                                    <li> <a href="">Love Latte </a> </li>
-                                    <li> <a href="">Motivation Mocha </a> </li>
+                                    <li> <a href="" class="color-4">Stress Blesser </a> </li>
+                                    <li> <a href="" class="color-4">Love Latte </a> </li>
+                                    <li> <a href="" class="color-4">Motivation Mocha </a> </li>
                                 </ul>
                                 <ul class="botlist">
                                     <h4>Favorite Bot</h4>
-                                    <li>Wellgo</li>
+                                    <li> <a href="#" class="color-4"> Wellgo </a></li>
                                 </ul>
                             </li>
                             <li>
@@ -510,13 +574,13 @@ $banner_image_src  = getRandomImage($favorfields['color-select'], true);
                                 </div>
                                 <ul class="wellgolist">
                                     <h4>Favorite Wellgorithms</h4>
-                                    <li> <a href="">Stress Blesser </a> </li>
-                                    <li> <a href="">Love Latte </a> </li>
-                                    <li> <a href="">Motivation Mocha </a> </li>
+                                    <li> <a href="" class="color-4">Stress Blesser </a> </li>
+                                    <li> <a href="" class="color-4">Love Latte </a> </li>
+                                    <li> <a href="" class="color-4">Motivation Mocha </a> </li>
                                 </ul>
                                 <ul class="botlist">
                                     <h4>Favorite Bot</h4>
-                                    <li>Wellgo</li>
+                                    <li> <a href="#" class="color-4"> Wellgo </a></li>
                                 </ul>
                             </li>
                             <li>
@@ -528,13 +592,13 @@ $banner_image_src  = getRandomImage($favorfields['color-select'], true);
                                 </div>
                                 <ul class="wellgolist">
                                     <h4>Favorite Wellgorithms</h4>
-                                    <li> <a href="">Stress Blesser </a> </li>
-                                    <li> <a href="">Love Latte </a> </li>
-                                    <li> <a href="">Motivation Mocha </a> </li>
+                                    <li> <a href="" class="color-4">Stress Blesser </a> </li>
+                                    <li> <a href="" class="color-4">Love Latte </a> </li>
+                                    <li> <a href="" class="color-4">Motivation Mocha </a> </li>
                                 </ul>
                                 <ul class="botlist">
                                     <h4>Favorite Bot</h4>
-                                    <li>Wellgo</li>
+                                    <li> <a href="#" class="color-4"> Wellgo </a></li>
                                 </ul>
                             </li>
                             <li>
@@ -546,13 +610,13 @@ $banner_image_src  = getRandomImage($favorfields['color-select'], true);
                                 </div>
                                 <ul class="wellgolist">
                                     <h4>Favorite Wellgorithms</h4>
-                                    <li> <a href="">Stress Blesser </a> </li>
-                                    <li> <a href="">Love Latte </a> </li>
-                                    <li> <a href="">Motivation Mocha </a> </li>
+                                    <li> <a href="" class="color-4">Stress Blesser </a> </li>
+                                    <li> <a href="" class="color-4">Love Latte </a> </li>
+                                    <li> <a href="" class="color-4">Motivation Mocha </a> </li>
                                 </ul>
                                 <ul class="botlist">
                                     <h4>Favorite Bot</h4>
-                                    <li>Wellgo</li>
+                                    <li> <a href="#" class="color-4"> Wellgo </a></li>
                                 </ul>
                             </li>
                             <li>
@@ -564,13 +628,13 @@ $banner_image_src  = getRandomImage($favorfields['color-select'], true);
                                 </div>
                                 <ul class="wellgolist">
                                     <h4>Favorite Wellgorithms</h4>
-                                    <li> <a href="">Stress Blesser </a> </li>
-                                    <li> <a href="">Love Latte </a> </li>
-                                    <li> <a href="">Motivation Mocha </a> </li>
+                                    <li> <a href="" class="color-4">Stress Blesser </a> </li>
+                                    <li> <a href="" class="color-4">Love Latte </a> </li>
+                                    <li> <a href="" class="color-4">Motivation Mocha </a> </li>
                                 </ul>
                                 <ul class="botlist">
                                     <h4>Favorite Bot</h4>
-                                    <li>Wellgo</li>
+                                    <li> <a href="#" class="color-4"> Wellgo </a></li>
                                 </ul>
                             </li>
                             <li>
@@ -582,13 +646,13 @@ $banner_image_src  = getRandomImage($favorfields['color-select'], true);
                                 </div>
                                 <ul class="wellgolist">
                                     <h4>Favorite Wellgorithms</h4>
-                                    <li> <a href="">Stress Blesser </a> </li>
-                                    <li> <a href="">Love Latte </a> </li>
-                                    <li> <a href="">Motivation Mocha </a> </li>
+                                    <li> <a href="" class="color-4">Stress Blesser </a> </li>
+                                    <li> <a href="" class="color-4">Love Latte </a> </li>
+                                    <li> <a href="" class="color-4">Motivation Mocha </a> </li>
                                 </ul>
                                 <ul class="botlist">
                                     <h4>Favorite Bot</h4>
-                                    <li>Wellgo</li>
+                                    <li> <a href="#" class="color-4"> Wellgo </a></li>
                                 </ul>
                             </li>
                             <li>
@@ -600,13 +664,13 @@ $banner_image_src  = getRandomImage($favorfields['color-select'], true);
                                 </div>
                                 <ul class="wellgolist">
                                     <h4>Favorite Wellgorithms</h4>
-                                    <li> <a href="">Stress Blesser </a> </li>
-                                    <li> <a href="">Love Latte </a> </li>
-                                    <li> <a href="">Motivation Mocha </a> </li>
+                                    <li> <a href="" class="color-4">Stress Blesser </a> </li>
+                                    <li> <a href="" class="color-4">Love Latte </a> </li>
+                                    <li> <a href="" class="color-4">Motivation Mocha </a> </li>
                                 </ul>
                                 <ul class="botlist">
                                     <h4>Favorite Bot</h4>
-                                    <li>Wellgo</li>
+                                    <li> <a href="#" class="color-4"> Wellgo </a></li>
                                 </ul>
                             </li>
                             <li>
@@ -635,13 +699,13 @@ $banner_image_src  = getRandomImage($favorfields['color-select'], true);
                                 </div>
                                 <ul class="wellgolist">
                                     <h4>Favorite Wellgorithms</h4>
-                                    <li> <a href="">Stress Blesser </a> </li>
-                                    <li> <a href="">Love Latte </a> </li>
-                                    <li> <a href="">Motivation Mocha </a> </li>
+                                    <li> <a href="" class="color-4">Stress Blesser </a> </li>
+                                    <li> <a href="" class="color-4">Love Latte </a> </li>
+                                    <li> <a href="" class="color-4">Motivation Mocha </a> </li>
                                 </ul>
                                 <ul class="botlist">
                                     <h4>Favorite Bot</h4>
-                                    <li>Wellgo</li>
+                                    <li> <a href="#" class="color-4"> Wellgo </a></li>
                                 </ul>
                             </li>
                             <li>
@@ -653,13 +717,13 @@ $banner_image_src  = getRandomImage($favorfields['color-select'], true);
                                 </div>
                                 <ul class="wellgolist">
                                     <h4>Favorite Wellgorithms</h4>
-                                    <li> <a href="">Stress Blesser </a> </li>
-                                    <li> <a href="">Love Latte </a> </li>
-                                    <li> <a href="">Motivation Mocha </a> </li>
+                                    <li> <a href="" class="color-4">Stress Blesser </a> </li>
+                                    <li> <a href="" class="color-4">Love Latte </a> </li>
+                                    <li> <a href="" class="color-4">Motivation Mocha </a> </li>
                                 </ul>
                                 <ul class="botlist">
                                     <h4>Favorite Bot</h4>
-                                    <li>Wellgo</li>
+                                    <li> <a href="#" class="color-4"> Wellgo </a></li>
                                 </ul>
                             </li>
                             <li>
@@ -671,13 +735,13 @@ $banner_image_src  = getRandomImage($favorfields['color-select'], true);
                                 </div>
                                 <ul class="wellgolist">
                                     <h4>Favorite Wellgorithms</h4>
-                                    <li> <a href="">Stress Blesser </a> </li>
-                                    <li> <a href="">Love Latte </a> </li>
-                                    <li> <a href="">Motivation Mocha </a> </li>
+                                    <li> <a href="" class="color-4">Stress Blesser </a> </li>
+                                    <li> <a href="" class="color-4">Love Latte </a> </li>
+                                    <li> <a href="" class="color-4">Motivation Mocha </a> </li>
                                 </ul>
                                 <ul class="botlist">
                                     <h4>Favorite Bot</h4>
-                                    <li>Wellgo</li>
+                                    <li> <a href="#" class="color-4"> Wellgo </a></li>
                                 </ul>
                             </li>
                             <li>
@@ -689,13 +753,13 @@ $banner_image_src  = getRandomImage($favorfields['color-select'], true);
                                 </div>
                                 <ul class="wellgolist">
                                     <h4>Favorite Wellgorithms</h4>
-                                    <li> <a href="">Stress Blesser </a> </li>
-                                    <li> <a href="">Love Latte </a> </li>
-                                    <li> <a href="">Motivation Mocha </a> </li>
+                                    <li> <a href="" class="color-4">Stress Blesser </a> </li>
+                                    <li> <a href="" class="color-4">Love Latte </a> </li>
+                                    <li> <a href="" class="color-4">Motivation Mocha </a> </li>
                                 </ul>
                                 <ul class="botlist">
                                     <h4>Favorite Bot</h4>
-                                    <li>Wellgo</li>
+                                    <li> <a href="#" class="color-4"> Wellgo </a></li>
                                 </ul>
                             </li>
                             <li>
@@ -707,13 +771,13 @@ $banner_image_src  = getRandomImage($favorfields['color-select'], true);
                                 </div>
                                 <ul class="wellgolist">
                                     <h4>Favorite Wellgorithms</h4>
-                                    <li> <a href="">Stress Blesser </a> </li>
-                                    <li> <a href="">Love Latte </a> </li>
-                                    <li> <a href="">Motivation Mocha </a> </li>
+                                    <li> <a href="" class="color-4">Stress Blesser </a> </li>
+                                    <li> <a href="" class="color-4">Love Latte </a> </li>
+                                    <li> <a href="" class="color-4">Motivation Mocha </a> </li>
                                 </ul>
                                 <ul class="botlist">
                                     <h4>Favorite Bot</h4>
-                                    <li>Wellgo</li>
+                                    <li> <a href="#" class="color-4"> Wellgo </a></li>
                                 </ul>
                             </li>
                             <li>
@@ -725,13 +789,13 @@ $banner_image_src  = getRandomImage($favorfields['color-select'], true);
                                 </div>
                                 <ul class="wellgolist">
                                     <h4>Favorite Wellgorithms</h4>
-                                    <li> <a href="">Stress Blesser </a> </li>
-                                    <li> <a href="">Love Latte </a> </li>
-                                    <li> <a href="">Motivation Mocha </a> </li>
+                                    <li> <a href="" class="color-4">Stress Blesser </a> </li>
+                                    <li> <a href="" class="color-4">Love Latte </a> </li>
+                                    <li> <a href="" class="color-4">Motivation Mocha </a> </li>
                                 </ul>
                                 <ul class="botlist">
                                     <h4>Favorite Bot</h4>
-                                    <li>Wellgo</li>
+                                    <li> <a href="#" class="color-4"> Wellgo </a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -751,53 +815,51 @@ $banner_image_src  = getRandomImage($favorfields['color-select'], true);
         </section>
         <!--====================== Member 3D Carousel Ends here ======================-->
         
-         <section id="wellgo-week" class="container" >
+        <section id="wellgo-week" class="container background-color-6">
             <div class="row">
                 <div class="col-sm-12 text-center">
-                    <div class="bordered-container pad-top0 pad-bottom50">
-                        <div class="home-matrix-seperator clearfix">
-                            <h2 class="title-span">Wellgorithm of the Week</h2>
+                    <div class="bordered-container pad-top0 pad-bottom50 border-left-color-3 border-right-color-3 background-color-2">
+                        <div class="home-matrix-seperator background-color-4 clearfix">
+                            <h2 class="title-span color-4 border-color-4">Wellgorithm of the Week</h2>
                         </div>
-                        <h3 class="bold-text">"You may delay, but time won't." <br>Ben Franklin</h3>
+                        <h3 class="bold-text color-4">"You may delay, but time won't." <br><em>— Ben Franklin</em></h3>
                         <div class="do-the-section">
-                            <span class="do-title"> DO THE </span>
-                            <p> <a href="#" class="do-btn">Procrastination Pranker </a> </p>
+                            <span class="do-title color-4"> do the </span>
+                            <p> <a href="#" class="do-btn background-color-3 border-color-3">Procrastination Pranker </a> </p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="help-us" class="container" >
+        <section id="help-us" class="container background-color-6">
             <div class="row">
                 <div class="col-sm-12 text-center">
-                    <div class="bordered-container pad-top0 pad-bottom50">
-                        <div class="home-matrix-seperator clearfix">
-                            <h2 class="title-span"><?= $favorfields['homepage_sub_5_title'] ?></h2>
+                    <div class="bordered-container pad-top0 pad-bottom50 border-left-color-3 border-right-color-3 background-color-2">
+                        <div class="home-matrix-seperator background-color-4 clearfix">
                         </div>
-                        <h3 class="bold-text"><?= $favorfields['homepage_sub_5_subhead'] ?></h3>
+                        <h3 class="bold-text color-4"> Come <span>grow</span> with us.
+                          <br><br> Help us re-imagine social media — <br> show the world what it can be.
+                        </h3>
 
                         <div class="signup-form-container">
                             <form class="signup-form">
                               <div class="form-group">
-                                <input type="text" class="form-control" id="first_Name" placeholder="first name">
+                                <input type="text" class="form-control color-4 border-color-4" id="first_Name" placeholder="first name">
                               </div>
                               <div class="form-group">
-                                <input type="email" class="form-control" id="signUpEmail" placeholder="email">
+                                <input type="email" class="form-control color-4 border-color-4" id="signUpEmail" placeholder="email">
                               </div>
                               <div class="form-group">
-                                <button type="submit" class="btn btn-default btn-block">put me on the waiting list</button>
-                              </div>
-                              <div class="form-group">
-                                <p class="help-block">* We respect your privacy.</p>
+                                <button type="submit" class="btn btn-default btn-block background-color-3">put me on the waiting list</button>
                               </div>
                             </form>
+                             <p class="help-block">* We're a small community, and right now we have a waiting list. We'd love to hear from you. We pro- <br> tect your privacy and won't share your email address with anyone.</p>
                         </div> <!-- signup-form-container -->
                     </div>
                 </div>
             </div>
         </section>
-
     </div>
 </div>
 
@@ -805,6 +867,22 @@ $banner_image_src  = getRandomImage($favorfields['color-select'], true);
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
+<!--=========== Typad JS Starts Here ============== -->
+<script type="text/javascript" src="<?php bloginfo('stylesheet_directory'); ?>/js/typed.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function(){
+      Typed.new('#help-us .bold-text color-4 span', {
+        strings: ["grow", "laugh", "love"],
+        typeSpeed: 100,
+        loop: true,
+        startDelay: 0,
+        backSpeed: 50,
+        backDelay: 500,
+        showCursor: true,
+        cursorChar: "|"
+      });
+  });
+</script>
 <!--=========== 3D Carousel Starts Here ============== -->
 <script type="text/javascript" src="<?php bloginfo('stylesheet_directory'); ?>/js/3d-carousel/jquery.carousel.min.js"></script>
 <script type="text/javascript">
@@ -960,8 +1038,8 @@ $banner_image_src  = getRandomImage($favorfields['color-select'], true);
             limit: 3,
             autoHideContainer: false,
             options: [
-                { start: 4, end: 4, name: 'Hellgo' },
                 { start: 3, end: 3, name: 'Wellgo' },
+                { start: 4, end: 4, name: 'Hellgo' },
                 { start: 5, end: 5, name: 'Letgo' },
                 { start: 148, end: 148, name: 'Cosmo' },
                 { start: 147, end: 147, name: 'Predicto' },
@@ -1040,7 +1118,7 @@ $banner_image_src  = getRandomImage($favorfields['color-select'], true);
         search.addWidget(instantsearch.widgets.clearAll({
             container: '#stats',
             templates: {
-                link: '<i class="fa fa-repeat reload_search" aria-hidden="true"></i>'
+                link: '<i class="fa fa-repeat reload_search color-4" aria-hidden="true"></i>'
             },
             autoHideContainer: false
         }));
@@ -1119,8 +1197,8 @@ $banner_image_src  = getRandomImage($favorfields['color-select'], true);
             limit: 3,
             autoHideContainer: false,
             options: [
-                { start: 4, end: 4, name: 'Hellgo' },
                 { start: 3, end: 3, name: 'Wellgo' },
+                { start: 4, end: 4, name: 'Hellgo' },
                 { start: 5, end: 5, name: 'Letgo' },
                 { start: 148, end: 148, name: 'Cosmo' },
                 { start: 147, end: 147, name: 'Predicto' },
@@ -1199,7 +1277,7 @@ $banner_image_src  = getRandomImage($favorfields['color-select'], true);
         search_replica.addWidget(instantsearch.widgets.clearAll({
             container: '#stats',
             templates: {
-                link: '<i class="fa fa-repeat reload_search" aria-hidden="true"></i>'
+                link: '<i class="fa fa-repeat reload_search color-4" aria-hidden="true"></i>'
             },
             autoHideContainer: false
         }));

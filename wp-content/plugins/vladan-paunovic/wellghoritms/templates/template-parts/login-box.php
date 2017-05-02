@@ -20,3 +20,4 @@
 	</form>
 </div>
 <!-- wellgo-login-box ends here -->
+<div class="clearfix"> </div>
