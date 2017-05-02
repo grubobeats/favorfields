@@ -48,9 +48,11 @@ jQuery(document).ready(function($){
     /*
      * Countdown (flipclock.js)
      */
-    var clock = $('.countdown').FlipClock(3600 * 3, {
-        countdown: true
-    });
+    if ( isLoggedIn != "1" ) {
+        var clock = $('.countdown').FlipClock(3600 * 3, {
+            countdown: true
+        });
+    }
 
     /* ------------------------------------
      * FUNCTIONS
@@ -260,6 +262,13 @@ jQuery(document).ready(function($){
 
         sendClicks();
 
+
+        if ( current_step != 0 ) {
+            $('.wellgo-login-box').remove();
+            $('.wellgo-singup-box').remove();
+            $('.wellgo-video-box').remove();
+        }
+
         // scrolling on all questions except on last
         if(maximum_steps > current_step ) {
             $('html, body').animate(
@@ -283,7 +292,13 @@ jQuery(document).ready(function($){
             var made_custom = "No";
 
             if ( !isLoggedIn || isLoggedIn === "" || isLoggedIn === "0" ) {
+
+
                 $(prompt_save).html("<h3>You must be logged in to continue.</h3>")
+                $('.fakeads')
+                    .removeClass('hidden')
+                    .addClass('animated ' + question_animation);
+
             } else {
 
                 if( keypress_counter > 10 && isLoggedIn === "1" ) {
@@ -362,14 +377,25 @@ jQuery(document).ready(function($){
 
             $('.popups').css('height', '744px');
 
-            $(prompt_save)
-                .delay(2000)
-                .show()
-                .addClass('animated fadeIn');
+            var scroll_till;
+            if ( !isLoggedIn || isLoggedIn === "" || isLoggedIn === "0" ) {
+                scroll_till = $('.fakeads').offset().top - 850;
+                $(prompt_save).parent().remove();
+            } else {
+                scroll_till = $(prompt_save).parent().offset().top - 70;
+                $(prompt_save)
+                    .delay(2000)
+                    .show()
+                    .addClass('animated fadeIn');
+            }
+
+
+
+
 
             $('html, body').animate(
                 {
-                    scrollTop: $(prompt_save).parent().offset().top - 70
+                    scrollTop: scroll_till
                 },
                 1000);
 

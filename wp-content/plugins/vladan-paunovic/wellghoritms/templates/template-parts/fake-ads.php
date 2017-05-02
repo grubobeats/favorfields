@@ -5,10 +5,13 @@
  * Date: 29/04/2017
  * Time: 09:12
  */
+//global $favorfields;
 
-$fako = $logic->FakoAd($category->cat_ID); ?>
+$fako = $logic->FakoAd($category->cat_ID);
+$fako_image = $favorfields[  $category[0]->slug . '_fako_img']['url'];
+?>
 
-<div class="fakeads">
+<div class="fakeads hidden">
 	<div class="clearfix"></div>
 	<!-- clearfix ends -->
 
@@ -36,7 +39,7 @@ $fako = $logic->FakoAd($category->cat_ID); ?>
 				<div class="col-sm-5">
 					<div class="right-arrow"> </div>
 					<figure class="advert-img">
-						<img src="<?php bloginfo('stylesheet_directory'); ?>/assets/images/fake-ads/iconic.png" alt="iconic" class="img-responsive">
+						<img src="<?= $fako_image; ?>" alt="iconic" class="img-responsive">
 					</figure>
 				</div>
 			</div>

@@ -45,6 +45,7 @@ $right_faded_logo_url = wp_get_attachment_url($right_faded_logo[0]);
 
 // Javascript object with all dynamic settings
 require_once 'template-parts/additional-js.php';
+
 ?>
     <style>
         .mode_bar.active {
@@ -79,21 +80,19 @@ require_once 'template-parts/additional-js.php';
 
                         <!--=========================== Thank You & Confirmation Messages ===========================-->
 
-
-                        <? require_once 'template-parts/fake-ads.php'; ?>
+	                    <? require_once 'template-parts/wellgorithm-done.php'; ?>
                         <? if ( !is_user_logged_in() ) : ?>
-	                        <? require_once 'template-parts/wellgorithm-done.php'; ?>
 	                        <? require_once 'template-parts/login-box.php'; ?>
                         <? endif; ?>
 
                         <? require_once 'template-parts/video-box.php'; ?>
 
-	                    <? if ( !is_user_logged_in() ) : ?>
-                            <? require_once 'template-parts/signup-box.php'; ?>
-	                    <? endif; ?>
+                        <? if ( !is_user_logged_in() ) : ?>
+	                        <? require_once 'template-parts/signup-box.php'; ?>
+	                        <? require_once 'template-parts/fake-ads.php'; ?>
+                        <? endif; ?>
 
                         <? require_once 'template-parts/thank-you.php'; ?>
-
                     </div>
                     <!-- col-sm-12 ends -->
                 </div>

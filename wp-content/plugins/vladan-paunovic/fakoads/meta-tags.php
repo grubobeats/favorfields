@@ -17,12 +17,12 @@ class Fakoad {
 		array(
 			'id' => 'subtitle',
 			'label' => 'Subtitle',
-			'type' => 'text',
+			'type' => 'textarea',
 		),
 		array(
 			'id' => 'headline',
 			'label' => 'Headline',
-			'type' => 'text',
+			'type' => 'textarea',
 		),
 		array(
 			'id' => 'body',
@@ -32,12 +32,12 @@ class Fakoad {
 		array(
 			'id' => 'quote-name',
 			'label' => 'Quote name',
-			'type' => 'text',
+			'type' => 'textarea',
 		),
 		array(
 			'id' => 'quote-author',
 			'label' => 'Quote author',
-			'type' => 'text',
+			'type' => 'textarea',
 		),
 		array(
 			'id' => 'quote-image',
@@ -52,7 +52,7 @@ class Fakoad {
 		array(
 			'id' => 'pro-headline',
 			'label' => 'Pro headline',
-			'type' => 'text',
+			'type' => 'textarea',
 		),
 		array(
 			'id' => 'pro-body',

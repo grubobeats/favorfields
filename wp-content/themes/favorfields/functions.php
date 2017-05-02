@@ -285,23 +285,25 @@ function make_login_form( ) {
     $query = array(
         'post_type'         => 'quotes',
         'order'             => 'rand',
-        'posts_per_page'    =>  1,
+        'posts_per_page'    =>  -1,
         'post_status'       => 'publish'
     );
     $quotes = new WP_Query($query);
 
-    $author = "";
-    $content = "";
+    $author = [];
+    $content = [];
 
     while($quotes->have_posts()) : $quotes->the_post();
         $post_id = get_the_ID();
-        $author .= get_the_title();
-        $content .= get_post_field('post_content', $post_id);
+        $author[] .= get_the_title();
+        $content[] .= get_post_field('post_content', $post_id);
     endwhile;
     wp_reset_query();
 
+    $random = rand( 0, count($author) - 1 );
+
     $output = sprintf( '<div class="login-form-container"><div class="login-form"><ins><i class="fa fa-times close-login-form" aria-hidden="true"></i></ins><div class="form-group"><input type="text" id="user_username" class="form-control" placeholder="Username"></div><div class="form-group"><input id="user_password" type="password" class="form-control" placeholder="Password"></div><div class="form-group"><button class="go-wellgorithm">Enter the Fields</button><span class="info" id="login-info"></span><div class="quote"><p class="quote-text">%s</p><p class="quote-author">%s</p></div></div></div></div>',
-		html_entity_decode($content), $author
+		html_entity_decode($content[$random]), $author[$random]
         );
 
     return $output;

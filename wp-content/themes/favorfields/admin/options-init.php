@@ -405,3 +405,4 @@
 
     require_once 'homepage.php';
     require_once 'blog.php';
+    require_once 'fako.php';

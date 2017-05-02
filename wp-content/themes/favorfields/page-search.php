@@ -262,266 +262,209 @@ $banner_image_src  = getRandomImage($favorfields['color-select'], true);
                         <h3 class="bold-text text-center"><?= $favorfields['homepage_sub_4_subhead'] ?></h3>
                         <ul id="botsCarousel">
                             <li>
-                                <img src="<?php bloginfo('stylesheet_directory'); ?>/assets/images/180x200.png" alt="" />
-                                <p class="title">Member 1</p>
+                                <img src="<?php bloginfo('stylesheet_directory'); ?>/assets/images/botcons.png" alt="" />
+                                <p class="title">Wellgo</p>
                                 <div class="description"> 
-                                    <span class="sub-heading">Turning Point:</span>
-                                    <p>“The levels my addiction took me to were in the darkest places, and it is in those times I remember thinking, “I’m either going to die, or change.” I found strength within myself to want to change. And I did. I found strength within myself to want to change. And I did.”</p>
-                                </div>
-                                <ul class="bots-wellgolist">
-                                    <h4>Favorite Wellgorithms</h4>
-                                    <li> <a href="">Stress Blesser </a> </li>
-                                    <li> <a href="">Love Latte </a> </li>
-                                    <li> <a href="">Motivation Mocha </a> </li>
-                                </ul>
-                                <ul class="bots-botlist">
-                                    <h4>Favorite Bot</h4>
-                                    <li>Wellgo</li>
-                                </ul>
-                            </li>
-                            <li>
-                                <img src="<?php bloginfo('stylesheet_directory'); ?>/assets/images/180x200.png" alt="" />
-                                <p class="title">Member 2</p>
-                                <div class="description"> 
-                                    <span class="sub-heading">Turning Point:</span>
+                                    <span class="sub-heading">Mission</span>
                                     <p>“The levels my addiction took me to were in the darkest places, and it is in those times I remember thinking, “I’m either going to die, or change.” I found strength within myself to want to change. And I did. I found strength within myself to want to change. And I did.”</p>
                                 </div>
                                 <ul class="wellgolist">
-                                    <h4>Favorite Wellgorithms</h4>
+                                    <h4>Specialities</h4>
                                     <li> <a href="">Stress Blesser </a> </li>
                                     <li> <a href="">Love Latte </a> </li>
                                     <li> <a href="">Motivation Mocha </a> </li>
                                 </ul>
-                                <ul class="botlist">
-                                    <h4>Favorite Bot</h4>
-                                    <li>Wellgo</li>
-                                </ul>
                             </li>
                             <li>
-                                <img src="<?php bloginfo('stylesheet_directory'); ?>/assets/images/180x200.png" alt="" />
-                                <p class="title">Member 3</p>
+                                <img src="<?php bloginfo('stylesheet_directory'); ?>/assets/images/botcons.png" alt="" />
+                                <p class="title">Wellgo</p>
                                 <div class="description"> 
-                                    <span class="sub-heading">Turning Point:</span>
+                                    <span class="sub-heading">Mission</span>
                                     <p>“The levels my addiction took me to were in the darkest places, and it is in those times I remember thinking, “I’m either going to die, or change.” I found strength within myself to want to change. And I did. I found strength within myself to want to change. And I did.”</p>
                                 </div>
                                 <ul class="wellgolist">
-                                    <h4>Favorite Wellgorithms</h4>
+                                    <h4>Specialities</h4>
                                     <li> <a href="">Stress Blesser </a> </li>
                                     <li> <a href="">Love Latte </a> </li>
                                     <li> <a href="">Motivation Mocha </a> </li>
                                 </ul>
-                                <ul class="botlist">
-                                    <h4>Favorite Bot</h4>
-                                    <li>Wellgo</li>
-                                </ul>
                             </li>
                             <li>
-                                <img src="<?php bloginfo('stylesheet_directory'); ?>/assets/images/180x200.png" alt="" />
-                                <p class="title">Member 4</p>
+                                <img src="<?php bloginfo('stylesheet_directory'); ?>/assets/images/botcons.png" alt="" />
+                                <p class="title">Wellgo</p>
                                 <div class="description"> 
-                                    <span class="sub-heading">Turning Point:</span>
+                                    <span class="sub-heading">Mission</span>
                                     <p>“The levels my addiction took me to were in the darkest places, and it is in those times I remember thinking, “I’m either going to die, or change.” I found strength within myself to want to change. And I did. I found strength within myself to want to change. And I did.”</p>
                                 </div>
                                 <ul class="wellgolist">
-                                    <h4>Favorite Wellgorithms</h4>
+                                    <h4>Specialities</h4>
                                     <li> <a href="">Stress Blesser </a> </li>
                                     <li> <a href="">Love Latte </a> </li>
                                     <li> <a href="">Motivation Mocha </a> </li>
                                 </ul>
-                                <ul class="botlist">
-                                    <h4>Favorite Bot</h4>
-                                    <li>Wellgo</li>
-                                </ul>
                             </li>
                             <li>
-                                <img src="<?php bloginfo('stylesheet_directory'); ?>/assets/images/180x200.png" alt="" />
-                                <p class="title">Member 5</p>
-                               <div class="description"> 
-                                    <span class="sub-heading">Turning Point:</span>
-                                    <p>“The levels my addiction took me to were in the darkest places, and it is in those times I remember thinking, “I’m either going to die, or change.” I found strength within myself to want to change. And I did. I found strength within myself to want to change. And I did.”</p>
-                                </div>
-                                <ul class="wellgolist">
-                                    <h4>Favorite Wellgorithms</h4>
-                                    <li> <a href="">Stress Blesser </a> </li>
-                                    <li> <a href="">Love Latte </a> </li>
-                                    <li> <a href="">Motivation Mocha </a> </li>
-                                </ul>
-                                <ul class="botlist">
-                                    <h4>Favorite Bot</h4>
-                                    <li>Wellgo</li>
-                                </ul>
-                            </li>
-                            <li>
-                                <img src="<?php bloginfo('stylesheet_directory'); ?>/assets/images/180x200.png" alt="" />
-                                <p class="title">Member 6</p>
+                                <img src="<?php bloginfo('stylesheet_directory'); ?>/assets/images/botcons.png" alt="" />
+                                <p class="title">Wellgo</p>
                                 <div class="description"> 
-                                    <span class="sub-heading">Turning Point:</span>
+                                    <span class="sub-heading">Mission</span>
                                     <p>“The levels my addiction took me to were in the darkest places, and it is in those times I remember thinking, “I’m either going to die, or change.” I found strength within myself to want to change. And I did. I found strength within myself to want to change. And I did.”</p>
                                 </div>
                                 <ul class="wellgolist">
-                                    <h4>Favorite Wellgorithms</h4>
+                                    <h4>Specialities</h4>
                                     <li> <a href="">Stress Blesser </a> </li>
                                     <li> <a href="">Love Latte </a> </li>
                                     <li> <a href="">Motivation Mocha </a> </li>
-                                </ul>
-                                <ul class="botlist">
-                                    <h4>Favorite Bot</h4>
-                                    <li>Wellgo</li>
                                 </ul>
                             </li>
                             <li>
-                                <img src="<?php bloginfo('stylesheet_directory'); ?>/assets/images/180x200.png" alt="" />
-                                <p class="title">Member 7</p>
-                                <div class="description"> 
-                                    <span class="sub-heading">Turning Point:</span>
+                                <img src="<?php bloginfo('stylesheet_directory'); ?>/assets/images/botcons.png" alt="" />
+                                <p class="title">Wellgo</p>
+                                <div class="description">
+                                    <span class="sub-heading">Mission</span>
                                     <p>“The levels my addiction took me to were in the darkest places, and it is in those times I remember thinking, “I’m either going to die, or change.” I found strength within myself to want to change. And I did. I found strength within myself to want to change. And I did.”</p>
                                 </div>
                                 <ul class="wellgolist">
-                                    <h4>Favorite Wellgorithms</h4>
+                                    <h4>Specialities</h4>
                                     <li> <a href="">Stress Blesser </a> </li>
                                     <li> <a href="">Love Latte </a> </li>
                                     <li> <a href="">Motivation Mocha </a> </li>
-                                </ul>
-                                <ul class="botlist">
-                                    <h4>Favorite Bot</h4>
-                                    <li>Wellgo</li>
                                 </ul>
                             </li>
                             <li>
-                                <img src="<?php bloginfo('stylesheet_directory'); ?>/assets/images/180x200.png" alt="" />
-                                <p class="title">Member 8</p>
+                                <img src="<?php bloginfo('stylesheet_directory'); ?>/assets/images/botcons.png" alt="" />
+                                <p class="title">Wellgo</p>
                                 <div class="description"> 
-                                    <span class="sub-heading">Turning Point:</span>
+                                    <span class="sub-heading">Mission</span>
                                     <p>“The levels my addiction took me to were in the darkest places, and it is in those times I remember thinking, “I’m either going to die, or change.” I found strength within myself to want to change. And I did. I found strength within myself to want to change. And I did.”</p>
                                 </div>
                                 <ul class="wellgolist">
-                                    <h4>Favorite Wellgorithms</h4>
+                                    <h4>Specialities</h4>
                                     <li> <a href="">Stress Blesser </a> </li>
                                     <li> <a href="">Love Latte </a> </li>
                                     <li> <a href="">Motivation Mocha </a> </li>
-                                </ul>
-                                <ul class="botlist">
-                                    <h4>Favorite Bot</h4>
-                                    <li>Wellgo</li>
                                 </ul>
                             </li>
                             <li>
-                                <img src="<?php bloginfo('stylesheet_directory'); ?>/assets/images/180x200.png" alt="" />
-                                <p class="title">Member 9</p>
+                                <img src="<?php bloginfo('stylesheet_directory'); ?>/assets/images/botcons.png" alt="" />
+                                <p class="title">Wellgo</p>
                                 <div class="description"> 
-                                    <span class="sub-heading">Turning Point:</span>
+                                    <span class="sub-heading">Mission</span>
                                     <p>“The levels my addiction took me to were in the darkest places, and it is in those times I remember thinking, “I’m either going to die, or change.” I found strength within myself to want to change. And I did. I found strength within myself to want to change. And I did.”</p>
                                 </div>
                                 <ul class="wellgolist">
-                                    <h4>Favorite Wellgorithms</h4>
+                                    <h4>Specialities</h4>
                                     <li> <a href="">Stress Blesser </a> </li>
                                     <li> <a href="">Love Latte </a> </li>
                                     <li> <a href="">Motivation Mocha </a> </li>
-                                </ul>
-                                <ul class="botlist">
-                                    <h4>Favorite Bot</h4>
-                                    <li>Wellgo</li>
                                 </ul>
                             </li>
                             <li>
-                                <img src="<?php bloginfo('stylesheet_directory'); ?>/assets/images/180x200.png" alt="" />
-                                <p class="title">Member 10</p>
+                                <img src="<?php bloginfo('stylesheet_directory'); ?>/assets/images/botcons.png" alt="" />
+                                <p class="title">Wellgo</p>
                                 <div class="description"> 
-                                    <span class="sub-heading">Turning Point:</span>
+                                    <span class="sub-heading">Mission</span>
                                     <p>“The levels my addiction took me to were in the darkest places, and it is in those times I remember thinking, “I’m either going to die, or change.” I found strength within myself to want to change. And I did. I found strength within myself to want to change. And I did.”</p>
                                 </div>
                                 <ul class="wellgolist">
-                                    <h4>Favorite Wellgorithms</h4>
+                                    <h4>Specialities</h4>
                                     <li> <a href="">Stress Blesser </a> </li>
                                     <li> <a href="">Love Latte </a> </li>
                                     <li> <a href="">Motivation Mocha </a> </li>
-                                </ul>
-                                <ul class="botlist">
-                                    <h4>Favorite Bot</h4>
-                                    <li>Wellgo</li>
                                 </ul>
                             </li>
                             <li>
-                                <img src="<?php bloginfo('stylesheet_directory'); ?>/assets/images/180x200.png" alt="" />
-                                <p class="title">Member 11 </p>
+                                <img src="<?php bloginfo('stylesheet_directory'); ?>/assets/images/botcons.png" alt="" />
+                                <p class="title">Wellgo</p>
                                 <div class="description"> 
-                                    <span class="sub-heading">Turning Point:</span>
+                                    <span class="sub-heading">Mission</span>
                                     <p>“The levels my addiction took me to were in the darkest places, and it is in those times I remember thinking, “I’m either going to die, or change.” I found strength within myself to want to change. And I did. I found strength within myself to want to change. And I did.”</p>
                                 </div>
                                 <ul class="wellgolist">
-                                    <h4>Favorite Wellgorithms</h4>
+                                    <h4>Specialities</h4>
                                     <li> <a href="">Stress Blesser </a> </li>
                                     <li> <a href="">Love Latte </a> </li>
                                     <li> <a href="">Motivation Mocha </a> </li>
-                                </ul>
-                                <ul class="botlist">
-                                    <h4>Favorite Bot</h4>
-                                    <li>Wellgo</li>
                                 </ul>
                             </li>
                             <li>
-                                <img src="<?php bloginfo('stylesheet_directory'); ?>/assets/images/180x200.png" alt="" />
-                                <p class="title">Member 12</p>
+                                <img src="<?php bloginfo('stylesheet_directory'); ?>/assets/images/botcons.png" alt="" />
+                                <p class="title">Wellgo</p>
                                 <div class="description"> 
-                                    <span class="sub-heading">Turning Point:</span>
+                                    <span class="sub-heading">Mission</span>
                                     <p>“The levels my addiction took me to were in the darkest places, and it is in those times I remember thinking, “I’m either going to die, or change.” I found strength within myself to want to change. And I did. I found strength within myself to want to change. And I did.”</p>
                                 </div>
                                 <ul class="wellgolist">
-                                    <h4>Favorite Wellgorithms</h4>
+                                    <h4>Specialities</h4>
                                     <li> <a href="">Stress Blesser </a> </li>
                                     <li> <a href="">Love Latte </a> </li>
                                     <li> <a href="">Motivation Mocha </a> </li>
-                                </ul>
-                                <ul class="botlist">
-                                    <h4>Favorite Bot</h4>
-                                    <li>Wellgo</li>
                                 </ul>
                             </li>
                             <li>
-                                <img src="<?php bloginfo('stylesheet_directory'); ?>/assets/images/180x200.png" alt="" />
-                                <p class="title">Member 13</p>
+                                <img src="<?php bloginfo('stylesheet_directory'); ?>/assets/images/botcons.png" alt="" />
+                                <p class="title">Wellgo</p>
                                 <div class="description"> 
-                                    <span class="sub-heading">Turning Point:</span>
+                                    <span class="sub-heading">Mission</span>
                                     <p>“The levels my addiction took me to were in the darkest places, and it is in those times I remember thinking, “I’m either going to die, or change.” I found strength within myself to want to change. And I did. I found strength within myself to want to change. And I did.”</p>
                                 </div>
                                 <ul class="wellgolist">
-                                    <h4>Favorite Wellgorithms</h4>
+                                    <h4>Specialities</h4>
                                     <li> <a href="">Stress Blesser </a> </li>
                                     <li> <a href="">Love Latte </a> </li>
                                     <li> <a href="">Motivation Mocha </a> </li>
-                                </ul>
-                                <ul class="botlist">
-                                    <h4>Favorite Bot</h4>
-                                    <li>Wellgo</li>
                                 </ul>
                             </li>
                             <li>
-                                <img src="<?php bloginfo('stylesheet_directory'); ?>/assets/images/180x200.png" alt="" />
-                                <p class="title">Member 14</p>
+                                <img src="<?php bloginfo('stylesheet_directory'); ?>/assets/images/botcons.png" alt="" />
+                                <p class="title">Wellgo</p>
                                 <div class="description"> 
-                                    <span class="sub-heading">Turning Point:</span>
+                                    <span class="sub-heading">Mission</span>
                                     <p>“The levels my addiction took me to were in the darkest places, and it is in those times I remember thinking, “I’m either going to die, or change.” I found strength within myself to want to change. And I did. I found strength within myself to want to change. And I did.”</p>
                                 </div>
                                 <ul class="wellgolist">
-                                    <h4>Favorite Wellgorithms</h4>
+                                    <h4>Specialities</h4>
                                     <li> <a href="">Stress Blesser </a> </li>
                                     <li> <a href="">Love Latte </a> </li>
                                     <li> <a href="">Motivation Mocha </a> </li>
                                 </ul>
-                                <ul class="botlist">
-                                    <h4>Favorite Bot</h4>
-                                    <li>Wellgo</li>
+                            </li>
+                            <li>
+                                <img src="<?php bloginfo('stylesheet_directory'); ?>/assets/images/botcons.png" alt="" />
+                                <p class="title">Wellgo</p>
+                                <div class="description"> 
+                                    <span class="sub-heading">Mission</span>
+                                    <p>“The levels my addiction took me to were in the darkest places, and it is in those times I remember thinking, “I’m either going to die, or change.” I found strength within myself to want to change. And I did. I found strength within myself to want to change. And I did.”</p>
+                                </div>
+                                <ul class="wellgolist">
+                                    <h4>Specialities</h4>
+                                    <li> <a href="">Stress Blesser </a> </li>
+                                    <li> <a href="">Love Latte </a> </li>
+                                    <li> <a href="">Motivation Mocha </a> </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <img src="<?php bloginfo('stylesheet_directory'); ?>/assets/images/botcons.png" alt="" />
+                                <p class="title">Wellgo</p>
+                                <div class="description"> 
+                                    <span class="sub-heading">Mission</span>
+                                    <p>“The levels my addiction took me to were in the darkest places, and it is in those times I remember thinking, “I’m either going to die, or change.” I found strength within myself to want to change. And I did. I found strength within myself to want to change. And I did.”</p>
+                                </div>
+                                <ul class="wellgolist">
+                                    <h4>Specialities</h4>
+                                    <li> <a href="">Stress Blesser </a> </li>
+                                    <li> <a href="">Love Latte </a> </li>
+                                    <li> <a href="">Motivation Mocha </a> </li>
                                 </ul>
                             </li>
                         </ul>
-                        <div id="text" class="carousel-text clearfix">
-                            <div id="bots-selected-title" class="col-sm-12">Title</div>
-                            <div id="bots-selected-description" class="col-sm-6">
+                        <div id="bots-text" class="carousel-text clearfix">
+                            <div id="bots-title" class="col-sm-12">Title</div>
+                            <div id="bots-description" class="col-sm-6">
                                 <p>Description of the selected item</p>
                             </div>
                             <div class="col-md-6">
-                                <ul id="bots-favorite-wellgos">List of Favorite Wellgorithms</ul>
-                                <ul id="bots-favorite-bots">List of Favorite Bots</ul>
+                                <ul id="wellgos-bots">List of Favorite Wellgorithms</ul>
                             </div>
                         </div>
                     </div>
@@ -541,14 +484,14 @@ $banner_image_src  = getRandomImage($favorfields['color-select'], true);
                         <h3 class="bold-text text-center"><?= $favorfields['homepage_sub_3_subhead'] ?></h3>
                         <ul id="meetMemberCarousel">
                             <li>
-                                <img src="<?php bloginfo('stylesheet_directory'); ?>/assets/images/180x200.png" alt="" />
+                                <img src="<?php bloginfo('stylesheet_directory'); ?>/assets/images/150x170.png" alt="" />
                                 <p class="title">Member 1</p>
                                 <div class="description"> 
-                                    <span class="sub-heading">Mission</span>
+                                    <span class="sub-heading">Turning Point:</span>
                                     <p>“The levels my addiction took me to were in the darkest places, and it is in those times I remember thinking, “I’m either going to die, or change.” I found strength within myself to want to change. And I did. I found strength within myself to want to change. And I did.”</p>
                                 </div>
                                 <ul class="wellgolist">
-                                    <h4>Specialties</h4>
+                                    <h4>Favorite Wellgorithms</h4>
                                     <li> <a href="">Stress Blesser </a> </li>
                                     <li> <a href="">Love Latte </a> </li>
                                     <li> <a href="">Motivation Mocha </a> </li>
@@ -559,7 +502,7 @@ $banner_image_src  = getRandomImage($favorfields['color-select'], true);
                                 </ul>
                             </li>
                             <li>
-                                <img src="<?php bloginfo('stylesheet_directory'); ?>/assets/images/180x200.png" alt="" />
+                                <img src="<?php bloginfo('stylesheet_directory'); ?>/assets/images/150x170.png" alt="" />
                                 <p class="title">Member 2</p>
                                 <div class="description"> 
                                     <span class="sub-heading">Turning Point:</span>
@@ -577,7 +520,7 @@ $banner_image_src  = getRandomImage($favorfields['color-select'], true);
                                 </ul>
                             </li>
                             <li>
-                                <img src="<?php bloginfo('stylesheet_directory'); ?>/assets/images/180x200.png" alt="" />
+                                <img src="<?php bloginfo('stylesheet_directory'); ?>/assets/images/150x170.png" alt="" />
                                 <p class="title">Member 3</p>
                                 <div class="description"> 
                                     <span class="sub-heading">Turning Point:</span>
@@ -595,7 +538,7 @@ $banner_image_src  = getRandomImage($favorfields['color-select'], true);
                                 </ul>
                             </li>
                             <li>
-                                <img src="<?php bloginfo('stylesheet_directory'); ?>/assets/images/180x200.png" alt="" />
+                                <img src="<?php bloginfo('stylesheet_directory'); ?>/assets/images/150x170.png" alt="" />
                                 <p class="title">Member 4</p>
                                 <div class="description"> 
                                     <span class="sub-heading">Turning Point:</span>
@@ -613,7 +556,7 @@ $banner_image_src  = getRandomImage($favorfields['color-select'], true);
                                 </ul>
                             </li>
                             <li>
-                                <img src="<?php bloginfo('stylesheet_directory'); ?>/assets/images/180x200.png" alt="" />
+                                <img src="<?php bloginfo('stylesheet_directory'); ?>/assets/images/150x170.png" alt="" />
                                 <p class="title">Member 5</p>
                                <div class="description"> 
                                     <span class="sub-heading">Turning Point:</span>
@@ -631,7 +574,7 @@ $banner_image_src  = getRandomImage($favorfields['color-select'], true);
                                 </ul>
                             </li>
                             <li>
-                                <img src="<?php bloginfo('stylesheet_directory'); ?>/assets/images/180x200.png" alt="" />
+                                <img src="<?php bloginfo('stylesheet_directory'); ?>/assets/images/150x170.png" alt="" />
                                 <p class="title">Member 6</p>
                                 <div class="description"> 
                                     <span class="sub-heading">Turning Point:</span>
@@ -649,7 +592,7 @@ $banner_image_src  = getRandomImage($favorfields['color-select'], true);
                                 </ul>
                             </li>
                             <li>
-                                <img src="<?php bloginfo('stylesheet_directory'); ?>/assets/images/180x200.png" alt="" />
+                                <img src="<?php bloginfo('stylesheet_directory'); ?>/assets/images/150x170.png" alt="" />
                                 <p class="title">Member 7</p>
                                 <div class="description"> 
                                     <span class="sub-heading">Turning Point:</span>
@@ -684,7 +627,7 @@ $banner_image_src  = getRandomImage($favorfields['color-select'], true);
                                 </ul>
                             </li>
                             <li>
-                                <img src="<?php bloginfo('stylesheet_directory'); ?>/assets/images/180x200.png" alt="" />
+                                <img src="<?php bloginfo('stylesheet_directory'); ?>/assets/images/150x170.png" alt="" />
                                 <p class="title">Member 9</p>
                                 <div class="description"> 
                                     <span class="sub-heading">Turning Point:</span>
@@ -702,7 +645,7 @@ $banner_image_src  = getRandomImage($favorfields['color-select'], true);
                                 </ul>
                             </li>
                             <li>
-                                <img src="<?php bloginfo('stylesheet_directory'); ?>/assets/images/180x200.png" alt="" />
+                                <img src="<?php bloginfo('stylesheet_directory'); ?>/assets/images/150x170.png" alt="" />
                                 <p class="title">Member 10</p>
                                 <div class="description"> 
                                     <span class="sub-heading">Turning Point:</span>
@@ -720,7 +663,7 @@ $banner_image_src  = getRandomImage($favorfields['color-select'], true);
                                 </ul>
                             </li>
                             <li>
-                                <img src="<?php bloginfo('stylesheet_directory'); ?>/assets/images/180x200.png" alt="" />
+                                <img src="<?php bloginfo('stylesheet_directory'); ?>/assets/images/150x170.png" alt="" />
                                 <p class="title">Member 11 </p>
                                 <div class="description"> 
                                     <span class="sub-heading">Turning Point:</span>
@@ -738,7 +681,7 @@ $banner_image_src  = getRandomImage($favorfields['color-select'], true);
                                 </ul>
                             </li>
                             <li>
-                                <img src="<?php bloginfo('stylesheet_directory'); ?>/assets/images/180x200.png" alt="" />
+                                <img src="<?php bloginfo('stylesheet_directory'); ?>/assets/images/150x170.png" alt="" />
                                 <p class="title">Member 12</p>
                                 <div class="description"> 
                                     <span class="sub-heading">Turning Point:</span>
@@ -756,7 +699,7 @@ $banner_image_src  = getRandomImage($favorfields['color-select'], true);
                                 </ul>
                             </li>
                             <li>
-                                <img src="<?php bloginfo('stylesheet_directory'); ?>/assets/images/180x200.png" alt="" />
+                                <img src="<?php bloginfo('stylesheet_directory'); ?>/assets/images/150x170.png" alt="" />
                                 <p class="title">Member 13</p>
                                 <div class="description"> 
                                     <span class="sub-heading">Turning Point:</span>
@@ -774,7 +717,7 @@ $banner_image_src  = getRandomImage($favorfields['color-select'], true);
                                 </ul>
                             </li>
                             <li>
-                                <img src="<?php bloginfo('stylesheet_directory'); ?>/assets/images/180x200.png" alt="" />
+                                <img src="<?php bloginfo('stylesheet_directory'); ?>/assets/images/150x170.png" alt="" />
                                 <p class="title">Member 14</p>
                                 <div class="description"> 
                                     <span class="sub-heading">Turning Point:</span>
@@ -792,14 +735,14 @@ $banner_image_src  = getRandomImage($favorfields['color-select'], true);
                                 </ul>
                             </li>
                         </ul>
-                        <div id="text1" class="carousel-text clearfix">
-                            <div id="members-selected-title" class="col-sm-12">Title</div>
-                            <div id="members-selected-description" class="col-sm-6">
+                        <div id="text" class="carousel-text clearfix">
+                            <div id="selected-title" class="col-sm-12">Title</div>
+                            <div id="selected-description" class="col-sm-6">
                                 <p>Description of the selected item</p>
                             </div>
                             <div class="col-md-6">
-                                <ul id="members-favorite-wellgos">List of Favorite Wellgorithms</ul>
-                                <ul id="members-favorite-bots">List of Favorite Bots</ul>
+                                <ul id="favorite-wellgos">List of Favorite Wellgorithms</ul>
+                                <ul id="favorite-bots">List of Favorite Bots</ul>
                             </div>
                         </div>
                     </div>
@@ -808,6 +751,23 @@ $banner_image_src  = getRandomImage($favorfields['color-select'], true);
         </section>
         <!--====================== Member 3D Carousel Ends here ======================-->
         
+         <section id="wellgo-week" class="container" >
+            <div class="row">
+                <div class="col-sm-12 text-center">
+                    <div class="bordered-container pad-top0 pad-bottom50">
+                        <div class="home-matrix-seperator clearfix">
+                            <h2 class="title-span">Wellgorithm of the Week</h2>
+                        </div>
+                        <h3 class="bold-text">"You may delay, but time won't." <br>Ben Franklin</h3>
+                        <div class="do-the-section">
+                            <span class="do-title"> DO THE </span>
+                            <p> <a href="#" class="do-btn">Procrastination Pranker </a> </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section id="help-us" class="container" >
             <div class="row">
                 <div class="col-sm-12 text-center">
@@ -853,14 +813,14 @@ $banner_image_src  = getRandomImage($favorfields['color-select'], true);
     jQuery(document).ready(function($){
         botsCarousel = jQuery('#botsCarousel').carousel({
             width: 800, 
-            height: 520, 
+            height: 450,
             itemWidth: 150, 
             horizontalRadius: 300, 
             verticalRadius: 120, 
             resize: false, 
             scaleRatio: 0.5,
             autoScroll: true,
-            itemSelect: onItemSelect,
+            itemSelect: onItemSelect1,
             maintainAspectRatio: true
         });                                 
         botsCarousel.scrollToItem(0);
@@ -874,12 +834,24 @@ $banner_image_src  = getRandomImage($favorfields['color-select'], true);
             jQuery('#controls #auto-scroll').css('background-position', '0px 0px');
         }
     }
+    // populate the text fields when an item is selected
+    function onItemSelect1(event) {
+        jQuery('#bots-text #bots-title').html(event.data.title);
+        jQuery('#bots-text #bots-description').html(event.data.description);
+        jQuery('#bots-text #wellgos-bots').html(event.data.wellgolist);
+
+        jQuery('#botsCarousel .carousel-item').each(function () {
+            jQuery(this).removeClass('active');
+        });
+        jQuery('#botsCarousel .carousel-item').eq(event.index).addClass('active');
+    }
+
     // Meet the Members Carousel
     var meetMemberCarousel;
     jQuery(document).ready(function($){
         meetMemberCarousel = jQuery('#meetMemberCarousel').carousel({
             width: 800, 
-            height: 520, 
+            height: 450,
             itemWidth: 150, 
             horizontalRadius: 300, 
             verticalRadius: 120, 
@@ -902,23 +874,15 @@ $banner_image_src  = getRandomImage($favorfields['color-select'], true);
     }
     // populate the text fields when an item is selected
     function onItemSelect(event) {
-        jQuery('#text #bots-selected-title').html(event.data.title);
-        jQuery('#text #bots-selected-description').html(event.data.description);
-        jQuery('#text #bots-favorite-wellgos').html(event.data.wellgolist);
-        jQuery('#text #bots-favorite-bots').html(event.data.botlist);
+        jQuery('#text #selected-title').html(event.data.title);
+        jQuery('#text #selected-description').html(event.data.description);
+        jQuery('#text #favorite-wellgos').html(event.data.wellgolist);
+        jQuery('#text #favorite-bots').html(event.data.botlist);
 
-        jQuery('#text #members-selected-title').html(event.data.title);
-        jQuery('#text #members-selected-description').html(event.data.description);
-        jQuery('#text #members-favorite-wellgos').html(event.data.wellgolist);
-        jQuery('#text #members-favorite-bots').html(event.data.botlist);
-        
-        jQuery('#botsCarousel .carousel-item').each(function () {
-            jQuery(this).removeClass('active');
-        });
         jQuery('#meetMemberCarousel .carousel-item').each(function () {
             jQuery(this).removeClass('active');
         });
-        jQuery('.carousel-item').eq(event.index).addClass('active');
+        jQuery('#meetMemberCarousel .carousel-item').eq(event.index).addClass('active');
     }
 </script>
 <!--=========== 3D Carousel Ends Here ============== -->
