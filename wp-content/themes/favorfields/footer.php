@@ -63,12 +63,13 @@ if ($favorfields['enable-footer']) :
                     <?
                     if ( is_singular( 'wellgorithms' ) || is_singular( 'my_wellgorithms' ) ) :
 
-	                $category = get_the_category();
-                    $wellgorithm = ( $category[0]->name != "Hellgo" ) ? "Wellgorithm" : "Hellgorithm";
+                        $cat_id = $_SESSION['cat'];
+                        $category = get_the_category( $cat_id );
+                        $wellgorithm = ( $category[0]->name != "Hellgo" ) ? "Wellgorithm" : "Hellgorithm";
                     ?>
-                        <p><span class="cm">FavorFields</span>, Do yourself a favor <span class="tm">today</span>,  <span class="tm"><?= $wellgorithm ?></span>, <span class="cm"><?= $category[0]->name ?></span> and <span class="cm"><?= the_title() ?></span> are trademarks of Lightworkers of the Sphere, LLC.</p>
+                        <p><span class="tm"><?= $wellgorithm ?></span>, <span class="cm"><?= strtoupper( $category[0]->name ) ?></span> and <span class="cm"><?= the_title() ?></span> are trademarks of Lightworkers of the Sphere, LLC. These trademarks have been recorded and certified by <a href="https://cognate.com/" target="_blank">Cognate</a>, The Common Law Trademark (CM Registry).</p>
                     <? else : ?>
-                        <p><span class="cm">FavorFields</span>, Do yourself a favor <span class="tm">today</span>,  <span class="tm">Wellgorithm</span>, <span class="cm">Wellgo</span> and <span class="cm">Hellgo</span>, <span class="cm">Letgo</span>, <span class="cm">Cosmo</span>, <span class="cm">Predicto</span>, and <span class="cm">Quack Bot SaysTM</span> are trademarks of Lightworkers of the Sphere, LLC.</p>
+                        <p><span class="cm">FavorFields</span>, Do yourself a favor <span class="tm">today</span>,  <span class="tm">Wellgorithm</span>, <span class="cm">Wellgo</span>, <span class="cm">Hellgo</span>, <span class="cm">Letgo</span>, <span class="cm">Cosmo</span>, <span class="cm">Predicto</span>, and <span class="tm">Quack Bot Says</span> are trademarks of Lightworkers of the Sphere, LLC. These trademarks have been recorded and certified by <a href="https://cognate.com/" target="_blank">Cognate</a>, The Common Law Trademark (CM Registry).</p>
                     <? endif; ?>
                       <?= $favorfields['footer_copyright'] ?>
                   </div>

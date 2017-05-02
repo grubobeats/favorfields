@@ -46,6 +46,8 @@ $right_faded_logo_url = wp_get_attachment_url($right_faded_logo[0]);
 // Javascript object with all dynamic settings
 require_once 'template-parts/additional-js.php';
 
+// Saving to session so it can be used in footer
+$_SESSION['cat'] = $logic->getWellgorithmPostID();
 ?>
     <style>
         .mode_bar.active {
