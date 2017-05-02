@@ -53,9 +53,9 @@
 			<!-- col-sm-5 wellgo-quiz-option ends -->
 			<div class="col-sm-2 wellgo-main-img text-center">
 				<ul class="background-color-4 cs-main-background-image" data-step="<?= $i ?>">
-					<li class="top-part mode-solo"></li>
-					<li class="middle-part mode-default"></li>
-					<li class="bottom-part mode-social"></li>
+					<li class="mode_bar top-part mode-solo"></li>
+					<li class="mode_bar middle-part mode-default active"></li>
+					<li class="mode_bar bottom-part mode-social"></li>
 				</ul>
 			</div> <!-- col-sm-2 wellgo-main-img ends -->
 

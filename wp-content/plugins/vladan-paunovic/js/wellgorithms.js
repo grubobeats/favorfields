@@ -39,6 +39,18 @@ jQuery(document).ready(function($){
      * end of Summit code
      ------------------------------------ */
 
+    /*
+     * Mailchiimp
+     */
+    $('.fako_input_title').val($('.fako-title').text());
+
+
+    /*
+     * Countdown (flipclock.js)
+     */
+    var clock = $('.countdown').FlipClock(3600 * 3, {
+        countdown: true
+    });
 
     /* ------------------------------------
      * FUNCTIONS
@@ -668,6 +680,18 @@ jQuery(document).ready(function($){
             $('.reload_users').removeClass('hidden');
         }, 'html');
     }
+
+    /**
+     * Handling active button for modes
+     */
+
+    $('.mode_bar').click(function () {
+        $('.mode_bar').each(function () {
+            $(this).removeClass('active');
+        });
+
+        $(this).addClass('active');
+    });
 
 
     /**

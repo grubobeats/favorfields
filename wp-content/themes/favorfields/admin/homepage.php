@@ -6,6 +6,19 @@
  * Time: 19:35
  */
 
+
+$post_args = array(
+	'posts_per_page'   => -1,
+	'post_type'        => 'color_template',
+	'offset'           => 0,
+	'orderby'          => 'date',
+	'order'            => 'DESC',
+	'post_status'      => 'publish',
+	'suppress_filters' => true
+);
+
+
+
 Redux::setSection( $opt_name, array(
 	'title' => __( 'Homepage', 'redux-framework-demo' ),
 	'id'    => 'homepage',
@@ -21,6 +34,17 @@ Redux::setSection( $opt_name, array(
 		'id'         => 'homepage-sec-0',
 		'subsection' => true,
 		'fields'=> array(
+
+			array(
+				'id'        => 'color-select',
+				'type'      => 'select',
+				'title'     => __('Select color template', 'redux-framework-demo'),
+				// Must provide key => value pairs for select options
+//				'options'  => $template,
+				'default'   => '2',
+				'data'      => 'posts',
+				'args'      => $post_args
+			),
 
 
 			array(
@@ -159,6 +183,12 @@ Redux::setSection( $opt_name, array(
 				'description'  => '',
 				'default'  => 'More'
 			),
+			array(
+				'id'       => 'homepage_sub_2_content_button_1_link',
+				'type'     => 'text',
+				'title'    => __('Section #2 Href button #1', 'redux-framework-demo'),
+				'description'  => '',
+			),
 
 			// Content #2
 			array(
@@ -188,6 +218,12 @@ Redux::setSection( $opt_name, array(
 				'title'    => __('Section #2 Content button #2', 'redux-framework-demo'),
 				'description'  => '',
 				'default'  => 'More'
+			),
+			array(
+				'id'       => 'homepage_sub_2_content_button_2_link',
+				'type'     => 'text',
+				'title'    => __('Section #2 Href button #2', 'redux-framework-demo'),
+				'description'  => '',
 			),
 		)));
 

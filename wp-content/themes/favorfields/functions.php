@@ -494,3 +494,19 @@ add_action('admin_menu', 'new_link_page');
 
 // Remove <p> tags from category descriptions
 remove_filter('term_description','wpautop');
+
+
+/**
+ * Global values for color template
+ *//*
+function color_templates_redux() {
+	$template = array(
+		'1' => 'Opt 21',
+		'2' => 'Opt 31',
+		'3' => 'Opt 41'
+	);
+
+	return $template;
+}
+
+add_action( 'redux/init', 'color_templates_redux');*/

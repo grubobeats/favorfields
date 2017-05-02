@@ -29,7 +29,7 @@ body {
 .header {
   height: 50px;
   width: 420px;
-  background: #424242;
+  background: #74bfe6;
   text-align: center;
   position: relative;
   z-index: 100; }
@@ -88,7 +88,7 @@ body {
     opacity: 1; }
 
 .week {
-  background: #4A4A4A; }
+  background: white; }
 
 .day {
   display: inline-block;
@@ -97,11 +97,11 @@ body {
   text-align: center;
   vertical-align: top;
   cursor: pointer;
-  background: #4A4A4A;
+  background: white;
   position: relative;
   z-index: 100; }
   .day.other {
-    color: rgba(255, 255, 255, 0.3); }
+    color: #74bfe6; }
   .day.today {
     color: #9ccaeb; }
 
@@ -158,7 +158,7 @@ body {
   position: relative;
   width: 420px;
   height: 75px;
-  background: #a4a4a4;
+  background: #e6e6e6;
   margin-top: 5px;
   border-radius: 4px; }
   .details.in {
@@ -179,7 +179,7 @@ body {
   height: 0px;
   border-style: solid;
   border-width: 0 5px 5px 5px;
-  border-color: transparent transparent #a4a4a4 transparent;
+  border-color: transparent transparent #e6e6e6 transparent;
   transition: all 0.7s ease; }
 
 .events {
@@ -212,7 +212,7 @@ body {
   padding: 2px 16px;
   vertical-align: top; }
   .event.empty {
-    color: #eee; }
+    color: #000; }
 
 .event-category {
   height: 10px;

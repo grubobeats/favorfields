@@ -5,19 +5,8 @@
  * Date: 29/04/2017
  * Time: 09:12
  */
-?>
 
-
-<?
-
-
-
-
-$fako = $logic->FakoAd($category->cat_ID);
-
-?>
-
-
+$fako = $logic->FakoAd($category->cat_ID); ?>
 
 <div class="fakeads">
 	<div class="clearfix"></div>
@@ -117,7 +106,7 @@ $fako = $logic->FakoAd($category->cat_ID);
 					<figure class="three-arrows">
 						<img src="<?php bloginfo('stylesheet_directory'); ?>/assets/images/fake-ads/three-arrows.jpg" alt="three-arrows" class="img-responsive">
 					</figure>
-					<p class="join-club-now"> Join the <strong class="red cm"><?= $fako->title ?></strong> <br> club NOW!</p>
+					<p class="join-club-now"> Join the <strong class="red cm fako-title"><?= $fako->title ?></strong> <br> club NOW!</p>
 				</div>
 
 				<div class="col-sm-6">
@@ -125,18 +114,12 @@ $fako = $logic->FakoAd($category->cat_ID);
 						<p class="sm-heading"> Haha. Very funny.</p>
 						<p class="sm-text"> Ok, so it’s not a real app, but it IS a real joke club, and I’d love to be a part of it!</p>
 						<p class="bold-content"> I’d also be thrilled if I can be one of the first people in the world to give Favor Fields a test drive. Please put me on the waiting list for the next beta group.</p>
-						<form class="join-club-form">
-							<div class="form-group">
-								<input type="text" class="form-control" placeholder="Enter your first name">
-							</div>
-							<div class="form-group">
-								<input type="email" class="form-control" placeholder="Enter your email address">
-							</div>
-							<button type="submit" class="btn btn-default btn-block">Put me on the list!</button>
-						</form>
+						<div class="join-club-form">
+                            <?= do_shortcode('[mc4wp_form id="7150"]'); ?>
+						</div>
 						<p class="privacy-value"> <span class="lock-icon"></span> We value your privacy and  would never spam you </p>
 					</div>
-					<p class="recommend-wellgo red">RECOMMEND ANOTHER WELLGORITHM PLS <img src="<?php bloginfo('stylesheet_directory'); ?>/assets/images/fake-ads/red-arrow.jpg" alt="red-arrow" class="img-responsive"> </p>
+					<a href="/" class="recommend-wellgo red">RECOMMEND ANOTHER WELLGORITHM PLS <img src="<?php bloginfo('stylesheet_directory'); ?>/assets/images/fake-ads/red-arrow.jpg" alt="red-arrow" class="img-responsive"> </a>
 				</div>
 
 				<div class="col-sm-8 act-now">
@@ -144,9 +127,7 @@ $fako = $logic->FakoAd($category->cat_ID);
 				</div>
 
 				<div class="col-sm-4 timer">
-					<figure class="timer-img">
-						<img src="<?php bloginfo('stylesheet_directory'); ?>/assets/images/fake-ads/timer.png" alt="timer" class="img-responsive">
-					</figure>
+					<? require_once 'countdown.php'; ?>
 				</div>
 
 				<div class="col-sm-12">
@@ -241,15 +222,9 @@ $fako = $logic->FakoAd($category->cat_ID);
 						<p class="sm-heading"> Haha. Very funny.</p>
 						<p class="sm-text"> Ok, so it’s not a real app, but it IS a real joke club, and I’d love to be a part of it!</p>
 						<p class="bold-content"> I’d also be thrilled if I can be one of the first people in the world to give Favor Fields a test drive. Please put me on the waiting list for the next beta group.</p>
-						<form class="join-club-form">
-							<div class="form-group">
-								<input type="text" class="form-control" placeholder="Enter your first name">
-							</div>
-							<div class="form-group">
-								<input type="email" class="form-control" placeholder="Enter your email address">
-							</div>
-							<button type="submit" class="btn btn-default btn-block">Put me on the list!</button>
-						</form>
+						<div class="join-club-form">
+							<?= do_shortcode('[mc4wp_form id="7150"]'); ?>
+						</div>
 						<p class="privacy-value"> <span class="lock-icon"></span> We value your privacy and  would never spam you </p>
 					</div>
 				</div>
