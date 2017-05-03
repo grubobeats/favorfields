@@ -302,7 +302,7 @@ function make_login_form( ) {
 
     $random = rand( 0, count($author) - 1 );
 
-    $output = sprintf( '<div class="login-form-container"><div class="login-form"><ins><i class="fa fa-times close-login-form" aria-hidden="true"></i></ins><div class="form-group"><input type="text" id="user_username" class="form-control" placeholder="Username"></div><div class="form-group"><input id="user_password" type="password" class="form-control" placeholder="Password"></div><div class="form-group"><button class="go-wellgorithm">Enter the Fields</button><span class="info" id="login-info"></span><div class="quote"><p class="quote-text">%s</p><p class="quote-author">%s</p></div></div></div></div>',
+    $output = sprintf( '<div class="login-form-container background-color-4"><div class="login-form"><ins><i class="fa fa-times close-login-form" aria-hidden="true"></i></ins><div class="form-group"><input type="text" id="user_username" class="form-control background-color-2 color-3" placeholder="Username"></div><div class="form-group"><input id="user_password" type="password" class="form-control background-color-2 color-3" placeholder="Password"></div><div class="form-group"><button class="go-wellgorithm background-color-3">Enter the Fields</button><span class="info" id="login-info"></span><div class="quote"><p class="quote-text">%s</p><p class="quote-author">%s</p></div></div></div></div>',
 		html_entity_decode($content[$random]), $author[$random]
         );
 
@@ -512,3 +512,10 @@ function color_templates_redux() {
 }
 
 add_action( 'redux/init', 'color_templates_redux');*/
+
+
+function add_image_class($class){
+	$class .= ' img-responsive';
+	return $class;
+}
+add_filter('get_image_tag_class','add_image_class');

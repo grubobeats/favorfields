@@ -36,6 +36,7 @@ $tag_list  = $blog->get_tags_by_category(4);
 					<div class="col-sm-12">
 
 						<div class="top-banner-content">
+
 							<ul class="list-inline top-categories">
 
                                 <? foreach( $favorfields['blog_categories_order'] as $category ) : ?>
@@ -51,15 +52,21 @@ $tag_list  = $blog->get_tags_by_category(4);
 
 							</ul> <!-- top-categories -->
 
+							<button type="button" class="white-btn"></button>
+							<!-- white-btn -->
+
 							<div class="blog-page-heading">
 								<span class="heading"> Blog</span>
 								<span class="sub-heading">“Climbing out of your inner hell.”</span>
 							</div> <!-- blog-page-heading -->
 
 							<ul class="list-inline blog-random-tags">
-								<? foreach( $tag_list as $tag ) : ?>
-                                    <li><a href="<?= get_tag_link($tag) ?>"><?= get_tag($tag)->name; ?></a></li>
-								<? endforeach; ?>
+								<? // foreach( $tag_list as $tag ) : ?>
+<!--                                    <li><a href="--><?//= get_tag_link($tag) ?><!--">--><?//= get_tag($tag)->name; ?><!--</a></li>-->
+								<? // endforeach; ?>
+
+                                <li><a href="#">What Is Wellgorithm?</a></li>
+                                <li><a href="#">Videos</a></li>
 							</ul> <!-- blog-random-tags -->
 						</div> <!-- top-banner-content -->
 
@@ -102,7 +109,7 @@ $tag_list  = $blog->get_tags_by_category(4);
 					get_template_part( 'template-parts/content', get_post_format() );
 					?>
 					<?php endwhile; ?>
-						<?php the_posts_navigation(); ?>
+						<?php // the_posts_navigation(); ?>
 					<?php else : ?>
 
 					<?php get_template_part( 'template-parts/content', 'none' ); ?>

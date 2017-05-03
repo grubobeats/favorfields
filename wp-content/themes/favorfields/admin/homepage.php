@@ -229,7 +229,7 @@ Redux::setSection( $opt_name, array(
 
 
 		Redux::setSection( $opt_name, array(
-			'title'      => __( 'Section #3 (slider)', 'redux-framework-demo' ),
+			'title'      => __( 'Section #3 ( members )', 'redux-framework-demo' ),
 			'desc'       => '',
 			'id'         => 'homepage-sec-3',
 			'subsection' => true,
@@ -268,7 +268,7 @@ Redux::setSection( $opt_name, array(
 
 
 		Redux::setSection( $opt_name, array(
-			'title'      => __( 'Section #4 (slider)', 'redux-framework-demo' ),
+			'title'      => __( 'Section #4 ( bots )', 'redux-framework-demo' ),
 			'desc'       => '',
 			'id'         => 'homepage-sec-4',
 			'subsection' => true,

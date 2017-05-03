@@ -69,6 +69,7 @@ $color_6 = getColorTemplate($favorfields['color-select'], 'basic_settings_color-
 $banner_image_src  = getRandomImage($favorfields['color-select'], true);
 $favor_png = getColorTemplate($favorfields['color-select'], 'basic_settings_favor_png');
 $favor_card_png = getColorTemplate($favorfields['color-select'], 'basic_settings_favor_card_png');
+$login_box_png = getColorTemplate($favorfields['color-select'], 'basic_settings_login_box_png');
 $color_masking_off = (boolean) getColorTemplate($favorfields['color-select'], 'basic_settings_off_color_masking');
 ?>
 
@@ -139,6 +140,9 @@ $color_masking_off = (boolean) getColorTemplate($favorfields['color-select'], 'b
     .ais-hits { border-color: <?= $color_4 ?> }
     .ais-hits--item { border-color: <?= $color_4 ?> }
     .nicescroll-cursors { background-color: <?= $color_4 ?> !important;}
+    .ais-search-box #search-box:focus, .ais-search-box #search-box-replica:focus {border-color: <?= $color_5 ?> !important;}
+
+    .login-form-container { background: <?= $color_4 ?> url(<?= $login_box_png ?>) no-repeat }
 </style>
 
 
@@ -195,7 +199,7 @@ $color_masking_off = (boolean) getColorTemplate($favorfields['color-select'], 'b
                         <a class="movie" href="{{{ permalink }}}">
                             <img class="movie-image" src="{{ vp_icon }}" />
                             <div class="movie-meta">
-                                <span class="movie-title {{{ taxonomies.category }}}">
+                                <span class="movie-title color-3">
                                     {{{ post_title }}}
                                 </span>
 
@@ -325,6 +329,15 @@ $color_masking_off = (boolean) getColorTemplate($favorfields['color-select'], 'b
                         </div>
                         <h3 class="bold-text color-4 text-center"><?= $favorfields['homepage_sub_4_subhead'] ?></h3>
                         <ul id="botsCarousel">
+                            <? foreach( $favorfields['hompepage_sub_4_slider'] as $bot ) : ?>
+                                <li>
+                                    <img src="<?= $bot['image'] ?>" alt="<?= $bot['title'] ?>" />
+                                    <p class="title"><?= $bot['title'] ?></p>
+                                    <?= $bot['description']; ?>
+                                </li>
+                            <? endforeach; ?>
+
+                            <!--
                             <li>
                                 <img src="<?php bloginfo('stylesheet_directory'); ?>/assets/images/botcons.png" alt="" />
                                 <p class="title">Wellgo</p>
@@ -521,6 +534,7 @@ $color_masking_off = (boolean) getColorTemplate($favorfields['color-select'], 'b
                                     <li> <a href="" class="color-4">Motivation Mocha </a> </li>
                                 </ul>
                             </li>
+                            -->
                         </ul>
                         <div id="bots-text" class="carousel-text clearfix">
                             <div id="bots-title" class="col-sm-12">Title</div>
@@ -547,6 +561,19 @@ $color_masking_off = (boolean) getColorTemplate($favorfields['color-select'], 'b
                         </div>
                         <h3 class="bold-text color-4 text-center"><?= $favorfields['homepage_sub_3_subhead'] ?></h3>
                         <ul id="meetMemberCarousel">
+
+	                        <? foreach( $favorfields['hompepage_sub_3_slider'] as $user ) : ?>
+                                <li>
+                                    <img src="<?= $user['image'] ?>" alt="<?= $user['title'] ?>" />
+                                    <p class="title"><?= $user['title'] ?></p>
+	                                <?= $user['description']; ?>
+                                </li>
+	                        <? endforeach; ?>
+
+
+
+                            <!--
+
                             <li>
                                 <img src="<?php bloginfo('stylesheet_directory'); ?>/assets/images/150x170.png" alt="" />
                                 <p class="title">Member 1</p>
@@ -798,6 +825,7 @@ $color_masking_off = (boolean) getColorTemplate($favorfields['color-select'], 'b
                                     <li> <a href="#" class="color-4"> Wellgo </a></li>
                                 </ul>
                             </li>
+                            -->
                         </ul>
                         <div id="text" class="carousel-text clearfix">
                             <div id="selected-title" class="col-sm-12">Title</div>
@@ -988,7 +1016,7 @@ $color_masking_off = (boolean) getColorTemplate($favorfields['color-select'], 'b
 
         search.addWidget(instantsearch.widgets.hits({
             container: '#hits',
-            hitsPerPage: 50,
+            hitsPerPage: 30,
             templates: {
                 item: hitTemplate
             },
@@ -1147,7 +1175,7 @@ $color_masking_off = (boolean) getColorTemplate($favorfields['color-select'], 'b
 
         search_replica.addWidget(instantsearch.widgets.hits({
             container: '#hits',
-            hitsPerPage: 50,
+            hitsPerPage: 30,
             templates: {
                 item: hitTemplate
             },

@@ -56,9 +56,12 @@ $tag_list  = $blog->get_tags_by_category(4, $this_cat_id);
                             </div> <!-- blog-page-heading -->
 
                             <ul class="list-inline blog-random-tags">
-								<? foreach( $tag_list as $tag ) : ?>
-                                    <li><a href="<?= get_tag_link($tag) ?>"><?= get_tag($tag)->name; ?></a></li>
-								<? endforeach; ?>
+	                            <? // foreach( $tag_list as $tag ) : ?>
+                                <!-- <li><a href="--><?//= get_tag_link($tag) ?><!--">--><?//= get_tag($tag)->name; ?><!--</a></li>-->
+	                            <? // endforeach; ?>
+
+                                <li><a href="#">What Is Wellgorithm?</a></li>
+                                <li><a href="#">Videos</a></li>
                             </ul> <!-- blog-random-tags -->
                         </div> <!-- top-banner-content -->
 

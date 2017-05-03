@@ -68,7 +68,12 @@ class Basic_Settings {
 				'Square',
 				'Hexagon',
 			),
-		)
+		),
+	    array(
+		    'id' => 'login_box_png',
+		    'label' => 'Login box png',
+		    'type' => 'media',
+	    ),
     );
 
     /**
