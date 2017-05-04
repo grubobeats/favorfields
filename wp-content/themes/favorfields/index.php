@@ -52,27 +52,17 @@ $tag_list  = $blog->get_tags_by_category(4);
 
 							</ul> <!-- top-categories -->
 
-							<button type="button" class="white-btn"></button>
-							<!-- white-btn -->
-
 							<div class="blog-page-heading">
 								<span class="heading"> Blog</span>
 								<span class="sub-heading">“Climbing out of your inner hell.”</span>
 							</div> <!-- blog-page-heading -->
 
 							<ul class="list-inline blog-random-tags">
-								<? // foreach( $tag_list as $tag ) : ?>
-<!--                                    <li><a href="--><?//= get_tag_link($tag) ?><!--">--><?//= get_tag($tag)->name; ?><!--</a></li>-->
-								<? // endforeach; ?>
-
-                                <li><a href="#">What Is Wellgorithm?</a></li>
-                                <li><a href="#">Videos</a></li>
+                                <li><a href="<?= get_category_link( 162 ); ?>">What Is Wellgorithm?</a></li>
+                                <li><a href="<?= get_category_link( 163 ); ?>">Videos</a></li>
 							</ul> <!-- blog-random-tags -->
 						</div> <!-- top-banner-content -->
 
-          	<div class="right-faded-logo">
-              <img src="http://favorfields.com/wp-content/themes/favorfields/assets/images/mian-logo.png" alt="FFLOGO" class="img-responsive">
-            </div>  <!-- right-faded-logo ends -->
           </div> <!-- col-sm-12 ends -->
         </div> <!-- row ends -->
       </div> <!-- container ends-->
@@ -82,7 +72,7 @@ $tag_list  = $blog->get_tags_by_category(4);
     	<div class="row">
     		
     		<div class="col-sm-12 big-matrix clearfix"> 
-	    		<a href="javascript:void(0)" title="Suffle Users" class="refresh-btn border-color-4"> 
+	    		<a href="http://favorfields.com/blog/" title="Blog Home" class="refresh-btn border-color-4"> 
 	          <i class="fa fa-repeat" aria-hidden="true"> </i> 
 	      	</a>
     		</div>

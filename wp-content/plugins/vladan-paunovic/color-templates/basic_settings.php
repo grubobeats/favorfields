@@ -74,6 +74,11 @@ class Basic_Settings {
 		    'label' => 'Login box png',
 		    'type' => 'media',
 	    ),
+	    array(
+		    'id' => 'homepage_diamong_png',
+		    'label' => 'Diamond png (homepage)',
+		    'type' => 'media',
+	    ),
     );
 
     /**

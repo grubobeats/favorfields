@@ -47,8 +47,8 @@ $this_cat_id = ( get_query_var('cat') ) ? get_query_var('cat') : $cat_ids->term_
 							</div> <!-- blog-page-heading -->
 
 							<ul class="list-inline blog-random-tags">
-                                <li><a href="#">What Is Wellgorithm?</a></li>
-                                <li><a href="#">Videos</a></li>
+                                <li><a href="<?= get_category_link( 162 ); ?>">What Is Wellgorithm?</a></li>
+                                <li><a href="<?= get_category_link( 163 ); ?>">Videos</a></li>
 							</ul> <!-- blog-random-tags -->
 						</div> <!-- top-banner-content -->
 
