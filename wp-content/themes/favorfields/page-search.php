@@ -59,6 +59,45 @@ function getRandomImage($color_scheme, $random = false) {
 	}
 }
 
+/* Convert hexdec color string to rgb(a) string */
+
+function hex2rgba($color, $opacity = false) {
+
+	$default = 'rgb(0,0,0)';
+
+	//Return default if no color provided
+	if(empty($color))
+		return $default;
+
+	//Sanitize $color if "#" is provided
+	if ($color[0] == '#' ) {
+		$color = substr( $color, 1 );
+	}
+
+	//Check if color has 6 or 3 characters and get values
+	if (strlen($color) == 6) {
+		$hex = array( $color[0] . $color[1], $color[2] . $color[3], $color[4] . $color[5] );
+	} elseif ( strlen( $color ) == 3 ) {
+		$hex = array( $color[0] . $color[0], $color[1] . $color[1], $color[2] . $color[2] );
+	} else {
+		return $default;
+	}
+
+	//Convert hexadec to rgb
+	$rgb =  array_map('hexdec', $hex);
+
+	//Check if opacity is set(rgba or rgb)
+	if($opacity){
+		if(abs($opacity) > 1)
+			$opacity = 1.0;
+		$output = 'rgba('.implode(",",$rgb).','.$opacity.')';
+	} else {
+		$output = 'rgb('.implode(",",$rgb).')';
+	}
+
+	//Return rgb(a) color string
+	return $output;
+}
 
 $color_1 = getColorTemplate($favorfields['color-select'], 'basic_settings_color-1');
 $color_2 = getColorTemplate($favorfields['color-select'], 'basic_settings_color-2');
@@ -103,6 +142,7 @@ $color_masking_off = (boolean) getColorTemplate($favorfields['color-select'], 'b
     .ais-search-box #search-box:focus, .ais-search-box #search-box-replica:focus {border-color: <?= $color_5 ?> !important;}
     .login-form-container { background: <?= $color_4 ?> url(<?= $login_box_png ?>) no-repeat }
     .top,.page-template-page-search .home-matrix-seperator {background: <?= $color_4 ?> url(<?= $diamong_png ?>) no-repeat;}
+    .border-color-4-opacity { border-color: <?= hex2rgba($color_4, 0.8) ?> !important; }
 </style>
 
 
@@ -181,9 +221,9 @@ $color_masking_off = (boolean) getColorTemplate($favorfields['color-select'], 'b
                     <div class="algolia-search border-left-color-3 border-right-color-3 background-color-2">
                         <div class="top background-color-4">
                             <div class="input-container">
-                                <input type="text" id="search-box" class="clearable border-color-4"/>
+                                <input type="text" id="search-box" class="clearable border-color-4-opacity"/>
                                 <div id="stats"></div>   
-                                <input type="text" id="search-box-replica" class="clearable border-color-4"/>
+                                <input type="text" id="search-box-replica" class="clearable border-color-4-opacity"/>
                             </div>
                         </div>
 
