@@ -143,6 +143,7 @@ $color_masking_off = (boolean) getColorTemplate($favorfields['color-select'], 'b
     .ais-search-box #search-box:focus, .ais-search-box #search-box-replica:focus {border-color: <?= $color_5 ?> !important;}
 
     .login-form-container { background: <?= $color_4 ?> url(<?= $login_box_png ?>) no-repeat }
+
 </style>
 
 
@@ -152,7 +153,7 @@ $color_masking_off = (boolean) getColorTemplate($favorfields['color-select'], 'b
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.6.8-fix/jquery.nicescroll.min.js"></script>
 <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css" rel="stylesheet" />
 <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
 <link rel="stylesheet" href="<?php bloginfo('stylesheet_directory'); ?>/assets/css/3d-carousel/carousel.css">
 
@@ -243,7 +244,7 @@ $color_masking_off = (boolean) getColorTemplate($favorfields['color-select'], 'b
                                                         <? $default_words_string = explode(PHP_EOL, $favorfields['homepage_search_default_words'] ); ?>
                                                         <? foreach ( $default_words_string as $word ) :?>
                                                             <div class="ais-refinement-list--item">
-                                                                <div><div class="focus__items custom_facet"><?= $word ?></div>
+                                                                <div><div class="focus__items custom_facet"><?= trim($word) ?></div>
                                                                 </div>
                                                             </div>
                                                         <? endforeach; ?>
@@ -298,7 +299,7 @@ $color_masking_off = (boolean) getColorTemplate($favorfields['color-select'], 'b
                             <div class="col-sm-6 demo-video vid1">
                                 <div class="demo-video-container">
                                     <img src="http://favorfields.com//wp-content/themes/favorfields/assets/images/lotus-video.jpg" class="img-responsive video-bordered border-color-4" alt="Video">
-                                    <a class="play-video background-color-4" href="javascript:void(0)"> <i class="fa fa-play" aria-hidden="true"></i> Watch</a>
+                                    <a class="play-video background-color-4" href="javascript:void(0)" data-toggle="modal" data-target="#videoModal1"> <i class="fa fa-play" aria-hidden="true"></i> Watch</a>
                                 </div>
                                 <h3 class="bold-text color-4"> <span><?= $favorfields['homepage_sub_2_content_title_1'] ?></span> <br/> <strong><?= $favorfields['homepage_sub_2_content_subhead_1']?></strong></h3>
                                 <div class="text-left long-text"><?= $favorfields['homepage_sub_2_content_content_1'] ;?></div>
@@ -307,7 +308,7 @@ $color_masking_off = (boolean) getColorTemplate($favorfields['color-select'], 'b
                             <div class="col-sm-6 demo-video vid2">
                                 <div class="demo-video-container">
                                     <img src="http://favorfields.com//wp-content/themes/favorfields/assets/images/video2.jpg" class="img-responsive video-bordered border-color-4" alt="Video">
-                                    <a class="play-video background-color-4 color-4" href="javascript:void(0)"> <i class="fa fa-play" aria-hidden="true"></i> Watch </a>
+                                    <a class="play-video background-color-4 color-4" href="javascript:void(0)" data-toggle="modal" data-target="#videoModal2"> <i class="fa fa-play" aria-hidden="true"></i> Watch </a>
                                 </div>
                                 <h3 class="bold-text color-4"> <span><?= $favorfields['homepage_sub_2_content_title_2'] ?></span> <br/> <strong><?= $favorfields['homepage_sub_2_content_subhead_2']?></strong></h3>
                                 <div class="text-left long-text"><?= $favorfields['homepage_sub_2_content_content_2'] ;?></div>
@@ -891,15 +892,50 @@ $color_masking_off = (boolean) getColorTemplate($favorfields['color-select'], 'b
     </div>
 </div>
 
+<!-- Video Modal 1 -->
+<div class="modal home-video-modal fade" id="videoModal1" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-body" id="yt-player">
+                <button type="button" class="close" data-dismiss="modal">Close</button>
+                <iframe src="https://www.youtube.com/embed/a6XkY53VlhM" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+        <!-- Modal content-->
+    </div>
+</div>
+<!-- Video Modal 2 -->
+<div class="modal home-video-modal fade" id="videoModal2" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-body" id="yt-player">
+                <button type="button" class="close" data-dismiss="modal">Close</button>
+                <iframe src="https://www.youtube.com/embed/a6XkY53VlhM" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+        <!-- Modal content-->
+    </div>
+</div>
 
 <!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+<!-- Youtube Videos in Modal JavaScript -->
+<script type="text/javascript">
+    jQuery('#videoModal1').on('hidden.bs.modal', function () {
+      jQuery("#videoModal1 iframe").attr("src", jQuery("#videoModal1 iframe").attr("src"));
+    });
+    jQuery('#videoModal2').on('hidden.bs.modal', function () {
+      jQuery("#videoModal2 iframe").attr("src", jQuery("#videoModal2 iframe").attr("src"));
+    });
+</script>
 <!--=========== Typad JS Starts Here ============== -->
 <script type="text/javascript" src="<?php bloginfo('stylesheet_directory'); ?>/js/typed.min.js"></script>
 <script>
   document.addEventListener('DOMContentLoaded', function(){
-      Typed.new('#help-us .bold-text color-4 span', {
+      Typed.new('#help-us .bold-text.color-4 span', {
         strings: ["grow", "laugh", "love"],
         typeSpeed: 100,
         loop: true,

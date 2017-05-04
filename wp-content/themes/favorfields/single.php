@@ -7,7 +7,12 @@
  * @package FavorFields
  */
 
-get_header(); ?>
+get_header();
+global $favorfields;
+
+$cat_ids = get_the_category()[0];
+$this_cat_id = ( get_query_var('cat') ) ? get_query_var('cat') : $cat_ids->term_id;
+?>
 
 <!-- Latest compiled and minified CSS  -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -24,80 +29,29 @@ get_header(); ?>
 
 						<div class="top-banner-content">
 							<ul class="list-inline top-categories">
-								<li>
-									<figure class="wellgo-mood-img">
-										<a href=""> 
-											<img src="http://favorfields.com/wp-content/uploads/2017/02/Hellgo40-1.png" alt="" class="img-responsive">
-											<figcaption> Hellgo </figcaption>
-										</a>
-									</figure>
-								</li>
-								<li>
-									<figure class="wellgo-mood-img">
-										<a href=""> 
-											<img src="http://favorfields.com/wp-content/uploads/2017/02/Letgo5-1.png" alt="" class="img-responsive">
-											<figcaption> Wellgo </figcaption>
-										</a>
-									</figure>
-								</li>
-								<li>
-									<figure class="wellgo-mood-img">
-										<a href=""> 
-											<img src="http://favorfields.com/wp-content/uploads/2017/02/Wellgo12.png" alt="" class="img-responsive">
-											<figcaption> Letgo </figcaption>
-										</a>
-									</figure>
-								</li>
-								<li>
-									<figure class="wellgo-mood-img">
-										<a href=""> 
-											<img src="http://favorfields.com/wp-content/uploads/2017/02/Wellgo10.png" alt="" class="img-responsive">
-											<figcaption> Cosmo </figcaption>
-										</a>
-									</figure>
-								</li>
-								<li>
-									<figure class="wellgo-mood-img">
-										<a href=""> 
-											<img src="http://favorfields.com/wp-content/uploads/2017/02/Wellgo40.png" alt="" class="img-responsive">
-											<figcaption> Predicto </figcaption>
-										</a>
-									</figure>
-								</li>
-								<li>
-									<figure class="wellgo-mood-img">
-										<a href=""> 
-											<img src="http://favorfields.com/wp-content/uploads/2017/02/Wellgo58.png" alt="" class="img-responsive">
-											<figcaption> Quacko </figcaption>
-										</a>
-									</figure>
-								</li>
-								<li>
-									<figure class="wellgo-mood-img">
-										<a href=""> 
-											<img src="http://favorfields.com/wp-content/uploads/2017/02/Letgo47-1.png" alt="" class="img-responsive">
-											<figcaption> Fako </figcaption>
-										</a>
-									</figure>
-								</li>
+								<? foreach( $favorfields['blog_categories_order'] as $category ) : ?>
+                                    <li>
+                                        <figure class="wellgo-mood-img">
+                                            <a href="<?= get_category_link( $category['url'] ); ?>">
+                                                <img src="<?= $category['image'] ?>" alt="" class="img-responsive">
+                                                <figcaption> <?= $category['title'] ?> </figcaption>
+                                            </a>
+                                        </figure>
+                                    </li>
+								<? endforeach; ?>
 							</ul> <!-- top-categories -->
 
 							<div class="blog-page-heading">
-								<span class="heading"> Hellgo</span>
-								<span class="sub-heading">“Climbing out of your inner hell.”</span>
+								<span class="heading"> <?= get_the_category_by_ID($this_cat_id) ?></span>
+								<span class="sub-heading">“<?= category_description($this_cat_id);?>”</span>
 							</div> <!-- blog-page-heading -->
 
 							<ul class="list-inline blog-random-tags">
-								<li> Gratitude </li>
-								<li> Peace </li>
-								<li> Faith </li>
-								<li> Joy </li>
+                                <li><a href="#">What Is Wellgorithm?</a></li>
+                                <li><a href="#">Videos</a></li>
 							</ul> <!-- blog-random-tags -->
 						</div> <!-- top-banner-content -->
 
-          	<div class="right-faded-logo">
-              <img src="http://favorfields.com/wp-content/themes/favorfields/assets/images/mian-logo.png" alt="FFLOGO" class="img-responsive">
-            </div>  <!-- right-faded-logo ends -->
           </div> <!-- col-sm-12 ends -->
         </div> <!-- row ends -->
       </div> <!-- container ends-->
@@ -107,7 +61,7 @@ get_header(); ?>
 			<div class="row">
 
 				<div class="col-sm-12 big-matrix clearfix"> 
-	    		<a href="javascript:void(0)" title="Suffle Users" class="refresh-btn border-color-4"> 
+	    		<a href="http://favorfields.com/blog/" title="Blog Home" class="refresh-btn border-color-4">
 	          <i class="fa fa-repeat" aria-hidden="true"> </i> 
 	      	</a>
     		</div>
@@ -117,7 +71,7 @@ get_header(); ?>
 
 						<?php get_template_part( 'template-parts/content', 'single' ); ?>
 
-						<?php the_post_navigation(); ?>
+						<?php // the_posts_navigation(); ?>
 
 						<?php
 									// If comments are open or we have at least one comment, load up the comment template.

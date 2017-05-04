@@ -58,21 +58,14 @@
 		background-image: url("<?= $favor_png ?>") !important;
 	}
 
-	.cs-image-overlayed {
-		background-image: url("<?= $banner_image_src; ?>");
-	}
-
-	.cs-main-background-image {
-		background-image: url("<?= $main_png ?>") !important;
-	}
-
+	.cs-image-overlayed { background-image: url("<?= $banner_image_src; ?>");}
+	.cs-main-background-image { background-image: url("<?= $main_png ?>") !important;}
 	.hexagon label {background-color: <?= $color_4 ?> !important;}
 	.hexagon label::before {border-bottom-color: <?= $color_4 ?> !important;}
 	.hexagon label::after {border-top-color: <?= $color_4 ?> !important;}
-
 	.hexagon .hexagon-focus {background-color: <?= $color_1 ?> !important;}
 	.hexagon .hexagon-focus::before {border-bottom-color: <?= $color_1 ?> !important;}
 	.hexagon .hexagon-focus::after {border-top-color: <?= $color_1 ?> !important;}
-
 	.favor-card-png { background-image: url('<?= $favor_card_png ?>') !important; }
+    .mode_bar.active { background-color: <?= $color_3 ?>; }
 </style>

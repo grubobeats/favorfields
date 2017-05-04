@@ -277,8 +277,7 @@ class Template_logic
 	    $args = array(
 		    'post_type'         => 'fakoads',
 		    'order'             => 'rand',
-		    'cat'               => $category_id,
-		    'posts_per_page'    =>  1,
+		    'posts_per_page'    =>  -1,
 		    'post_status'       => 'publish'
 	    );
 
@@ -287,14 +286,17 @@ class Template_logic
 	    $my_query = new WP_Query($args);
 	    if( $my_query->have_posts() ) {
 		    while ($my_query->have_posts()) : $my_query->the_post();
+		        $cat = get_the_category();
+
+		        if ( $cat[0]->cat_ID != $category_id ) continue;
+
 			    $loop_post_id = get_the_ID();
 			    $output[] = $loop_post_id;
 		    endwhile;
 	    }
 	    wp_reset_query();
 
-
-	    return $output[0];
+	    return $output[ rand(0, count($output) - 1) ];
     }
 
 
@@ -303,11 +305,8 @@ class Template_logic
     	// Get random Fako Id from this category;
 	    $fako_id = $this->getRandomFakeAd( $category_id );
 
-
 	    $title = get_the_title($fako_id);
 		$meta = get_post_meta($fako_id);
-
-
 
 	    $output = [
 	    	'title'     => $title,
