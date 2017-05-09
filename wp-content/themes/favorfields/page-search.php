@@ -143,6 +143,9 @@ $color_masking_off = (boolean) getColorTemplate($favorfields['color-select'], 'b
     .login-form-container { background: <?= $color_4 ?> url(<?= $login_box_png ?>) no-repeat }
     .top,.page-template-page-search .home-matrix-seperator {background: <?= $color_4 ?> url(<?= $diamong_png ?>) no-repeat;}
     .border-color-4-opacity { border-color: <?= hex2rgba($color_4, 0.8) ?> !important; }
+    .algolia-search .ais-search-box input::-moz-placeholder {color: <?= $color_3 ?> !important;}
+    .algolia-search .ais-search-box input:-ms-input-placeholder {color: <?= $color_3 ?> !important;}
+    .algolia-search .ais-search-box input::-webkit-input-placeholder {color: <?= $color_3 ?> !important;}
 </style>
 
 
@@ -221,9 +224,9 @@ $color_masking_off = (boolean) getColorTemplate($favorfields['color-select'], 'b
                     <div class="algolia-search border-left-color-3 border-right-color-3 background-color-2">
                         <div class="top background-color-4">
                             <div class="input-container">
-                                <input type="text" id="search-box" class="clearable border-color-4-opacity"/>
-                                <div id="stats"></div>   
-                                <input type="text" id="search-box-replica" class="clearable border-color-4-opacity"/>
+                                <input type="text" id="search-box" class="clearable color-3 border-color-4-opacity"/>
+                                <div id="stats" class="border-color-4"></div>   
+                                <input type="text" id="search-box-replica" class="clearable color-3 border-color-4-opacity"/>
                             </div>
                         </div>
 
@@ -288,16 +291,16 @@ $color_masking_off = (boolean) getColorTemplate($favorfields['color-select'], 'b
                 <div class="col-sm-12 text-center">
                     <div class="bordered-container bg-white pad-top0 border-left-color-3 border-right-color-3 background-color-2">
                         <div class="home-matrix-seperator background-color-4 clearfix">
-                            <h2 class="title-span color-4 border-color-4"><?= $favorfields['homepage_sub_2'] ?></h2>
+                            <h2 class="title-span color-3 border-color-4"><?= $favorfields['homepage_sub_2'] ?></h2>
                         </div>
-                        <h3 class="bold-text color-4"><?= $favorfields['homepage_sub_2_text_1'] ?><br/><?= $favorfields['homepage_sub_2_text_2'] ?></h3>
+                        <h3 class="bold-text color-3"><?= $favorfields['homepage_sub_2_text_1'] ?><br/><?= $favorfields['homepage_sub_2_text_2'] ?></h3>
                         <div class="row">
                             <div class="col-sm-6 demo-video vid1">
                                 <div class="demo-video-container">
                                     <img src="http://favorfields.com//wp-content/themes/favorfields/assets/images/lotus-video.jpg" class="img-responsive video-bordered border-color-4" alt="Video">
                                     <a class="play-video background-color-4" href="javascript:void(0)" data-toggle="modal" data-target="#videoModal1"> <i class="fa fa-play" aria-hidden="true"></i> Watch</a>
                                 </div>
-                                <h3 class="bold-text color-4"> <span><?= $favorfields['homepage_sub_2_content_title_1'] ?></span> <br/> <strong><?= $favorfields['homepage_sub_2_content_subhead_1']?></strong></h3>
+                                <h3 class="bold-text color-3"> <span><?= $favorfields['homepage_sub_2_content_title_1'] ?></span> <br/> <strong><?= $favorfields['homepage_sub_2_content_subhead_1']?></strong></h3>
                                 <div class="text-left long-text"><?= $favorfields['homepage_sub_2_content_content_1'] ;?></div>
                                 <a href="<?= $favorfields['homepage_sub_2_content_button_1_link']; ?>" class="more-btn background-color-4" title="More" target="_blank"> <?= $favorfields['homepage_sub_2_content_button_1']?> </a>
                             </div>
@@ -306,7 +309,7 @@ $color_masking_off = (boolean) getColorTemplate($favorfields['color-select'], 'b
                                     <img src="http://favorfields.com//wp-content/themes/favorfields/assets/images/video2.jpg" class="img-responsive video-bordered border-color-4" alt="Video">
                                     <a class="play-video background-color-4 color-4" href="javascript:void(0)" data-toggle="modal" data-target="#videoModal2"> <i class="fa fa-play" aria-hidden="true"></i> Watch </a>
                                 </div>
-                                <h3 class="bold-text color-4"> <span><?= $favorfields['homepage_sub_2_content_title_2'] ?></span> <br/> <strong><?= $favorfields['homepage_sub_2_content_subhead_2']?></strong></h3>
+                                <h3 class="bold-text color-3"> <span><?= $favorfields['homepage_sub_2_content_title_2'] ?></span> <br/> <strong><?= $favorfields['homepage_sub_2_content_subhead_2']?></strong></h3>
                                 <div class="text-left long-text"><?= $favorfields['homepage_sub_2_content_content_2'] ;?></div>
                                 <a href="<?= $favorfields['homepage_sub_2_content_button_2_link']; ?>" class="more-btn background-color-4" title="More" target="_blank"> <?= $favorfields['homepage_sub_2_content_button_2']?> </a>
                             </div>
@@ -322,9 +325,9 @@ $color_masking_off = (boolean) getColorTemplate($favorfields['color-select'], 'b
                 <div class="col-sm-12">
                     <div class="bordered-container pad-top0 pad-bottom100 border-left-color-3 border-right-color-3 background-color-2">
                         <div class="home-matrix-seperator background-color-4 clearfix">
-                            <h2 class="title-span color-4 border-color-4"><?= $favorfields['homepage_sub_4_title'] ?></h2>
+                            <h2 class="title-span color-3 border-color-4"><?= $favorfields['homepage_sub_4_title'] ?></h2>
                         </div>
-                        <h3 class="bold-text color-4 text-center"><?= $favorfields['homepage_sub_4_subhead'] ?></h3>
+                        <h3 class="bold-text color-3 text-center"><?= $favorfields['homepage_sub_4_subhead'] ?></h3>
                         <ul id="botsCarousel">
                             <? foreach( $favorfields['hompepage_sub_4_slider'] as $bot ) : ?>
                                 <li>
@@ -355,9 +358,9 @@ $color_masking_off = (boolean) getColorTemplate($favorfields['color-select'], 'b
                 <div class="col-sm-12">
                     <div class="bordered-container pad-top0 pad-bottom100 border-left-color-3 border-right-color-3 background-color-2">
                         <div class="home-matrix-seperator background-color-4 clearfix">
-                            <h2 class="title-span color-4 border-color-4"><?= $favorfields['homepage_sub_3_title'] ?></h2>
+                            <h2 class="title-span color-3 border-color-4"><?= $favorfields['homepage_sub_3_title'] ?></h2>
                         </div>
-                        <h3 class="bold-text color-4 text-center"><?= $favorfields['homepage_sub_3_subhead'] ?></h3>
+                        <h3 class="bold-text color-3 text-center"><?= $favorfields['homepage_sub_3_subhead'] ?></h3>
                         <ul id="meetMemberCarousel">
 	                        <? foreach( $favorfields['hompepage_sub_3_slider'] as $user ) : ?>
                                 <li>
@@ -388,11 +391,11 @@ $color_masking_off = (boolean) getColorTemplate($favorfields['color-select'], 'b
                 <div class="col-sm-12 text-center">
                     <div class="bordered-container pad-top0 pad-bottom50 border-left-color-3 border-right-color-3 background-color-2">
                         <div class="home-matrix-seperator background-color-4 clearfix">
-                            <h2 class="title-span color-4 border-color-4">Wellgorithm of the Week</h2>
+                            <h2 class="title-span color-3 border-color-4">Wellgorithm of the Week</h2>
                         </div>
-                        <h3 class="bold-text color-4">"You may delay, but time won't." <br><em>— Ben Franklin</em></h3>
+                        <h3 class="bold-text color-3">"You may delay, but time won't." <br><em>— Ben Franklin</em></h3>
                         <div class="do-the-section">
-                            <span class="do-title color-4"> do the </span>
+                            <span class="do-title color-3"> do the </span>
                             <p> <a href="#" class="do-btn background-color-3 border-color-3">Procrastination Pranker </a> </p>
                         </div>
                     </div>
@@ -406,7 +409,7 @@ $color_masking_off = (boolean) getColorTemplate($favorfields['color-select'], 'b
                     <div class="bordered-container pad-top0 pad-bottom50 border-left-color-3 border-right-color-3 background-color-2">
                         <div class="home-matrix-seperator background-color-4 clearfix">
                         </div>
-                        <h3 class="bold-text color-4"> Come <span>grow</span> with us.
+                        <h3 class="bold-text color-3"> Come <span>grow</span> with us.
                           <br><br> Help us re-imagine social media — <br> show the world what it can be.
                         </h3>
 
@@ -474,7 +477,7 @@ $color_masking_off = (boolean) getColorTemplate($favorfields['color-select'], 'b
 <script type="text/javascript" src="<?php bloginfo('stylesheet_directory'); ?>/js/typed.min.js"></script>
 <script>
   document.addEventListener('DOMContentLoaded', function(){
-      Typed.new('#help-us .bold-text.color-4 span', {
+      Typed.new('#help-us .bold-text span', {
         strings: ["grow", "laugh", "love"],
         typeSpeed: 100,
         loop: true,
@@ -644,7 +647,7 @@ $color_masking_off = (boolean) getColorTemplate($favorfields['color-select'], 'b
                 { start: 3, end: 3, name: 'Wellgo' },
                 { start: 4, end: 4, name: 'Hellgo' },
                 { start: 5, end: 5, name: 'Letgo' },
-                { start: 148, end: 148, name: 'Cosmo' },
+                { start: 164, end: 164, name: 'Cosmo' },
                 { start: 147, end: 147, name: 'Predicto' },
                 { start: 152, end: 152, name: 'Quacko' }
             ],
@@ -652,17 +655,17 @@ $color_masking_off = (boolean) getColorTemplate($favorfields['color-select'], 'b
                 item: function item(data) {
                     var output = "";
                     if (data.name == 'Hellgo') {
-                        output = "<img src='<?= wp_get_attachment_url($algolia_avatars_array[0]); ?>'><span class='hellgo'>Hellgo</span>";
+                        output = "<img src='<?= wp_get_attachment_url($algolia_avatars_array[0]); ?>'><span class='color-3'>Hellgo</span>";
                     } else if (data.name == 'Letgo') {
-                        output = "<img src='<?= wp_get_attachment_url($algolia_avatars_array[1]); ?>'><span class='letgo'>Letgo</span>";
+                        output = "<img src='<?= wp_get_attachment_url($algolia_avatars_array[1]); ?>'><span class='color-3'>Letgo</span>";
                     } else if (data.name == 'Wellgo') {
-                        output = "<img src='<?= wp_get_attachment_url($algolia_avatars_array[2]); ?>'><span class='wellgo'>Wellgo</span>";
+                        output = "<img src='<?= wp_get_attachment_url($algolia_avatars_array[2]); ?>'><span class='color-3'>Wellgo</span>";
                     } else if (data.name == 'Cosmo') {
-                        output = "<img src='<?= wp_get_attachment_url($algolia_avatars_array[3]); ?>'><span class='cosmo'>Cosmo</span>";
+                        output = "<img src='<?= wp_get_attachment_url($algolia_avatars_array[3]); ?>'><span class='color-3'>Cosmo</span>";
                     } else if (data.name == 'Predicto') {
-                        output = "<img src='<?= wp_get_attachment_url($algolia_avatars_array[4]); ?>'><span class='predicto'>Predicto</span>";
+                        output = "<img src='<?= wp_get_attachment_url($algolia_avatars_array[4]); ?>'><span class='color-3'>Predicto</span>";
                     } else if (data.name == 'Quacko') {
-                        output = "<img src='<?= wp_get_attachment_url($algolia_avatars_array[5]); ?>'><span class='quacko'>Quacko</span>";
+                        output = "<img src='<?= wp_get_attachment_url($algolia_avatars_array[5]); ?>'><span class='color-3'>Quacko</span>";
                     }
                     return output;
                 }
@@ -803,7 +806,7 @@ $color_masking_off = (boolean) getColorTemplate($favorfields['color-select'], 'b
                 { start: 3, end: 3, name: 'Wellgo' },
                 { start: 4, end: 4, name: 'Hellgo' },
                 { start: 5, end: 5, name: 'Letgo' },
-                { start: 148, end: 148, name: 'Cosmo' },
+                { start: 164, end: 164, name: 'Cosmo' },
                 { start: 147, end: 147, name: 'Predicto' },
                 { start: 152, end: 152, name: 'Quacko' }
                 ],
@@ -811,17 +814,17 @@ $color_masking_off = (boolean) getColorTemplate($favorfields['color-select'], 'b
                 item: function item(data) {
                     var output = "";
                     if (data.name == 'Hellgo') {
-                        output = "<img src='<?= wp_get_attachment_url($algolia_avatars_array[0]); ?>'><span class='hellgo'>Hellgo</span>";
+                        output = "<img src='<?= wp_get_attachment_url($algolia_avatars_array[0]); ?>'><span class='color-3'>Hellgo</span>";
                     } else if (data.name == 'Letgo') {
-                        output = "<img src='<?= wp_get_attachment_url($algolia_avatars_array[1]); ?>'><span class='letgo'>Letgo</span>";
+                        output = "<img src='<?= wp_get_attachment_url($algolia_avatars_array[1]); ?>'><span class='color-3'>Letgo</span>";
                     } else if (data.name == 'Wellgo') {
-                        output = "<img src='<?= wp_get_attachment_url($algolia_avatars_array[2]); ?>'><span class='wellgo'>Wellgo</span>";
+                        output = "<img src='<?= wp_get_attachment_url($algolia_avatars_array[2]); ?>'><span class='color-3'>Wellgo</span>";
                     } else if (data.name == 'Cosmo') {
-                        output = "<img src='<?= wp_get_attachment_url($algolia_avatars_array[3]); ?>'><span class='cosmo'>Cosmo</span>";
+                        output = "<img src='<?= wp_get_attachment_url($algolia_avatars_array[3]); ?>'><span class='color-3'>Cosmo</span>";
                     } else if (data.name == 'Predicto') {
-                        output = "<img src='<?= wp_get_attachment_url($algolia_avatars_array[4]); ?>'><span class='predicto'>Predicto</span>";
+                        output = "<img src='<?= wp_get_attachment_url($algolia_avatars_array[4]); ?>'><span class='color-3'>Predicto</span>";
                     } else if (data.name == 'Quacko') {
-                        output = "<img src='<?= wp_get_attachment_url($algolia_avatars_array[5]); ?>'><span class='quacko'>Quacko</span>";
+                        output = "<img src='<?= wp_get_attachment_url($algolia_avatars_array[5]); ?>'><span class='color-3'>Quacko</span>";
                     }
                     return output;
                 }

@@ -53,13 +53,13 @@ $tag_list  = $blog->get_tags_by_category(4);
 							</ul> <!-- top-categories -->
 
 							<div class="blog-page-heading">
-								<span class="heading"> Blog</span>
-								<span class="sub-heading">“Climbing out of your inner hell.”</span>
+								<span class="heading">  <?= get_the_category_by_ID(151) ?></span>
+								<span class="sub-heading">“<?= category_description( 151 ) ?>”</span>
 							</div> <!-- blog-page-heading -->
 
 							<ul class="list-inline blog-random-tags">
-                                <li><a href="<?= get_category_link( 162 ); ?>">What Is Wellgorithm?</a></li>
-                                <li><a href="<?= get_category_link( 163 ); ?>">Videos</a></li>
+                                <li><a href="<?= get_category_link( 162 ); ?>"><?= get_the_category_by_ID( 162 ) ?></a></li>
+                                <li><a href="<?= get_category_link( 163 ); ?>"><?= get_the_category_by_ID( 163 ) ?></a></li>
 							</ul> <!-- blog-random-tags -->
 						</div> <!-- top-banner-content -->
 

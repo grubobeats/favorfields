@@ -19,6 +19,7 @@ require_once get_template_directory() . '/classes/blog/Blog.php';
 $blog = new Blog();
 
 $cat_ids = get_the_category()[0];
+
 $this_cat_id = ( get_query_var('cat') ) ? get_query_var('cat') : $cat_ids->term_id;
 $tag_list  = $blog->get_tags_by_category(4, $this_cat_id);
 
@@ -56,8 +57,8 @@ $tag_list  = $blog->get_tags_by_category(4, $this_cat_id);
                             </div> <!-- blog-page-heading -->
 
                             <ul class="list-inline blog-random-tags">
-                                <li><a href="<?= get_category_link( 162 ); ?>">What Is Wellgorithm?</a></li>
-                                <li><a href="<?= get_category_link( 163 ); ?>">Videos</a></li>
+                                <li><a href="<?= get_category_link( 162 ); ?>"><?= get_the_category_by_ID( 162 ) ?></a></li>
+                                <li><a href="<?= get_category_link( 163 ); ?>"><?= get_the_category_by_ID( 163 ) ?></a></li>
                             </ul> <!-- blog-random-tags -->
                         </div> <!-- top-banner-content -->
                     </div> <!-- col-sm-12 ends -->
